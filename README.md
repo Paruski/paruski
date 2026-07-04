@@ -1,10 +1,10 @@
 # Paruski
 
-Repositorio privado para organizar el aprendizaje del ruso.
+Aplicación estática para organizar y practicar el aprendizaje del ruso.
 
 ## Objetivo
 
-Centralizar materiales en formatos abiertos y versionables: apuntes, vocabulario, repaso, transcripciones procesadas, protocolos y recursos auxiliares.
+Centralizar materiales versionables: apuntes, vocabulario, repaso, transcripciones procesadas, protocolos y recursos auxiliares.
 
 ## Estructura
 
@@ -27,6 +27,6 @@ No se considera cerrado un bloque de clases si falta alguna de estas piezas cuan
 4. ejercicios de repaso si la clase está activa o vista;
 5. actualización del índice de cobertura.
 
-## Relación con Google Drive
+## Web
 
-Google Drive sigue siendo el espacio de trabajo editable. Este repositorio debe servir como copia versionable, limpia y auditable de materiales estructurados.
+La web funciona como aplicación estática en GitHub Pages. El progreso puede guardarse localmente y sincronizarse con el repositorio cuando esa función esté implementada.
