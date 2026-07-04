@@ -33,6 +33,15 @@ Este documento recoge requisitos de producto para implementar después de estabi
 - Cada bloque debe conectar lo aprendido con frases, situaciones o tareas comunicativas reales.
 - Evitar pantallas densas, fricción innecesaria y decisiones ambiguas para el usuario.
 
+## Escalabilidad
+
+- Diseñar la web para crecer sin rehacer la base: más clases, más tipos de ejercicios, más usuarios, más métricas y más funciones sociales.
+- Mantener esquemas versionados para progreso, eventos, ejercicios, targets, cola de repaso y métricas compartibles.
+- Separar datos, servicios y UI para evitar que `app.js` se convierta en un bloque difícil de mantener.
+- Evitar lógica rígida ligada a un único tipo de ejercicio; cada nuevo tipo debe poder añadirse mediante metadatos y renderizadores específicos.
+- Preparar las métricas sociales como datos agregados o seudónimos, separadas del progreso privado.
+- Mantener compatibilidad con GitHub Pages gratuito y sin servidor obligatorio.
+
 ## Tipos de ejercicios
 
 - Soportar ejercicios variados: elección múltiple, respuesta abierta, completar huecos, traducción, dictado, transcripción, comprensión lectora y comprensión oral.
@@ -75,4 +84,5 @@ Estas funciones dependen de:
 3. eventos de aprendizaje con identificadores únicos y datos suficientes;
 4. política clara de privacidad y consentimiento;
 5. estructura estable para cargar materiales extraídos;
-6. esquema multimedia de ejercicios con imágenes, audio y TTS.
+6. esquema multimedia de ejercicios con imágenes, audio y TTS;
+7. arquitectura frontend modular y escalable.
