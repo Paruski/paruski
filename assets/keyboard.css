@@ -1,0 +1,48 @@
+.ru-keyboard {
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ru-keyboard-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.ru-keyboard-title {
+  font-weight: 700;
+}
+
+.ru-keyboard-grid {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(2.2rem, 1fr));
+  gap: 0.35rem;
+}
+
+.ru-keyboard button {
+  padding: 0.55rem 0.35rem;
+  border-radius: 0.55rem;
+  background: #111827;
+  border: 1px solid var(--line);
+  color: var(--text);
+  min-height: 2.4rem;
+}
+
+.ru-keyboard button.ru-wide {
+  grid-column: span 2;
+}
+
+.ru-keyboard button:hover {
+  border-color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .ru-keyboard-grid {
+    grid-template-columns: repeat(7, minmax(2rem, 1fr));
+  }
+}
