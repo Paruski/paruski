@@ -1,0 +1,28 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Temporales
+*.tmp
+*.bak
+*.swp
+~$*
+
+# Python / scripts auxiliares
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Exportaciones generadas
+exports/
+build/
+dist/
+
+# Archivos sensibles
+*.key
+*.pem
+*.secret
+secrets.*
+.env*
