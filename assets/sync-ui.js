@@ -22,7 +22,11 @@ const REVIEW_QUEUE_PATH = 'data/review-queue.json';
 
 let els = {};
 
-window.addEventListener('DOMContentLoaded', mountSyncPanel);
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', mountSyncPanel);
+} else {
+  mountSyncPanel();
+}
 
 function mountSyncPanel() {
   const panel = document.querySelector('#settings .panel');
