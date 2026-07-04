@@ -8,5 +8,4 @@ Recursos auxiliares para el aprendizaje del ruso.
 - libros recomendados;
 - diccionarios;
 - materiales de pronunciación;
-- recursos de lectura y escucha;
-- notas sobre ajedrez en ruso si se integran al estudio.
+- recursos de lectura y escucha.
