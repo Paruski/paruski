@@ -6,6 +6,7 @@ const STORAGE_KEYS = {
 const DEFAULT_PROGRESS = {
   version: 1,
   updated_at: null,
+  user: null,
   lessons: {},
   items: {},
   settings: {
@@ -25,7 +26,8 @@ const state = {
 
 function loadProgress() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEYS.progress)) || structuredClone(DEFAULT_PROGRESS);
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEYS.progress));
+    return stored ? { ...structuredClone(DEFAULT_PROGRESS), ...stored } : structuredClone(DEFAULT_PROGRESS);
   } catch {
     return structuredClone(DEFAULT_PROGRESS);
   }
@@ -39,11 +41,24 @@ function loadEvents() {
   }
 }
 
-function saveAll() {
+function ensureUser() {
+  if (state.progress.user?.id) return;
+  const raw = prompt('Nombre de usuario para guardar el progreso de esta sesión:', 'Paruski');
+  const name = (raw || 'usuario-local').trim() || 'usuario-local';
+  const id = slugify(name);
+  state.progress.user = {
+    id,
+    name,
+    created_at: new Date().toISOString()
+  };
+  saveAll(false);
+}
+
+function saveAll(shouldRender = true) {
   state.progress.updated_at = new Date().toISOString();
   localStorage.setItem(STORAGE_KEYS.progress, JSON.stringify(state.progress, null, 2));
   localStorage.setItem(STORAGE_KEYS.events, JSON.stringify(state.events, null, 2));
-  renderAll();
+  if (shouldRender) renderAll();
 }
 
 async function loadJson(path) {
@@ -63,6 +78,7 @@ async function init() {
   state.vocabulary = vocabulary;
   state.grammar = grammar;
   state.exercises = exercises;
+  ensureUser();
   registerHandlers();
   renderAll();
   if ('serviceWorker' in navigator) {
@@ -113,11 +129,15 @@ function setLessonStatus(lessonId, status) {
 function logEvent(partial) {
   const event = {
     timestamp: new Date().toISOString(),
+    user_id: state.progress.user?.id ?? 'usuario-local',
+    user_name: state.progress.user?.name ?? 'usuario-local',
     lesson: partial.lesson ?? null,
     item_id: partial.item_id ?? null,
     skill: partial.skill ?? 'general',
+    targets: partial.targets ?? null,
     prompt: partial.prompt ?? '',
     expected: partial.expected ?? '',
+    accepted_by: partial.accepted_by ?? null,
     answer: partial.answer ?? '',
     correct: Boolean(partial.correct),
     error_type: partial.error_type ?? null,
@@ -182,7 +202,9 @@ function renderStats() {
   const correct = state.events.filter(e => e.skill !== 'estado' && e.correct).length;
   const accuracy = attempts ? Math.round((correct / attempts) * 100) : 0;
   const due = buildReviewQueue().length;
+  const user = state.progress.user?.name || 'sin usuario';
   const cards = [
+    ['Usuario', user],
     ['Clases vistas', seen],
     ['Clases activas', active],
     ['Ejercicios', attempts],
@@ -190,7 +212,7 @@ function renderStats() {
     ['Pendientes hoy', due]
   ];
   document.getElementById('statsCards').innerHTML = cards.map(([label, value]) => `
-    <article class="card"><div class="value">${value}</div><div class="label">${label}</div></article>
+    <article class="card"><div class="value">${escapeHtml(value)}</div><div class="label">${escapeHtml(label)}</div></article>
   `).join('');
 }
 
@@ -198,7 +220,7 @@ function renderRecommended() {
   const queue = buildReviewQueue().slice(0, 8);
   const box = document.getElementById('recommendedSession');
   if (!queue.length) {
-    box.innerHTML = '<p class="empty">No hay ejercicios pendientes. Activa una clase o empieza un repaso.</p>';
+    box.innerHTML = '<p class="empty">No hay ejercicios pendientes. Activa una clase con ejercicios o empieza un repaso.</p>';
     return;
   }
   box.innerHTML = queue.map(item => `
@@ -379,15 +401,18 @@ function checkExercise(exercise, started) {
   const input = document.getElementById('answerInput');
   const confidence = Number(document.getElementById('confidenceInput').value);
   const answer = input.value.trim();
-  const correct = normalizeAnswer(answer) === normalizeAnswer(exercise.expected);
+  const evaluation = evaluateAnswer(answer, exercise);
+  const correct = evaluation.correct;
   const errorType = correct ? null : inferErrorType(answer, exercise);
   const responseTime = Math.round(performance.now() - started);
   logEvent({
     lesson: exercise.lesson,
     item_id: exercise.id,
     skill: exercise.skill,
+    targets: exercise.targets ?? null,
     prompt: exercise.prompt,
     expected: exercise.expected,
+    accepted_by: evaluation.accepted_by,
     answer,
     correct,
     error_type: errorType,
@@ -402,12 +427,33 @@ function checkExercise(exercise, started) {
   saveAll();
 }
 
+function evaluateAnswer(answer, exercise) {
+  const normalizedAnswer = normalizeAnswer(answer);
+  const normalizedExpected = normalizeAnswer(exercise.expected);
+  const accepted = [exercise.expected, ...(exercise.accepted || [])]
+    .filter(Boolean)
+    .map(normalizeAnswer);
+
+  if (accepted.includes(normalizedAnswer)) return { correct: true, accepted_by: 'exact_or_variant' };
+
+  const expectedTokens = normalizedExpected.split(' ').filter(Boolean);
+  const answerTokens = normalizedAnswer.split(' ').filter(Boolean);
+  const expectsSingleForm = expectedTokens.length === 1;
+  const isFormExercise = ['transformacion', 'huecos'].includes(exercise.type) || expectsSingleForm;
+
+  if (isFormExercise && expectsSingleForm && answerTokens.includes(normalizedExpected)) {
+    return { correct: true, accepted_by: 'contains_expected_form' };
+  }
+
+  return { correct: false, accepted_by: null };
+}
+
 function inferErrorType(answer, exercise) {
   const normalized = normalizeAnswer(answer);
+  if (!answer) return 'respuesta_vacia';
   if (exercise.expected.includes(' в ') && !normalized.includes(' в ')) return 'preposicion_omitida';
   if (exercise.tags?.includes('gde-kuda')) return 'где_vs_куда';
   if (exercise.tags?.includes('pronombres')) return 'pronombre_objeto';
-  if (!answer) return 'respuesta_vacia';
   return 'forma_incorrecta';
 }
 
@@ -427,6 +473,7 @@ function importProgress(event) {
     try {
       const imported = JSON.parse(String(reader.result));
       state.progress = { ...structuredClone(DEFAULT_PROGRESS), ...imported };
+      ensureUser();
       saveAll();
     } catch {
       alert('No se pudo importar el progreso. El archivo no es JSON válido.');
@@ -442,6 +489,7 @@ function resetLocalProgress() {
   state.progress = structuredClone(DEFAULT_PROGRESS);
   state.events = [];
   state.currentExercise = null;
+  ensureUser();
   saveAll();
 }
 
@@ -468,7 +516,11 @@ function normalize(text) {
 }
 
 function normalizeAnswer(text) {
-  return normalize(text).replace(/[.,!?¿¡]/g, '').replace(/\s+/g, ' ').trim();
+  return normalize(text).replace(/[.,!?¿¡:;]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function slugify(text) {
+  return normalize(text).replace(/[^a-zа-яё0-9]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase() || 'usuario-local';
 }
 
 function escapeHtml(value) {
