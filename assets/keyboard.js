@@ -73,7 +73,16 @@ function attachKeyboard() {
   box.appendChild(keyboard);
 }
 
+function loadSyncStyles() {
+  if (document.querySelector('link[href="assets/sync-ui.css"]')) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'assets/sync-ui.css';
+  document.head.appendChild(link);
+}
+
 const observer = new MutationObserver(attachKeyboard);
 observer.observe(document.body, { childList: true, subtree: true });
 window.addEventListener('DOMContentLoaded', attachKeyboard);
+loadSyncStyles();
 import('./sync-ui.js').catch(() => {});
