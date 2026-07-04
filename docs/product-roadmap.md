@@ -24,6 +24,15 @@ Este documento recoge requisitos de producto para implementar después de estabi
 - Investigar y documentar las decisiones metodológicas antes de cerrar la implementación.
 - La cola de repaso debe considerar dificultad, importancia, antigüedad, historial de errores, confianza y tiempo de respuesta.
 
+## Experiencia motivadora
+
+- La web debe ser agradable, sencilla y fácil de usar.
+- Debe minimizar obstáculos para empezar a practicar y volver cada día.
+- Debe resultar adictiva en el buen sentido: progreso claro, sesiones cortas, recompensas útiles y sensación frecuente de avance real.
+- La motivación no debe depender solo de gamificación; también debe venir de comprensión rápida, mejora visible y aplicación real de lo aprendido.
+- Cada bloque debe conectar lo aprendido con frases, situaciones o tareas comunicativas reales.
+- Evitar pantallas densas, fricción innecesaria y decisiones ambiguas para el usuario.
+
 ## Gamificación moderada
 
 - Añadir progreso cuantificable sin convertir la app en ruido visual.
