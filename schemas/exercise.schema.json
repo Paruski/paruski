@@ -1,0 +1,21 @@
+{
+  "name": "exercise",
+  "required": ["id", "lesson", "skill", "type", "prompt", "expected", "targets"],
+  "fields": {
+    "id": "stable exercise id",
+    "lesson": "lesson number",
+    "skill": "vocabulario | gramatica | produccion | comprension | pronunciacion",
+    "type": "traduccion-inversa | traduccion-directa | huecos | eleccion | transformacion | respuesta-libre",
+    "prompt": "question shown to the learner",
+    "expected": "expected answer or canonical answer",
+    "accepted": "optional list of accepted variants",
+    "targets": {
+      "vocabulary": "vocabulary ids tested",
+      "grammar": "grammar rule ids tested",
+      "structures": "structure ids tested",
+      "abilities": "abilities tested, e.g. recall, production, recognition"
+    },
+    "error_map": "known error patterns to detect",
+    "weight": "didactic priority"
+  }
+}
