@@ -1,10 +1,11 @@
-const CACHE_NAME = 'paruski-v4';
+const CACHE_NAME = 'paruski-v5';
 const ASSETS = [
   './',
   './index.html',
   './assets/styles.css',
   './assets/keyboard.css',
   './assets/app.js',
+  './assets/github-sync.js',
   './assets/keyboard.js',
   './content/lessons.json',
   './content/vocabulary.json',
