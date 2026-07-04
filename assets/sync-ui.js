@@ -208,13 +208,21 @@ function githubOptions() {
   return { repoFullName: config.repoFullName, branch: config.branch, secret: getStoredKey(), config };
 }
 
+function requireWriteKey(options) {
+  if (!options.secret) {
+    const error = new Error('Introduce una clave de GitHub antes de sincronizar. Sin clave no se intenta escribir en el repositorio.');
+    error.code = 'missing_key';
+    throw error;
+  }
+}
+
 async function testConnection() {
   setBusy('Probando conexión...');
   try {
     const options = githubOptions();
     const remote = await fetchJsonFile({ ...options, path: PROGRESS_PATH });
     saveSyncConfig({ ...options.config, progressSha: remote.sha });
-    setStatus('Conexión correcta. Progreso remoto leído.', 'ok');
+    setStatus(options.secret ? 'Conexión correcta. Progreso remoto leído.' : 'Lectura pública correcta. Para sincronizar necesitas introducir una clave.', 'ok');
   } catch (error) {
     setStatus(error.message, 'error');
   }
@@ -239,6 +247,7 @@ async function syncNow() {
   setBusy('Sincronizando...');
   try {
     const options = githubOptions();
+    requireWriteKey(options);
     const events = ensureEventIds(loadEvents());
     saveEvents(events);
     const byDate = groupEventsByDate(events);
