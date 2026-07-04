@@ -1,0 +1,25 @@
+{
+  "name": "learning_event",
+  "required": ["timestamp", "lesson", "item_id", "skill", "prompt", "expected", "answer", "correct"],
+  "fields": {
+    "timestamp": "ISO datetime",
+    "lesson": "lesson number",
+    "item_id": "exercise or item id",
+    "skill": "skill tested",
+    "targets": {
+      "vocabulary": "vocabulary ids tested",
+      "grammar": "grammar ids tested",
+      "structures": "structure ids tested",
+      "abilities": "abilities tested"
+    },
+    "prompt": "prompt shown",
+    "expected": "canonical answer",
+    "answer": "learner answer",
+    "correct": "boolean",
+    "error_type": "classified error type",
+    "response_time_ms": "response time",
+    "confidence": "self-rated confidence 1-5",
+    "review_before": "optional state before answer",
+    "review_after": "optional state after answer"
+  }
+}
