@@ -76,3 +76,4 @@ function attachKeyboard() {
 const observer = new MutationObserver(attachKeyboard);
 observer.observe(document.body, { childList: true, subtree: true });
 window.addEventListener('DOMContentLoaded', attachKeyboard);
+import('./sync-ui.js').catch(() => {});
