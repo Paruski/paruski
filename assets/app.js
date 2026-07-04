@@ -163,7 +163,7 @@ function logEvent(partial) {
 }
 
 function makeEventId(seed = {}) {
-  if (crypto?.randomUUID) return crypto.randomUUID();
+  if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
   const base = [Date.now(), seed.lesson, seed.item_id, seed.answer, Math.random()].join('|');
   let hash = 0;
   for (let index = 0; index < base.length; index += 1) {
@@ -227,8 +227,13 @@ function renderStats() {
   const accuracy = attempts ? Math.round((correct / attempts) * 100) : 0;
   const due = buildReviewQueue().length;
   const user = state.progress.user?.name || 'sin usuario';
+  const todayCount = practiceEventsForDate(dateKey(new Date())).length;
+  const dailyTarget = state.progress.settings?.dailyTarget || 12;
+  const streak = studyStreakDays();
   const cards = [
     ['Usuario', user],
+    ['Racha', `${streak} día(s)`],
+    ['Hoy', `${todayCount}/${dailyTarget}`],
     ['Clases vistas', seen],
     ['Clases activas', active],
     ['Ejercicios', attempts],
@@ -238,6 +243,41 @@ function renderStats() {
   document.getElementById('statsCards').innerHTML = cards.map(([label, value]) => `
     <article class="card"><div class="value">${escapeHtml(value)}</div><div class="label">${escapeHtml(label)}</div></article>
   `).join('');
+}
+
+function practiceEventsForDate(key) {
+  return state.events.filter(event => event.skill !== 'estado' && dateKey(event.timestamp) === key);
+}
+
+function studyStreakDays() {
+  const studiedDays = new Set(state.events.filter(event => event.skill !== 'estado').map(event => dateKey(event.timestamp)));
+  if (!studiedDays.size) return 0;
+  let cursor = startOfDay(new Date());
+  if (!studiedDays.has(dateKey(cursor))) cursor = addDays(cursor, -1);
+  let streak = 0;
+  while (studiedDays.has(dateKey(cursor))) {
+    streak += 1;
+    cursor = addDays(cursor, -1);
+  }
+  return streak;
+}
+
+function dateKey(value) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return '';
+  return date.toISOString().slice(0, 10);
+}
+
+function startOfDay(date) {
+  const next = new Date(date);
+  next.setHours(0, 0, 0, 0);
+  return next;
+}
+
+function addDays(date, amount) {
+  const next = new Date(date);
+  next.setDate(next.getDate() + amount);
+  return next;
 }
 
 function renderRecommended() {
