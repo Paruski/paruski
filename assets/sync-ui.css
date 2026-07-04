@@ -1,0 +1,81 @@
+.sync-box {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: rgba(255,255,255,0.03);
+}
+
+.sync-box h3 {
+  margin-bottom: 0.35rem;
+}
+
+.sync-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.sync-grid label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+}
+
+.sync-grid input {
+  width: 100%;
+}
+
+.sync-grid .checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  grid-column: 1 / -1;
+}
+
+.sync-grid .checkbox-row input {
+  width: auto;
+}
+
+.sync-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.8rem 0;
+}
+
+.sync-status,
+.sync-conflict {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  background: rgba(0,0,0,0.12);
+}
+
+.sync-status.ok {
+  border-color: rgba(34,197,94,0.45);
+  color: #bbf7d0;
+}
+
+.sync-status.error,
+.sync-status.conflict,
+.sync-conflict {
+  border-color: rgba(239,68,68,0.5);
+  color: #fecaca;
+}
+
+.sync-status.info {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .sync-grid {
+    grid-template-columns: 1fr;
+  }
+}
