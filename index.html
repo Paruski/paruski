@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111827" />
+    <title>Paruski — ruso interactivo</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Paruski</p>
+        <h1>Ruso interactivo</h1>
+      </div>
+      <div class="top-actions">
+        <button id="exportProgressBtn" class="secondary">Exportar progreso</button>
+        <button id="exportEventsBtn" class="secondary">Exportar eventos</button>
+        <label class="import-label">
+          Importar progreso
+          <input id="importProgressInput" type="file" accept="application/json" />
+        </label>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Secciones">
+      <button class="tab active" data-view="dashboard">Inicio</button>
+      <button class="tab" data-view="lessons">Clases</button>
+      <button class="tab" data-view="review">Repaso</button>
+      <button class="tab" data-view="vocabulary">Vocabulario</button>
+      <button class="tab" data-view="grammar">Gramática</button>
+      <button class="tab" data-view="errors">Errores</button>
+      <button class="tab" data-view="settings">Datos</button>
+    </nav>
+
+    <main>
+      <section id="dashboard" class="view active">
+        <div class="grid cards-4" id="statsCards"></div>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Sesión recomendada</h2>
+            <button id="startRecommendedBtn">Empezar</button>
+          </div>
+          <div id="recommendedSession" class="stack"></div>
+        </section>
+        <section class="panel">
+          <h2>Últimos eventos</h2>
+          <div id="recentEvents" class="event-list"></div>
+        </section>
+      </section>
+
+      <section id="lessons" class="view">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Clases 01–80</h2>
+            <select id="lessonStatusFilter">
+              <option value="all">Todas</option>
+              <option value="prepared">Preparadas</option>
+              <option value="seen">Vistas</option>
+              <option value="active">Activas</option>
+              <option value="consolidated">Consolidadas</option>
+            </select>
+          </div>
+          <div id="lessonGrid" class="lesson-grid"></div>
+        </div>
+      </section>
+
+      <section id="review" class="view">
+        <div class="panel exercise-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Repaso activo</h2>
+              <p class="muted">Los ejercicios se priorizan por fallos, antigüedad e importancia.</p>
+            </div>
+            <button id="nextExerciseBtn">Siguiente ejercicio</button>
+          </div>
+          <div id="exerciseBox" class="exercise-box"></div>
+        </div>
+      </section>
+
+      <section id="vocabulary" class="view">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Vocabulario</h2>
+            <input id="vocabSearch" type="search" placeholder="Buscar ruso, español, tema..." />
+          </div>
+          <div id="vocabTable" class="table-wrap"></div>
+        </div>
+      </section>
+
+      <section id="grammar" class="view">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Gramática</h2>
+            <input id="grammarSearch" type="search" placeholder="Buscar regla o ejemplo..." />
+          </div>
+          <div id="grammarList" class="stack"></div>
+        </div>
+      </section>
+
+      <section id="errors" class="view">
+        <div class="panel">
+          <h2>Errores recurrentes</h2>
+          <div id="errorSummary" class="stack"></div>
+        </div>
+      </section>
+
+      <section id="settings" class="view">
+        <div class="panel">
+          <h2>Datos y sincronización</h2>
+          <p>Esta versión guarda tu progreso en el navegador. Para que quede versionado y yo pueda leerlo, exporta los archivos y súbelos a <code>data/</code> en el repositorio.</p>
+          <div class="code-grid">
+            <div>
+              <h3>progress.json</h3>
+              <pre id="progressPreview"></pre>
+            </div>
+            <div>
+              <h3>events.ndjson</h3>
+              <pre id="eventsPreview"></pre>
+            </div>
+          </div>
+          <button id="resetLocalBtn" class="danger">Borrar progreso local</button>
+        </div>
+      </section>
+    </main>
+
+    <template id="lessonCardTemplate">
+      <article class="lesson-card">
+        <div class="lesson-card-head">
+          <span class="lesson-number"></span>
+          <span class="status-pill"></span>
+        </div>
+        <h3></h3>
+        <p class="muted lesson-summary"></p>
+        <div class="lesson-actions">
+          <button data-action="mark-seen">Vista</button>
+          <button data-action="activate">Activar</button>
+          <button data-action="practice">Repasar</button>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="assets/app.js"></script>
+  </body>
+</html>
