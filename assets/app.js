@@ -119,6 +119,16 @@ function itemProgress(itemId) {
   return state.progress.items[itemId] || { attempts: 0, correct: 0, wrong: 0, last_seen: null, mastery: 0, errors: {} };
 }
 
+function lessonExercises(lessonId) {
+  return state.exercises.filter(exercise => Number(exercise.lesson) === Number(lessonId));
+}
+
+function exerciseTypeSummary(exercises) {
+  if (!exercises.length) return 'sin ejercicios todavía';
+  const types = [...new Set(exercises.map(exercise => exercise.type).filter(Boolean))];
+  return `${exercises.length} ejercicio(s) · ${types.slice(0, 3).join(', ')}${types.length > 3 ? '…' : ''}`;
+}
+
 function setLessonStatus(lessonId, status) {
   const previous = lessonProgress(lessonId);
   state.progress.lessons[lessonId] = { ...previous, status, updated_at: new Date().toISOString() };
@@ -234,7 +244,10 @@ function renderRecommended() {
   const queue = buildReviewQueue().slice(0, 8);
   const box = document.getElementById('recommendedSession');
   if (!queue.length) {
-    box.innerHTML = '<p class="empty">No hay ejercicios pendientes. Activa una clase con ejercicios o empieza un repaso.</p>';
+    const activeWithoutExercises = activeLessonsWithoutExercises();
+    box.innerHTML = activeWithoutExercises.length
+      ? `<p class="empty">Tienes clase(s) activa(s) sin ejercicios cargados: ${activeWithoutExercises.map(lesson => `Clase ${lesson.id}`).join(', ')}. Puedes activar otra clase o cargar ejercicios para estas clases.</p>`
+      : '<p class="empty">No hay ejercicios pendientes. Activa una clase con ejercicios o empieza un repaso.</p>';
     return;
   }
   box.innerHTML = queue.map(item => `
@@ -243,6 +256,10 @@ function renderRecommended() {
       <span class="tag">prioridad ${item.priority.toFixed(2)}</span>
     </div>
   `).join('');
+}
+
+function activeLessonsWithoutExercises() {
+  return state.lessons.filter(lesson => ['seen', 'active'].includes(lessonProgress(lesson.id).status) && !lessonExercises(lesson.id).length);
 }
 
 function renderRecentEvents() {
@@ -271,15 +288,23 @@ function renderLessons() {
       const fragment = template.content.cloneNode(true);
       const card = fragment.querySelector('.lesson-card');
       const progress = lessonProgress(lesson.id);
+      const exercises = lessonExercises(lesson.id);
       fragment.querySelector('.lesson-number').textContent = `Clase ${String(lesson.id).padStart(2, '0')}`;
       const pill = fragment.querySelector('.status-pill');
       pill.textContent = statusLabel(progress.status);
       pill.classList.add(progress.status);
       fragment.querySelector('h3').textContent = lesson.title;
-      fragment.querySelector('.lesson-summary').textContent = lesson.summary;
+      const summary = fragment.querySelector('.lesson-summary');
+      summary.textContent = lesson.summary;
+      const meta = document.createElement('p');
+      meta.className = `muted small lesson-meta ${exercises.length ? '' : 'pending'}`.trim();
+      meta.textContent = exerciseTypeSummary(exercises);
+      summary.after(meta);
       card.querySelector('[data-action="mark-seen"]').addEventListener('click', () => setLessonStatus(lesson.id, 'seen'));
       card.querySelector('[data-action="activate"]').addEventListener('click', () => setLessonStatus(lesson.id, 'active'));
-      card.querySelector('[data-action="practice"]').addEventListener('click', () => {
+      const practiceButton = card.querySelector('[data-action="practice"]');
+      if (!exercises.length) practiceButton.textContent = 'Ver estado';
+      practiceButton.addEventListener('click', () => {
         setLessonStatus(lesson.id, 'active');
         switchView('review');
         nextExercise(lesson.id);
@@ -355,6 +380,19 @@ function renderExercisePlaceholder() {
   document.getElementById('exerciseBox').innerHTML = '<p class="empty">Pulsa “Siguiente ejercicio” para empezar.</p>';
 }
 
+function renderLessonWithoutExercises(lessonId) {
+  const lesson = state.lessons.find(item => Number(item.id) === Number(lessonId));
+  const box = document.getElementById('exerciseBox');
+  box.innerHTML = `
+    <div class="empty">
+      <strong>${lesson ? `Clase ${lesson.id}: ${escapeHtml(lesson.title)}` : 'Clase sin ejercicios'}</strong>
+      <p>Esta clase todavía no tiene ejercicios cargados. Puedes mantenerla activa, pero el repaso necesita contenido en <code>content/exercises.json</code>.</p>
+      <button id="fallbackExerciseBtn" type="button" class="secondary">Practicar otra clase disponible</button>
+    </div>
+  `;
+  box.querySelector('#fallbackExerciseBtn')?.addEventListener('click', () => nextExercise());
+}
+
 function buildReviewQueue() {
   const activeLessons = new Set(Object.entries(state.progress.lessons)
     .filter(([, value]) => ['seen', 'active'].includes(value.status))
@@ -381,6 +419,12 @@ function reasonFor(ex, progress) {
 }
 
 function nextExercise(preferredLesson = null) {
+  if (preferredLesson !== null && !lessonExercises(preferredLesson).length) {
+    state.currentExercise = null;
+    renderLessonWithoutExercises(preferredLesson);
+    return;
+  }
+
   const queue = buildReviewQueue();
   const exercise = preferredLesson ? queue.find(ex => ex.lesson === preferredLesson) || queue[0] : queue[0];
   state.currentExercise = exercise || null;
