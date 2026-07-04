@@ -33,6 +33,24 @@ Este documento recoge requisitos de producto para implementar después de estabi
 - Cada bloque debe conectar lo aprendido con frases, situaciones o tareas comunicativas reales.
 - Evitar pantallas densas, fricción innecesaria y decisiones ambiguas para el usuario.
 
+## Tipos de ejercicios
+
+- Soportar ejercicios variados: elección múltiple, respuesta abierta, completar huecos, traducción, dictado, transcripción, comprensión lectora y comprensión oral.
+- Incluir ejercicios con imágenes: elegir imagen, describir imagen, asociar palabra e imagen, audio a imagen y producción guiada por imagen.
+- Incluir ejercicios con audio: transcripción, dictado, comprensión con elección múltiple, audio a imagen, audio a traducción y respuesta abierta.
+- Cada ejercicio debe declarar modalidad: texto, imagen, audio o combinaciones multimodales.
+- El sistema debe registrar métricas específicas: reintentos, repeticiones de audio, tiempo de respuesta, confianza, tipo de error y targets afectados.
+- Los ejercicios de producción propia deben tener corrección flexible, pero los de elección múltiple deben evaluar opciones explícitas.
+
+## Imágenes y audio
+
+- Las imágenes didácticas generadas deben ser simples, reutilizables y coherentes visualmente.
+- Guardar imágenes derivadas en `assets/images/` con nombres estables y sin datos personales.
+- Para audio, soportar archivos pregrabados en `assets/audio/` y texto TTS como alternativa.
+- Si se usa una herramienta TTS externa o local, generar los archivos fuera del navegador y subir solo los audios finales.
+- Nunca subir claves de servicios TTS al repo ni exponerlas en la web.
+- Mantener un fallback con SpeechSynthesis del navegador cuando no exista audio pregrabado.
+
 ## Gamificación moderada
 
 - Añadir progreso cuantificable sin convertir la app en ruido visual.
@@ -56,4 +74,5 @@ Estas funciones dependen de:
 2. esquema multidimensional de targets en ejercicios;
 3. eventos de aprendizaje con identificadores únicos y datos suficientes;
 4. política clara de privacidad y consentimiento;
-5. estructura estable para cargar materiales extraídos.
+5. estructura estable para cargar materiales extraídos;
+6. esquema multimedia de ejercicios con imágenes, audio y TTS.
