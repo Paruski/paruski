@@ -1,4 +1,10 @@
 [
+  {"id":"ex-001-001","lesson":1,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Esto es té.'","expected":"Это чай.","tags":["это"],"weight":0.25},
+  {"id":"ex-001-002","lesson":1,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Esto no es café.'","expected":"Это не кофе.","tags":["negacion"],"weight":0.25},
+  {"id":"ex-001-003","lesson":1,"skill":"comprension","type":"traduccion-directa","prompt":"Qué significa: 'Кто это?'","expected":"¿Quién es?","tags":["кто"],"weight":0.2},
+  {"id":"ex-018-001","lesson":18,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Hoy hace calor.'","expected":"Сегодня жарко.","tags":["clima"],"weight":0.25},
+  {"id":"ex-018-002","lesson":18,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Ayer hizo frío.'","expected":"Вчера было холодно.","tags":["clima","pasado"],"weight":0.25},
+  {"id":"ex-018-003","lesson":18,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'En invierno hace frío.'","expected":"Зимой холодно.","tags":["estaciones"],"weight":0.2},
   {"id":"ex-019-001","lesson":19,"skill":"vocabulario","type":"traduccion-inversa","prompt":"¿Cómo se dice 'juego al fútbol'?","expected":"Я играю в футбол.","tags":["играть-в"],"weight":0.25},
   {"id":"ex-019-002","lesson":19,"skill":"gramatica","type":"transformacion","prompt":"Pon en acusativo: Я читаю ___ (книга).","expected":"книгу","tags":["acusativo"],"weight":0.2},
   {"id":"ex-020-001","lesson":20,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: '¿Me escuchas?'","expected":"Ты меня слушаешь?","tags":["pronombres"],"weight":0.25},
