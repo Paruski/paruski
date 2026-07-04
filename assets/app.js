@@ -128,17 +128,21 @@ function setLessonStatus(lessonId, status) {
 
 function logEvent(partial) {
   const event = {
+    event_id: partial.event_id ?? makeEventId(partial),
     timestamp: new Date().toISOString(),
     user_id: state.progress.user?.id ?? 'usuario-local',
     user_name: state.progress.user?.name ?? 'usuario-local',
     lesson: partial.lesson ?? null,
     item_id: partial.item_id ?? null,
     skill: partial.skill ?? 'general',
+    exercise_type: partial.exercise_type ?? null,
+    modality: partial.modality ?? null,
     targets: partial.targets ?? null,
     prompt: partial.prompt ?? '',
     expected: partial.expected ?? '',
     accepted_by: partial.accepted_by ?? null,
     answer: partial.answer ?? '',
+    selected_choice: partial.selected_choice ?? null,
     correct: Boolean(partial.correct),
     error_type: partial.error_type ?? null,
     response_time_ms: partial.response_time_ms ?? null,
@@ -146,6 +150,16 @@ function logEvent(partial) {
   };
   state.events.push(event);
   updateAggregates(event);
+}
+
+function makeEventId(seed = {}) {
+  if (crypto?.randomUUID) return crypto.randomUUID();
+  const base = [Date.now(), seed.lesson, seed.item_id, seed.answer, Math.random()].join('|');
+  let hash = 0;
+  for (let index = 0; index < base.length; index += 1) {
+    hash = ((hash << 5) - hash + base.charCodeAt(index)) | 0;
+  }
+  return `evt-${Math.abs(hash).toString(36)}-${Date.now().toString(36)}`;
 }
 
 function updateAggregates(event) {
@@ -378,9 +392,10 @@ function nextExercise(preferredLesson = null) {
   const box = document.getElementById('exerciseBox');
   box.innerHTML = `
     <div class="exercise-prompt">${escapeHtml(exercise.prompt)}</div>
-    <p class="muted">Clase ${exercise.lesson} · ${escapeHtml(exercise.skill)} · ${escapeHtml(exercise.type)}</p>
+    <p class="muted">Clase ${exercise.lesson} · ${escapeHtml(exercise.skill)} · ${escapeHtml(exercise.type)}${exercise.modality ? ` · ${escapeHtml(exercise.modality)}` : ''}</p>
+    ${renderExerciseMedia(exercise)}
     <div class="exercise-controls">
-      <input id="answerInput" autocomplete="off" placeholder="Escribe tu respuesta" />
+      ${renderAnswerControl(exercise)}
       <select id="confidenceInput">
         <option value="3">Confianza normal</option>
         <option value="1">He dudado mucho</option>
@@ -390,17 +405,58 @@ function nextExercise(preferredLesson = null) {
       <div id="exerciseResult" class="result"></div>
     </div>
   `;
-  box.querySelector('#answerInput').focus();
+  bindExerciseControls(box, exercise, started);
+}
+
+function renderExerciseMedia(exercise) {
+  const parts = [];
+  if (exercise.image_asset) {
+    parts.push(`<img class="exercise-image" src="${escapeHtml(exercise.image_asset)}" alt="${escapeHtml(exercise.image_alt || 'Imagen del ejercicio')}" />`);
+  }
+  if (exercise.audio_asset) {
+    parts.push(`<audio class="exercise-audio" controls src="${escapeHtml(exercise.audio_asset)}"></audio>`);
+  }
+  if (exercise.tts_text) {
+    parts.push('<button id="speakExerciseBtn" type="button" class="secondary">Escuchar con voz del navegador</button>');
+  }
+  return parts.length ? `<div class="exercise-media">${parts.join('')}</div>` : '';
+}
+
+function renderAnswerControl(exercise) {
+  if (isMultipleChoice(exercise)) {
+    const choices = normalizeChoices(exercise);
+    return `<fieldset class="choice-grid" id="answerChoices">
+      <legend>Elige una opción</legend>
+      ${choices.map((choice, index) => `
+        <label class="choice-option">
+          <input type="radio" name="answerChoice" value="${escapeHtml(choice.value)}" data-choice-index="${index}" />
+          ${choice.image_asset ? `<img src="${escapeHtml(choice.image_asset)}" alt="${escapeHtml(choice.label)}" />` : ''}
+          <span>${escapeHtml(choice.label)}</span>
+        </label>
+      `).join('')}
+    </fieldset>`;
+  }
+  return '<input id="answerInput" autocomplete="off" placeholder="Escribe tu respuesta" />';
+}
+
+function bindExerciseControls(box, exercise, started) {
   box.querySelector('#checkAnswerBtn').addEventListener('click', () => checkExercise(exercise, started));
-  box.querySelector('#answerInput').addEventListener('keydown', event => {
+  box.querySelector('#answerInput')?.focus();
+  box.querySelector('#answerInput')?.addEventListener('keydown', event => {
     if (event.key === 'Enter') checkExercise(exercise, started);
   });
+  box.querySelectorAll('input[name="answerChoice"]').forEach(input => {
+    input.addEventListener('keydown', event => {
+      if (event.key === 'Enter') checkExercise(exercise, started);
+    });
+  });
+  box.querySelector('#speakExerciseBtn')?.addEventListener('click', () => speakText(exercise.tts_text));
 }
 
 function checkExercise(exercise, started) {
-  const input = document.getElementById('answerInput');
   const confidence = Number(document.getElementById('confidenceInput').value);
-  const answer = input.value.trim();
+  const answerData = readExerciseAnswer(exercise);
+  const answer = answerData.value.trim();
   const evaluation = evaluateAnswer(answer, exercise);
   const correct = evaluation.correct;
   const errorType = correct ? null : inferErrorType(answer, exercise);
@@ -409,11 +465,14 @@ function checkExercise(exercise, started) {
     lesson: exercise.lesson,
     item_id: exercise.id,
     skill: exercise.skill,
+    exercise_type: exercise.type ?? null,
+    modality: exercise.modality ?? null,
     targets: exercise.targets ?? null,
     prompt: exercise.prompt,
     expected: exercise.expected,
     accepted_by: evaluation.accepted_by,
     answer,
+    selected_choice: answerData.choice ?? null,
     correct,
     error_type: errorType,
     response_time_ms: responseTime,
@@ -422,14 +481,33 @@ function checkExercise(exercise, started) {
   const result = document.getElementById('exerciseResult');
   result.className = `result ${correct ? 'correct' : 'wrong'}`;
   result.innerHTML = correct
-    ? `Correcto. Respuesta: <strong>${escapeHtml(exercise.expected)}</strong>`
-    : `No exactamente. Esperado: <strong>${escapeHtml(exercise.expected)}</strong><br>Error: ${escapeHtml(errorType)}`;
+    ? `Correcto. Respuesta: <strong>${escapeHtml(expectedDisplay(exercise))}</strong>`
+    : `No exactamente. Esperado: <strong>${escapeHtml(expectedDisplay(exercise))}</strong><br>Error: ${escapeHtml(errorType)}`;
   saveAll();
+}
+
+function readExerciseAnswer(exercise) {
+  if (!isMultipleChoice(exercise)) {
+    return { value: document.getElementById('answerInput')?.value || '', choice: null };
+  }
+  const checked = document.querySelector('input[name="answerChoice"]:checked');
+  const choices = normalizeChoices(exercise);
+  const choice = checked ? choices[Number(checked.dataset.choiceIndex)] : null;
+  return { value: checked?.value || '', choice: choice ? { label: choice.label, value: choice.value } : null };
 }
 
 function evaluateAnswer(answer, exercise) {
   const normalizedAnswer = normalizeAnswer(answer);
   const normalizedExpected = normalizeAnswer(exercise.expected);
+
+  if (isMultipleChoice(exercise)) {
+    const correctChoices = normalizeChoices(exercise).filter(choice => choice.correct).map(choice => normalizeAnswer(choice.value));
+    const acceptedChoices = correctChoices.length ? correctChoices : [normalizedExpected];
+    return acceptedChoices.includes(normalizedAnswer)
+      ? { correct: true, accepted_by: correctChoices.length ? 'choice_marked_correct' : 'expected_choice' }
+      : { correct: false, accepted_by: null };
+  }
+
   const accepted = [exercise.expected, ...(exercise.accepted || [])]
     .filter(Boolean)
     .map(normalizeAnswer);
@@ -448,13 +526,44 @@ function evaluateAnswer(answer, exercise) {
   return { correct: false, accepted_by: null };
 }
 
+function isMultipleChoice(exercise) {
+  return ['multiple_choice', 'mcq', 'image_choice', 'audio_mcq'].includes(exercise.type) || Array.isArray(exercise.choices);
+}
+
+function normalizeChoices(exercise) {
+  return (exercise.choices || []).map(choice => {
+    if (typeof choice === 'string') return { label: choice, value: choice, correct: normalizeAnswer(choice) === normalizeAnswer(exercise.expected) };
+    const label = choice.label ?? choice.text ?? choice.value ?? choice.answer ?? '';
+    const value = choice.value ?? choice.answer ?? choice.label ?? choice.text ?? '';
+    return { label, value, correct: Boolean(choice.correct), image_asset: choice.image_asset ?? null };
+  });
+}
+
+function expectedDisplay(exercise) {
+  if (!isMultipleChoice(exercise)) return exercise.expected;
+  const correctChoice = normalizeChoices(exercise).find(choice => choice.correct || normalizeAnswer(choice.value) === normalizeAnswer(exercise.expected));
+  return correctChoice?.label || exercise.expected;
+}
+
 function inferErrorType(answer, exercise) {
   const normalized = normalizeAnswer(answer);
   if (!answer) return 'respuesta_vacia';
+  if (isMultipleChoice(exercise)) return 'opcion_incorrecta';
   if (exercise.expected.includes(' в ') && !normalized.includes(' в ')) return 'preposicion_omitida';
   if (exercise.tags?.includes('gde-kuda')) return 'где_vs_куда';
   if (exercise.tags?.includes('pronombres')) return 'pronombre_objeto';
   return 'forma_incorrecta';
+}
+
+function speakText(text) {
+  if (!('speechSynthesis' in window)) {
+    alert('Este navegador no ofrece voz integrada.');
+    return;
+  }
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'ru-RU';
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(utterance);
 }
 
 function exportProgress() {
