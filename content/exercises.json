@@ -1,0 +1,16 @@
+[
+  {"id":"ex-019-001","lesson":19,"skill":"vocabulario","type":"traduccion-inversa","prompt":"¿Cómo se dice 'juego al fútbol'?","expected":"Я играю в футбол.","tags":["играть-в"],"weight":0.25},
+  {"id":"ex-019-002","lesson":19,"skill":"gramatica","type":"transformacion","prompt":"Pon en acusativo: Я читаю ___ (книга).","expected":"книгу","tags":["acusativo"],"weight":0.2},
+  {"id":"ex-020-001","lesson":20,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: '¿Me escuchas?'","expected":"Ты меня слушаешь?","tags":["pronombres"],"weight":0.25},
+  {"id":"ex-020-002","lesson":20,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Yo te entiendo.'","expected":"Я тебя понимаю.","tags":["pronombres"],"weight":0.25},
+  {"id":"ex-021-001","lesson":21,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Me gusta la música.'","expected":"Я люблю музыку.","tags":["любить"],"weight":0.2},
+  {"id":"ex-022-001","lesson":22,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Voy a leer.'","expected":"Я буду читать.","tags":["futuro"],"weight":0.2},
+  {"id":"ex-023-001","lesson":23,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Mañana hará frío.'","expected":"Завтра будет холодно.","tags":["clima"],"weight":0.2},
+  {"id":"ex-031-001","lesson":31,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Ella toca la guitarra.'","expected":"Она играет на гитаре.","tags":["играть-на"],"weight":0.2},
+  {"id":"ex-032-001","lesson":32,"skill":"gramatica","type":"eleccion-productiva","prompt":"Traduce: 'Estoy en casa.'","expected":"Я дома.","tags":["gde-kuda"],"weight":0.35},
+  {"id":"ex-032-002","lesson":32,"skill":"gramatica","type":"eleccion-productiva","prompt":"Traduce: 'Voy a casa.'","expected":"Я иду домой.","tags":["gde-kuda"],"weight":0.35},
+  {"id":"ex-033-001","lesson":33,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Ahora voy al trabajo a pie.'","expected":"Сейчас я иду на работу.","tags":["идти-ходить"],"weight":0.3},
+  {"id":"ex-033-002","lesson":33,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Cada día voy al trabajo a pie.'","expected":"Каждый день я хожу на работу.","tags":["идти-ходить"],"weight":0.3},
+  {"id":"ex-035-001","lesson":35,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Voy a Moscú en transporte.'","expected":"Я еду в Москву.","tags":["ехать-ездить"],"weight":0.3},
+  {"id":"ex-036-001","lesson":36,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Voy a pie.'","expected":"Я иду пешком.","tags":["пешком"],"weight":0.2}
+]
