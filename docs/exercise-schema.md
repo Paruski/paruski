@@ -99,6 +99,28 @@ Para opciones con imagen:
 }
 ```
 
+## Competencias inferidas
+
+El ejercicio puede traer `targets` y `tags`, pero la medicion pedagogica no debe
+depender de que cada ejercicio manual este perfectamente etiquetado. La app
+infiere competencias con:
+
+```text
+content/competencies.json
+assets/core/competency-tagger.js
+```
+
+Dimensiones usadas:
+
+- habilidad entrenada;
+- tipo de recuperacion;
+- modalidad;
+- direccion de procesamiento;
+- campo lexico;
+- estructura gramatical;
+- morfologia;
+- funcion comunicativa.
+
 ## Eventos asociados
 
 Cada evento debe copiar datos esenciales del ejercicio:
@@ -108,6 +130,9 @@ Cada evento debe copiar datos esenciales del ejercicio:
 - `exercise_type`
 - `modality`
 - `targets`
+- `target_ids`
+- `competency_ids`
+- `competency_tags`
 - `prompt`
 - `expected`
 - `answer`
