@@ -90,3 +90,4 @@ import('./advanced.js').catch(() => {});
 import('./aspect-ui.js').catch(() => {});
 import('./notes-ui.js').catch(() => {});
 import('./drills-ui.js').catch(() => {});
+import('./simple-ui.js').catch(() => {});
