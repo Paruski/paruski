@@ -1,0 +1,299 @@
+.guided-session,
+.library-view,
+.calendar-view,
+.progress-view,
+.settings-view,
+.sync-view {
+  width: 100%;
+}
+
+body {
+  background: var(--bg);
+}
+
+.app-status {
+  margin: 0 clamp(1rem, 4vw, 3rem);
+  color: var(--muted);
+}
+
+.app-layout,
+.calendar-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.primary-pane,
+.side-pane,
+.learning-card,
+.library-card,
+.side-card {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)), var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.primary-pane,
+.learning-card,
+.library-card,
+.side-card {
+  padding: 1rem;
+}
+
+.focus-card {
+  min-height: 28rem;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.focus-card h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.app-section-head {
+  margin-bottom: 1rem;
+}
+
+.tag-row,
+.guided-actions,
+.inline-actions,
+.settings-actions,
+.library-toolbar,
+.sync-actions {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.fact-grid,
+.mini-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: .65rem;
+}
+
+.fact-grid div,
+.mini-facts div {
+  border: 1px solid var(--line);
+  border-radius: .85rem;
+  padding: .75rem;
+  background: rgba(0,0,0,.12);
+}
+
+dt {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+dd {
+  margin: .25rem 0 0;
+  font-weight: 700;
+}
+
+.big-text {
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+.example-list,
+.priority-list,
+.method-compact {
+  display: grid;
+  gap: .55rem;
+}
+
+.example-list button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+}
+
+.exercise-form,
+.exercise-renderer,
+.exercise-controls {
+  display: grid;
+  gap: .8rem;
+}
+
+.exercise-form input[type="text"],
+.exercise-form input:not([type]),
+.exercise-form textarea,
+.exercise-renderer input:not([type]),
+.exercise-renderer textarea {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.exercise-display {
+  font-size: clamp(1.35rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.confidence-label {
+  display: grid;
+  gap: .35rem;
+  color: var(--muted);
+}
+
+.feedback-box {
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  padding: 1rem;
+}
+
+.feedback-box.correct {
+  border-color: rgba(34,197,94,.45);
+  color: #bbf7d0;
+}
+
+.feedback-box.wrong {
+  border-color: rgba(239,68,68,.5);
+  color: #fecaca;
+}
+
+.metric-list,
+.side-pane {
+  display: grid;
+  gap: .75rem;
+}
+
+.side-card progress {
+  width: 100%;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: .85rem;
+}
+
+.library-card.locked {
+  opacity: .55;
+}
+
+.card-topline {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  margin-bottom: .5rem;
+}
+
+.active-filter {
+  background: var(--accent);
+}
+
+.calendar-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .65rem;
+}
+
+.calendar-cell-v2 {
+  min-height: 6rem;
+  display: grid;
+  align-content: start;
+  gap: .35rem;
+  text-align: left;
+  background: rgba(255,255,255,.035);
+  border-color: var(--line);
+}
+
+.calendar-cell-v2.today {
+  border-color: var(--accent-2);
+}
+
+.calendar-cell-v2.selected {
+  background: rgba(139,92,246,.22);
+}
+
+.priority-list article {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  border-radius: .85rem;
+  padding: .75rem;
+}
+
+.competency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: .75rem;
+}
+
+.competency-card {
+  display: grid;
+  gap: .55rem;
+  border: 1px solid var(--line);
+  border-radius: .85rem;
+  padding: .8rem;
+  background: rgba(0,0,0,.12);
+}
+
+.competency-card h4 {
+  margin: .4rem 0 0;
+}
+
+.competency-card progress {
+  width: 100%;
+}
+
+.sync-panel-v2,
+.settings-view .learning-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.ru-keyboard {
+  display: grid;
+  gap: .45rem;
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  padding: .75rem;
+  background: rgba(0,0,0,.12);
+}
+
+.ru-keyboard-head {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.ru-keyboard-grid {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+  gap: .35rem;
+}
+
+.ru-keyboard button {
+  min-height: 2.25rem;
+  padding: .35rem;
+}
+
+.ru-keyboard .ru-wide {
+  grid-column: span 3;
+}
+
+@media (max-width: 980px) {
+  .app-layout,
+  .calendar-layout,
+  .calendar-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-card {
+    min-height: auto;
+  }
+
+  .ru-keyboard-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

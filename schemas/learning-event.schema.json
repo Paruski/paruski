@@ -12,6 +12,9 @@
       "structures": "structure ids tested",
       "abilities": "abilities tested"
     },
+    "target_ids": "normalized target ids touched by the event",
+    "competency_ids": "competency ids inferred for this exercise",
+    "competency_tags": "snapshot of competency id, dimension and label at event time",
     "prompt": "prompt shown",
     "expected": "canonical answer",
     "answer": "learner answer",

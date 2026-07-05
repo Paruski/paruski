@@ -1,0 +1,278 @@
+import { addDays, average, clamp, dayKey, startOfDay } from './utils.js';
+
+export function createLearnerModel(storage, eventLog, contentStore) {
+  let progress = storage.loadProgress();
+
+  function reload() {
+    progress = storage.loadProgress();
+    return progress;
+  }
+
+  function save() {
+    progress = storage.saveProgress(progress);
+    return progress;
+  }
+
+  function getProgress() {
+    return progress;
+  }
+
+  function getTargetState(targetId) {
+    return progress.targets[targetId] || defaultTargetState(targetId);
+  }
+
+  function getCompetencyState(competencyId) {
+    return progress.competencies?.[competencyId] || defaultCompetencyState(competencyId);
+  }
+
+  function isTargetUnlocked(target) {
+    if (!target) return false;
+    return Number(target.lesson) <= Number(progress.unlocked?.lessonMax || 5);
+  }
+
+  function unlockedTargets() {
+    return contentStore.state.targets.filter(isTargetUnlocked);
+  }
+
+  function lockedTargets() {
+    return contentStore.state.targets.filter(target => !isTargetUnlocked(target));
+  }
+
+  function recordExerciseResult({ exercise, correct, confidence = 3, responseTime = null, errorType = null }) {
+    const targetIds = exercise.target_ids?.length ? exercise.target_ids : [];
+    const timestamp = new Date().toISOString();
+    const confidenceFactor = clamp(Number(confidence || 3) / 5, 0.2, 1);
+    targetIds.forEach(targetId => {
+      const target = contentStore.getTarget(targetId);
+      const current = getTargetState(targetId);
+      const skill = exercise.skill || skillForExercise(exercise);
+      const skillScore = current.skills[skill] ?? 0;
+      const nextSkillScore = correct
+        ? clamp(skillScore + (0.16 + confidenceFactor * 0.08) * (1 - skillScore))
+        : clamp(skillScore - 0.16);
+      const attempts = current.attempts + 1;
+      const right = current.correct + (correct ? 1 : 0);
+      const wrong = current.wrong + (correct ? 0 : 1);
+      const intervalDays = nextInterval(current.interval_days || 0, correct, confidenceFactor);
+      const errors = { ...(current.error_types || {}) };
+      if (!correct && errorType) errors[errorType] = (errors[errorType] || 0) + 1;
+      const skills = { ...current.skills, [skill]: Number(nextSkillScore.toFixed(3)) };
+      progress.targets[targetId] = {
+        ...current,
+        target_id: targetId,
+        lesson: target?.lesson || current.lesson || null,
+        level: target?.level || current.level || null,
+        skills,
+        mastery: Number(average(Object.values(skills)).toFixed(3)),
+        attempts,
+        correct: right,
+        wrong,
+        last_seen_at: timestamp,
+        next_due_at: addDays(new Date(), intervalDays).toISOString(),
+        interval_days: intervalDays,
+        error_types: errors,
+        last_response_time_ms: responseTime
+      };
+    });
+
+    recordCompetencyResult({ exercise, correct, confidenceFactor, responseTime, errorType, timestamp });
+    updateLessonProgress(exercise, correct);
+    updateUnlocks();
+    save();
+  }
+
+  function dueTargets(date = new Date()) {
+    const today = startOfDay(date).getTime();
+    return unlockedTargets().filter(target => {
+      const state = getTargetState(target.id);
+      if (!state.attempts) return true;
+      return new Date(state.next_due_at || 0).getTime() <= today;
+    });
+  }
+
+  function weakTargets(limit = 8) {
+    return unlockedTargets()
+      .map(target => ({ target, state: getTargetState(target.id) }))
+      .filter(item => item.state.attempts && item.state.mastery < 0.62)
+      .sort((left, right) => left.state.mastery - right.state.mastery || right.state.wrong - left.state.wrong)
+      .slice(0, limit);
+  }
+
+  function summary() {
+    const events = eventLog.practiceEvents();
+    const correct = events.filter(event => event.correct).length;
+    const today = dayKey(new Date());
+    const todayCount = events.filter(event => dayKey(event.timestamp) === today).length;
+    const targetStates = Object.values(progress.targets || {});
+    const mastered = targetStates.filter(state => state.mastery >= 0.72).length;
+    const competencyStates = Object.values(progress.competencies || {});
+    const competencyMastered = competencyStates.filter(state => state.mastery >= 0.72).length;
+    return {
+      events: events.length,
+      correct,
+      accuracy: events.length ? Math.round((correct / events.length) * 100) : 0,
+      todayCount,
+      dailyTarget: progress.settings?.dailyTarget || 8,
+      mastered,
+      competencyCount: contentStore.state.competencies.length,
+      competencyMastered,
+      targetCount: contentStore.state.targets.length,
+      unlockedCount: unlockedTargets().length,
+      lockedCount: lockedTargets().length,
+      lessonMax: progress.unlocked?.lessonMax || 5,
+      streak: streakDays(events)
+    };
+  }
+
+  function competencyProgress(limit = 16) {
+    return contentStore.state.competencies
+      .map(competency => ({
+        competency,
+        state: getCompetencyState(competency.id)
+      }))
+      .filter(item => item.state.attempts > 0)
+      .sort((left, right) => {
+        const leftPriority = left.state.mastery < 0.58 ? 0 : 1;
+        const rightPriority = right.state.mastery < 0.58 ? 0 : 1;
+        return leftPriority - rightPriority ||
+          left.state.mastery - right.state.mastery ||
+          right.state.attempts - left.state.attempts ||
+          left.competency.label.localeCompare(right.competency.label, 'es');
+      })
+      .slice(0, limit);
+  }
+
+  function weakCompetencies(limit = 6) {
+    return competencyProgress(100)
+      .filter(item => item.state.attempts >= 2 && item.state.mastery < 0.62)
+      .slice(0, limit);
+  }
+
+  function recordCompetencyResult({ exercise, correct, confidenceFactor, responseTime, errorType, timestamp }) {
+    const competencies = contentStore.getCompetencyTagsForExercise(exercise);
+    competencies.forEach(competency => {
+      const current = getCompetencyState(competency.id);
+      const currentMastery = current.mastery || 0;
+      const nextMastery = correct
+        ? clamp(currentMastery + (0.1 + confidenceFactor * 0.07) * (1 - currentMastery))
+        : clamp(currentMastery - 0.12);
+      const errors = { ...(current.error_types || {}) };
+      if (!correct && errorType) errors[errorType] = (errors[errorType] || 0) + 1;
+      const exerciseTypes = { ...(current.exercise_types || {}) };
+      exerciseTypes[exercise.type] = (exerciseTypes[exercise.type] || 0) + 1;
+      const modalities = { ...(current.modalities || {}) };
+      modalities[exercise.modality || 'text'] = (modalities[exercise.modality || 'text'] || 0) + 1;
+      progress.competencies[competency.id] = {
+        ...current,
+        competency_id: competency.id,
+        dimension: competency.dimension,
+        mastery: Number(nextMastery.toFixed(3)),
+        attempts: current.attempts + 1,
+        correct: current.correct + (correct ? 1 : 0),
+        wrong: current.wrong + (correct ? 0 : 1),
+        last_seen_at: timestamp,
+        error_types: errors,
+        exercise_types: exerciseTypes,
+        modalities,
+        last_response_time_ms: responseTime
+      };
+    });
+  }
+
+  function updateLessonProgress(exercise, correct) {
+    const lesson = Number(exercise.lesson || contentStore.getTarget(exercise.target_ids?.[0])?.lesson || 0);
+    if (!lesson) return;
+    const current = progress.lessons[lesson] || { attempts: 0, correct: 0, status: 'unlocked' };
+    progress.lessons[lesson] = {
+      ...current,
+      attempts: current.attempts + 1,
+      correct: current.correct + (correct ? 1 : 0),
+      updated_at: new Date().toISOString()
+    };
+  }
+
+  function updateUnlocks() {
+    const masteredTargets = Object.values(progress.targets || {}).filter(state => state.mastery >= 0.58).length;
+    const nextLessonMax = Math.min(80, Math.max(5, 5 + Math.floor(masteredTargets / 3)));
+    progress.unlocked.lessonMax = Math.max(progress.unlocked?.lessonMax || 5, nextLessonMax);
+    const lesson = progress.unlocked.lessonMax;
+    progress.unlocked.level = contentStore.levelForLesson(lesson).id;
+  }
+
+  return {
+    reload,
+    save,
+    getProgress,
+    getTargetState,
+    isTargetUnlocked,
+    unlockedTargets,
+    lockedTargets,
+    recordExerciseResult,
+    dueTargets,
+    weakTargets,
+    competencyProgress,
+    weakCompetencies,
+    summary
+  };
+}
+
+function defaultTargetState(targetId) {
+  return {
+    target_id: targetId,
+    skills: {
+      recognition: 0,
+      production: 0,
+      listening: 0,
+      grammar_transfer: 0
+    },
+    mastery: 0,
+    attempts: 0,
+    correct: 0,
+    wrong: 0,
+    last_seen_at: null,
+    next_due_at: null,
+    interval_days: 0,
+    error_types: {}
+  };
+}
+
+function defaultCompetencyState(competencyId) {
+  return {
+    competency_id: competencyId,
+    mastery: 0,
+    attempts: 0,
+    correct: 0,
+    wrong: 0,
+    last_seen_at: null,
+    error_types: {},
+    exercise_types: {},
+    modalities: {},
+    last_response_time_ms: null
+  };
+}
+
+function skillForExercise(exercise) {
+  if (exercise.type === 'dictation' || exercise.type === 'listen-choice') return 'listening';
+  if (exercise.type === 'multiple-choice') return 'recognition';
+  if (exercise.type === 'transform' || exercise.type === 'cloze') return 'grammar_transfer';
+  return 'production';
+}
+
+function nextInterval(previous, correct, confidenceFactor) {
+  if (!correct) return 0;
+  if (!previous) return confidenceFactor > 0.75 ? 2 : 1;
+  return Math.min(60, Math.max(1, Math.round(previous * (1.7 + confidenceFactor))));
+}
+
+function streakDays(events) {
+  const days = new Set(events.map(event => dayKey(event.timestamp)).filter(Boolean));
+  if (!days.size) return 0;
+  let cursor = new Date();
+  if (!days.has(dayKey(cursor))) cursor.setDate(cursor.getDate() - 1);
+  let count = 0;
+  while (days.has(dayKey(cursor))) {
+    count += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+  return count;
+}

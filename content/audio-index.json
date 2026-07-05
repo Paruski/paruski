@@ -1,21 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "policy": "static_audio_learning_materials_only_no_private_data",
   "language": "ru",
   "mime_default": "audio/mpeg",
-  "generator": "espeak ru voice via offline build step",
-  "storage_strategy": "static audio assets indexed by normalized text; current bootstrap audio is embedded in assets/audio-bank.js and future entries should move to content/audio/ru/*.mp3.b64 or binary audio files if repository tooling allows it",
-  "entries": [
-    {
-      "id": "ru-audio-chelovek",
-      "text": "человек",
-      "normalized_text": "человек",
-      "storage": "assets/audio-bank.js",
-      "mime": "audio/mpeg",
-      "duration_ms": 1010,
-      "voice": "espeak-ru",
-      "source": "generated_static",
-      "preload": true
-    }
-  ]
+  "source_database": "content/paruski-db.json",
+  "storage_strategy": "static files referenced from this index; do not embed large base64 audio in JavaScript",
+  "entries": []
 }
