@@ -1,10 +1,14 @@
-const CACHE_NAME = 'paruski-v21';
+const CACHE_NAME = 'paruski-v23';
 const ASSETS = [
   './',
   './index.html',
+  './favicon.svg',
+  './favicon.ico',
   './assets/styles.css',
   './assets/keyboard.css',
   './assets/guided-redesign.css',
+  './assets/audio-fix.js',
+  './assets/content-db.js',
   './assets/app.js',
   './assets/github-sync.js',
   './assets/sync-ui.js',
@@ -32,6 +36,7 @@ const ASSETS = [
   './content/materials-aspect.json',
   './content/learning-notes.json',
   './content/guided-path.json',
+  './content/paruski-db.json',
   './manifest.webmanifest'
 ];
 
