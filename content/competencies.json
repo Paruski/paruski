@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "policy": "competency_taxonomy_for_adaptive_learning_no_private_source_text",
+  "rubric": {
+    "mastery_ready": 0.72,
+    "needs_attention": 0.55,
+    "principles": [
+      "recuperacion_activa",
+      "practica_espaciada",
+      "feedback_correctivo",
+      "intercalado",
+      "uso_semantico_contextual",
+      "carga_cognitiva_razonable"
+    ]
+  },
+  "dimensions": {
+    "skill": "Proceso lingüístico entrenado",
+    "retrieval": "Tipo de recuperación de memoria",
+    "modality": "Canal de entrada o salida",
+    "direction": "Dirección de procesamiento",
+    "lexicon": "Campo léxico-semántico",
+    "grammar": "Estructura gramatical funcional",
+    "morphology": "Decisión morfológica",
+    "function": "Función comunicativa"
+  },
+  "competencies": [
+    {"id": "skill.recognition", "dimension": "skill", "label": "Reconocer forma y significado", "description": "Identificar una forma rusa o su significado entre alternativas."},
+    {"id": "skill.semantic_mapping", "dimension": "skill", "label": "Vincular forma y significado", "description": "Conectar una forma rusa con una intención, traducción o situación."},
+    {"id": "skill.controlled_production", "dimension": "skill", "label": "Producir forma controlada", "description": "Recordar y escribir una palabra, forma o frase rusa breve."},
+    {"id": "skill.semantic_production", "dimension": "skill", "label": "Producir con intención semántica", "description": "Usar material ruso para expresar una idea, no solo copiarlo."},
+    {"id": "skill.listening", "dimension": "skill", "label": "Comprensión auditiva", "description": "Reconocer o transcribir ruso a partir de audio."},
+    {"id": "skill.grammar_transfer", "dimension": "skill", "label": "Aplicar gramática", "description": "Elegir, transformar o completar formas según una regla funcional."},
+
+    {"id": "retrieval.recognition", "dimension": "retrieval", "label": "Reconocimiento", "description": "Elegir la opción correcta con apoyo visible."},
+    {"id": "retrieval.cued_recall", "dimension": "retrieval", "label": "Recuerdo con pista", "description": "Recuperar una forma a partir de una pista semántica o contextual."},
+    {"id": "retrieval.application", "dimension": "retrieval", "label": "Aplicación contextual", "description": "Completar o transformar una forma dentro de un ejemplo."},
+    {"id": "retrieval.transfer", "dimension": "retrieval", "label": "Transferencia", "description": "Usar el material en una frase o situación nueva."},
+
+    {"id": "modality.text", "dimension": "modality", "label": "Texto escrito", "description": "Procesamiento escrito de cirílico ruso."},
+    {"id": "modality.audio", "dimension": "modality", "label": "Audio", "description": "Procesamiento auditivo de ruso hablado."},
+    {"id": "modality.keyboard", "dimension": "modality", "label": "Escritura en cirílico", "description": "Producción escrita usando caracteres rusos."},
+
+    {"id": "direction.ru_to_meaning", "dimension": "direction", "label": "Ruso a significado", "description": "Comprender ruso y mapearlo a significado."},
+    {"id": "direction.meaning_to_ru", "dimension": "direction", "label": "Significado a ruso", "description": "Recordar ruso desde una intención o traducción."},
+    {"id": "direction.form_selection", "dimension": "direction", "label": "Selección de forma", "description": "Elegir la forma rusa que encaja en un contexto."},
+    {"id": "direction.form_manipulation", "dimension": "direction", "label": "Manipulación de forma", "description": "Modificar una forma por caso, aspecto, tiempo, género o número."},
+
+    {"id": "lexicon.people_family", "dimension": "lexicon", "label": "Personas y familia", "description": "Familia, personas, pronombres e identidad."},
+    {"id": "lexicon.food_drink", "dimension": "lexicon", "label": "Comida y bebida", "description": "Bebidas, comida y objetos cotidianos de consumo."},
+    {"id": "lexicon.animals", "dimension": "lexicon", "label": "Animales", "description": "Animales frecuentes en ejemplos iniciales."},
+    {"id": "lexicon.city_places", "dimension": "lexicon", "label": "Ciudad y lugares", "description": "Lugares urbanos, ubicación y espacios públicos."},
+    {"id": "lexicon.professions_identity", "dimension": "lexicon", "label": "Profesiones e identidad", "description": "Roles personales, profesión e identificación."},
+    {"id": "lexicon.home_work_study", "dimension": "lexicon", "label": "Casa, trabajo y estudio", "description": "Vida cotidiana, trabajo, escuela y universidad."},
+    {"id": "lexicon.weather_time", "dimension": "lexicon", "label": "Tiempo y clima", "description": "Días, estaciones, pasado/futuro temporal y clima."},
+    {"id": "lexicon.movement_transport", "dimension": "lexicon", "label": "Movimiento y transporte", "description": "Desplazamiento a pie, en transporte, dirección y hábitos."},
+    {"id": "lexicon.preferences", "dimension": "lexicon", "label": "Preferencias", "description": "Gustos, querer, amar y actividades preferidas."},
+    {"id": "lexicon.numbers_prices", "dimension": "lexicon", "label": "Números, cantidad y precios", "description": "Números, coste, moneda y cantidades."},
+    {"id": "lexicon.health_obligation", "dimension": "lexicon", "label": "Salud y obligación", "description": "Salud, dolor, necesidad y deber."},
+    {"id": "lexicon.actions_aspect", "dimension": "lexicon", "label": "Acciones y aspecto", "description": "Acciones, resultado, proceso y pares aspectuales."},
+
+    {"id": "grammar.identification", "dimension": "grammar", "label": "Identificación con это", "description": "Presentar o identificar personas y cosas."},
+    {"id": "grammar.questions_basic", "dimension": "grammar", "label": "Preguntas básicas", "description": "Preguntas con кто, что, где y куда."},
+    {"id": "grammar.negation", "dimension": "grammar", "label": "Negación", "description": "Negar enunciados simples con не y estructuras relacionadas."},
+    {"id": "grammar.gender_agreement", "dimension": "grammar", "label": "Género y concordancia", "description": "Reconocer género y concordar palabras dependientes."},
+    {"id": "grammar.present_conjugation", "dimension": "grammar", "label": "Conjugación presente", "description": "Usar terminaciones personales en presente."},
+    {"id": "grammar.accusative", "dimension": "grammar", "label": "Acusativo", "description": "Marcar objeto directo y usos básicos del acusativo."},
+    {"id": "grammar.prepositional", "dimension": "grammar", "label": "Prepositivo", "description": "Expresar lugar o tema con preposiciones y terminaciones de prepositivo."},
+    {"id": "grammar.genitive", "dimension": "grammar", "label": "Genitivo", "description": "Expresar ausencia, cantidad, origen y posesión relacionada."},
+    {"id": "grammar.pronouns", "dimension": "grammar", "label": "Pronombres", "description": "Diferenciar sujeto, objeto y complementos pronominales."},
+    {"id": "grammar.possession_u", "dimension": "grammar", "label": "Posesión con у", "description": "Expresar posesión y eventos personales con у + persona."},
+    {"id": "grammar.past", "dimension": "grammar", "label": "Pasado", "description": "Usar pasado ruso con género y número."},
+    {"id": "grammar.future", "dimension": "grammar", "label": "Futuro", "description": "Usar futuro compuesto y futuro perfectivo inicial."},
+    {"id": "grammar.location_direction", "dimension": "grammar", "label": "Lugar frente a dirección", "description": "Distinguir где/куда, дома/домой y ubicación/movimiento."},
+    {"id": "grammar.motion_verbs", "dimension": "grammar", "label": "Verbos de movimiento", "description": "Distinguir movimiento concreto, habitual, a pie y en transporte."},
+    {"id": "grammar.adjective_agreement", "dimension": "grammar", "label": "Adjetivos y demostrativos", "description": "Concordar adjetivos, demostrativos y descripciones."},
+    {"id": "grammar.quantity_government", "dimension": "grammar", "label": "Cantidad y régimen", "description": "Elegir formas tras números y cuantificadores."},
+    {"id": "grammar.aspect", "dimension": "grammar", "label": "Aspecto verbal", "description": "Distinguir proceso, hábito, resultado y acción completa."},
+
+    {"id": "morphology.case_selection", "dimension": "morphology", "label": "Selección de caso", "description": "Elegir caso según función sintáctica o preposición."},
+    {"id": "morphology.verb_form", "dimension": "morphology", "label": "Forma verbal", "description": "Elegir persona, tiempo, aspecto o infinitivo."},
+    {"id": "morphology.gender_number", "dimension": "morphology", "label": "Género y número", "description": "Controlar género y número en formas variables."},
+    {"id": "morphology.cyrillic_form", "dimension": "morphology", "label": "Forma cirílica", "description": "Recordar ortografía rusa y letras relevantes."},
+
+    {"id": "function.identify", "dimension": "function", "label": "Identificar y presentar", "description": "Decir qué o quién es algo o alguien."},
+    {"id": "function.ask_answer", "dimension": "function", "label": "Preguntar y responder", "description": "Entender o producir preguntas básicas."},
+    {"id": "function.locate", "dimension": "function", "label": "Ubicar", "description": "Decir dónde está alguien o algo."},
+    {"id": "function.move", "dimension": "function", "label": "Moverse e indicar destino", "description": "Expresar desplazamiento, destino y medio."},
+    {"id": "function.possess", "dimension": "function", "label": "Tener y eventos personales", "description": "Hablar de posesión, citas, clases y eventos propios."},
+    {"id": "function.prefer", "dimension": "function", "label": "Preferir y gustar", "description": "Expresar gustos, preferencias y actividades queridas."},
+    {"id": "function.describe", "dimension": "function", "label": "Describir", "description": "Describir objetos, personas, cualidades y estados."},
+    {"id": "function.plan", "dimension": "function", "label": "Planificar", "description": "Hablar de planes, futuro, promesas y acciones pendientes."},
+    {"id": "function.transact", "dimension": "function", "label": "Comprar, pagar y cuantificar", "description": "Pedir, pagar, calcular precio y expresar cantidades."},
+    {"id": "function.health_need", "dimension": "function", "label": "Salud y necesidad", "description": "Expresar dolor, temperatura, necesidad u obligación."}
+  ]
+}

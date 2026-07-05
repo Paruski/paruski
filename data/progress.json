@@ -1,7 +1,9 @@
 {
-  "version": 1,
+  "version": 3,
   "updated_at": null,
   "lessons": {},
+  "targets": {},
+  "competencies": {},
   "items": {},
   "settings": {
     "dailyTarget": 12

@@ -79,3 +79,9 @@ Para WAV, el script puede calcular `duration_ms` con biblioteca estándar. Para 
 ## Regla de privacidad
 
 Los audios sólo deben contener material de aprendizaje de ruso. No se deben generar ni subir transcripciones originales, datos personales, claves ni contexto privado.
+
+## Traspaso a equipo con GPU
+
+Si se usa otro equipo para generar voces de mayor calidad, seguir `docs/audio-gpu-handoff.md`.
+La regla se mantiene: el equipo externo genera audios estaticos y devuelve al
+repositorio solo `content/audio/ru/*.mp3` y `content/audio-index.json`.
