@@ -28,6 +28,21 @@
   }
 
   async function loadMaterials() {
+    if (window.ParuskiDB?.ready) {
+      try {
+        await window.ParuskiDB.ready;
+        notes = window.ParuskiDB.state.notes || [];
+        materials = window.ParuskiDB.allTargets().map(target => ({
+          lesson: target.lesson_refs?.[0] || 0,
+          kind: target.kind,
+          value: target.text,
+          note: { definition: target.definition, examples: target.examples || [], tips: target.tips || [] },
+          key: target.id,
+          dbTarget: target
+        })).filter(item => item.value && item.value.length > 1);
+        if (materials.length) return;
+      } catch {}
+    }
     const data = await Promise.all([
       readRemote('content/materials.json').catch(() => ({ classes: [] })),
       readRemote('content/materials-aspect.json').catch(() => ({ classes: [] })),
@@ -120,7 +135,13 @@
   function renderLearn() {
     const examples = (current.note?.examples || []).slice(0, 4);
     const tips = (current.note?.tips || []).slice(0, 2);
-    return '<article class="guided-card-main directed-card"><p class="eyebrow">Objetivo elegido para ti</p><h2>' + escapeHtml(current.value) + '</h2><div class="guided-actions"><span class="tag">' + escapeHtml(current.kind) + '</span><span class="tag">ruta adaptativa</span></div><p class="muted big-text">' + escapeHtml(current.note?.definition || 'Escucha, repite y prepárate para producir esta forma en ruso.') + '</p>' + (examples.length ? '<h3>Ejemplos</h3><ul class="directed-list">' + examples.map(example => '<li><button type="button" data-session-action="speak" data-value="' + escapeAttr(example) + '">' + escapeHtml(example) + '</button></li>').join('') + '</ul>' : '') + (tips.length ? '<h3>Fíjate</h3><ul>' + tips.map(tip => '<li>' + escapeHtml(tip) + '</li>').join('') + '</ul>' : '') + '<div class="guided-actions"><button type="button" class="secondary" data-session-action="speak" data-value="' + escapeAttr(current.value) + '">Escuchar</button><button type="button" class="guided-primary" data-session-action="check">Comprobar ahora</button></div></article>';
+    return '<article class="guided-card-main directed-card"><p class="eyebrow">Objetivo elegido para ti</p><h2>' + escapeHtml(current.value) + '</h2><div class="guided-actions"><span class="tag">' + escapeHtml(current.kind) + '</span><span class="tag">ruta adaptativa</span></div><p class="muted big-text">' + escapeHtml(current.note?.definition || 'Escucha, repite y prepárate para producir esta forma en ruso.') + '</p>' + renderWordCard(current) + (examples.length ? '<h3>Ejemplos</h3><ul class="directed-list">' + examples.map(example => '<li><button type="button" data-session-action="speak" data-value="' + escapeAttr(example) + '">' + escapeHtml(example) + '</button></li>').join('') + '</ul>' : '') + (tips.length ? '<h3>Fíjate</h3><ul>' + tips.map(tip => '<li>' + escapeHtml(tip) + '</li>').join('') + '</ul>' : '') + '<div class="guided-actions"><button type="button" class="secondary" data-session-action="speak" data-value="' + escapeAttr(current.value) + '">Escuchar</button><button type="button" class="guided-primary" data-session-action="check">Comprobar ahora</button></div></article>';
+  }
+
+  function renderWordCard(item) {
+    const target = item.dbTarget || window.ParuskiDB?.findTargetByText?.(item.value) || {};
+    const card = window.ParuskiDB?.findCard?.(item.value) || target;
+    return '<details class="word-card"><summary>Ficha: traducción y pronunciación</summary><div class="word-card-body"><p><strong>Forma:</strong> ' + escapeHtml(card.stress_marked || item.value) + '</p><p><strong>Traducción:</strong> ' + escapeHtml(card.translation || 'Pendiente de completar en la base') + '</p><p><strong>Pronunciación:</strong> ' + escapeHtml(card.pronunciation || 'Pendiente') + '</p><p><strong>Sílaba tónica:</strong> ' + escapeHtml(card.stress_syllable || 'Pendiente') + '</p><button type="button" class="secondary" data-session-action="speak" data-value="' + escapeAttr(item.value) + '">Escuchar palabra</button></div></details>';
   }
 
   function buildTask() {
@@ -149,7 +170,19 @@
     const events = readJson(KEYS.events, []);
     const today = dayKey(new Date());
     const todayCount = events.filter(event => event.skill === 'directed-session' && dayKey(new Date(event.timestamp)) === today).length;
-    return '<article class="guided-card-side"><h3>Por qué toca esto</h3><p class="muted">Se prioriza lo vencido, lo fallado y el material nuevo.</p><div class="guided-progress-row one-column"><article class="guided-mini-card"><div class="value">' + (stat.attempts || 0) + '</div><div class="label">intentos</div></article><article class="guided-mini-card"><div class="value">' + (stat.correct || 0) + '</div><div class="label">aciertos</div></article><article class="guided-mini-card"><div class="value">' + (stat.wrong || 0) + '</div><div class="label">fallos</div></article><article class="guided-mini-card"><div class="value">' + todayCount + '</div><div class="label">hoy</div></article></div></article><article class="guided-card-side"><h3>Explorar libremente</h3><p class="muted">Disponible sólo como consulta secundaria.</p><button type="button" class="secondary" data-session-action="explore">Abrir opciones</button><div id="freeExploreBox" hidden><button type="button" data-session-action="view" data-value="learning">Aprender</button><button type="button" data-session-action="view" data-value="review">Práctica libre</button><button type="button" data-session-action="view" data-value="tracking">Progreso</button><button type="button" data-session-action="view" data-value="settings">Datos</button></div></article>';
+    return '<article class="guided-card-side"><h3>Por qué toca esto</h3><p class="muted">Se prioriza lo vencido, lo fallado y el material nuevo.</p><div class="guided-progress-row one-column"><article class="guided-mini-card"><div class="value">' + (stat.attempts || 0) + '</div><div class="label">intentos</div></article><article class="guided-mini-card"><div class="value">' + (stat.correct || 0) + '</div><div class="label">aciertos</div></article><article class="guided-mini-card"><div class="value">' + (stat.wrong || 0) + '</div><div class="label">fallos</div></article><article class="guided-mini-card"><div class="value">' + todayCount + '</div><div class="label">hoy</div></article></div></article>' + renderLevelGoal(events) + '<article class="guided-card-side"><h3>Explorar libremente</h3><p class="muted">Disponible sólo como consulta secundaria.</p><button type="button" class="secondary" data-session-action="explore">Abrir opciones</button><div id="freeExploreBox" hidden><button type="button" data-session-action="view" data-value="learning">Aprender</button><button type="button" data-session-action="view" data-value="review">Práctica libre</button><button type="button" data-session-action="view" data-value="tracking">Progreso</button><button type="button" data-session-action="view" data-value="settings">Datos</button></div></article>';
+  }
+
+  function renderLevelGoal(events) {
+    const levels = window.ParuskiDB?.getLevels?.() || [];
+    if (!levels.length) return '';
+    const sessionEvents = events.filter(event => event.skill === 'directed-session');
+    const correct = sessionEvents.filter(event => event.correct).length;
+    const accuracy = sessionEvents.length ? Math.round(correct / sessionEvents.length * 100) : 0;
+    const level = levels.find(item => correct < item.required_correct || accuracy < item.required_accuracy) || levels[levels.length - 1];
+    const c = Math.min(100, Math.round(correct / Math.max(1, level.required_correct) * 100));
+    const a = Math.min(100, Math.round(accuracy / Math.max(1, level.required_accuracy) * 100));
+    return '<article class="guided-card-side"><h3>Meta de nivel</h3><p><strong>' + escapeHtml(level.title) + '</strong></p><p class="muted">' + escapeHtml(level.description) + '</p><label>Aciertos <progress max="100" value="' + c + '"></progress></label><label>Precisión <progress max="100" value="' + a + '"></progress></label></article>';
   }
 
   function handleAction(action, value) {
@@ -204,7 +237,7 @@
   function addDays(date, amount) { const next = new Date(date); next.setDate(next.getDate() + amount); next.setHours(0, 0, 0, 0); return next; }
   function dayKey(date) { if (Number.isNaN(date.getTime())) return ''; return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0'); }
   function normalize(value) { return String(value || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[?.!¿¡,;:«»“”"']/g, ''); }
-  function speak(value) { if (!('speechSynthesis' in window)) return; const u = new SpeechSynthesisUtterance(value); u.lang = 'ru-RU'; u.rate = 0.9; speechSynthesis.cancel(); speechSynthesis.speak(u); }
+  function speak(value) { if (window.ParuskiAudio?.speakRu?.(value)) return; if (!('speechSynthesis' in window)) return; const u = new SpeechSynthesisUtterance(value); u.lang = 'ru-RU'; u.rate = 0.9; speechSynthesis.cancel(); speechSynthesis.speak(u); }
   function escapeHtml(value) { return String(value ?? '').replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch])); }
   function escapeAttr(value) { return escapeHtml(value).replace(/'/g, '&#39;'); }
 })();
