@@ -134,7 +134,7 @@
 
   function renderCheck() {
     if (!task) buildTask();
-    return '<article class="guided-card-main directed-card"><p class="eyebrow">Prueba activa</p><h2>' + escapeHtml(task.prompt) + '</h2>' + (task.display ? '<p class="directed-prompt">' + escapeHtml(task.display) + '</p>' : '') + '<p class="muted">Responde sin mirar la explicación.</p><input id="directedAnswer" autocomplete="off" placeholder="Escribe en ruso..." /><div class="guided-actions"><button type="button" class="secondary" data-session-action="speak" data-value="' + escapeAttr(task.speak) + '">Escuchar</button><button type="button" class="guided-primary" data-session-action="answer">Comprobar</button></div></article>';
+    return '<article class="guided-card-main directed-card"><p class="eyebrow">Prueba activa</p><h2>' + escapeHtml(task.prompt) + '</h2>' + (task.display ? '<p class="directed-prompt">' + escapeHtml(task.display) + '</p>' : '') + '<p class="muted">Responde sin mirar. También vale una frase completa si contiene la forma esperada.</p><input id="directedAnswer" autocomplete="off" placeholder="Escribe en ruso..." /><div class="guided-actions"><button type="button" class="secondary" data-session-action="speak" data-value="' + escapeAttr(task.speak) + '">Escuchar</button><button type="button" class="guided-primary" data-session-action="answer">Comprobar</button></div></article>';
   }
 
   function renderResult() {
@@ -163,10 +163,16 @@
 
   function checkAnswer() {
     const answer = document.getElementById('directedAnswer')?.value || '';
-    const correct = normalize(answer) === normalize(task.expected);
+    const correct = isCorrectAnswer(answer, task.expected);
     saveResult(correct, answer);
     phase = 'result';
     renderSession();
+  }
+
+  function isCorrectAnswer(answer, expected) {
+    const a = normalize(answer);
+    const e = normalize(expected);
+    return Boolean(a && e && (a === e || a.includes(e)));
   }
 
   function saveResult(correct, answer) {
