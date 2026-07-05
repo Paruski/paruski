@@ -6,6 +6,7 @@
 2. Confirmar que las clases, el repaso, el teclado ruso y el guardado local siguen funcionando.
 3. Confirmar que no aparece ningún error si no se configura GitHub.
 4. Confirmar que el panel de sincronización no intenta subir nada sin clave.
+5. Confirmar que la pestaña FAQ se abre y explica guardado local, sincronización, privacidad y tipos de ejercicios.
 
 ## Repaso y ejercicios
 
@@ -42,7 +43,7 @@
 1. Abrir la web con una versión anterior cacheada.
 2. Publicar la versión con `CACHE_NAME` actualizado.
 3. Recargar la web.
-4. Confirmar que se cargan los cambios recientes de `assets/app.js`, `assets/styles.css`, `assets/sync-ui.js` y `content/exercises.json`.
+4. Confirmar que se cargan los cambios recientes de `index.html`, `assets/app.js`, `assets/styles.css`, `assets/sync-ui.js` y `content/exercises.json`.
 
 ## Privacidad
 
