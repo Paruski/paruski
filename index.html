@@ -33,6 +33,7 @@
       <button class="tab" data-view="vocabulary">Vocabulario</button>
       <button class="tab" data-view="grammar">Gramática</button>
       <button class="tab" data-view="errors">Errores</button>
+      <button class="tab" data-view="faq">FAQ</button>
       <button class="tab" data-view="settings">Datos</button>
     </nav>
 
@@ -105,6 +106,42 @@
         <div class="panel">
           <h2>Errores recurrentes</h2>
           <div id="errorSummary" class="stack"></div>
+        </div>
+      </section>
+
+      <section id="faq" class="view">
+        <div class="panel">
+          <h2>Preguntas frecuentes</h2>
+          <div class="stack faq-list">
+            <details open>
+              <summary>¿Qué es Paruski?</summary>
+              <p>Paruski es una web estática para practicar ruso con clases, vocabulario, gramática, repaso activo, ejercicios y seguimiento de errores.</p>
+            </details>
+            <details>
+              <summary>¿Necesita servidor?</summary>
+              <p>No. La app está pensada para funcionar gratis en GitHub Pages. El guardado local funciona en el navegador y la sincronización con GitHub es opcional.</p>
+            </details>
+            <details>
+              <summary>¿Dónde se guarda mi progreso?</summary>
+              <p>Primero se guarda localmente en este navegador. También puedes exportar <code>progress.json</code> y <code>events.ndjson</code>. Si configuras sincronización, se copian archivos de progreso al repositorio.</p>
+            </details>
+            <details>
+              <summary>¿La clave de GitHub se sube al repositorio?</summary>
+              <p>No. La clave se introduce en el navegador. Por defecto se guarda solo en la sesión; si marcas “Recordar clave”, se guarda en este navegador. Nunca debe subirse al repositorio.</p>
+            </details>
+            <details>
+              <summary>¿Qué datos puede sincronizar?</summary>
+              <p>Progreso de aprendizaje, eventos de práctica, cola de repaso y resúmenes derivados. No deben subirse secretos, transcripciones originales ni datos personales innecesarios.</p>
+            </details>
+            <details>
+              <summary>¿Qué tipos de ejercicios admite?</summary>
+              <p>La base admite respuesta abierta y elección múltiple. El esquema está preparado para crecer con imágenes, audio, dictado, transcripción, comprensión oral y producción guiada.</p>
+            </details>
+            <details>
+              <summary>¿Por qué algunas clases no tienen repaso?</summary>
+              <p>La estructura de clases está preparada, pero no todas tienen aún ejercicios cargados. Las tarjetas indican cuántos ejercicios tiene cada clase.</p>
+            </details>
+          </div>
         </div>
       </section>
 
