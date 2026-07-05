@@ -6,12 +6,32 @@
   let noticeEl = null;
   let noticeTimer = null;
   let playSeq = 0;
+  let bankLoading = false;
+
+  function loadAudioBank() {
+    if (window.ParuskiAudioBank || bankLoading) return;
+    bankLoading = true;
+    const script = document.createElement('script');
+    script.src = 'assets/audio-bank.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
+  function playBank(text) {
+    const src = window.ParuskiAudioBank?.get?.(text);
+    if (!src) return false;
+    const audio = new Audio(src);
+    const p = audio.play();
+    if (p?.catch) p.catch(() => showNotice('El navegador ha bloqueado el audio interno. Pulsa “Escuchar” otra vez.', 'error'));
+    return true;
+  }
 
   function refreshVoices() {
     if (!('speechSynthesis' in window)) return;
     const voices = window.speechSynthesis.getVoices() || [];
     ruVoice = voices.find(voice => /^ru(-|_)?/i.test(voice.lang)) || voices.find(voice => /russian|рус/i.test(voice.name)) || null;
     voicesReady = voices.length > 0;
+    console.info('[Paruski audio] voces disponibles:', voices.map(v => v.name + ' [' + v.lang + ']'));
   }
 
   function showNotice(message, tone = 'warn') {
@@ -53,12 +73,9 @@
     const timer = window.setTimeout(() => {
       if (seq !== playSeq || started) return;
       try { window.speechSynthesis.cancel(); } catch {}
-      if (mode === 'ru') {
-        showNotice('La voz rusa local no ha arrancado. Reintento con la voz por defecto del sistema.');
-        speakWithMode(value, 'default', seq);
-      } else {
-        showNotice('El navegador no ha conseguido reproducir audio. Instala una voz de texto a voz en el sistema o prueba otro navegador.', 'error');
-      }
+      if (playBank(value)) return;
+      if (mode === 'ru') speakWithMode(value, 'default', seq);
+      else showNotice('No hay audio interno para esta palabra y el motor de voz del sistema no funciona.', 'error');
     }, 1600);
 
     utterance.onstart = () => {
@@ -67,15 +84,12 @@
       hideNotice();
     };
     utterance.onend = () => window.clearTimeout(timer);
-    utterance.onerror = event => {
+    utterance.onerror = () => {
       window.clearTimeout(timer);
       try { window.speechSynthesis.cancel(); } catch {}
-      if (mode === 'ru') {
-        showNotice('La voz rusa local ha fallado (' + (event.error || 'error desconocido') + '). Reintento con la voz por defecto.');
-        window.setTimeout(() => speakWithMode(value, 'default', seq), 0);
-      } else {
-        showNotice('No se pudo reproducir el audio (' + (event.error || 'error desconocido') + '). Instala voces de texto a voz o prueba otro navegador.', 'error');
-      }
+      if (playBank(value)) return;
+      if (mode === 'ru') window.setTimeout(() => speakWithMode(value, 'default', seq), 0);
+      else showNotice('No hay audio interno para esta palabra y el motor de voz del sistema no funciona.', 'error');
     };
 
     const synth = window.speechSynthesis;
@@ -92,18 +106,13 @@
   function speakRu(text) {
     const value = String(text || '').trim();
     if (!value) return false;
+    if (playBank(value)) return true;
     if (!('speechSynthesis' in window)) {
-      showNotice('Tu navegador no soporta voz integrada. Prueba con Chrome, Edge o Safari.', 'error');
+      showNotice('No hay audio interno para esta palabra y tu navegador no soporta voz integrada.', 'error');
       return false;
     }
-
     refreshVoices();
-    if (!voicesReady) {
-      showNotice('Las voces del navegador aún no están listas. Reintento automático en cuanto responda el motor.');
-    } else if (!ruVoice) {
-      showNotice('No encuentro una voz rusa instalada. Intento usar la voz por defecto del sistema.');
-    }
-
+    if (!voicesReady) showNotice('Las voces del navegador no están listas. Si falla, usaré audio interno cuando exista.');
     const seq = ++playSeq;
     speakWithMode(value, ruVoice ? 'ru' : 'default', seq);
     return true;
@@ -124,7 +133,8 @@
     speakRu(text);
   }
 
-  window.ParuskiAudio = { speakRu, refreshVoices };
+  window.ParuskiAudio = { speakRu, refreshVoices, playBank };
+  loadAudioBank();
   refreshVoices();
   if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = refreshVoices;
