@@ -1,0 +1,268 @@
+body.guided-redesign {
+  background:
+    radial-gradient(circle at top left, rgba(124, 92, 255, .22), transparent 28rem),
+    radial-gradient(circle at bottom right, rgba(34, 197, 94, .14), transparent 24rem),
+    var(--bg);
+}
+
+body.guided-redesign .topbar {
+  align-items: flex-start;
+  border-bottom: 0;
+  padding-bottom: 1rem;
+}
+
+body.guided-redesign .topbar h1 {
+  max-width: 920px;
+  font-size: clamp(2.4rem, 5vw, 5.2rem);
+  line-height: .95;
+  letter-spacing: -.06em;
+}
+
+body.guided-redesign .topbar .muted {
+  max-width: 760px;
+  font-size: 1.05rem;
+}
+
+body.guided-redesign .top-actions {
+  display: none;
+}
+
+body.guided-redesign .tabs {
+  display: none;
+}
+
+.guided-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  gap: .5rem;
+  padding: .7rem clamp(1rem, 2.5vw, 2rem);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(6, 12, 28, .9);
+  backdrop-filter: blur(18px);
+  overflow-x: auto;
+}
+
+.guided-nav button {
+  min-width: max-content;
+  border-radius: 999px;
+  padding: .8rem 1.05rem;
+}
+
+.guided-nav button.active {
+  color: white;
+  border-color: rgba(124, 92, 255, .85);
+  background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(59,130,246,.75));
+}
+
+body.guided-redesign #dashboard > :not(#guidedShell) {
+  display: none !important;
+}
+
+.guided-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.guided-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.guided-card-main,
+.guided-card-side,
+.guided-step,
+.guided-mini-card,
+.guided-principle {
+  border: 1px solid var(--line);
+  border-radius: 1.35rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
+}
+
+.guided-card-main {
+  padding: clamp(1.2rem, 2.6vw, 2rem);
+}
+
+.guided-card-main h2 {
+  margin: .35rem 0 .6rem;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.guided-card-side {
+  display: grid;
+  gap: .8rem;
+  padding: 1rem;
+}
+
+.guided-actions {
+  display: flex;
+  gap: .65rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.guided-actions button,
+.guided-primary {
+  font-size: 1rem;
+  padding: .9rem 1.05rem;
+}
+
+.guided-primary {
+  color: white;
+  border-color: transparent;
+  background: linear-gradient(135deg, #7c5cff, #22c55e);
+}
+
+.guided-plan {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .85rem;
+}
+
+.guided-step {
+  display: grid;
+  gap: .6rem;
+  padding: 1rem;
+}
+
+.guided-step strong {
+  font-size: 1.1rem;
+}
+
+.guided-step .step-number {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 999px;
+  color: white;
+  background: rgba(124, 92, 255, .75);
+  font-weight: 800;
+}
+
+.guided-progress-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.guided-mini-card {
+  padding: 1rem;
+}
+
+.guided-mini-card .value {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.guided-mini-card .label {
+  color: var(--muted);
+  margin-top: .3rem;
+}
+
+.guided-principles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.guided-principle {
+  padding: .9rem;
+}
+
+.guided-principle h3 {
+  margin: .2rem 0 .35rem;
+  font-size: 1rem;
+}
+
+body.guided-redesign .simple-focus-toggle {
+  display: none !important;
+}
+
+body.guided-redesign #review .panel,
+body.guided-redesign #learning .panel,
+body.guided-redesign #tracking .panel,
+body.guided-redesign #settings .panel,
+body.guided-redesign #method .panel {
+  border-radius: 1.35rem;
+}
+
+body.guided-redesign #generatedDrillsPanel {
+  border-color: rgba(124, 92, 255, .55);
+}
+
+body.guided-redesign #generatedDrillsPanel h2::before {
+  content: '🎯 ';
+}
+
+body.guided-redesign #vocabulary .panel,
+body.guided-redesign #grammar .panel {
+  border-radius: 1.35rem;
+}
+
+.guided-more {
+  margin-left: auto;
+}
+
+.guided-hidden-links {
+  position: absolute;
+  right: 1rem;
+  top: 100%;
+  min-width: 220px;
+  display: none;
+  padding: .5rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(8, 15, 32, .96);
+  box-shadow: var(--shadow);
+}
+
+.guided-more-wrap {
+  position: relative;
+  margin-left: auto;
+}
+
+.guided-more-wrap.open .guided-hidden-links {
+  display: grid;
+  gap: .35rem;
+}
+
+.guided-hidden-links button {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+}
+
+@media (max-width: 980px) {
+  .guided-hero,
+  .guided-plan,
+  .guided-progress-row,
+  .guided-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .guided-nav {
+    bottom: 0;
+    top: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding-bottom: calc(.7rem + env(safe-area-inset-bottom));
+  }
+
+  body.guided-redesign main {
+    padding-bottom: 6rem;
+  }
+
+  .guided-more-wrap {
+    margin-left: 0;
+  }
+}
