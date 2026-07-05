@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "id": "paruski-course-db",
+  "policy": "derived_learning_materials_only_no_transcript_fragments",
+  "languages": {
+    "ru": {
+      "name": "Ruso",
+      "native_name": "Русский",
+      "script": "Cyrl",
+      "speech_locale": "ru-RU",
+      "fields": {
+        "target": ["id", "language", "kind", "text", "translation", "stress_marked", "pronunciation", "stress_syllable", "lesson_refs", "tags", "importance", "difficulty"],
+        "example": ["id", "language", "text", "translation", "target_refs", "audio_text", "source"],
+        "grammar_rule": ["id", "language", "title", "definition", "examples", "tags", "difficulty"],
+        "level_goal": ["id", "title", "description", "required_correct", "required_accuracy", "target_kinds"]
+      }
+    }
+  },
+  "canonical_sources": {
+    "ru": {
+      "legacy_materials": "content/materials.json",
+      "legacy_aspect_materials": "content/materials-aspect.json",
+      "learning_notes": "content/learning-notes.json",
+      "static_exercises": "content/exercises.json"
+    }
+  },
+  "normalization": {
+    "target_id": "language + kind + normalized_text",
+    "example_id": "language + normalized_text",
+    "dedupe": ["language", "kind", "normalized_text"],
+    "notes": "linked_by_lesson_refs"
+  },
+  "levels": [
+    {
+      "id": "ru-a0-seed",
+      "title": "A0 · Primer contacto",
+      "description": "Reconocer y producir palabras frecuentes, saludos, pronombres y frases muy breves.",
+      "required_correct": 12,
+      "required_accuracy": 60,
+      "target_kinds": ["vocabulario", "patrón"]
+    },
+    {
+      "id": "ru-a1-core",
+      "title": "A1 · Base cotidiana",
+      "description": "Usar vocabulario básico, posesión, lugar, pasado simple y preguntas frecuentes.",
+      "required_correct": 45,
+      "required_accuracy": 70,
+      "target_kinds": ["vocabulario", "patrón"]
+    },
+    {
+      "id": "ru-a1-plus",
+      "title": "A1+ · Frases con casos",
+      "description": "Producir frases con acusativo, preposicional, genitivo básico y verbos comunes.",
+      "required_correct": 90,
+      "required_accuracy": 76,
+      "target_kinds": ["vocabulario", "patrón"]
+    },
+    {
+      "id": "ru-a2-aspect",
+      "title": "A2 inicial · Aspecto y matiz",
+      "description": "Distinguir procesos/resultados y elegir formas de aspecto verbal en contextos simples.",
+      "required_correct": 150,
+      "required_accuracy": 82,
+      "target_kinds": ["patrón"]
+    }
+  ],
+  "cards": [
+    {
+      "id": "ru-word-kniga",
+      "language": "ru",
+      "text": "книга",
+      "translation": "libro",
+      "stress_marked": "кни́га",
+      "pronunciation": "kni-ga",
+      "stress_syllable": "кни",
+      "tags": ["sustantivo", "femenino"]
+    },
+    {
+      "id": "ru-word-knigu",
+      "language": "ru",
+      "text": "книгу",
+      "translation": "libro en acusativo",
+      "stress_marked": "кни́гу",
+      "pronunciation": "kni-gu",
+      "stress_syllable": "кни",
+      "tags": ["sustantivo", "acusativo"]
+    },
+    {
+      "id": "ru-word-dom",
+      "language": "ru",
+      "text": "дом",
+      "translation": "casa",
+      "stress_marked": "дом",
+      "pronunciation": "dom",
+      "stress_syllable": "дом",
+      "tags": ["sustantivo"]
+    },
+    {
+      "id": "ru-word-rabota",
+      "language": "ru",
+      "text": "работа",
+      "translation": "trabajo",
+      "stress_marked": "рабо́та",
+      "pronunciation": "ra-bo-ta",
+      "stress_syllable": "бо",
+      "tags": ["sustantivo"]
+    },
+    {
+      "id": "ru-word-smotret",
+      "language": "ru",
+      "text": "смотреть",
+      "translation": "mirar / ver activamente",
+      "stress_marked": "смотре́ть",
+      "pronunciation": "sma-tret",
+      "stress_syllable": "реть",
+      "tags": ["verbo", "imperfectivo"]
+    },
+    {
+      "id": "ru-word-videt",
+      "language": "ru",
+      "text": "видеть",
+      "translation": "ver / percibir con la vista",
+      "stress_marked": "ви́деть",
+      "pronunciation": "vi-det",
+      "stress_syllable": "ви",
+      "tags": ["verbo", "imperfectivo"]
+    }
+  ]
+}
