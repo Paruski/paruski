@@ -87,3 +87,4 @@ window.addEventListener('DOMContentLoaded', attachKeyboard);
 loadSyncStyles();
 import('./sync-ui.js').catch(() => {});
 import('./advanced.js').catch(() => {});
+import('./aspect-ui.js').catch(() => {});
