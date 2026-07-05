@@ -1,4 +1,5 @@
 let learningLessons = [];
+let learningMaterials = [];
 
 if (document.readyState === 'loading') {
   window.addEventListener('DOMContentLoaded', initLearning);
@@ -8,7 +9,12 @@ if (document.readyState === 'loading') {
 
 async function initLearning() {
   addLearningTab();
-  learningLessons = await loadJson('content/lessons.json');
+  const data = await Promise.all([
+    loadJson('content/lessons.json'),
+    loadJson('content/materials.json').catch(() => ({ classes: [] }))
+  ]);
+  learningLessons = data[0];
+  learningMaterials = data[1].classes || [];
   renderLearningPicker();
   renderLearningLesson(learningLessons[0]?.id || 1);
 }
@@ -28,7 +34,7 @@ function addLearningTab() {
   const section = document.createElement('section');
   section.id = 'learning';
   section.className = 'view';
-  section.innerHTML = '<div class="panel"><div class="panel-head"><div><h2>Aprender por clase</h2><p class="muted">Contenido de estudio antes de practicar.</p></div><select id="learningLessonSelect"></select></div><div id="learningLessonContent" class="stack"></div></div>';
+  section.innerHTML = '<div class="panel"><div class="panel-head"><div><h2>Aprender por clase</h2><p class="muted">Contenido ruso de estudio antes de practicar.</p></div><select id="learningLessonSelect"></select></div><div id="learningLessonContent" class="stack"></div></div>';
   const lessons = document.getElementById('lessons');
   main.insertBefore(section, lessons?.nextSibling || null);
 }
@@ -40,6 +46,7 @@ function showLearning() {
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: 'no-store' });
+  if (!response.ok) throw new Error(path);
   return response.json();
 }
 
@@ -52,9 +59,16 @@ function renderLearningPicker() {
 
 function renderLearningLesson(id) {
   const lesson = learningLessons.find(item => Number(item.id) === Number(id));
+  const material = learningMaterials.find(item => Number(item.l) === Number(id)) || { v: [], g: [] };
   const box = document.getElementById('learningLessonContent');
   if (!lesson || !box) return;
-  box.innerHTML = '<article class="lesson-card"><span class="lesson-number">Clase ' + String(lesson.id).padStart(2, '0') + '</span><h3>' + escapeHtml(lesson.title) + '</h3><p>' + escapeHtml(lesson.summary) + '</p><p class="muted">Siguiente paso: practica esta clase en Repaso y consulta Vocabulario/Gramática para ver materiales relacionados.</p></article>';
+  const vocabHtml = material.v && material.v.length ? '<div class="tag-list">' + material.v.map(renderTag).join('') + '</div>' : '<p class="empty">Sin vocabulario ruso estructurado todavía.</p>';
+  const grammarHtml = material.g && material.g.length ? '<div class="tag-list">' + material.g.map(renderTag).join('') + '</div>' : '<p class="empty">Sin patrones gramaticales estructurados todavía.</p>';
+  box.innerHTML = '<article class="lesson-card"><span class="lesson-number">Clase ' + String(lesson.id).padStart(2, '0') + '</span><h3>' + escapeHtml(lesson.title) + '</h3><p>' + escapeHtml(lesson.summary) + '</p></article><article class="lesson-card"><h3>Vocabulario ruso</h3>' + vocabHtml + '</article><article class="lesson-card"><h3>Gramática y patrones</h3>' + grammarHtml + '</article>';
+}
+
+function renderTag(value) {
+  return '<span class="tag">' + escapeHtml(value) + '</span>';
 }
 
 function escapeHtml(value) {
