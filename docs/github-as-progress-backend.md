@@ -1,43 +1,52 @@
 # Progreso en el repositorio
 
-La web debe seguir funcionando en GitHub Pages gratuito. Por tanto, el repositorio actuara como almacenamiento de progreso, no un servidor externo obligatorio.
+La web debe seguir funcionando en GitHub Pages gratuito. El repositorio puede
+actuar como almacenamiento versionado de progreso, pero la app publicada no debe
+necesitar servidor ni guardar secretos en el navegador.
 
 ## Principio
 
 La aplicacion funciona primero en modo local:
 
 - carga contenido desde `content/`;
-- guarda progreso en el navegador;
-- calcula repaso localmente;
-- permite exportar datos.
+- guarda progreso y eventos en `localStorage`;
+- calcula repaso y cola futura localmente;
+- permite exportar e importar datos manualmente.
 
-Luego puede sincronizar con GitHub:
+La sincronizacion con GitHub se plantea como flujo manual y versionable:
 
-- lee `data/progress.json`;
-- anade eventos a `data/events.ndjson` o a ficheros por fecha;
-- actualiza `data/review-queue.json`;
-- guarda snapshots de resumen.
+- descargar `data/progress.json` desde la pestaña Nube;
+- descargar eventos en NDJSON para `data/events/YYYY-MM-DD.ndjson`;
+- descargar `data/review-queue.json`;
+- subir esos archivos mediante Git, la interfaz de GitHub o una sesion de Codex
+autenticada fuera de la web publicada.
 
 ## Seguridad
 
-La web publica no debe contener tokens. Para escribir en GitHub desde Pages solo hay dos opciones aceptables:
+La app estatica no debe pedir ni almacenar tokens de GitHub. No hay campo de
+clave, no hay autoguardado autenticado desde el navegador y no se escriben
+secretos en `localStorage`, `sessionStorage` ni en el repositorio.
 
-1. El usuario introduce un token de GitHub de permisos minimos, guardado localmente o solo en sesion.
-2. La app usa un flujo de autorizacion de GitHub sin servidor, si se configura mas adelante.
-
-Nunca se subira un token al repositorio.
+Si en el futuro se automatiza la sincronizacion, debe hacerse sin exponer
+secretos en GitHub Pages. Cualquier credencial o intercambio OAuth que requiera
+secreto debe vivir fuera de la web estatica, por ejemplo en una herramienta local
+o en un servicio opcional que no sea obligatorio para usar Paruski.
 
 ## Implicacion
 
-Como el repositorio es publico, cualquier progreso guardado en `data/` sera publico. Esto es aceptable solo porque se ha decidido que el progreso de ruso puede quedarse en el repo.
+Como el repositorio es publico, cualquier progreso guardado en `data/` sera
+publico. Esto solo es aceptable para progreso de aprendizaje de ruso que el
+usuario decida exportar y subir explicitamente.
 
 ## Archivos de progreso
 
 - `data/progress.json`: estado agregado.
-- `data/events.ndjson`: eventos de aprendizaje.
+- `data/events/YYYY-MM-DD.ndjson`: eventos de aprendizaje por fecha.
 - `data/review-queue.json`: cola de repaso calculada.
-- `data/summaries/`: resumenes periodicos.
+- `data/summaries/`: resumenes periodicos opcionales.
 
 ## Regla de diseno
 
-El repo es la fuente versionada. El navegador es la cache local. Si hay conflicto, la app debe avisar y no sobrescribir silenciosamente.
+El navegador es la cache local. El repositorio es una copia versionada opcional.
+La app no debe sobrescribir nada en GitHub automaticamente ni pedir credenciales
+para hacerlo desde Pages.

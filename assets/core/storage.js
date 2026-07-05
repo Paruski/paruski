@@ -3,9 +3,7 @@ import { makeEventId } from './utils.js';
 const STORAGE_KEYS = {
   progress: 'paruski.progress.v1',
   events: 'paruski.events.v1',
-  sync: 'paruski.githubSync.v1',
-  tokenSession: 'paruski.githubKey.session',
-  tokenLocal: 'paruski.githubKey.local'
+  sync: 'paruski.githubSync.v1'
 };
 
 const DEFAULT_PROGRESS = {
@@ -33,6 +31,7 @@ const DEFAULT_SYNC = {
 };
 
 export function createStorage() {
+  purgeLegacySecrets();
   return {
     keys: STORAGE_KEYS,
     defaultProgress: DEFAULT_PROGRESS,
@@ -43,9 +42,6 @@ export function createStorage() {
     appendEvent,
     loadSyncConfig,
     saveSyncConfig,
-    getToken,
-    saveToken,
-    forgetToken,
     downloadJson,
     downloadText,
     resetLocal
@@ -115,24 +111,6 @@ function saveSyncConfig(config) {
   return next;
 }
 
-function getToken() {
-  return sessionStorage.getItem(STORAGE_KEYS.tokenSession) || localStorage.getItem(STORAGE_KEYS.tokenLocal) || '';
-}
-
-function saveToken(token, remember = false) {
-  sessionStorage.removeItem(STORAGE_KEYS.tokenSession);
-  localStorage.removeItem(STORAGE_KEYS.tokenLocal);
-  const value = String(token || '').trim();
-  if (!value) return;
-  if (remember) localStorage.setItem(STORAGE_KEYS.tokenLocal, value);
-  else sessionStorage.setItem(STORAGE_KEYS.tokenSession, value);
-}
-
-function forgetToken() {
-  sessionStorage.removeItem(STORAGE_KEYS.tokenSession);
-  localStorage.removeItem(STORAGE_KEYS.tokenLocal);
-}
-
 function downloadJson(filename, data) {
   downloadText(filename, JSON.stringify(data, null, 2), 'application/json');
 }
@@ -148,10 +126,16 @@ function downloadText(filename, content, type = 'text/plain') {
 }
 
 function resetLocal() {
-  Object.values(STORAGE_KEYS).forEach(key => {
-    if (!key.includes('githubKey')) localStorage.removeItem(key);
-  });
-  sessionStorage.removeItem(STORAGE_KEYS.tokenSession);
+  Object.values(STORAGE_KEYS).forEach(key => localStorage.removeItem(key));
+  purgeLegacySecrets();
+}
+
+
+function purgeLegacySecrets() {
+  localStorage.removeItem('paruski.githubKey.local');
+  sessionStorage.removeItem('paruski.githubKey.session');
+  localStorage.removeItem('paruski.githubSync.autosync.v1');
+  sessionStorage.removeItem('paruski.githubSync.loadedThisSession.v1');
 }
 
 function readJson(key, fallback) {

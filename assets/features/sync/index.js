@@ -1,5 +1,4 @@
-import { fetchJsonFile, fetchTextFile, isNotFoundError, parseNdjson, putTextFile, toNdjson } from '../../github-sync.js';
-import { escapeHtml } from '../../core/utils.js';
+import { dayKey, escapeHtml } from '../../core/utils.js';
 
 const PROGRESS_PATH = 'data/progress.json';
 const REVIEW_QUEUE_PATH = 'data/review-queue.json';
@@ -11,124 +10,110 @@ export const syncFeature = {
   navMode: 'secondary',
   mount(container, context) {
     const config = context.storage.loadSyncConfig();
-    const token = context.storage.getToken();
+    const events = context.eventLog.all();
+    const today = todayKey();
     container.innerHTML = `
       <section class="sync-view">
         <div class="app-section-head">
           <p class="eyebrow">Repositorio</p>
-          <h2>Guardar progreso en GitHub</h2>
+          <h2>Exportar progreso sin claves</h2>
         </div>
         <div class="learning-card sync-panel-v2">
+          <p class="big-text">Paruski no guarda tokens ni claves de GitHub en el navegador. El progreso se queda local y, cuando quieras versionarlo, puedes descargar archivos listos para subirlos manualmente al repositorio.</p>
           <div class="sync-grid">
-            <label>Repositorio <input id="syncRepo" value="${escapeHtml(config.repoFullName)}"></label>
-            <label>Rama <input id="syncBranch" value="${escapeHtml(config.branch)}"></label>
-            <label>Clave GitHub <input id="syncToken" type="password" value="${escapeHtml(token)}" placeholder="Contents: Read and write"></label>
-            <label class="checkbox-row"><input id="rememberToken" type="checkbox" ${localStorage.getItem(context.storage.keys.tokenLocal) ? 'checked' : ''}> Recordar en este navegador</label>
+            <label>Repositorio <input id="syncRepo" value="${escapeHtml(config.repoFullName)}" autocomplete="off" spellcheck="false"></label>
+            <label>Rama <input id="syncBranch" value="${escapeHtml(config.branch)}" autocomplete="off" spellcheck="false"></label>
+          </div>
+          <div class="sync-paths" aria-label="Rutas sugeridas en el repositorio">
+            ${pathRow(PROGRESS_PATH, 'estado agregado')}
+            ${pathRow(`data/events/${today}.ndjson`, `${eventsForDate(events, today).length} evento(s) de hoy`)}
+            ${pathRow(REVIEW_QUEUE_PATH, 'cola de repaso calculada')}
           </div>
           <div class="sync-actions">
-            <button type="button" id="syncNow">Sincronizar ahora</button>
-            <button type="button" id="loadRemote" class="secondary">Cargar remoto</button>
-            <button type="button" id="forgetToken" class="secondary">Olvidar clave</button>
+            <button type="button" id="downloadProgress">Descargar progreso</button>
+            <button type="button" id="downloadTodayEvents" class="secondary">Descargar eventos de hoy</button>
+            <button type="button" id="downloadAllEvents" class="secondary">Descargar todos los eventos</button>
+            <button type="button" id="downloadQueue" class="secondary">Descargar cola de repaso</button>
           </div>
-          <p id="syncStatus" class="sync-status info">${config.lastSyncAt ? `Último sync: ${new Date(config.lastSyncAt).toLocaleString()}` : 'Sin sincronización todavía.'}</p>
+          <div class="sync-actions">
+            <button type="button" id="importProgress" class="secondary">Importar progreso JSON</button>
+            <input id="importProgressFile" type="file" accept="application/json,.json" hidden>
+          </div>
+          <p id="syncStatus" class="sync-status info">Guardado local activo. ${config.lastSyncAt ? `Última exportación: ${escapeHtml(new Date(config.lastSyncAt).toLocaleString())}.` : 'Sin exportación manual registrada todavía.'}</p>
         </div>
       </section>
     `;
-    container.querySelector('#syncNow')?.addEventListener('click', () => syncNow(container, context));
-    container.querySelector('#loadRemote')?.addEventListener('click', () => loadRemote(container, context));
-    container.querySelector('#forgetToken')?.addEventListener('click', () => {
-      context.storage.forgetToken();
-      context.showFeature('sync');
-    });
+
+    container.querySelector('#downloadProgress')?.addEventListener('click', () => downloadProgress(container, context));
+    container.querySelector('#downloadTodayEvents')?.addEventListener('click', () => downloadTodayEvents(container, context));
+    container.querySelector('#downloadAllEvents')?.addEventListener('click', () => downloadAllEvents(container, context));
+    container.querySelector('#downloadQueue')?.addEventListener('click', () => downloadReviewQueue(container, context));
+    container.querySelector('#importProgress')?.addEventListener('click', () => container.querySelector('#importProgressFile')?.click());
+    container.querySelector('#importProgressFile')?.addEventListener('change', event => importProgress(event, container, context));
   }
 };
 
-async function syncNow(container, context) {
+function downloadProgress(container, context) {
   const options = readOptions(container, context);
-  const status = container.querySelector('#syncStatus');
-  setStatus(status, 'Sincronizando...', 'info');
-  try {
-    const progress = context.learner.getProgress();
-    const events = context.eventLog.all();
-    await putJson(options, PROGRESS_PATH, progress, 'Sync learning progress');
-    for (const [date, dateEvents] of Object.entries(groupEventsByDate(events))) {
-      const path = `data/events/${date}.ndjson`;
-      const remote = await readRemoteText(options, path);
-      const merged = mergeEvents(parseNdjson(remote.content || ''), dateEvents);
-      await putTextFile({ ...options, path, sha: remote.sha, content: toNdjson(merged), message: `Sync learning events ${date}` });
-    }
-    await putJson(options, REVIEW_QUEUE_PATH, buildReviewQueue(context), 'Sync review queue');
-    context.storage.saveSyncConfig({ repoFullName: options.repoFullName, branch: options.branch, lastSyncAt: new Date().toISOString() });
-    setStatus(status, 'Sincronización completada.', 'ok');
-  } catch (error) {
-    setStatus(status, error.message, 'error');
-  }
+  const progress = context.learner.getProgress();
+  context.storage.downloadJson('progress.json', progress);
+  markExported(context, container, `Descargado ${PROGRESS_PATH}. Súbelo manualmente a ${options.repoFullName}:${options.branch}.`);
 }
 
-async function loadRemote(container, context) {
+function downloadTodayEvents(container, context) {
   const options = readOptions(container, context);
+  const today = todayKey();
+  const events = eventsForDate(context.eventLog.all(), today);
+  context.storage.downloadText(`events-${today}.ndjson`, toNdjson(events), 'application/x-ndjson');
+  markExported(context, container, `Descargado data/events/${today}.ndjson para ${options.repoFullName}:${options.branch}.`);
+}
+
+function downloadAllEvents(container, context) {
+  readOptions(container, context);
+  const events = context.eventLog.all();
+  context.storage.downloadText('events-all.ndjson', toNdjson(events), 'application/x-ndjson');
+  markExported(context, container, `Descargados ${events.length} evento(s) en NDJSON. Divide por fecha si quieres mantener data/events/YYYY-MM-DD.ndjson.`);
+}
+
+function downloadReviewQueue(container, context) {
+  const options = readOptions(container, context);
+  context.storage.downloadJson('review-queue.json', buildReviewQueue(context));
+  markExported(context, container, `Descargado ${REVIEW_QUEUE_PATH}. Súbelo manualmente a ${options.repoFullName}:${options.branch}.`);
+}
+
+async function importProgress(event, container, context) {
   const status = container.querySelector('#syncStatus');
-  setStatus(status, 'Cargando remoto...', 'info');
+  const file = event.target.files?.[0];
+  if (!file) return;
   try {
-    const remote = await fetchJsonFile({ ...options, path: PROGRESS_PATH });
-    context.storage.saveProgress({ ...context.learner.getProgress(), ...(remote.data || {}) });
-    setStatus(status, 'Progreso remoto cargado. Recargando...', 'ok');
+    const data = JSON.parse(await file.text());
+    if (!data || typeof data !== 'object') throw new Error('El archivo no contiene un objeto JSON de progreso.');
+    context.storage.saveProgress({ ...context.learner.getProgress(), ...data });
+    setStatus(status, 'Progreso importado. Recargando la app...', 'ok');
     window.setTimeout(() => location.reload(), 700);
   } catch (error) {
-    setStatus(status, error.message, 'error');
+    setStatus(status, error.message || 'No se pudo importar el progreso.', 'error');
+  } finally {
+    event.target.value = '';
   }
 }
 
 function readOptions(container, context) {
   const repoFullName = container.querySelector('#syncRepo')?.value.trim() || 'Paruski/paruski';
   const branch = container.querySelector('#syncBranch')?.value.trim() || 'main';
-  const secret = container.querySelector('#syncToken')?.value.trim();
-  const remember = container.querySelector('#rememberToken')?.checked;
   context.storage.saveSyncConfig({ repoFullName, branch });
-  context.storage.saveToken(secret, remember);
-  if (!secret) throw new Error('Introduce una clave de GitHub para escribir en el repositorio.');
-  return { repoFullName, branch, secret };
+  return { repoFullName, branch };
 }
 
-async function putJson(options, path, data, message) {
-  const remote = await fetchJsonFile({ ...options, path }).catch(error => {
-    if (isNotFoundError(error)) return { sha: null, data: null };
-    throw error;
-  });
-  return putTextFile({
-    ...options,
-    path,
-    sha: remote.sha,
-    content: JSON.stringify(data, null, 2) + '\n',
-    message
-  });
-}
-
-async function readRemoteText(options, path) {
-  return fetchTextFile({ ...options, path }).catch(error => {
-    if (isNotFoundError(error)) return { content: '', sha: null };
-    throw error;
-  });
-}
-
-function groupEventsByDate(events) {
-  return (events || []).reduce((groups, event) => {
-    const date = String(event.timestamp || new Date().toISOString()).slice(0, 10);
-    groups[date] = groups[date] || [];
-    groups[date].push(event);
-    return groups;
-  }, {});
-}
-
-function mergeEvents(remote, local) {
-  const map = new Map();
-  [...(remote || []), ...(local || [])].forEach(event => map.set(event.event_id, event));
-  return [...map.values()].sort((left, right) => String(left.timestamp).localeCompare(String(right.timestamp)));
+function markExported(context, container, message) {
+  const config = context.storage.loadSyncConfig();
+  context.storage.saveSyncConfig({ ...config, lastSyncAt: new Date().toISOString() });
+  setStatus(container.querySelector('#syncStatus'), message, 'ok');
 }
 
 function buildReviewQueue(context) {
   return {
-    version: 2,
+    version: 3,
     updated_at: new Date().toISOString(),
     due: context.learner.dueTargets().slice(0, 40).map(target => ({
       target_id: target.id,
@@ -138,6 +123,23 @@ function buildReviewQueue(context) {
       state: context.learner.getTargetState(target.id)
     }))
   };
+}
+
+function eventsForDate(events, date) {
+  return (events || []).filter(event => dayKey(event.timestamp) === date);
+}
+
+function todayKey() {
+  return dayKey(new Date());
+}
+
+function toNdjson(records) {
+  const lines = (records || []).map(record => JSON.stringify(record));
+  return lines.length ? `${lines.join('\n')}\n` : '';
+}
+
+function pathRow(path, note) {
+  return `<div><code>${escapeHtml(path)}</code><span>${escapeHtml(note)}</span></div>`;
 }
 
 function setStatus(node, message, kind) {
