@@ -1,4 +1,4 @@
-const CACHE_NAME = 'paruski-v24';
+const CACHE_NAME = 'paruski-v25';
 const ASSETS = [
   './',
   './index.html',
