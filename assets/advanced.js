@@ -10,6 +10,7 @@
   function loadLearning() {
     loadScript('assets/learning.js');
     loadScript('assets/materials-ui.js');
+    loadScript('assets/material-study.js');
   }
 
   if (document.readyState === 'loading') {
