@@ -1,4 +1,4 @@
-const CACHE_NAME = 'paruski-v26';
+const CACHE_NAME = 'paruski-v27';
 const ASSETS = [
   './',
   './index.html',
@@ -38,6 +38,7 @@ const ASSETS = [
   './content/learning-notes.json',
   './content/guided-path.json',
   './content/paruski-db.json',
+  './content/audio-index.json',
   './manifest.webmanifest'
 ];
 
