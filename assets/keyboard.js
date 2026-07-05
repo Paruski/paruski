@@ -88,3 +88,5 @@ loadSyncStyles();
 import('./sync-ui.js').catch(() => {});
 import('./advanced.js').catch(() => {});
 import('./aspect-ui.js').catch(() => {});
+import('./notes-ui.js').catch(() => {});
+import('./drills-ui.js').catch(() => {});
