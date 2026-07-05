@@ -1,11 +1,17 @@
 (function () {
-  function loadLearning() {
-    if (document.querySelector('script[src="assets/learning.js"]')) return;
+  function loadScript(src) {
+    if (document.querySelector('script[src="' + src + '"]')) return;
     var script = document.createElement('script');
-    script.src = 'assets/learning.js';
+    script.src = src;
     script.defer = true;
     document.head.appendChild(script);
   }
+
+  function loadLearning() {
+    loadScript('assets/learning.js');
+    loadScript('assets/materials-ui.js');
+  }
+
   if (document.readyState === 'loading') {
     window.addEventListener('DOMContentLoaded', loadLearning);
   } else {
