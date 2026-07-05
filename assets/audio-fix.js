@@ -20,7 +20,8 @@
     utterance.pitch = 1;
     if (ruVoice) utterance.voice = ruVoice;
     window.speechSynthesis.cancel();
-    window.setTimeout(() => window.speechSynthesis.speak(utterance), 30);
+    window.speechSynthesis.resume();
+    window.speechSynthesis.speak(utterance);
     return true;
   }
 
