@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "policy": "guided_learning_content_only_no_transcript_fragments",
+  "hero": {
+    "eyebrow": "Sesión de hoy",
+    "title": "Un paso pequeño, ruso real.",
+    "subtitle": "Trabaja 10 minutos: entiende una idea, recupérala sin mirar, produce ruso, corrige el error y deja que el repaso vuelva cuando toque.",
+    "primaryAction": "Empezar práctica",
+    "secondaryAction": "Aprender antes",
+    "progressAction": "Ver progreso"
+  },
+  "today": {
+    "title": "Objetivo recomendado",
+    "duration": "10 minutos",
+    "text": "No intentes cubrir muchas clases. Una sesión buena tiene pocas piezas, respuesta activa y feedback inmediato.",
+    "promise": "Al terminar deberías recordar algo sin mirar, no sólo reconocerlo al verlo."
+  },
+  "journey": [
+    {
+      "step": 1,
+      "title": "Entiende",
+      "body": "Lee una explicación corta y escucha ejemplos. El objetivo es saber qué significa el patrón y cuándo se usa.",
+      "action": "Aprender",
+      "view": "learning"
+    },
+    {
+      "step": 2,
+      "title": "Recuerda",
+      "body": "Haz ejercicios sin mirar la respuesta. Escribir, escuchar y completar obliga a recuperar de memoria.",
+      "action": "Practicar",
+      "view": "review"
+    },
+    {
+      "step": 3,
+      "title": "Corrige",
+      "body": "Lee el feedback, repite la forma correcta en voz alta y deja marcada la dificultad para el próximo repaso.",
+      "action": "Seguimiento",
+      "view": "tracking"
+    }
+  ],
+  "sessionRecipe": {
+    "title": "Qué hacer ahora",
+    "items": [
+      "Escucha 3 ejemplos rusos y repítelos en voz alta.",
+      "Escribe 5 respuestas sin mirar la solución.",
+      "Corrige los fallos copiando la forma correcta una vez.",
+      "Para antes de saturarte: mañana el repaso será más útil."
+    ]
+  },
+  "principles": [
+    {
+      "tag": "ciencia",
+      "title": "Recuperación",
+      "body": "Recordar desde cero fortalece más que releer listas. Por eso la práctica pide escribir o elegir antes de ver la respuesta."
+    },
+    {
+      "tag": "memoria",
+      "title": "Espaciado",
+      "body": "Lo que fallas vuelve antes. Lo que aciertas se retrasa. El objetivo es repasar justo antes de olvidar."
+    },
+    {
+      "tag": "uso",
+      "title": "Producción",
+      "body": "Aprender ruso exige producir ruso: escribirlo, oírlo, repetirlo y reconocerlo dentro de frases."
+    },
+    {
+      "tag": "mezcla",
+      "title": "Intercalado",
+      "body": "Mezclar vocabulario, patrones, escucha y escritura evita aprender por rutina y mejora la elección del caso o aspecto."
+    },
+    {
+      "tag": "feedback",
+      "title": "Corrección",
+      "body": "Un error no es fracaso: es una señal concreta de qué forma necesita más repaso."
+    }
+  ],
+  "qualityChecklist": {
+    "title": "Una práctica buena se nota así",
+    "items": [
+      "La pregunta te obliga a pensar en ruso, no en números de clase.",
+      "Ves o escuchas frases reales, no etiquetas administrativas.",
+      "Recibes la forma esperada y puedes repetirla.",
+      "El error queda registrado para decidir el siguiente repaso.",
+      "La sesión es corta, variada y acabable."
+    ]
+  },
+  "sections": {
+    "learn": "Aprender muestra explicaciones y ejemplos antes de practicar. No es un índice: es el calentamiento de memoria.",
+    "practice": "Practicar usa recuperación activa: escuchar-escribir, completar, reconocer ejemplos y copiar formas rusas.",
+    "progress": "Progreso responde a: qué hice hoy, qué fallé, cuándo vuelvo y qué debo repasar mañana.",
+    "data": "Datos y GitHub son secundarios: sirven para guardar, no para aprender."
+  }
+}
