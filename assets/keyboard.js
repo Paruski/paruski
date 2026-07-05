@@ -91,3 +91,5 @@ import('./aspect-ui.js').catch(() => {});
 import('./notes-ui.js').catch(() => {});
 import('./drills-ui.js').catch(() => {});
 import('./simple-ui.js').catch(() => {});
+import('./tabs-fix-ui.js').catch(() => {});
+import('./methodology-ui.js').catch(() => {});
