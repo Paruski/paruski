@@ -85,6 +85,7 @@ const observer = new MutationObserver(attachKeyboard);
 observer.observe(document.body, { childList: true, subtree: true });
 window.addEventListener('DOMContentLoaded', attachKeyboard);
 loadSyncStyles();
+import('./content-db.js').catch(() => {});
 import('./sync-ui.js').catch(() => {});
 import('./advanced.js').catch(() => {});
 import('./aspect-ui.js').catch(() => {});
