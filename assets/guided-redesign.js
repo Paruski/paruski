@@ -5,19 +5,63 @@ const GUIDED_KEYS = {
   journal: 'paruski.journal.v1'
 };
 
+const DEFAULT_GUIDED_CONTENT = {
+  hero: {
+    eyebrow: 'Sesión de hoy',
+    title: 'Un paso pequeño, ruso real.',
+    subtitle: 'Trabaja 10 minutos: entiende una idea, recupérala sin mirar, produce ruso, corrige el error y deja que el repaso vuelva cuando toque.',
+    primaryAction: 'Empezar práctica',
+    secondaryAction: 'Aprender antes',
+    progressAction: 'Ver progreso'
+  },
+  today: {
+    title: 'Objetivo recomendado',
+    duration: '10 minutos',
+    text: 'Una sesión buena tiene pocas piezas, respuesta activa y feedback inmediato.',
+    promise: 'Al terminar deberías recordar algo sin mirar.'
+  },
+  journey: [
+    { step: 1, title: 'Entiende', body: 'Lee una explicación corta y escucha ejemplos.', action: 'Aprender', view: 'learning' },
+    { step: 2, title: 'Recuerda', body: 'Haz ejercicios sin mirar la respuesta.', action: 'Practicar', view: 'review' },
+    { step: 3, title: 'Corrige', body: 'Repite la forma correcta y deja programado el repaso.', action: 'Seguimiento', view: 'tracking' }
+  ],
+  sessionRecipe: { title: 'Qué hacer ahora', items: ['Escucha 3 ejemplos rusos.', 'Escribe 5 respuestas sin mirar.', 'Corrige los fallos copiando la forma correcta.', 'Para antes de saturarte.'] },
+  principles: [
+    { tag: 'ciencia', title: 'Recuperación', body: 'Recordar fortalece más que releer.' },
+    { tag: 'memoria', title: 'Espaciado', body: 'Lo difícil vuelve antes; lo sabido espera.' },
+    { tag: 'uso', title: 'Producción', body: 'Escribes y escuchas ruso real.' },
+    { tag: 'mezcla', title: 'Intercalado', body: 'No haces siempre el mismo tipo.' },
+    { tag: 'feedback', title: 'Corrección', body: 'Cada error indica qué repasar.' }
+  ],
+  qualityChecklist: { title: 'Una práctica buena se nota así', items: ['Piensas en ruso, no en números de clase.', 'Trabajas con frases reales.', 'Ves la forma esperada.', 'El error queda registrado.', 'La sesión es corta y acabable.'] }
+};
+
+let guidedContent = DEFAULT_GUIDED_CONTENT;
+
 if (document.readyState === 'loading') {
   window.addEventListener('DOMContentLoaded', initGuidedRedesign);
 } else {
   initGuidedRedesign();
 }
 
-function initGuidedRedesign() {
+async function initGuidedRedesign() {
+  guidedContent = await loadGuidedContent();
   document.body.classList.add('guided-redesign');
   rewriteHeader();
   mountGuidedNav();
   mountGuidedHome();
   refreshGuidedHome();
   window.setInterval(refreshGuidedHome, 10000);
+}
+
+async function loadGuidedContent() {
+  try {
+    const response = await fetch('content/guided-path.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('guided path');
+    return { ...DEFAULT_GUIDED_CONTENT, ...(await response.json()) };
+  } catch {
+    return DEFAULT_GUIDED_CONTENT;
+  }
 }
 
 function rewriteHeader() {
@@ -65,12 +109,38 @@ function mountGuidedHome() {
   const shell = document.createElement('section');
   shell.id = 'guidedShell';
   shell.className = 'guided-shell';
-  shell.innerHTML = '<div class="guided-hero"><article class="guided-card-main"><p class="eyebrow">Sesión de hoy</p><h2>Un paso pequeño, ruso real.</h2><p class="muted">Haz una sesión corta: aprende un bloque, produce ruso, corrige errores y deja que el sistema programe el repaso.</p><div class="guided-actions"><button type="button" class="guided-primary" data-guided-view="review">Empezar práctica</button><button type="button" class="secondary" data-guided-view="learning">Ver explicación</button><button type="button" class="secondary" data-guided-view="tracking">Ver progreso</button></div></article><aside class="guided-card-side"><h3>Objetivo recomendado</h3><p class="muted">10 minutos. No estudies todo de golpe: recuperación activa + descanso + repaso.</p><div id="guidedTodayStats"></div></aside></div><div class="guided-plan"><article class="guided-step"><span class="step-number">1</span><strong>Entiende</strong><p class="muted">Mira una explicación y escucha ejemplos.</p><button type="button" class="secondary" data-guided-view="learning">Aprender</button></article><article class="guided-step"><span class="step-number">2</span><strong>Recuerda</strong><p class="muted">Escribe o elige sin mirar la respuesta.</p><button type="button" class="secondary" data-guided-view="review">Practicar</button></article><article class="guided-step"><span class="step-number">3</span><strong>Corrige</strong><p class="muted">Mira qué falló y vuelve mañana.</p><button type="button" class="secondary" data-guided-view="tracking">Seguimiento</button></article></div><div id="guidedProgressRow" class="guided-progress-row"></div><section class="guided-principles"><article class="guided-principle"><span class="tag">ciencia</span><h3>Recuperación</h3><p class="muted">Recordar fortalece más que releer.</p></article><article class="guided-principle"><span class="tag">memoria</span><h3>Espaciado</h3><p class="muted">Lo difícil vuelve antes; lo sabido espera.</p></article><article class="guided-principle"><span class="tag">uso</span><h3>Producción</h3><p class="muted">Escribes y escuchas ruso real.</p></article><article class="guided-principle"><span class="tag">mezcla</span><h3>Intercalado</h3><p class="muted">No haces siempre el mismo tipo.</p></article><article class="guided-principle"><span class="tag">feedback</span><h3>Corrección</h3><p class="muted">Cada error indica qué repasar.</p></article></section>';
+  shell.innerHTML = renderHero() + renderJourney() + '<div id="guidedProgressRow" class="guided-progress-row"></div>' + renderSessionRecipe() + renderPrinciples() + renderQualityChecklist();
   dashboard.prepend(shell);
   shell.addEventListener('click', event => {
     const button = event.target.closest?.('[data-guided-view]');
     if (button) goToView(button.dataset.guidedView);
   });
+}
+
+function renderHero() {
+  const hero = guidedContent.hero || DEFAULT_GUIDED_CONTENT.hero;
+  const today = guidedContent.today || DEFAULT_GUIDED_CONTENT.today;
+  return '<div class="guided-hero"><article class="guided-card-main"><p class="eyebrow">' + safe(hero.eyebrow) + '</p><h2>' + safe(hero.title) + '</h2><p class="muted">' + safe(hero.subtitle) + '</p><div class="guided-actions"><button type="button" class="guided-primary" data-guided-view="review">' + safe(hero.primaryAction) + '</button><button type="button" class="secondary" data-guided-view="learning">' + safe(hero.secondaryAction) + '</button><button type="button" class="secondary" data-guided-view="tracking">' + safe(hero.progressAction) + '</button></div></article><aside class="guided-card-side"><h3>' + safe(today.title) + '</h3><p class="guided-duration">' + safe(today.duration) + '</p><p class="muted">' + safe(today.text) + '</p><p class="muted"><strong>' + safe(today.promise) + '</strong></p><div id="guidedTodayStats"></div></aside></div>';
+}
+
+function renderJourney() {
+  const steps = guidedContent.journey || DEFAULT_GUIDED_CONTENT.journey;
+  return '<div class="guided-plan">' + steps.map(step => '<article class="guided-step"><span class="step-number">' + safe(step.step) + '</span><strong>' + safe(step.title) + '</strong><p class="muted">' + safe(step.body) + '</p><button type="button" class="secondary" data-guided-view="' + safe(step.view) + '">' + safe(step.action) + '</button></article>').join('') + '</div>';
+}
+
+function renderSessionRecipe() {
+  const recipe = guidedContent.sessionRecipe || DEFAULT_GUIDED_CONTENT.sessionRecipe;
+  return '<section class="guided-recipe"><div><p class="eyebrow">micro-sesión</p><h2>' + safe(recipe.title) + '</h2></div><ol>' + (recipe.items || []).map(item => '<li>' + safe(item) + '</li>').join('') + '</ol></section>';
+}
+
+function renderPrinciples() {
+  const principles = guidedContent.principles || DEFAULT_GUIDED_CONTENT.principles;
+  return '<section class="guided-principles">' + principles.map(item => '<article class="guided-principle"><span class="tag">' + safe(item.tag) + '</span><h3>' + safe(item.title) + '</h3><p class="muted">' + safe(item.body) + '</p></article>').join('') + '</section>';
+}
+
+function renderQualityChecklist() {
+  const checklist = guidedContent.qualityChecklist || DEFAULT_GUIDED_CONTENT.qualityChecklist;
+  return '<section class="guided-checklist"><div><p class="eyebrow">calidad</p><h2>' + safe(checklist.title) + '</h2></div><ul>' + (checklist.items || []).map(item => '<li>' + safe(item) + '</li>').join('') + '</ul></section>';
 }
 
 function refreshGuidedHome() {
