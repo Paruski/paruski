@@ -1,5 +1,6 @@
 (() => {
   const RU_LANG = 'ru-RU';
+  const AUDIO_INDEX_PATH = 'content/audio-index.json';
   let voicesReady = false;
   let ruVoice = null;
   let lastUtterance = null;
@@ -7,6 +8,24 @@
   let noticeTimer = null;
   let playSeq = 0;
   let bankLoading = false;
+  let audioIndexReady = false;
+  let audioIndex = new Map();
+
+  function normalize(text) {
+    return String(text || '').trim().toLowerCase().replace(/[?.!¿¡,;:«»“”"']/g, '').replace(/\s+/g, ' ');
+  }
+
+  async function loadAudioIndex() {
+    try {
+      const response = await fetch(AUDIO_INDEX_PATH, { cache: 'no-store' });
+      if (!response.ok) throw new Error(AUDIO_INDEX_PATH);
+      const data = await response.json();
+      audioIndex = new Map((data.entries || []).filter(entry => entry.audio_path).map(entry => [normalize(entry.text || entry.normalized_text), entry]));
+      audioIndexReady = true;
+    } catch (error) {
+      console.warn('[Paruski audio] No se pudo cargar audio-index.json', error);
+    }
+  }
 
   function loadAudioBank() {
     if (window.ParuskiAudioBank || bankLoading) return;
@@ -17,13 +36,23 @@
     document.head.appendChild(script);
   }
 
+  function playAudioSrc(src, failureMessage) {
+    const audio = new Audio(src);
+    const p = audio.play();
+    if (p?.catch) p.catch(() => showNotice(failureMessage, 'error'));
+    return true;
+  }
+
+  function playIndexed(text) {
+    const entry = audioIndex.get(normalize(text));
+    if (!entry?.audio_path) return false;
+    return playAudioSrc(entry.audio_path, 'El navegador ha bloqueado el audio del curso. Pulsa “Escuchar” otra vez.');
+  }
+
   function playBank(text) {
     const src = window.ParuskiAudioBank?.get?.(text);
     if (!src) return false;
-    const audio = new Audio(src);
-    const p = audio.play();
-    if (p?.catch) p.catch(() => showNotice('El navegador ha bloqueado el audio interno. Pulsa “Escuchar” otra vez.', 'error'));
-    return true;
+    return playAudioSrc(src, 'El navegador ha bloqueado el audio interno. Pulsa “Escuchar” otra vez.');
   }
 
   function refreshVoices() {
@@ -73,9 +102,9 @@
     const timer = window.setTimeout(() => {
       if (seq !== playSeq || started) return;
       try { window.speechSynthesis.cancel(); } catch {}
-      if (playBank(value)) return;
+      if (playIndexed(value) || playBank(value)) return;
       if (mode === 'ru') speakWithMode(value, 'default', seq);
-      else showNotice('No hay audio interno para esta palabra y el motor de voz del sistema no funciona.', 'error');
+      else showNotice('No hay audio grabado para esta palabra y el motor de voz del sistema no funciona.', 'error');
     }, 1600);
 
     utterance.onstart = () => {
@@ -87,9 +116,9 @@
     utterance.onerror = () => {
       window.clearTimeout(timer);
       try { window.speechSynthesis.cancel(); } catch {}
-      if (playBank(value)) return;
+      if (playIndexed(value) || playBank(value)) return;
       if (mode === 'ru') window.setTimeout(() => speakWithMode(value, 'default', seq), 0);
-      else showNotice('No hay audio interno para esta palabra y el motor de voz del sistema no funciona.', 'error');
+      else showNotice('No hay audio grabado para esta palabra y el motor de voz del sistema no funciona.', 'error');
     };
 
     const synth = window.speechSynthesis;
@@ -106,13 +135,14 @@
   function speakRu(text) {
     const value = String(text || '').trim();
     if (!value) return false;
-    if (playBank(value)) return true;
+    if (playIndexed(value) || playBank(value)) return true;
+    if (!audioIndexReady) loadAudioIndex().then(() => { if (playIndexed(value)) return; });
     if (!('speechSynthesis' in window)) {
-      showNotice('No hay audio interno para esta palabra y tu navegador no soporta voz integrada.', 'error');
+      showNotice('No hay audio grabado para esta palabra y tu navegador no soporta voz integrada.', 'error');
       return false;
     }
     refreshVoices();
-    if (!voicesReady) showNotice('Las voces del navegador no están listas. Si falla, usaré audio interno cuando exista.');
+    if (!voicesReady) showNotice('Las voces del navegador no están listas. Si falla, usaré audio grabado cuando exista.');
     const seq = ++playSeq;
     speakWithMode(value, ruVoice ? 'ru' : 'default', seq);
     return true;
@@ -133,7 +163,8 @@
     speakRu(text);
   }
 
-  window.ParuskiAudio = { speakRu, refreshVoices, playBank };
+  window.ParuskiAudio = { speakRu, refreshVoices, playBank, playIndexed, loadAudioIndex };
+  loadAudioIndex();
   loadAudioBank();
   refreshVoices();
   if ('speechSynthesis' in window) {
