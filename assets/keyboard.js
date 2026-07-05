@@ -86,3 +86,4 @@ observer.observe(document.body, { childList: true, subtree: true });
 window.addEventListener('DOMContentLoaded', attachKeyboard);
 loadSyncStyles();
 import('./sync-ui.js').catch(() => {});
+import('./advanced.js').catch(() => {});
