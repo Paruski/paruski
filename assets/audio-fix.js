@@ -5,6 +5,7 @@
   let lastUtterance = null;
   let noticeEl = null;
   let noticeTimer = null;
+  let playSeq = 0;
 
   function refreshVoices() {
     if (!('speechSynthesis' in window)) return;
@@ -27,7 +28,65 @@
     noticeEl.textContent = message;
     noticeEl.style.display = 'block';
     clearTimeout(noticeTimer);
-    noticeTimer = window.setTimeout(() => { if (noticeEl) noticeEl.style.display = 'none'; }, 6500);
+    noticeTimer = window.setTimeout(() => { if (noticeEl) noticeEl.style.display = 'none'; }, 7000);
+  }
+
+  function hideNotice() {
+    if (noticeEl) noticeEl.style.display = 'none';
+  }
+
+  function makeUtterance(value, mode) {
+    const utterance = new SpeechSynthesisUtterance(value);
+    utterance.rate = mode === 'default' ? 0.78 : 0.88;
+    utterance.pitch = 1;
+    if (mode === 'ru') {
+      utterance.lang = RU_LANG;
+      if (ruVoice) utterance.voice = ruVoice;
+    }
+    return utterance;
+  }
+
+  function speakWithMode(value, mode, seq) {
+    const utterance = makeUtterance(value, mode);
+    lastUtterance = utterance;
+    let started = false;
+    const timer = window.setTimeout(() => {
+      if (seq !== playSeq || started) return;
+      try { window.speechSynthesis.cancel(); } catch {}
+      if (mode === 'ru') {
+        showNotice('La voz rusa local no ha arrancado. Reintento con la voz por defecto del sistema.');
+        speakWithMode(value, 'default', seq);
+      } else {
+        showNotice('El navegador no ha conseguido reproducir audio. Instala una voz de texto a voz en el sistema o prueba otro navegador.', 'error');
+      }
+    }, 1600);
+
+    utterance.onstart = () => {
+      started = true;
+      window.clearTimeout(timer);
+      hideNotice();
+    };
+    utterance.onend = () => window.clearTimeout(timer);
+    utterance.onerror = event => {
+      window.clearTimeout(timer);
+      try { window.speechSynthesis.cancel(); } catch {}
+      if (mode === 'ru') {
+        showNotice('La voz rusa local ha fallado (' + (event.error || 'error desconocido') + '). Reintento con la voz por defecto.');
+        window.setTimeout(() => speakWithMode(value, 'default', seq), 0);
+      } else {
+        showNotice('No se pudo reproducir el audio (' + (event.error || 'error desconocido') + '). Instala voces de texto a voz o prueba otro navegador.', 'error');
+      }
+    };
+
+    const synth = window.speechSynthesis;
+    const wasBusy = synth.speaking || synth.pending;
+    try { synth.resume(); } catch {}
+    if (wasBusy) {
+      synth.cancel();
+      window.setTimeout(() => { if (seq === playSeq) synth.speak(utterance); }, 0);
+    } else {
+      synth.speak(utterance);
+    }
   }
 
   function speakRu(text) {
@@ -40,33 +99,13 @@
 
     refreshVoices();
     if (!voicesReady) {
-      showNotice('Las voces del navegador aún no están listas. Pulsa “Escuchar” otra vez dentro de un segundo.');
+      showNotice('Las voces del navegador aún no están listas. Reintento automático en cuanto responda el motor.');
     } else if (!ruVoice) {
-      showNotice('No encuentro una voz rusa instalada. Se usará la voz por defecto del navegador o del sistema.');
+      showNotice('No encuentro una voz rusa instalada. Intento usar la voz por defecto del sistema.');
     }
 
-    const utterance = new SpeechSynthesisUtterance(value);
-    utterance.lang = RU_LANG;
-    utterance.rate = 0.88;
-    utterance.pitch = 1;
-    if (ruVoice) utterance.voice = ruVoice;
-    utterance.onerror = event => {
-      showNotice('No se pudo reproducir el audio (' + (event.error || 'error desconocido') + '). Recarga la página o prueba otro navegador.', 'error');
-    };
-    utterance.onstart = () => {
-      if (noticeEl) noticeEl.style.display = 'none';
-    };
-    lastUtterance = utterance;
-
-    const synth = window.speechSynthesis;
-    const wasBusy = synth.speaking || synth.pending;
-    synth.resume();
-    if (wasBusy) {
-      synth.cancel();
-      window.setTimeout(() => synth.speak(utterance), 0);
-    } else {
-      synth.speak(utterance);
-    }
+    const seq = ++playSeq;
+    speakWithMode(value, ruVoice ? 'ru' : 'default', seq);
     return true;
   }
 
