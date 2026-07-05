@@ -4,58 +4,15 @@
   "language": "ru",
   "mime_default": "audio/mpeg",
   "generator": "espeak ru voice via offline build step",
+  "storage_strategy": "static audio assets indexed by normalized text; current bootstrap audio is embedded in assets/audio-bank.js and future entries should move to content/audio/ru/*.mp3.b64 or binary audio files if repository tooling allows it",
   "entries": [
     {
       "id": "ru-audio-chelovek",
       "text": "человек",
       "normalized_text": "человек",
-      "audio_path": "content/audio/ru/chelovek.mp3.b64",
+      "storage": "assets/audio-bank.js",
       "mime": "audio/mpeg",
       "duration_ms": 1010,
-      "voice": "espeak-ru",
-      "source": "generated_static",
-      "preload": true
-    },
-    {
-      "id": "ru-audio-eto-chay",
-      "text": "Это чай.",
-      "normalized_text": "это чай",
-      "audio_path": "content/audio/ru/eto-chay.mp3.b64",
-      "mime": "audio/mpeg",
-      "duration_ms": 1111,
-      "voice": "espeak-ru",
-      "source": "generated_static",
-      "preload": true
-    },
-    {
-      "id": "ru-audio-eto-ne-kofe",
-      "text": "Это не кофе.",
-      "normalized_text": "это не кофе",
-      "audio_path": "content/audio/ru/eto-ne-kofe.mp3.b64",
-      "mime": "audio/mpeg",
-      "duration_ms": 1202,
-      "voice": "espeak-ru",
-      "source": "generated_static",
-      "preload": true
-    },
-    {
-      "id": "ru-audio-kto-eto",
-      "text": "Кто это?",
-      "normalized_text": "кто это",
-      "audio_path": "content/audio/ru/kto-eto.mp3.b64",
-      "mime": "audio/mpeg",
-      "duration_ms": 1136,
-      "voice": "espeak-ru",
-      "source": "generated_static",
-      "preload": true
-    },
-    {
-      "id": "ru-audio-chto-eto",
-      "text": "Что это?",
-      "normalized_text": "что это",
-      "audio_path": "content/audio/ru/chto-eto.mp3.b64",
-      "mime": "audio/mpeg",
-      "duration_ms": 956,
       "voice": "espeak-ru",
       "source": "generated_static",
       "preload": true
