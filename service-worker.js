@@ -1,9 +1,10 @@
-const CACHE_NAME = 'paruski-v18';
+const CACHE_NAME = 'paruski-v19';
 const ASSETS = [
   './',
   './index.html',
   './assets/styles.css',
   './assets/keyboard.css',
+  './assets/guided-redesign.css',
   './assets/app.js',
   './assets/github-sync.js',
   './assets/sync-ui.js',
@@ -22,6 +23,7 @@ const ASSETS = [
   './assets/local-user.js',
   './assets/autosave-status-ui.js',
   './assets/tracking-ui.js',
+  './assets/guided-redesign.js',
   './content/lessons.json',
   './content/vocabulary.json',
   './content/grammar.json',
