@@ -34,6 +34,11 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     return contentStore.state.targets.filter(isTargetUnlocked);
   }
 
+  function calibration() {
+    progress.calibration = { ...defaultCalibration(), ...(progress.calibration || {}) };
+    return progress.calibration;
+  }
+
   function lockedTargets() {
     return contentStore.state.targets.filter(target => !isTargetUnlocked(target));
   }
@@ -76,6 +81,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     });
 
     recordCompetencyResult({ exercise, correct, confidenceFactor, responseTime, errorType, timestamp });
+    updateCalibrationForProgress(progress, exercise, correct, confidenceFactor, timestamp);
     updateLessonProgress(exercise, correct);
     updateUnlocks();
     save();
@@ -120,6 +126,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
       unlockedCount: unlockedTargets().length,
       lockedCount: lockedTargets().length,
       lessonMax: progress.unlocked?.lessonMax || 5,
+      calibration: calibration(),
       streak: streakDays(events)
     };
   }
@@ -193,7 +200,8 @@ export function createLearnerModel(storage, eventLog, contentStore) {
 
   function updateUnlocks() {
     const masteredTargets = Object.values(progress.targets || {}).filter(state => state.mastery >= 0.58).length;
-    const nextLessonMax = Math.min(80, Math.max(5, 5 + Math.floor(masteredTargets / 3)));
+    const calibratedLesson = lessonMaxFromRating(calibration().rating, masteredTargets);
+    const nextLessonMax = Math.min(80, Math.max(5, calibratedLesson, 5 + Math.floor(masteredTargets / 3)));
     progress.unlocked.lessonMax = Math.max(progress.unlocked?.lessonMax || 5, nextLessonMax);
     const lesson = progress.unlocked.lessonMax;
     progress.unlocked.level = contentStore.levelForLesson(lesson).id;
@@ -204,6 +212,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     save,
     getProgress,
     getTargetState,
+    calibration,
     isTargetUnlocked,
     unlockedTargets,
     lockedTargets,
@@ -249,6 +258,55 @@ function defaultCompetencyState(competencyId) {
     modalities: {},
     last_response_time_ms: null
   };
+}
+
+function defaultCalibration() {
+  return {
+    rating: 900,
+    uncertainty: 350,
+    attempts: 0,
+    last_result_at: null
+  };
+}
+
+function updateCalibrationForProgress(progress, exercise, correct, confidenceFactor, timestamp) {
+  const current = { ...defaultCalibration(), ...(progress.calibration || {}) };
+  const difficulty = exerciseDifficultyRating(exercise);
+  const expected = 1 / (1 + Math.pow(10, (difficulty - current.rating) / 400));
+  const earlyBoost = Math.max(0, 18 - current.attempts) * 2.5;
+  const k = Math.max(18, Math.min(96, current.uncertainty / 5 + earlyBoost));
+  const confidenceWeight = correct ? 0.85 + confidenceFactor * 0.3 : 1;
+  const delta = k * ((correct ? 1 : 0) - expected) * confidenceWeight;
+  const nextUncertainty = correct
+    ? Math.max(80, current.uncertainty * 0.9)
+    : Math.max(120, current.uncertainty * 0.94);
+  progress.calibration = {
+    rating: Math.round(clamp(current.rating + delta, 650, 2100)),
+    uncertainty: Math.round(nextUncertainty),
+    attempts: current.attempts + 1,
+    last_result_at: timestamp
+  };
+}
+
+function lessonMaxFromRating(rating, masteredTargets) {
+  const calibrated = 5 + Math.floor((Number(rating || 900) - 850) / 22);
+  const evidenceCap = 8 + Math.floor(Number(masteredTargets || 0) / 2);
+  return Math.max(5, Math.min(80, Math.min(calibrated, evidenceCap)));
+}
+
+function exerciseDifficultyRating(exercise) {
+  const lesson = Number(exercise.lesson || 1);
+  const typeBonus = {
+    'multiple-choice': 0,
+    cloze: 45,
+    dictation: 85,
+    'listen-choice': 110,
+    transform: 125,
+    'production-prompt': 165,
+    'text-input': 150
+  }[exercise.type] || 70;
+  const complexity = Number(exercise.difficulty || exercise.complexity || 0);
+  return 820 + lesson * 18 + typeBonus + complexity * 160;
 }
 
 function skillForExercise(exercise) {

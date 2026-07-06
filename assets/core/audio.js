@@ -51,7 +51,7 @@ export function createAudioService(contentStore) {
     if (!('speechSynthesis' in window)) return false;
 
     refreshVoices();
-    return speakWithSynthesis(value, options, ruVoice);
+    return speakWithSynthesis(speechText(value), options, ruVoice);
   }
 
   function hasRecorded(text) {
@@ -110,4 +110,13 @@ function speakWithSynthesis(value, options = {}, preferredVoice = null) {
       resolve(false);
     }
   });
+}
+
+function speechText(value) {
+  return String(value || '')
+    .replace(/[→/+]/g, ' ')
+    .replace(/[?.!¿¡,;:«»“”"']/g, ' ')
+    .replace(/[()]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }

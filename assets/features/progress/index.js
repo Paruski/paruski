@@ -11,6 +11,7 @@ export const progressFeature = {
     const competencies = context.learner.competencyProgress(12);
     const weakCompetencies = context.learner.weakCompetencies(6);
     const progress = context.learner.getProgress();
+    const calibration = summary.calibration || {};
     container.innerHTML = `
       <section class="progress-view">
         <div class="app-section-head">
@@ -22,6 +23,7 @@ export const progressFeature = {
           ${metric('Racha', `${summary.streak} día(s)`)}
           ${metric('Precisión', `${summary.accuracy}%`)}
           ${metric('Desbloqueado', `${summary.lessonMax}/80 clases`)}
+          ${metric('Calibración', `${Math.round(calibration.rating || 900)} · ±${Math.round(calibration.uncertainty || 350)}`)}
           ${metric('Targets', `${summary.unlockedCount}/${summary.targetCount}`)}
           ${metric('Dominados', summary.mastered)}
           ${metric('Competencias', `${summary.competencyMastered}/${summary.competencyCount}`)}

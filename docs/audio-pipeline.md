@@ -16,6 +16,7 @@ El script lee esa base y resuelve las fuentes canónicas declaradas allí:
 content/materials.json
 content/materials-aspect.json
 content/learning-notes.json
+content/exercises.json
 ```
 
 No se mantiene una lista manual paralela de palabras.
@@ -38,6 +39,7 @@ content/audio-index.json
 `audio-worklist.json` contiene todo lo que hay que sintetizar. Cada entrada tiene `text` y `suggested_path`.
 
 El manifiesto descarta automaticamente textos sin cirilico o con letras latinas. Esto evita locutar etiquetas metodologicas en espanol como si fueran ruso.
+Tambien incluye `tts_text` de ejercicios de audio, para que los dialogos de comprension auditiva tengan archivos estaticos propios.
 
 ## Sintetizar en local
 
@@ -70,13 +72,15 @@ Configuracion aplicada por defecto:
 - loudness objetivo `-19 LUFS`;
 - MP3 mono, 24 kHz, 96 kbps.
 
+Antes de enviar texto al TTS, `scripts/generate_xtts_audio.py` elimina signos como puntos, interrogaciones, comas, comillas y parentesis. La puntuacion se conserva en el contenido escrito y en las claves del manifiesto, pero no entra como texto hablable para evitar locuciones del tipo "punto" o "signo de interrogacion".
+
 El usuario acepto la Coqui Public Model License para uso no comercial. La referencia humana procede de `Степные сказки` de LibriVox, leido por Anastasiia Solokha:
 
 ```text
 https://archive.org/details/stepnyyeskazki_2204_librivox
 ```
 
-Estado publicado el 2026-07-06: 1111 locuciones MP3 generadas e indexadas con esta voz. El corpus ocupa unos 30 MB en `content/audio/ru/`.
+Estado publicado el 2026-07-06: 1123 locuciones MP3 generadas e indexadas con esta voz. El corpus ocupa unos 31 MB en `content/audio/ru/`.
 
 ## Regenerar índice
 

@@ -180,6 +180,7 @@ def collect_needs(repo_root: Path, db_path: Path, include_examples: bool = True)
     materials_path = resolve_repo_path(repo_root, sources.get("legacy_materials", "content/materials.json"))
     aspect_path = resolve_repo_path(repo_root, sources.get("legacy_aspect_materials", "content/materials-aspect.json"))
     notes_path = resolve_repo_path(repo_root, sources.get("learning_notes", "content/learning-notes.json"))
+    exercises_path = resolve_repo_path(repo_root, sources.get("exercises", "content/exercises.json"))
 
     needs: dict[str, AudioNeed] = {}
 
@@ -202,6 +203,23 @@ def collect_needs(repo_root: Path, db_path: Path, include_examples: bool = True)
         if include_examples:
             for example in note.get("examples", []):
                 add_need(needs, example, kind="example", source_ref=f"learning-notes:{note.get('id', 'note')}", lesson_refs=lesson_refs, priority=60)
+
+    exercises = read_json(exercises_path, [])
+    if include_examples:
+        for exercise in exercises:
+            text = str(exercise.get("tts_text") or "").strip()
+            if not text:
+                continue
+            exercise_type = str(exercise.get("type") or "")
+            priority = 66 if exercise_type in {"listen-choice", "listen_choice", "audio_mcq", "audio-choice"} else 58
+            add_need(
+                needs,
+                text,
+                kind=f"exercise:{exercise_type or 'audio'}",
+                source_ref=f"exercise:{exercise.get('id', 'unknown')}",
+                lesson_refs=[int(exercise.get("lesson") or 0)] if str(exercise.get("lesson") or "").isdigit() else [],
+                priority=priority,
+            )
 
     return sorted(needs.values(), key=lambda item: (-item.priority, min(item.lesson_refs or [999]), item.normalized_text))
 

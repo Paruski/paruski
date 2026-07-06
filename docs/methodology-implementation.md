@@ -98,3 +98,33 @@ Implementacion:
 - `assets/core/content-store.js` conserva `tts_text`, `display`, `sample`, `allow_contains` y `listen-choice` para ejercicios estaticos.
 - `assets/core/scheduler.js` selecciona escucha, dictado, huecos, transformacion o produccion segun dominio por habilidad y disponibilidad de audio.
 - `assets/features/guided-session/` muestra una instruccion breve para cada tipo de tarea para que el alumno sepa que hacer sin navegar por la web.
+
+## 10. Comprension auditiva inferencial
+
+Decision: escuchar no debe ser solo repetir como un loro ni elegir una respuesta obvia por descarte. Los listenings complejos usan mini-dialogos y preguntan por intencion, secuencia, contraste o implicacion.
+
+Implementacion:
+
+- `content/exercises.json` incluye ejercicios `listen-choice` con `tts_text` de dialogo y opciones semanticamente proximas.
+- `scripts/generate_audio_manifest.py` incorpora esos `tts_text` al manifiesto para publicar MP3 estaticos de dialogos.
+- `assets/features/guided-session/` no muestra "Escuchar modelo" en opciones multiples textuales, para no emparejar audio irrelevante ni regalar la respuesta.
+
+## 11. Calibracion adaptativa
+
+Decision: una cuenta nueva empieza con incertidumbre alta. La sesion va de sencillo a complejo, pero prueba material mas dificil pronto si el alumno responde bien. Cuando hay evidencia suficiente, el ajuste se estabiliza.
+
+Implementacion:
+
+- `assets/core/storage.js` guarda `calibration.rating`, `calibration.uncertainty` y numero de intentos.
+- `assets/core/learner-model.js` actualiza el rating con una regla tipo Elo: K alto al principio, K menor al bajar la incertidumbre.
+- `assets/core/scheduler.js` ordena objetivos por dificultad ascendente durante calibracion y despues prioriza objetivos cercanos al rating estimado.
+- `assets/features/progress/` muestra rating e incertidumbre para auditar el ajuste.
+
+## 12. Practica oral futura
+
+Decision: la practica hablada queda separada como modulo experimental. No se activa grabacion ni LLM todavia; solo se reserva la seccion y el contrato de crecimiento.
+
+Implementacion:
+
+- `assets/features/speaking-lab/` registra una pantalla futura para ejercicios orales.
+- La descripcion exige procesamiento local: grabacion del alumno, transcripcion/evaluacion por LLM local y feedback estructurado sin enviar audio a servidores externos.

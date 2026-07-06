@@ -24,6 +24,7 @@ DEFAULT_WORKLIST = REPO_ROOT / "content" / "audio-worklist.json"
 DEFAULT_MANIFEST_SCRIPT = REPO_ROOT / "scripts" / "generate_audio_manifest.py"
 CYRILLIC_RE = re.compile(r"[а-яё]", re.IGNORECASE)
 LATIN_RE = re.compile(r"[a-záéíóúüñ]", re.IGNORECASE)
+TTS_PUNCTUATION_RE = re.compile(r"[?.!¿¡,;:«»“”\"'()]")
 
 
 def read_json(path: Path) -> Any:
@@ -61,9 +62,12 @@ def speech_text(text: str) -> str:
     value = str(text or "").strip()
     if not CYRILLIC_RE.search(value) or LATIN_RE.search(value):
         return ""
-    value = value.replace("→", " ... ")
-    value = value.replace("/", " ... ")
+    value = value.replace("→", " ")
+    value = value.replace("/", " ")
     value = value.replace("+", " ")
+    value = value.replace("—", " ")
+    value = value.replace("…", " ")
+    value = TTS_PUNCTUATION_RE.sub(" ", value)
     value = re.sub(r"\s+", " ", value).strip()
     return value
 

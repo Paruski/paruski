@@ -7,5 +7,11 @@
   "items": {},
   "settings": {
     "dailyTarget": 12
+  },
+  "calibration": {
+    "rating": 900,
+    "uncertainty": 350,
+    "attempts": 0,
+    "last_result_at": null
   }
 }

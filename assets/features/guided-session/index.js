@@ -79,7 +79,7 @@ function renderExercise(node, exercise, context, startedAt, onNext) {
   const handler = context.registry.getExercise(exercise.type);
   const widget = handler.render(exercise, context);
   const audioText = exercise.tts_text || exercise.expected || '';
-  const showListen = audioText && !['dictation', 'listen-choice'].includes(exercise.type) && context.audio.hasRecorded(audioText);
+  const showListen = audioText && !['dictation', 'listen-choice', 'multiple-choice'].includes(exercise.type) && context.audio.hasRecorded(audioText);
   node.innerHTML = `
     <article class="learning-card focus-card">
       <p class="eyebrow">Recuperación activa</p>

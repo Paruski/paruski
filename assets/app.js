@@ -13,6 +13,7 @@ import { guidedSessionFeature } from './features/guided-session/index.js';
 import { libraryFeature } from './features/library/index.js';
 import { progressFeature } from './features/progress/index.js';
 import { settingsFeature } from './features/settings/index.js';
+import { speakingLabFeature } from './features/speaking-lab/index.js';
 import { syncFeature } from './features/sync/index.js';
 
 import { clozeExercise } from './exercises/cloze/index.js';
@@ -29,6 +30,7 @@ const registry = createRegistry();
   libraryFeature,
   calendarFeature,
   progressFeature,
+  speakingLabFeature,
   syncFeature,
   settingsFeature
 ].forEach(feature => registry.registerFeature(feature));

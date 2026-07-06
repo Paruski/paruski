@@ -1,4 +1,4 @@
-const CACHE_NAME = 'paruski-v32';
+const CACHE_NAME = 'paruski-v33';
 const ASSETS = [
   './',
   './index.html',
@@ -25,6 +25,7 @@ const ASSETS = [
   './assets/features/library/index.js',
   './assets/features/progress/index.js',
   './assets/features/settings/index.js',
+  './assets/features/speaking-lab/index.js',
   './assets/features/sync/index.js',
   './assets/exercises/shared.js',
   './assets/exercises/cloze/index.js',

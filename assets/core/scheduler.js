@@ -3,8 +3,9 @@ import { dayKey, normalizeText } from './utils.js';
 export function createScheduler({ contentStore, learnerModel, audioService }) {
   function buildSession(options = {}) {
     const summary = learnerModel.summary();
+    const calibration = learnerModel.calibration?.() || { rating: 900, uncertainty: 350, attempts: 0 };
     const targetCount = Math.max(6, Math.min(options.targetCount || summary.dailyTarget || 10, 16));
-    const candidates = interleaveTargets(rankTargets()).slice(0, targetCount);
+    const candidates = adaptiveOrder(interleaveTargets(rankTargets()), calibration).slice(0, targetCount);
     const tasks = [];
 
     candidates.forEach((entry, index) => {
@@ -13,7 +14,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       if (!state.attempts || state.mastery < 0.35 || entry.reason === 'error') {
         tasks.push(makeExplainTask(target, entry.reason));
       }
-      tasks.push(makeExerciseTask(target, chooseExerciseType(target, state, index)));
+      tasks.push(makeExerciseTask(target, chooseExerciseType(target, state, index, targetCount, calibration)));
     });
 
     return {
@@ -24,7 +25,8 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       rationale: {
         due: learnerModel.dueTargets().length,
         weak: learnerModel.weakTargets().length,
-        unlocked: summary.unlockedCount
+        unlocked: summary.unlockedCount,
+        calibration
       }
     };
   }
@@ -90,13 +92,20 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     };
   }
 
-  function chooseExerciseType(target, state, index) {
+  function chooseExerciseType(target, state, index, targetCount, calibration) {
     const examples = contentStore.getExamplesForTarget(target);
     const exactExample = examples.some(example => normalizeText(example).includes(target.normalized_text));
     const hasAudio = audioService.hasRecorded(target.text) || examples.some(example => audioService.hasRecorded(example));
     const needsListening = (state.skills?.listening || 0) < 0.62;
     const needsProduction = (state.skills?.production || 0) < 0.58;
     const needsGrammar = (state.skills?.grammar_transfer || 0) < 0.58;
+    const phase = targetCount > 1 ? index / (targetCount - 1) : 0;
+    const calibrating = (calibration?.attempts || 0) < 18 || (calibration?.uncertainty || 0) > 150;
+    if (calibrating && !state.attempts) {
+      if (phase < 0.28) return 'multiple-choice';
+      if (phase < 0.58 && exactExample) return 'cloze';
+      if (phase > 0.72 && hasAudio && needsListening) return 'listen-choice';
+    }
     if (hasAudio && needsListening && (index + 1) % 3 === 0) return state.attempts ? 'dictation' : 'listen-choice';
     if (target.kind === 'grammar' && needsGrammar && transformSeedFor(target)) return 'transform';
     if (target.kind === 'vocabulary' && state.attempts >= 1 && state.mastery >= 0.35 && (index + 1) % 5 === 0) return 'production-prompt';
@@ -229,6 +238,40 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
   }
 
   return { buildSession, previewPlan, rankTargets, buildExercise };
+}
+
+function adaptiveOrder(entries, calibration) {
+  const rating = Number(calibration?.rating || 900);
+  const uncertainty = Number(calibration?.uncertainty || 350);
+  const calibrating = Number(calibration?.attempts || 0) < 18 || uncertainty > 150;
+  const decorated = entries.map(entry => ({
+    ...entry,
+    difficulty: targetDifficulty(entry.target)
+  }));
+  if (calibrating) {
+    const easy = decorated
+      .filter(entry => entry.difficulty <= rating + uncertainty * 0.2)
+      .sort(byDifficultyThenPriority);
+    const probes = decorated
+      .filter(entry => entry.difficulty > rating + uncertainty * 0.2)
+      .sort(byDifficultyThenPriority);
+    return [...easy, ...probes];
+  }
+  return decorated.sort((left, right) =>
+    Math.abs(left.difficulty - rating) - Math.abs(right.difficulty - rating) ||
+    right.score - left.score
+  );
+}
+
+function byDifficultyThenPriority(left, right) {
+  return left.difficulty - right.difficulty || right.score - left.score;
+}
+
+function targetDifficulty(target) {
+  const lesson = Number(target.lesson || 1);
+  const kindBonus = target.kind === 'grammar' ? 55 : 0;
+  const copyHostileBonus = isCopyHostileTarget(target) ? 35 : 0;
+  return 820 + lesson * 18 + kindBonus + copyHostileBonus + Number(target.difficulty || 0) * 120;
 }
 
 function interleaveTargets(entries) {

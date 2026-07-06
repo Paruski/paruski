@@ -36,6 +36,7 @@ assets/features/
   library/            consulta desbloqueada de vocabulario, gramatica y fichas
   calendar/           historico y plan futuro de repasos
   progress/           niveles, metricas, fortalezas y debilidades
+  speaking-lab/       practica oral futura con evaluacion local experimental
   sync/               guardado en repositorio
   settings/           datos, exportacion y configuracion
 
@@ -170,6 +171,7 @@ Entrada:
 - errores recurrentes;
 - fecha de ultimo repaso;
 - dificultad e importancia;
+- rating de calibracion e incertidumbre;
 - disponibilidad de audio;
 - objetivo diario y duracion de sesion.
 

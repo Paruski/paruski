@@ -4,7 +4,7 @@
   "language": "ru",
   "audio_dir": "content/audio/ru",
   "preferred_ext": ".mp3",
-  "total": 1111,
+  "total": 1123,
   "items": [
     {
       "id": "ru-audio-dom-8e35c313",
@@ -8111,6 +8111,9 @@
       "normalized_text": "весь день",
       "suggested_path": "content/audio/ru/ves-den-6ae7f2fe.mp3",
       "source_refs": [
+        "exercise:auto-note-note-adjectives-05-cloze",
+        "exercise:auto-note-note-adjectives-05-dict",
+        "exercise:auto-note-note-adjectives-05-listen",
         "learning-notes:note-adjectives",
         "materials-aspect:class:62"
       ],
@@ -12956,6 +12959,8 @@
       "normalized_text": "кто это",
       "suggested_path": "content/audio/ru/kto-eto-63025d02.mp3",
       "source_refs": [
+        "exercise:auto-note-note-esto-03-dict",
+        "exercise:auto-note-note-esto-03-listen",
         "learning-notes:note-esto",
         "materials:class:1"
       ],
@@ -12972,6 +12977,8 @@
       "normalized_text": "что это",
       "suggested_path": "content/audio/ru/chto-eto-43cd41be.mp3",
       "source_refs": [
+        "exercise:auto-note-note-esto-04-dict",
+        "exercise:auto-note-note-esto-04-listen",
         "learning-notes:note-esto",
         "materials:class:1"
       ],
@@ -16223,41 +16230,50 @@
     {
       "id": "ru-audio-eto-ne-kofe-e0f2d6eb",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Это не кофе.",
       "normalized_text": "это не кофе",
       "suggested_path": "content/audio/ru/eto-ne-kofe-e0f2d6eb.mp3",
       "source_refs": [
+        "exercise:auto-note-note-esto-02-cloze",
+        "exercise:auto-note-note-esto-02-dict",
+        "exercise:auto-note-note-esto-02-listen",
         "learning-notes:note-esto"
       ],
       "lesson_refs": [
         1
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-eto-chay-c69a1e7c",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Это чай.",
       "normalized_text": "это чай",
       "suggested_path": "content/audio/ru/eto-chay-c69a1e7c.mp3",
       "source_refs": [
+        "exercise:auto-note-note-esto-01-cloze",
+        "exercise:auto-note-note-esto-01-dict",
+        "exercise:auto-note-note-esto-01-listen",
         "learning-notes:note-esto"
       ],
       "lesson_refs": [
         1
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-my-vas-znaem-9241b11e",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Мы вас знаем.",
       "normalized_text": "мы вас знаем",
       "suggested_path": "content/audio/ru/my-vas-znaem-9241b11e.mp3",
       "source_refs": [
+        "exercise:auto-note-note-pronouns-04-cloze",
+        "exercise:auto-note-note-pronouns-04-dict",
+        "exercise:auto-note-note-pronouns-04-listen",
         "learning-notes:note-pronouns"
       ],
       "lesson_refs": [
@@ -16265,16 +16281,19 @@
         7,
         20
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-on-slushaet-eyo-176f83cd",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Он слушает её.",
       "normalized_text": "он слушает её",
       "suggested_path": "content/audio/ru/on-slushaet-eyo-176f83cd.mp3",
       "source_refs": [
+        "exercise:auto-note-note-pronouns-03-cloze",
+        "exercise:auto-note-note-pronouns-03-dict",
+        "exercise:auto-note-note-pronouns-03-listen",
         "learning-notes:note-pronouns"
       ],
       "lesson_refs": [
@@ -16282,16 +16301,19 @@
         7,
         20
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ty-menya-ponimaesh-dc7ae744",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Ты меня понимаешь?",
       "normalized_text": "ты меня понимаешь",
       "suggested_path": "content/audio/ru/ty-menya-ponimaesh-dc7ae744.mp3",
       "source_refs": [
+        "exercise:auto-note-note-pronouns-02-cloze",
+        "exercise:auto-note-note-pronouns-02-dict",
+        "exercise:auto-note-note-pronouns-02-listen",
         "learning-notes:note-pronouns"
       ],
       "lesson_refs": [
@@ -16299,16 +16321,19 @@
         7,
         20
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-slushayu-tebya-af1266a4",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я слушаю тебя.",
       "normalized_text": "я слушаю тебя",
       "suggested_path": "content/audio/ru/ya-slushayu-tebya-af1266a4.mp3",
       "source_refs": [
+        "exercise:auto-note-note-pronouns-01-cloze",
+        "exercise:auto-note-note-pronouns-01-dict",
+        "exercise:auto-note-note-pronouns-01-listen",
         "learning-notes:note-pronouns"
       ],
       "lesson_refs": [
@@ -16316,80 +16341,74 @@
         7,
         20
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-my-igraem-v-shahmaty-dd669d9a",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Мы играем в шахматы.",
       "normalized_text": "мы играем в шахматы",
       "suggested_path": "content/audio/ru/my-igraem-v-shahmaty-dd669d9a.mp3",
       "source_refs": [
-        "learning-notes:note-igrat"
+        "exercise:auto-note-note-igrat-v-02-cloze",
+        "exercise:auto-note-note-igrat-v-02-dict",
+        "exercise:auto-note-note-igrat-v-02-listen",
+        "learning-notes:note-igrat-v"
       ],
       "lesson_refs": [
         5,
+        19,
         31
       ],
-      "priority": 60
-    },
-    {
-      "id": "ru-audio-on-igraet-na-fortepiano-ef8cdc3b",
-      "language": "ru",
-      "kind": "example",
-      "text": "Он играет на фортепиано.",
-      "normalized_text": "он играет на фортепиано",
-      "suggested_path": "content/audio/ru/on-igraet-na-fortepiano-ef8cdc3b.mp3",
-      "source_refs": [
-        "learning-notes:note-igrat"
-      ],
-      "lesson_refs": [
-        5,
-        31
-      ],
-      "priority": 60
-    },
-    {
-      "id": "ru-audio-ona-igraet-na-gitare-bdebb36a",
-      "language": "ru",
-      "kind": "example",
-      "text": "Она играет на гитаре.",
-      "normalized_text": "она играет на гитаре",
-      "suggested_path": "content/audio/ru/ona-igraet-na-gitare-bdebb36a.mp3",
-      "source_refs": [
-        "learning-notes:note-igrat"
-      ],
-      "lesson_refs": [
-        5,
-        31
-      ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-igrayu-v-futbol-e3cdfede",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я играю в футбол.",
       "normalized_text": "я играю в футбол",
       "suggested_path": "content/audio/ru/ya-igrayu-v-futbol-e3cdfede.mp3",
       "source_refs": [
-        "learning-notes:note-igrat"
+        "exercise:auto-note-note-igrat-v-01-cloze",
+        "exercise:auto-note-note-igrat-v-01-dict",
+        "exercise:auto-note-note-igrat-v-01-listen",
+        "learning-notes:note-igrat-v"
       ],
       "lesson_refs": [
         5,
+        19,
         31
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-ty-chitaesh-zhurnal-net-ya-slushayu-pesnyu-i-izuchayu-russkiy-ty-52941c34",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Ты читаешь журнал?\n— Нет, я слушаю песню и изучаю русский.\n— Ты покупаешь молоко?\n— Потом.",
+      "normalized_text": "— ты читаешь журнал — нет я слушаю песню и изучаю русский — ты покупаешь молоко — потом",
+      "suggested_path": "content/audio/ru/ty-chitaesh-zhurnal-net-ya-slushayu-pesnyu-i-izuchayu-russkiy-ty-52941c34.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-005-now-or-later"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-vchera-u-menya-byl-ekzamen-0e16aa65",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Вчера у меня был экзамен.",
       "normalized_text": "вчера у меня был экзамен",
       "suggested_path": "content/audio/ru/vchera-u-menya-byl-ekzamen-0e16aa65.mp3",
       "source_refs": [
+        "exercise:auto-note-note-u-menya-03-cloze",
+        "exercise:auto-note-note-u-menya-03-dict",
+        "exercise:auto-note-note-u-menya-03-listen",
         "learning-notes:note-u-menya"
       ],
       "lesson_refs": [
@@ -16397,16 +16416,19 @@
         12,
         17
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-zavtra-u-menya-budet-urok-0d6cbc05",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Завтра у меня будет урок.",
       "normalized_text": "завтра у меня будет урок",
       "suggested_path": "content/audio/ru/zavtra-u-menya-budet-urok-0d6cbc05.mp3",
       "source_refs": [
+        "exercise:auto-note-note-u-menya-04-cloze",
+        "exercise:auto-note-note-u-menya-04-dict",
+        "exercise:auto-note-note-u-menya-04-listen",
         "learning-notes:note-u-menya"
       ],
       "lesson_refs": [
@@ -16414,16 +16436,19 @@
         12,
         17
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-vstrecha-b3aac3ae",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня встреча.",
       "normalized_text": "у меня встреча",
       "suggested_path": "content/audio/ru/u-menya-vstrecha-b3aac3ae.mp3",
       "source_refs": [
+        "exercise:auto-note-note-u-menya-02-cloze",
+        "exercise:auto-note-note-u-menya-02-dict",
+        "exercise:auto-note-note-u-menya-02-listen",
         "learning-notes:note-u-menya"
       ],
       "lesson_refs": [
@@ -16431,16 +16456,19 @@
         12,
         17
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-est-slovar-65dabe76",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня есть словарь.",
       "normalized_text": "у меня есть словарь",
       "suggested_path": "content/audio/ru/u-menya-est-slovar-65dabe76.mp3",
       "source_refs": [
+        "exercise:auto-note-note-u-menya-01-cloze",
+        "exercise:auto-note-note-u-menya-01-dict",
+        "exercise:auto-note-note-u-menya-01-listen",
         "learning-notes:note-u-menya"
       ],
       "lesson_refs": [
@@ -16448,16 +16476,34 @@
         12,
         17
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-u-tebya-est-slovar-net-u-menya-est-telefon-a-u-anny-est-slovar-d-44bf3be2",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— У тебя есть словарь?\n— Нет, у меня есть телефон.\n— А у Анны есть словарь?\n— Да, у неё есть словарь и ключ.",
+      "normalized_text": "— у тебя есть словарь — нет у меня есть телефон — а у анны есть словарь — да у неё есть словарь и ключ",
+      "suggested_path": "content/audio/ru/u-tebya-est-slovar-net-u-menya-est-telefon-a-u-anny-est-slovar-d-44bf3be2.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-011-who-has-dictionary"
+      ],
+      "lesson_refs": [
+        11
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-kniga-na-stole-18007f47",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Книга на столе.",
       "normalized_text": "книга на столе",
       "suggested_path": "content/audio/ru/kniga-na-stole-18007f47.mp3",
       "source_refs": [
+        "exercise:auto-note-note-place-02-cloze",
+        "exercise:auto-note-note-place-02-dict",
+        "exercise:auto-note-note-place-02-listen",
         "learning-notes:note-place"
       ],
       "lesson_refs": [
@@ -16467,16 +16513,19 @@
         28,
         51
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-my-govorim-o-politike-f768aed8",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Мы говорим о политике.",
       "normalized_text": "мы говорим о политике",
       "suggested_path": "content/audio/ru/my-govorim-o-politike-f768aed8.mp3",
       "source_refs": [
+        "exercise:auto-note-note-place-03-cloze",
+        "exercise:auto-note-note-place-03-dict",
+        "exercise:auto-note-note-place-03-listen",
         "learning-notes:note-place"
       ],
       "lesson_refs": [
@@ -16486,16 +16535,19 @@
         28,
         51
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-on-uchitsya-v-universitete-8ed15896",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Он учится в университете.",
       "normalized_text": "он учится в университете",
       "suggested_path": "content/audio/ru/on-uchitsya-v-universitete-8ed15896.mp3",
       "source_refs": [
+        "exercise:auto-note-note-place-04-cloze",
+        "exercise:auto-note-note-place-04-dict",
+        "exercise:auto-note-note-place-04-listen",
         "learning-notes:note-place"
       ],
       "lesson_refs": [
@@ -16505,16 +16557,19 @@
         28,
         51
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-zhivu-v-ispanii-5fbeeab4",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я живу в Испании.",
       "normalized_text": "я живу в испании",
       "suggested_path": "content/audio/ru/ya-zhivu-v-ispanii-5fbeeab4.mp3",
       "source_refs": [
+        "exercise:auto-note-note-place-01-cloze",
+        "exercise:auto-note-note-place-01-dict",
+        "exercise:auto-note-note-place-01-listen",
         "learning-notes:note-place"
       ],
       "lesson_refs": [
@@ -16524,16 +16579,19 @@
         28,
         51
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-vchera-ya-hodil-v-teatr-6ee651df",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Вчера я ходил в театр.",
       "normalized_text": "вчера я ходил в театр",
       "suggested_path": "content/audio/ru/vchera-ya-hodil-v-teatr-6ee651df.mp3",
       "source_refs": [
+        "exercise:auto-note-note-past-04-cloze",
+        "exercise:auto-note-note-past-04-dict",
+        "exercise:auto-note-note-past-04-listen",
         "learning-notes:note-past"
       ],
       "lesson_refs": [
@@ -16541,16 +16599,19 @@
         17,
         34
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-on-rabotal-76e58dcf",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Он работал.",
       "normalized_text": "он работал",
       "suggested_path": "content/audio/ru/on-rabotal-76e58dcf.mp3",
       "source_refs": [
+        "exercise:auto-note-note-past-01-cloze",
+        "exercise:auto-note-note-past-01-dict",
+        "exercise:auto-note-note-past-01-listen",
         "learning-notes:note-past"
       ],
       "lesson_refs": [
@@ -16558,16 +16619,19 @@
         17,
         34
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ona-govorila-83b45773",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Она говорила.",
       "normalized_text": "она говорила",
       "suggested_path": "content/audio/ru/ona-govorila-83b45773.mp3",
       "source_refs": [
+        "exercise:auto-note-note-past-02-cloze",
+        "exercise:auto-note-note-past-02-dict",
+        "exercise:auto-note-note-past-02-listen",
         "learning-notes:note-past"
       ],
       "lesson_refs": [
@@ -16575,16 +16639,19 @@
         17,
         34
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-byla-vstrecha-519c2dfe",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня была встреча.",
       "normalized_text": "у меня была встреча",
       "suggested_path": "content/audio/ru/u-menya-byla-vstrecha-519c2dfe.mp3",
       "source_refs": [
+        "exercise:auto-note-note-past-03-cloze",
+        "exercise:auto-note-note-past-03-dict",
+        "exercise:auto-note-note-past-03-listen",
         "learning-notes:note-past"
       ],
       "lesson_refs": [
@@ -16592,32 +16659,41 @@
         17,
         34
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-vchera-bylo-holodno-ad4efb7f",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Вчера было холодно.",
       "normalized_text": "вчера было холодно",
       "suggested_path": "content/audio/ru/vchera-bylo-holodno-ad4efb7f.mp3",
       "source_refs": [
+        "exercise:auto-note-note-weather-02-cloze",
+        "exercise:auto-note-note-weather-02-dict",
+        "exercise:auto-note-note-weather-02-listen",
         "learning-notes:note-weather"
       ],
       "lesson_refs": [
         18,
         23
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-zavtra-budet-holodno-f62d3d5c",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Завтра будет холодно.",
       "normalized_text": "завтра будет холодно",
       "suggested_path": "content/audio/ru/zavtra-budet-holodno-f62d3d5c.mp3",
       "source_refs": [
+        "exercise:auto-note-note-future-02-cloze",
+        "exercise:auto-note-note-future-02-dict",
+        "exercise:auto-note-note-future-02-listen",
+        "exercise:auto-note-note-weather-04-cloze",
+        "exercise:auto-note-note-weather-04-dict",
+        "exercise:auto-note-note-weather-04-listen",
         "learning-notes:note-future",
         "learning-notes:note-weather"
       ],
@@ -16629,48 +16705,72 @@
         73,
         74
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-zimoy-holodno-45b4c9a5",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Зимой холодно.",
       "normalized_text": "зимой холодно",
       "suggested_path": "content/audio/ru/zimoy-holodno-45b4c9a5.mp3",
       "source_refs": [
+        "exercise:auto-note-note-weather-03-cloze",
+        "exercise:auto-note-note-weather-03-dict",
+        "exercise:auto-note-note-weather-03-listen",
         "learning-notes:note-weather"
       ],
       "lesson_refs": [
         18,
         23
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-segodnya-zharko-b7757c91",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Сегодня жарко.",
       "normalized_text": "сегодня жарко",
       "suggested_path": "content/audio/ru/segodnya-zharko-b7757c91.mp3",
       "source_refs": [
+        "exercise:auto-note-note-weather-01-cloze",
+        "exercise:auto-note-note-weather-01-dict",
+        "exercise:auto-note-note-weather-01-listen",
         "learning-notes:note-weather"
       ],
       "lesson_refs": [
         18,
         23
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-segodnya-idyom-gulyat-segodnya-holodno-i-dozhd-togda-zavtra-da-z-dd57eaf2",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Сегодня идём гулять?\n— Сегодня холодно и дождь.\n— Тогда завтра?\n— Да, завтра будет тепло.",
+      "normalized_text": "— сегодня идём гулять — сегодня холодно и дождь — тогда завтра — да завтра будет тепло",
+      "suggested_path": "content/audio/ru/segodnya-idyom-gulyat-segodnya-holodno-i-dozhd-togda-zavtra-da-z-dd57eaf2.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-018-weather-plan"
+      ],
+      "lesson_refs": [
+        18
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-lyublyu-muzyku-13d525c3",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я люблю музыку.",
       "normalized_text": "я люблю музыку",
       "suggested_path": "content/audio/ru/ya-lyublyu-muzyku-13d525c3.mp3",
       "source_refs": [
+        "exercise:auto-note-note-accusative-03-cloze",
+        "exercise:auto-note-note-accusative-03-dict",
+        "exercise:auto-note-note-accusative-03-listen",
         "learning-notes:note-accusative"
       ],
       "lesson_refs": [
@@ -16679,16 +16779,19 @@
         21,
         30
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-plachu-za-bilet-7dff8508",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я плачу за билет.",
       "normalized_text": "я плачу за билет",
       "suggested_path": "content/audio/ru/ya-plachu-za-bilet-7dff8508.mp3",
       "source_refs": [
+        "exercise:auto-note-note-accusative-04-cloze",
+        "exercise:auto-note-note-accusative-04-dict",
+        "exercise:auto-note-note-accusative-04-listen",
         "learning-notes:note-accusative"
       ],
       "lesson_refs": [
@@ -16697,16 +16800,19 @@
         21,
         30
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-tebya-ponimayu-71bb95d1",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я тебя понимаю.",
       "normalized_text": "я тебя понимаю",
       "suggested_path": "content/audio/ru/ya-tebya-ponimayu-71bb95d1.mp3",
       "source_refs": [
+        "exercise:auto-note-note-accusative-02-cloze",
+        "exercise:auto-note-note-accusative-02-dict",
+        "exercise:auto-note-note-accusative-02-listen",
         "learning-notes:note-accusative"
       ],
       "lesson_refs": [
@@ -16715,16 +16821,20 @@
         21,
         30
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-chitayu-knigu-e231e5cb",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я читаю книгу.",
       "normalized_text": "я читаю книгу",
       "suggested_path": "content/audio/ru/ya-chitayu-knigu-e231e5cb.mp3",
       "source_refs": [
+        "exercise:auto-grammar-grammar-019-acusativo-fem-01-transform",
+        "exercise:auto-note-note-accusative-01-cloze",
+        "exercise:auto-note-note-accusative-01-dict",
+        "exercise:auto-note-note-accusative-01-listen",
         "learning-notes:note-accusative"
       ],
       "lesson_refs": [
@@ -16733,16 +16843,19 @@
         21,
         30
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-budu-chitat-8c48434c",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я буду читать.",
       "normalized_text": "я буду читать",
       "suggested_path": "content/audio/ru/ya-budu-chitat-8c48434c.mp3",
       "source_refs": [
+        "exercise:auto-note-note-future-01-cloze",
+        "exercise:auto-note-note-future-01-dict",
+        "exercise:auto-note-note-future-01-listen",
         "learning-notes:note-future"
       ],
       "lesson_refs": [
@@ -16752,16 +16865,22 @@
         73,
         74
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-kuplyu-bilet-25be00de",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я куплю билет.",
       "normalized_text": "я куплю билет",
       "suggested_path": "content/audio/ru/ya-kuplyu-bilet-25be00de.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-future-02-cloze",
+        "exercise:auto-note-note-aspect-future-02-dict",
+        "exercise:auto-note-note-aspect-future-02-listen",
+        "exercise:auto-note-note-future-04-cloze",
+        "exercise:auto-note-note-future-04-dict",
+        "exercise:auto-note-note-future-04-listen",
         "learning-notes:note-aspect-future",
         "learning-notes:note-future"
       ],
@@ -16774,16 +16893,19 @@
         75,
         76
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-pozvonyu-aa63c0bf",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я позвоню.",
       "normalized_text": "я позвоню",
       "suggested_path": "content/audio/ru/ya-pozvonyu-aa63c0bf.mp3",
       "source_refs": [
+        "exercise:auto-note-note-future-03-cloze",
+        "exercise:auto-note-note-future-03-dict",
+        "exercise:auto-note-note-future-03-listen",
         "learning-notes:note-future"
       ],
       "lesson_refs": [
@@ -16793,16 +16915,34 @@
         73,
         74
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-u-tebya-urok-v-ponedelnik-net-vo-vtornik-chto-ty-budesh-delat-v-6f007816",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— У тебя урок в понедельник?\n— Нет, во вторник.\n— Что ты будешь делать в понедельник?\n— Я буду читать и повторять слова.",
+      "normalized_text": "— у тебя урок в понедельник — нет во вторник — что ты будешь делать в понедельник — я буду читать и повторять слова",
+      "suggested_path": "content/audio/ru/u-tebya-urok-v-ponedelnik-net-vo-vtornik-chto-ty-budesh-delat-v-6f007816.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-022-future-lesson"
+      ],
+      "lesson_refs": [
+        22
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-dva-chaya-pozhaluysta-8223b6af",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Два чая, пожалуйста.",
       "normalized_text": "два чая пожалуйста",
       "suggested_path": "content/audio/ru/dva-chaya-pozhaluysta-8223b6af.mp3",
       "source_refs": [
+        "exercise:auto-note-note-numbers-03-cloze",
+        "exercise:auto-note-note-numbers-03-dict",
+        "exercise:auto-note-note-numbers-03-listen",
         "learning-notes:note-numbers"
       ],
       "lesson_refs": [
@@ -16813,16 +16953,19 @@
         57,
         58
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-pyat-rubley-9854b583",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Пять рублей.",
       "normalized_text": "пять рублей",
       "suggested_path": "content/audio/ru/pyat-rubley-9854b583.mp3",
       "source_refs": [
+        "exercise:auto-note-note-numbers-02-cloze",
+        "exercise:auto-note-note-numbers-02-dict",
+        "exercise:auto-note-note-numbers-02-listen",
         "learning-notes:note-numbers"
       ],
       "lesson_refs": [
@@ -16833,16 +16976,19 @@
         57,
         58
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-skolko-dney-v-mesyatse-d0673a19",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Сколько дней в месяце?",
       "normalized_text": "сколько дней в месяце",
       "suggested_path": "content/audio/ru/skolko-dney-v-mesyatse-d0673a19.mp3",
       "source_refs": [
+        "exercise:auto-note-note-numbers-04-cloze",
+        "exercise:auto-note-note-numbers-04-dict",
+        "exercise:auto-note-note-numbers-04-listen",
         "learning-notes:note-numbers"
       ],
       "lesson_refs": [
@@ -16853,16 +16999,19 @@
         57,
         58
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-skolko-stoit-bilet-52c85e25",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Сколько стоит билет?",
       "normalized_text": "сколько стоит билет",
       "suggested_path": "content/audio/ru/skolko-stoit-bilet-52c85e25.mp3",
       "source_refs": [
+        "exercise:auto-note-note-numbers-01-cloze",
+        "exercise:auto-note-note-numbers-01-dict",
+        "exercise:auto-note-note-numbers-01-listen",
         "learning-notes:note-numbers"
       ],
       "lesson_refs": [
@@ -16873,140 +17022,248 @@
         57,
         58
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-vam-kofe-s-molokom-net-u-menya-allergiya-na-moloko-dayte-chay-hl-19c34eba",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Вам кофе с молоком?\n— Нет, у меня аллергия на молоко. Дайте чай, хлеб и сыр, пожалуйста.\n— Сахар нужен?\n— Нет, спасибо.",
+      "normalized_text": "— вам кофе с молоком — нет у меня аллергия на молоко дайте чай хлеб и сыр пожалуйста — сахар нужен — нет спасибо",
+      "suggested_path": "content/audio/ru/vam-kofe-s-molokom-net-u-menya-allergiya-na-moloko-dayte-chay-hl-19c34eba.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-026-cafe-allergy"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-moy-dom-2a059594",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Мой дом.",
       "normalized_text": "мой дом",
       "suggested_path": "content/audio/ru/moy-dom-2a059594.mp3",
       "source_refs": [
+        "exercise:auto-note-note-possessives-02-cloze",
+        "exercise:auto-note-note-possessives-02-dict",
+        "exercise:auto-note-note-possessives-02-listen",
         "learning-notes:note-possessives"
       ],
       "lesson_refs": [
         27,
         49
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-moya-kniga-bc556f0f",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Моя книга.",
       "normalized_text": "моя книга",
       "suggested_path": "content/audio/ru/moya-kniga-bc556f0f.mp3",
       "source_refs": [
+        "exercise:auto-note-note-possessives-01-cloze",
+        "exercise:auto-note-note-possessives-01-dict",
+        "exercise:auto-note-note-possessives-01-listen",
         "learning-notes:note-possessives"
       ],
       "lesson_refs": [
         27,
         49
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-nashi-druzya-d244f8fd",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Наши друзья.",
       "normalized_text": "наши друзья",
       "suggested_path": "content/audio/ru/nashi-druzya-d244f8fd.mp3",
       "source_refs": [
+        "exercise:auto-note-note-possessives-03-cloze",
+        "exercise:auto-note-note-possessives-03-dict",
+        "exercise:auto-note-note-possessives-03-listen",
         "learning-notes:note-possessives"
       ],
       "lesson_refs": [
         27,
         49
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-eto-mamina-ruchka-6c1238f4",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Это мамина ручка.",
       "normalized_text": "это мамина ручка",
       "suggested_path": "content/audio/ru/eto-mamina-ruchka-6c1238f4.mp3",
       "source_refs": [
+        "exercise:auto-note-note-possessives-04-cloze",
+        "exercise:auto-note-note-possessives-04-dict",
+        "exercise:auto-note-note-possessives-04-listen",
         "learning-notes:note-possessives"
       ],
       "lesson_refs": [
         27,
         49
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-vizhu-klyuchi-10fb835f",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я вижу ключи.",
       "normalized_text": "я вижу ключи",
       "suggested_path": "content/audio/ru/ya-vizhu-klyuchi-10fb835f.mp3",
       "source_refs": [
+        "exercise:auto-note-note-videt-slyshat-02-cloze",
+        "exercise:auto-note-note-videt-slyshat-02-dict",
+        "exercise:auto-note-note-videt-slyshat-02-listen",
         "learning-notes:note-videt-slyshat"
       ],
       "lesson_refs": [
         29
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-slushayu-muzyku-4b9f1aec",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я слушаю музыку.",
       "normalized_text": "я слушаю музыку",
       "suggested_path": "content/audio/ru/ya-slushayu-muzyku-4b9f1aec.mp3",
       "source_refs": [
+        "exercise:auto-note-note-videt-slyshat-03-cloze",
+        "exercise:auto-note-note-videt-slyshat-03-dict",
+        "exercise:auto-note-note-videt-slyshat-03-listen",
         "learning-notes:note-videt-slyshat"
       ],
       "lesson_refs": [
         29
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-slyshu-telefon-76f90d3d",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я слышу телефон.",
       "normalized_text": "я слышу телефон",
       "suggested_path": "content/audio/ru/ya-slyshu-telefon-76f90d3d.mp3",
       "source_refs": [
+        "exercise:auto-note-note-videt-slyshat-04-cloze",
+        "exercise:auto-note-note-videt-slyshat-04-dict",
+        "exercise:auto-note-note-videt-slyshat-04-listen",
         "learning-notes:note-videt-slyshat"
       ],
       "lesson_refs": [
         29
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-smotryu-film-f7db411e",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я смотрю фильм.",
       "normalized_text": "я смотрю фильм",
       "suggested_path": "content/audio/ru/ya-smotryu-film-f7db411e.mp3",
       "source_refs": [
+        "exercise:auto-note-note-videt-slyshat-01-cloze",
+        "exercise:auto-note-note-videt-slyshat-01-dict",
+        "exercise:auto-note-note-videt-slyshat-01-listen",
         "learning-notes:note-videt-slyshat"
       ],
       "lesson_refs": [
         29
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-ty-vidish-klyuchi-da-oni-na-stole-a-telefon-slyshish-da-no-on-v-f27d3e2d",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Ты видишь ключи?\n— Да, они на столе.\n— А телефон слышишь?\n— Да, но он в другой комнате.",
+      "normalized_text": "— ты видишь ключи — да они на столе — а телефон слышишь — да но он в другой комнате",
+      "suggested_path": "content/audio/ru/ty-vidish-klyuchi-da-oni-na-stole-a-telefon-slyshish-da-no-on-v-f27d3e2d.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-029-see-hear"
+      ],
+      "lesson_refs": [
+        29
+      ],
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-on-igraet-na-fortepiano-ef8cdc3b",
+      "language": "ru",
+      "kind": "mixed",
+      "text": "Он играет на фортепиано.",
+      "normalized_text": "он играет на фортепиано",
+      "suggested_path": "content/audio/ru/on-igraet-na-fortepiano-ef8cdc3b.mp3",
+      "source_refs": [
+        "exercise:auto-note-note-igrat-na-02-cloze",
+        "exercise:auto-note-note-igrat-na-02-dict",
+        "exercise:auto-note-note-igrat-na-02-listen",
+        "learning-notes:note-igrat-na"
+      ],
+      "lesson_refs": [
+        31
+      ],
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-ona-igraet-na-gitare-bdebb36a",
+      "language": "ru",
+      "kind": "mixed",
+      "text": "Она играет на гитаре.",
+      "normalized_text": "она играет на гитаре",
+      "suggested_path": "content/audio/ru/ona-igraet-na-gitare-bdebb36a.mp3",
+      "source_refs": [
+        "exercise:auto-note-note-igrat-na-01-cloze",
+        "exercise:auto-note-note-igrat-na-01-dict",
+        "exercise:auto-note-note-igrat-na-01-listen",
+        "learning-notes:note-igrat-na"
+      ],
+      "lesson_refs": [
+        31
+      ],
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-ty-igraesh-na-gitare-net-ya-igrayu-v-futbol-a-masha-masha-igraet-24ad11c1",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Ты играешь на гитаре?\n— Нет, я играю в футбол.\n— А Маша?\n— Маша играет на гитаре, но не играет в футбол.",
+      "normalized_text": "— ты играешь на гитаре — нет я играю в футбол — а маша — маша играет на гитаре но не играет в футбол",
+      "suggested_path": "content/audio/ru/ty-igraesh-na-gitare-net-ya-igrayu-v-futbol-a-masha-masha-igraet-24ad11c1.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-031-play-contrast"
+      ],
+      "lesson_refs": [
+        31
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-doma-b63b66ea",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я дома.",
       "normalized_text": "я дома",
       "suggested_path": "content/audio/ru/ya-doma-b63b66ea.mp3",
       "source_refs": [
+        "exercise:auto-note-note-gde-kuda-01-cloze",
+        "exercise:auto-note-note-gde-kuda-01-dict",
+        "exercise:auto-note-note-gde-kuda-01-listen",
         "learning-notes:note-gde-kuda"
       ],
       "lesson_refs": [
@@ -17015,16 +17272,19 @@
         35,
         36
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-edu-v-moskvu-74748e48",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я еду в Москву.",
       "normalized_text": "я еду в москву",
       "suggested_path": "content/audio/ru/ya-edu-v-moskvu-74748e48.mp3",
       "source_refs": [
+        "exercise:auto-note-note-gde-kuda-05-cloze",
+        "exercise:auto-note-note-gde-kuda-05-dict",
+        "exercise:auto-note-note-gde-kuda-05-listen",
         "learning-notes:note-gde-kuda"
       ],
       "lesson_refs": [
@@ -17033,16 +17293,19 @@
         35,
         36
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-ezzhu-na-rabotu-bb888e62",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я езжу на работу.",
       "normalized_text": "я езжу на работу",
       "suggested_path": "content/audio/ru/ya-ezzhu-na-rabotu-bb888e62.mp3",
       "source_refs": [
+        "exercise:auto-note-note-gde-kuda-06-cloze",
+        "exercise:auto-note-note-gde-kuda-06-dict",
+        "exercise:auto-note-note-gde-kuda-06-listen",
         "learning-notes:note-gde-kuda"
       ],
       "lesson_refs": [
@@ -17051,16 +17314,19 @@
         35,
         36
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-idu-domoy-83daf35e",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я иду домой.",
       "normalized_text": "я иду домой",
       "suggested_path": "content/audio/ru/ya-idu-domoy-83daf35e.mp3",
       "source_refs": [
+        "exercise:auto-note-note-gde-kuda-02-cloze",
+        "exercise:auto-note-note-gde-kuda-02-dict",
+        "exercise:auto-note-note-gde-kuda-02-listen",
         "learning-notes:note-gde-kuda"
       ],
       "lesson_refs": [
@@ -17069,16 +17335,19 @@
         35,
         36
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-idu-na-rabotu-2f34378c",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я иду на работу.",
       "normalized_text": "я иду на работу",
       "suggested_path": "content/audio/ru/ya-idu-na-rabotu-2f34378c.mp3",
       "source_refs": [
+        "exercise:auto-note-note-gde-kuda-03-cloze",
+        "exercise:auto-note-note-gde-kuda-03-dict",
+        "exercise:auto-note-note-gde-kuda-03-listen",
         "learning-notes:note-gde-kuda"
       ],
       "lesson_refs": [
@@ -17087,16 +17356,19 @@
         35,
         36
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-hozhu-na-rabotu-kazhdyy-den-26fa4b8f",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я хожу на работу каждый день.",
       "normalized_text": "я хожу на работу каждый день",
       "suggested_path": "content/audio/ru/ya-hozhu-na-rabotu-kazhdyy-den-26fa4b8f.mp3",
       "source_refs": [
+        "exercise:auto-note-note-gde-kuda-04-cloze",
+        "exercise:auto-note-note-gde-kuda-04-dict",
+        "exercise:auto-note-note-gde-kuda-04-listen",
         "learning-notes:note-gde-kuda"
       ],
       "lesson_refs": [
@@ -17105,16 +17377,34 @@
         35,
         36
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-ty-idyosh-na-rabotu-peshkom-segodnya-da-obychno-ya-ezzhu-na-avto-4b068a22",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Ты идёшь на работу пешком?\n— Сегодня да. Обычно я езжу на автобусе.\n— Почему сегодня пешком?\n— Автобуса долго нет.",
+      "normalized_text": "— ты идёшь на работу пешком — сегодня да обычно я езжу на автобусе — почему сегодня пешком — автобуса долго нет",
+      "suggested_path": "content/audio/ru/ty-idyosh-na-rabotu-peshkom-segodnya-da-obychno-ya-ezzhu-na-avto-4b068a22.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-033-motion-habit"
+      ],
+      "lesson_refs": [
+        33
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-novaya-sumka-4218c198",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Новая сумка.",
       "normalized_text": "новая сумка",
       "suggested_path": "content/audio/ru/novaya-sumka-4218c198.mp3",
       "source_refs": [
+        "exercise:auto-note-note-adjectives-02-cloze",
+        "exercise:auto-note-note-adjectives-02-dict",
+        "exercise:auto-note-note-adjectives-02-listen",
         "learning-notes:note-adjectives"
       ],
       "lesson_refs": [
@@ -17125,16 +17415,19 @@
         43,
         44
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-novyy-dom-e4fbc02f",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Новый дом.",
       "normalized_text": "новый дом",
       "suggested_path": "content/audio/ru/novyy-dom-e4fbc02f.mp3",
       "source_refs": [
+        "exercise:auto-note-note-adjectives-01-cloze",
+        "exercise:auto-note-note-adjectives-01-dict",
+        "exercise:auto-note-note-adjectives-01-listen",
         "learning-notes:note-adjectives"
       ],
       "lesson_refs": [
@@ -17145,16 +17438,19 @@
         43,
         44
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-samoe-glubokoe-ozero-1d31c3ac",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Самое глубокое озеро.",
       "normalized_text": "самое глубокое озеро",
       "suggested_path": "content/audio/ru/samoe-glubokoe-ozero-1d31c3ac.mp3",
       "source_refs": [
+        "exercise:auto-note-note-adjectives-03-cloze",
+        "exercise:auto-note-note-adjectives-03-dict",
+        "exercise:auto-note-note-adjectives-03-listen",
         "learning-notes:note-adjectives"
       ],
       "lesson_refs": [
@@ -17165,16 +17461,19 @@
         43,
         44
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-eta-sumka-novaya-f654afd3",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Эта сумка новая.",
       "normalized_text": "эта сумка новая",
       "suggested_path": "content/audio/ru/eta-sumka-novaya-f654afd3.mp3",
       "source_refs": [
+        "exercise:auto-note-note-adjectives-04-cloze",
+        "exercise:auto-note-note-adjectives-04-dict",
+        "exercise:auto-note-note-adjectives-04-listen",
         "learning-notes:note-adjectives"
       ],
       "lesson_refs": [
@@ -17185,80 +17484,110 @@
         43,
         44
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-nuzhno-otdohnut-4dc38320",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Нужно отдохнуть.",
       "normalized_text": "нужно отдохнуть",
       "suggested_path": "content/audio/ru/nuzhno-otdohnut-4dc38320.mp3",
       "source_refs": [
+        "exercise:auto-note-note-health-duty-04-cloze",
+        "exercise:auto-note-note-health-duty-04-dict",
+        "exercise:auto-note-note-health-duty-04-listen",
         "learning-notes:note-health-duty"
       ],
       "lesson_refs": [
         45,
         46
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-bolit-golova-1d77e359",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня болит голова.",
       "normalized_text": "у меня болит голова",
       "suggested_path": "content/audio/ru/u-menya-bolit-golova-1d77e359.mp3",
       "source_refs": [
+        "exercise:auto-note-note-health-duty-01-cloze",
+        "exercise:auto-note-note-health-duty-01-dict",
+        "exercise:auto-note-note-health-duty-01-listen",
         "learning-notes:note-health-duty"
       ],
       "lesson_refs": [
         45,
         46
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-temperatura-2cc514b2",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня температура.",
       "normalized_text": "у меня температура",
       "suggested_path": "content/audio/ru/u-menya-temperatura-2cc514b2.mp3",
       "source_refs": [
+        "exercise:auto-note-note-health-duty-02-cloze",
+        "exercise:auto-note-note-health-duty-02-dict",
+        "exercise:auto-note-note-health-duty-02-listen",
         "learning-notes:note-health-duty"
       ],
       "lesson_refs": [
         45,
         46
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-dolzhen-rabotat-4cdd487a",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я должен работать.",
       "normalized_text": "я должен работать",
       "suggested_path": "content/audio/ru/ya-dolzhen-rabotat-4cdd487a.mp3",
       "source_refs": [
+        "exercise:auto-note-note-health-duty-03-cloze",
+        "exercise:auto-note-note-health-duty-03-dict",
+        "exercise:auto-note-note-health-duty-03-listen",
         "learning-notes:note-health-duty"
       ],
       "lesson_refs": [
         45,
         46
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-u-tebya-bolit-golova-da-i-temperatura-togda-ne-nado-idti-na-tren-8218ca51",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— У тебя болит голова?\n— Да, и температура.\n— Тогда не надо идти на тренировку.\n— Я должен отдохнуть?",
+      "normalized_text": "— у тебя болит голова — да и температура — тогда не надо идти на тренировку — я должен отдохнуть",
+      "suggested_path": "content/audio/ru/u-tebya-bolit-golova-da-i-temperatura-togda-ne-nado-idti-na-tren-8218ca51.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-045-health-duty"
+      ],
+      "lesson_refs": [
+        45
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-direktora-ne-bylo-e1cb9ed2",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Директора не было.",
       "normalized_text": "директора не было",
       "suggested_path": "content/audio/ru/direktora-ne-bylo-e1cb9ed2.mp3",
       "source_refs": [
+        "exercise:auto-note-note-genitive-04-cloze",
+        "exercise:auto-note-note-genitive-04-dict",
+        "exercise:auto-note-note-genitive-04-listen",
         "learning-notes:note-genitive"
       ],
       "lesson_refs": [
@@ -17271,16 +17600,19 @@
         59,
         60
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-mnogo-druzey-ed4824fa",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня много друзей.",
       "normalized_text": "у меня много друзей",
       "suggested_path": "content/audio/ru/u-menya-mnogo-druzey-ed4824fa.mp3",
       "source_refs": [
+        "exercise:auto-note-note-genitive-05-cloze",
+        "exercise:auto-note-note-genitive-05-dict",
+        "exercise:auto-note-note-genitive-05-listen",
         "learning-notes:note-genitive"
       ],
       "lesson_refs": [
@@ -17293,16 +17625,19 @@
         59,
         60
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-mnogo-knig-c9133abf",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня много книг.",
       "normalized_text": "у меня много книг",
       "suggested_path": "content/audio/ru/u-menya-mnogo-knig-c9133abf.mp3",
       "source_refs": [
+        "exercise:auto-note-note-genitive-02-cloze",
+        "exercise:auto-note-note-genitive-02-dict",
+        "exercise:auto-note-note-genitive-02-listen",
         "learning-notes:note-genitive"
       ],
       "lesson_refs": [
@@ -17315,16 +17650,19 @@
         59,
         60
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-u-menya-net-vremeni-fc888be7",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "У меня нет времени.",
       "normalized_text": "у меня нет времени",
       "suggested_path": "content/audio/ru/u-menya-net-vremeni-fc888be7.mp3",
       "source_refs": [
+        "exercise:auto-note-note-genitive-01-cloze",
+        "exercise:auto-note-note-genitive-01-dict",
+        "exercise:auto-note-note-genitive-01-listen",
         "learning-notes:note-genitive"
       ],
       "lesson_refs": [
@@ -17337,16 +17675,19 @@
         59,
         60
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-iz-universiteta-b13c5fec",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я из университета.",
       "normalized_text": "я из университета",
       "suggested_path": "content/audio/ru/ya-iz-universiteta-b13c5fec.mp3",
       "source_refs": [
+        "exercise:auto-note-note-genitive-03-cloze",
+        "exercise:auto-note-note-genitive-03-dict",
+        "exercise:auto-note-note-genitive-03-listen",
         "learning-notes:note-genitive"
       ],
       "lesson_refs": [
@@ -17359,16 +17700,34 @@
         59,
         60
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-chto-vam-dat-dva-chaya-i-odin-kofe-pozhaluysta-eschyo-voda-nuzhn-33e9a24d",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Что вам дать?\n— Два чая и один кофе, пожалуйста.\n— Ещё вода нужна?\n— Нет, только два чая и один кофе.",
+      "normalized_text": "— что вам дать — два чая и один кофе пожалуйста — ещё вода нужна — нет только два чая и один кофе",
+      "suggested_path": "content/audio/ru/chto-vam-dat-dva-chaya-i-odin-kofe-pozhaluysta-eschyo-voda-nuzhn-33e9a24d.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-055-quantity-order"
+      ],
+      "lesson_refs": [
+        55
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-napisal-pismo-58fce718",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я написал письмо.",
       "normalized_text": "я написал письмо",
       "suggested_path": "content/audio/ru/ya-napisal-pismo-58fce718.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-basic-04-cloze",
+        "exercise:auto-note-note-aspect-basic-04-dict",
+        "exercise:auto-note-note-aspect-basic-04-listen",
         "learning-notes:note-aspect-basic"
       ],
       "lesson_refs": [
@@ -17377,16 +17736,19 @@
         63,
         71
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-prochital-knigu-4c981a9d",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я прочитал книгу.",
       "normalized_text": "я прочитал книгу",
       "suggested_path": "content/audio/ru/ya-prochital-knigu-4c981a9d.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-basic-02-cloze",
+        "exercise:auto-note-note-aspect-basic-02-dict",
+        "exercise:auto-note-note-aspect-basic-02-listen",
         "learning-notes:note-aspect-basic"
       ],
       "lesson_refs": [
@@ -17395,16 +17757,19 @@
         63,
         71
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-chasto-chitayu-d5a1977f",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я часто читаю.",
       "normalized_text": "я часто читаю",
       "suggested_path": "content/audio/ru/ya-chasto-chitayu-d5a1977f.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-basic-03-cloze",
+        "exercise:auto-note-note-aspect-basic-03-dict",
+        "exercise:auto-note-note-aspect-basic-03-listen",
         "learning-notes:note-aspect-basic"
       ],
       "lesson_refs": [
@@ -17413,16 +17778,19 @@
         63,
         71
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-chital-knigu-168ccfd1",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я читал книгу.",
       "normalized_text": "я читал книгу",
       "suggested_path": "content/audio/ru/ya-chital-knigu-168ccfd1.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-basic-01-cloze",
+        "exercise:auto-note-note-aspect-basic-01-dict",
+        "exercise:auto-note-note-aspect-basic-01-listen",
         "learning-notes:note-aspect-basic"
       ],
       "lesson_refs": [
@@ -17431,16 +17799,34 @@
         63,
         71
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-chto-ty-budesh-delat-vecherom-budu-chitat-knigu-potom-napishu-pi-912322e6",
+      "language": "ru",
+      "kind": "exercise:listen-choice",
+      "text": "— Что ты будешь делать вечером?\n— Буду читать книгу. Потом напишу письмо.\n— Письмо сегодня?\n— Да, сегодня обязательно напишу.",
+      "normalized_text": "— что ты будешь делать вечером — буду читать книгу потом напишу письмо — письмо сегодня — да сегодня обязательно напишу",
+      "suggested_path": "content/audio/ru/chto-ty-budesh-delat-vecherom-budu-chitat-knigu-potom-napishu-pi-912322e6.mp3",
+      "source_refs": [
+        "exercise:listen-dialogue-063-aspect-plan"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 66
     },
     {
       "id": "ru-audio-kak-tolko-prochitayu-otvechu-73b9e274",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Как только прочитаю, отвечу.",
       "normalized_text": "как только прочитаю отвечу",
       "suggested_path": "content/audio/ru/kak-tolko-prochitayu-otvechu-73b9e274.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-result-03-cloze",
+        "exercise:auto-note-note-aspect-result-03-dict",
+        "exercise:auto-note-note-aspect-result-03-listen",
         "learning-notes:note-aspect-result"
       ],
       "lesson_refs": [
@@ -17452,16 +17838,19 @@
         69,
         70
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-zakonchil-rabotu-ba702bc7",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я закончил работу.",
       "normalized_text": "я закончил работу",
       "suggested_path": "content/audio/ru/ya-zakonchil-rabotu-ba702bc7.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-result-01-cloze",
+        "exercise:auto-note-note-aspect-result-01-dict",
+        "exercise:auto-note-note-aspect-result-01-listen",
         "learning-notes:note-aspect-result"
       ],
       "lesson_refs": [
@@ -17473,16 +17862,19 @@
         69,
         70
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-ne-napisal-pismo-c7f15f1e",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я не написал письмо.",
       "normalized_text": "я не написал письмо",
       "suggested_path": "content/audio/ru/ya-ne-napisal-pismo-c7f15f1e.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-result-02-cloze",
+        "exercise:auto-note-note-aspect-result-02-dict",
+        "exercise:auto-note-note-aspect-result-02-listen",
         "learning-notes:note-aspect-result"
       ],
       "lesson_refs": [
@@ -17494,16 +17886,19 @@
         69,
         70
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-poobeschal-pozvonit-7d7654b8",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я пообещал позвонить.",
       "normalized_text": "я пообещал позвонить",
       "suggested_path": "content/audio/ru/ya-poobeschal-pozvonit-7d7654b8.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-result-05-cloze",
+        "exercise:auto-note-note-aspect-result-05-dict",
+        "exercise:auto-note-note-aspect-result-05-listen",
         "learning-notes:note-aspect-result"
       ],
       "lesson_refs": [
@@ -17515,16 +17910,19 @@
         69,
         70
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-uvidel-rezultat-94b14368",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я увидел результат.",
       "normalized_text": "я увидел результат",
       "suggested_path": "content/audio/ru/ya-uvidel-rezultat-94b14368.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-result-04-cloze",
+        "exercise:auto-note-note-aspect-result-04-dict",
+        "exercise:auto-note-note-aspect-result-04-listen",
         "learning-notes:note-aspect-result"
       ],
       "lesson_refs": [
@@ -17536,16 +17934,19 @@
         69,
         70
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-navernoe-uspeyu-920cbe1f",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Наверное, успею.",
       "normalized_text": "наверное успею",
       "suggested_path": "content/audio/ru/navernoe-uspeyu-920cbe1f.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-future-03-cloze",
+        "exercise:auto-note-note-aspect-future-03-dict",
+        "exercise:auto-note-note-aspect-future-03-listen",
         "learning-notes:note-aspect-future"
       ],
       "lesson_refs": [
@@ -17555,16 +17956,19 @@
         75,
         76
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-pomogite-pozhaluysta-88a961a5",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Помогите, пожалуйста.",
       "normalized_text": "помогите пожалуйста",
       "suggested_path": "content/audio/ru/pomogite-pozhaluysta-88a961a5.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-future-04-cloze",
+        "exercise:auto-note-note-aspect-future-04-dict",
+        "exercise:auto-note-note-aspect-future-04-listen",
         "learning-notes:note-aspect-future"
       ],
       "lesson_refs": [
@@ -17574,16 +17978,19 @@
         75,
         76
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-peredelayu-uprazhnenie-0ed8cf5b",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я переделаю упражнение.",
       "normalized_text": "я переделаю упражнение",
       "suggested_path": "content/audio/ru/ya-peredelayu-uprazhnenie-0ed8cf5b.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-future-05-cloze",
+        "exercise:auto-note-note-aspect-future-05-dict",
+        "exercise:auto-note-note-aspect-future-05-listen",
         "learning-notes:note-aspect-future"
       ],
       "lesson_refs": [
@@ -17593,16 +18000,19 @@
         75,
         76
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-sdelayu-70d3af01",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я сделаю.",
       "normalized_text": "я сделаю",
       "suggested_path": "content/audio/ru/ya-sdelayu-70d3af01.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-future-01-cloze",
+        "exercise:auto-note-note-aspect-future-01-dict",
+        "exercise:auto-note-note-aspect-future-01-listen",
         "learning-notes:note-aspect-future"
       ],
       "lesson_refs": [
@@ -17612,16 +18022,19 @@
         75,
         76
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-nado-delat-0315fba0",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Надо делать.",
       "normalized_text": "надо делать",
       "suggested_path": "content/audio/ru/nado-delat-0315fba0.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-infinitive-03-cloze",
+        "exercise:auto-note-note-aspect-infinitive-03-dict",
+        "exercise:auto-note-note-aspect-infinitive-03-listen",
         "learning-notes:note-aspect-infinitive"
       ],
       "lesson_refs": [
@@ -17630,16 +18043,19 @@
         79,
         80
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-nado-sdelat-ba3ad7e7",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Надо сделать.",
       "normalized_text": "надо сделать",
       "suggested_path": "content/audio/ru/nado-sdelat-ba3ad7e7.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-infinitive-04-cloze",
+        "exercise:auto-note-note-aspect-infinitive-04-dict",
+        "exercise:auto-note-note-aspect-infinitive-04-listen",
         "learning-notes:note-aspect-infinitive"
       ],
       "lesson_refs": [
@@ -17648,16 +18064,19 @@
         79,
         80
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-hochu-prochitat-b88d29ed",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я хочу прочитать.",
       "normalized_text": "я хочу прочитать",
       "suggested_path": "content/audio/ru/ya-hochu-prochitat-b88d29ed.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-infinitive-02-cloze",
+        "exercise:auto-note-note-aspect-infinitive-02-dict",
+        "exercise:auto-note-note-aspect-infinitive-02-listen",
         "learning-notes:note-aspect-infinitive"
       ],
       "lesson_refs": [
@@ -17666,16 +18085,19 @@
         79,
         80
       ],
-      "priority": 60
+      "priority": 66
     },
     {
       "id": "ru-audio-ya-hochu-chitat-7110f5aa",
       "language": "ru",
-      "kind": "example",
+      "kind": "mixed",
       "text": "Я хочу читать.",
       "normalized_text": "я хочу читать",
       "suggested_path": "content/audio/ru/ya-hochu-chitat-7110f5aa.mp3",
       "source_refs": [
+        "exercise:auto-note-note-aspect-infinitive-01-cloze",
+        "exercise:auto-note-note-aspect-infinitive-01-dict",
+        "exercise:auto-note-note-aspect-infinitive-01-listen",
         "learning-notes:note-aspect-infinitive"
       ],
       "lesson_refs": [
@@ -17684,7 +18106,22 @@
         79,
         80
       ],
-      "priority": 60
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-ona-chitaet-statyu-7edb12fc",
+      "language": "ru",
+      "kind": "exercise:transform",
+      "text": "Она читает статью.",
+      "normalized_text": "она читает статью",
+      "suggested_path": "content/audio/ru/ona-chitaet-statyu-7edb12fc.mp3",
+      "source_refs": [
+        "exercise:auto-grammar-grammar-019-acusativo-fem-02-transform"
+      ],
+      "lesson_refs": [
+        19
+      ],
+      "priority": 58
     }
   ]
 }

@@ -61,13 +61,15 @@ Tipos usados:
 - `multiple-choice` y `text-input`: reconocimiento y recuperacion cuando son adecuados.
 
 El scheduler no se limita a recorrer una lista. Prioriza objetivos nuevos, vencidos, fallados o con baja competencia, y mezcla modalidades para evitar memoria mecanica por bloque.
+La calibracion inicial usa un rating con incertidumbre alta: las primeras sesiones se ordenan de facil a dificil y permiten subir rapido si hay aciertos consistentes. Al acumular evidencia, baja la incertidumbre y el scheduler se concentra en objetivos cercanos al nivel estimado.
 
 Estado actual del banco:
 
-- 364 ejercicios estaticos/derivados.
+- 375 ejercicios estaticos/derivados.
 - 0 ejercicios huerfanos tras la normalizacion de targets en navegador.
 - El arranque de una cuenta nueva prioriza vocabulario y frases naturales antes de etiquetas gramaticales abstractas.
 - Los botones de audio en explicaciones evitan locutar etiquetas con simbolos y prefieren palabras o ejemplos rusos naturales.
+- Los ejercicios de escucha incluyen mini-dialogos con preguntas inferenciales y opciones cercanas, no solo repeticion literal.
 
 ## Audio
 
@@ -91,8 +93,13 @@ Postproceso aplicado por `scripts/generate_xtts_audio.py`:
 - bitrate 96 kbps.
 
 El manifiesto de audio se genera desde `content/paruski-db.json`, `content/materials.json`, `content/materials-aspect.json` y `content/learning-notes.json`. El filtro actual excluye textos con letras latinas para evitar locutar glosas espanolas como si fueran ruso.
+Tambien recoge `tts_text` de ejercicios de audio para publicar dialogos de comprension. Antes de llamar a XTTS, el script elimina puntuacion hablable del texto de entrada; asi el contenido escrito conserva puntos e interrogaciones, pero el modelo no pronuncia esos signos.
 
-Estado conocido el 2026-07-06: tras el enriquecimiento lexicodidactico hay 1111 necesidades de audio validas. Las 1111 locuciones estan generadas en `content/audio/ru/` e indexadas en `content/audio-index.json`. El indice solo referencia archivos existentes, por lo que no deja enlaces rotos.
+Estado conocido el 2026-07-06: tras la reparacion de puntuacion y la adicion de dialogos hay 1123 necesidades de audio validas. Las 1123 locuciones estan generadas en `content/audio/ru/` e indexadas en `content/audio-index.json`. El indice solo referencia archivos existentes, por lo que no deja enlaces rotos.
+
+## Practica oral futura
+
+Existe una seccion experimental `Hablar`, todavia sin grabacion ni procesamiento activo. Su finalidad futura es alojar ejercicios donde el alumno hable y un LLM local procese la respuesta en un entorno estructurado. La restriccion metodologica es que audio, transcripcion y feedback deben poder ejecutarse localmente o con consentimiento explicito, sin convertirlo en dependencia obligatoria de la web estatica.
 
 ## Validacion
 
@@ -114,6 +121,7 @@ Ultima validacion local:
 - JSON valido en `content/`, `data/` y `schemas/`.
 - Scripts Python compilados.
 - `git diff --check` sin errores.
-- Chromium headless carga la sesion guiada inicial.
-- `content/audio-worklist.json`: 1111 necesidades.
-- `content/audio-index.json`: 1111 entradas existentes.
+- `bun build assets/app.js --target=browser` empaqueta los modulos JS sin errores.
+- Chromium headless no pudo usarse en esta pasada: el binario del entorno aborto con codigo 133 antes de devolver DOM.
+- `content/audio-worklist.json`: 1123 necesidades.
+- `content/audio-index.json`: 1123 entradas existentes.

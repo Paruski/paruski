@@ -179,6 +179,7 @@ export function createContentStore() {
   function connectNotes() {
     state.notes.forEach(note => {
       const lessons = (note.lessons || []).map(Number).filter(Boolean);
+      const noteExamples = note.examples || [];
       (note.examples || []).forEach(text => {
         state.examples.push({
           id: `ex-${hashString(normalizeText(text))}`,
@@ -189,10 +190,11 @@ export function createContentStore() {
       });
       state.targets.forEach(target => {
         if (!lessons.includes(Number(target.lesson))) return;
-        const noteExamples = note.examples || [];
         const exact = noteExamples.filter(example => normalizeText(example).includes(target.normalized_text));
-        target.examples = unique([...(target.examples || []), ...(exact.length ? exact : noteExamples.slice(0, 2))]);
-        target.explanation = target.explanation || note.definition || '';
+        if (!noteMatchesTarget(note, target, noteExamples, exact)) return;
+        const signalExamples = noteExamples.filter(example => sharesRussianSignal(target.text, normalizeText(example)));
+        target.examples = unique([...(target.examples || []), ...(exact.length ? exact : signalExamples.length ? signalExamples : noteExamples.slice(0, 2))]);
+        target.explanation = mergeExplanation(target.explanation, note.definition);
         target.note_ids = unique([...(target.note_ids || []), note.id].filter(Boolean));
         target.tags = unique([...(target.tags || []), ...(note.tags || [])]);
       });
@@ -244,6 +246,7 @@ export function createContentStore() {
         sample: item.sample || '',
         require_audio: Boolean(item.require_audio),
         allow_contains: Boolean(item.allow_contains),
+        difficulty: Number(item.difficulty || item.complexity || 0),
         tags: item.tags || [],
         target_ids: targetIds,
         targets: item.targets || {},
@@ -342,6 +345,9 @@ export function createContentStore() {
   }
 
   function semanticChoicesForTarget(target, count = 4) {
+    const contrastive = contrastiveChoicesForTarget(target, count);
+    if (contrastive.length) return contrastive;
+
     const correctExamples = getExamplesForTarget(target).filter(hasCyrillic);
     const correct = correctExamples[0] || (hasCyrillic(target.text) ? target.text : '');
     if (!correct) return choicesForTarget(target, count);
@@ -472,6 +478,60 @@ function shuffle(values) {
 
 function hasCyrillic(value) {
   return /[а-яё]/i.test(String(value || ''));
+}
+
+function noteMatchesTarget(note, target, noteExamples, exactExamples) {
+  if (exactExamples.length) return true;
+  const noteHaystack = normalizeText([
+    note.title,
+    note.definition,
+    ...(note.tips || []),
+    ...noteExamples
+  ].filter(Boolean).join(' '));
+  return sharesRussianSignal(target.text, noteHaystack);
+}
+
+function mergeExplanation(current, addition) {
+  const base = String(current || '').trim();
+  const next = String(addition || '').trim();
+  if (!next) return base;
+  if (!base) return next;
+  if (normalizeText(base).includes(normalizeText(next))) return base;
+  return `${base} ${next}`;
+}
+
+function contrastiveChoicesForTarget(target, count = 4) {
+  const haystack = normalizeText([
+    target.text,
+    target.explanation,
+    ...(target.tags || [])
+  ].filter(Boolean).join(' '));
+  if (!haystack.includes('играть')) return [];
+
+  let options = [];
+  if (haystack.includes('на') && !haystack.includes('в')) {
+    options = [
+      ['Она играет на гитаре.', true],
+      ['Она играет в гитару.', false],
+      ['Она играет гитару.', false],
+      ['Она играет на футболе.', false]
+    ];
+  } else if (haystack.includes('в') && !haystack.includes('на')) {
+    options = [
+      ['Я играю в футбол.', true],
+      ['Я играю на футболе.', false],
+      ['Я играю футбол.', false],
+      ['Я играю в гитару.', false]
+    ];
+  } else {
+    options = [
+      ['Она играет на гитаре.', true],
+      ['Она играет в гитару.', false],
+      ['Мы играем на шахматах.', false],
+      ['Я играю футбол.', false]
+    ];
+  }
+  return shuffle(options.slice(0, count)).map(([value, correct]) => ({ label: value, value, correct }));
 }
 
 function sharesRussianSignal(targetText, haystack) {

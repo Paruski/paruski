@@ -20,6 +20,12 @@ const DEFAULT_PROGRESS = {
     lessonMax: 5,
     level: 'ru-a0-seed'
   },
+  calibration: {
+    rating: 900,
+    uncertainty: 350,
+    attempts: 0,
+    last_result_at: null
+  },
   lessons: {},
   targets: {},
   competencies: {},
@@ -62,6 +68,7 @@ function loadProgress() {
   if (!progress.user.created_at) progress.user.created_at = now;
   progress.settings = { ...DEFAULT_PROGRESS.settings, ...(progress.settings || {}) };
   progress.unlocked = { ...DEFAULT_PROGRESS.unlocked, ...(progress.unlocked || {}) };
+  progress.calibration = { ...DEFAULT_PROGRESS.calibration, ...(progress.calibration || {}) };
   progress.targets = progress.targets || {};
   progress.competencies = progress.competencies || {};
   progress.lessons = progress.lessons || {};
@@ -170,6 +177,7 @@ function mergeProgress(base, value) {
     user: { ...(base.user || {}), ...((value || {}).user || {}) },
     settings: { ...(base.settings || {}), ...((value || {}).settings || {}) },
     unlocked: { ...(base.unlocked || {}), ...((value || {}).unlocked || {}) },
+    calibration: { ...(base.calibration || {}), ...((value || {}).calibration || {}) },
     lessons: { ...(base.lessons || {}), ...((value || {}).lessons || {}) },
     targets: { ...(base.targets || {}), ...((value || {}).targets || {}) },
     competencies: { ...(base.competencies || {}), ...((value || {}).competencies || {}) },
