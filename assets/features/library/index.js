@@ -52,8 +52,8 @@ export const libraryFeature = {
       box.innerHTML = targets.map(target => renderTarget(target, context)).join('') || '<p class="empty">No hay resultados.</p>';
       box.querySelectorAll('[data-speak]').forEach(button => button.addEventListener('click', () => {
         context.notify?.('');
-        context.audio.speak(button.dataset.speak, { allowFallback: true }).then(ok => {
-          if (!ok) context.notify?.('No se pudo reproducir el audio en este navegador.');
+        context.audio.speak(button.dataset.speak, { requireRecorded: true }).then(ok => {
+          if (!ok) context.notify?.('Ese audio grabado aún no está disponible.');
         });
       }));
     }
@@ -89,6 +89,7 @@ function renderTarget(target, context) {
   const card = context.content.getCard(target);
   const unlocked = context.learner.isTargetUnlocked(target);
   const examples = context.content.getExamplesForTarget(target).slice(0, 2);
+  const hasAudio = context.audio.hasRecorded(target.text);
   return `
     <article class="library-card ${unlocked ? '' : 'locked'}">
       <div class="card-topline">
@@ -103,7 +104,7 @@ function renderTarget(target, context) {
       </dl>
       <p>${escapeHtml(card?.short_explanation || target.explanation || '')}</p>
       ${examples.length ? `<ul>${examples.map(example => `<li>${escapeHtml(example)}</li>`).join('')}</ul>` : ''}
-      <button type="button" class="secondary" data-speak="${escapeHtml(target.text)}">Escuchar</button>
+      ${hasAudio ? `<button type="button" class="secondary" data-speak="${escapeHtml(target.text)}">Escuchar</button>` : '<p class="muted small">Audio pendiente.</p>'}
     </article>
   `;
 }

@@ -34,6 +34,22 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     return contentStore.state.targets.filter(isTargetUnlocked);
   }
 
+  function studyLessonMax() {
+    const unlockedMax = Number(progress.unlocked?.lessonMax || 5);
+    const frontier = firstIncompleteLesson(unlockedMax);
+    const lookAhead = calibration().attempts >= 16 ? 1 : 0;
+    return Math.min(unlockedMax, Math.max(5, frontier + lookAhead));
+  }
+
+  function studyTargets() {
+    const maxLesson = studyLessonMax();
+    return unlockedTargets().filter(target => Number(target.lesson) <= maxLesson);
+  }
+
+  function firstIncompleteLesson(maxLesson) {
+    return firstIncompleteLessonFor(contentStore, getTargetState, maxLesson);
+  }
+
   function calibration() {
     progress.calibration = { ...defaultCalibration(), ...(progress.calibration || {}) };
     return progress.calibration;
@@ -43,7 +59,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     return contentStore.state.targets.filter(target => !isTargetUnlocked(target));
   }
 
-  function recordExerciseResult({ exercise, correct, confidence = 3, responseTime = null, errorType = null }) {
+  function recordExerciseResult({ exercise, correct, confidence = 3, responseTime = null, errorType = null, optionUsed = 'responder' }) {
     const targetIds = exercise.target_ids?.length ? exercise.target_ids : [];
     const timestamp = new Date().toISOString();
     const confidenceFactor = clamp(Number(confidence || 3) / 5, 0.2, 1);
@@ -58,6 +74,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
       const attempts = current.attempts + 1;
       const right = current.correct + (correct ? 1 : 0);
       const wrong = current.wrong + (correct ? 0 : 1);
+      const lapses = (current.lapses || 0) + (correct ? 0 : 1);
       const intervalDays = nextInterval(current.interval_days || 0, correct, confidenceFactor);
       const errors = { ...(current.error_types || {}) };
       if (!correct && errorType) errors[errorType] = (errors[errorType] || 0) + 1;
@@ -76,7 +93,9 @@ export function createLearnerModel(storage, eventLog, contentStore) {
         next_due_at: addDays(new Date(), intervalDays).toISOString(),
         interval_days: intervalDays,
         error_types: errors,
-        last_response_time_ms: responseTime
+        last_response_time_ms: responseTime,
+        last_option_used: optionUsed,
+        lapses
       };
     });
 
@@ -87,9 +106,30 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     save();
   }
 
+  function deferExerciseResult({ exercise, responseTime = null }) {
+    const targetIds = exercise.target_ids?.length ? exercise.target_ids : [];
+    const timestamp = new Date().toISOString();
+    targetIds.forEach(targetId => {
+      const target = contentStore.getTarget(targetId);
+      const current = getTargetState(targetId);
+      progress.targets[targetId] = {
+        ...current,
+        target_id: targetId,
+        lesson: target?.lesson || current.lesson || null,
+        level: target?.level || current.level || null,
+        deferred: (current.deferred || 0) + 1,
+        last_deferred_at: timestamp,
+        last_response_time_ms: responseTime,
+        last_option_used: 'resolver_luego',
+        next_due_at: addDays(new Date(), 1).toISOString()
+      };
+    });
+    save();
+  }
+
   function dueTargets(date = new Date()) {
     const today = startOfDay(date).getTime();
-    return unlockedTargets().filter(target => {
+    return studyTargets().filter(target => {
       const state = getTargetState(target.id);
       if (!state.attempts) return true;
       return new Date(state.next_due_at || 0).getTime() <= today;
@@ -97,7 +137,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   }
 
   function weakTargets(limit = 8) {
-    return unlockedTargets()
+    return studyTargets()
       .map(target => ({ target, state: getTargetState(target.id) }))
       .filter(item => item.state.attempts && item.state.mastery < 0.62)
       .sort((left, right) => left.state.mastery - right.state.mastery || right.state.wrong - left.state.wrong)
@@ -106,7 +146,8 @@ export function createLearnerModel(storage, eventLog, contentStore) {
 
   function summary() {
     const events = eventLog.practiceEvents();
-    const correct = events.filter(event => event.correct).length;
+    const gradableEvents = events.filter(event => event.correct !== null);
+    const correct = gradableEvents.filter(event => event.correct).length;
     const today = dayKey(new Date());
     const todayCount = events.filter(event => dayKey(event.timestamp) === today).length;
     const targetStates = Object.values(progress.targets || {});
@@ -116,7 +157,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     return {
       events: events.length,
       correct,
-      accuracy: events.length ? Math.round((correct / events.length) * 100) : 0,
+      accuracy: gradableEvents.length ? Math.round((correct / gradableEvents.length) * 100) : 0,
       todayCount,
       dailyTarget: progress.settings?.dailyTarget || 8,
       mastered,
@@ -125,7 +166,8 @@ export function createLearnerModel(storage, eventLog, contentStore) {
       targetCount: contentStore.state.targets.length,
       unlockedCount: unlockedTargets().length,
       lockedCount: lockedTargets().length,
-      lessonMax: progress.unlocked?.lessonMax || 5,
+      lessonMax: studyLessonMax(),
+      unlockedLessonMax: progress.unlocked?.lessonMax || 5,
       calibration: calibration(),
       streak: streakDays(events)
     };
@@ -199,10 +241,10 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   }
 
   function updateUnlocks() {
-    const masteredTargets = Object.values(progress.targets || {}).filter(state => state.mastery >= 0.58).length;
-    const calibratedLesson = lessonMaxFromRating(calibration().rating, masteredTargets);
-    const nextLessonMax = Math.min(80, Math.max(5, calibratedLesson, 5 + Math.floor(masteredTargets / 3)));
-    progress.unlocked.lessonMax = Math.max(progress.unlocked?.lessonMax || 5, nextLessonMax);
+    const currentMax = Math.max(5, Number(progress.unlocked?.lessonMax || 5));
+    const firstIncomplete = firstIncompleteLesson(currentMax);
+    const nextLessonMax = firstIncomplete > currentMax ? Math.min(80, currentMax + 1) : currentMax;
+    progress.unlocked.lessonMax = Math.max(currentMax, nextLessonMax);
     const lesson = progress.unlocked.lessonMax;
     progress.unlocked.level = contentStore.levelForLesson(lesson).id;
   }
@@ -213,16 +255,43 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     getProgress,
     getTargetState,
     calibration,
+    studyLessonMax,
+    studyTargets,
     isTargetUnlocked,
     unlockedTargets,
     lockedTargets,
     recordExerciseResult,
+    deferExerciseResult,
     dueTargets,
     weakTargets,
     competencyProgress,
     weakCompetencies,
     summary
   };
+}
+
+function lessonTargets(contentStore, lesson) {
+  return contentStore.state.targets.filter(target => Number(target.lesson) === Number(lesson));
+}
+
+function firstIncompleteLessonFor(contentStore, getTargetState, maxLesson) {
+  for (let lesson = 1; lesson <= Number(maxLesson || 5); lesson += 1) {
+    if (!lessonIsCovered(contentStore, getTargetState, lesson)) return lesson;
+  }
+  return Number(maxLesson || 5) + 1;
+}
+
+function lessonIsCovered(contentStore, getTargetState, lesson) {
+  const targets = lessonTargets(contentStore, lesson);
+  if (!targets.length) return true;
+  const states = targets.map(target => getTargetState(target.id));
+  const seen = states.filter(state => state.attempts > 0).length;
+  const coverage = seen / targets.length;
+  const averageMastery = average(states.map(state => state.mastery || 0));
+  const grammarTargets = targets.filter(target => target.kind === 'grammar');
+  const seenGrammar = grammarTargets.filter(target => getTargetState(target.id).attempts > 0).length;
+  const grammarCoverage = grammarTargets.length ? seenGrammar / grammarTargets.length : 1;
+  return coverage >= 0.82 && grammarCoverage >= 0.8 && averageMastery >= 0.48;
 }
 
 function defaultTargetState(targetId) {
@@ -286,12 +355,6 @@ function updateCalibrationForProgress(progress, exercise, correct, confidenceFac
     attempts: current.attempts + 1,
     last_result_at: timestamp
   };
-}
-
-function lessonMaxFromRating(rating, masteredTargets) {
-  const calibrated = 5 + Math.floor((Number(rating || 900) - 850) / 22);
-  const evidenceCap = 8 + Math.floor(Number(masteredTargets || 0) / 2);
-  return Math.max(5, Math.min(80, Math.min(calibrated, evidenceCap)));
 }
 
 function exerciseDifficultyRating(exercise) {

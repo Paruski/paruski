@@ -22,7 +22,8 @@ export const progressFeature = {
           ${metric('Hoy', `${summary.todayCount}/${summary.dailyTarget}`)}
           ${metric('Racha', `${summary.streak} día(s)`)}
           ${metric('Precisión', `${summary.accuracy}%`)}
-          ${metric('Desbloqueado', `${summary.lessonMax}/80 clases`)}
+          ${metric('En estudio', `${summary.lessonMax}/80 clases`)}
+          ${metric('Desbloqueado', `${summary.unlockedLessonMax || summary.lessonMax}/80 clases`)}
           ${metric('Calibración', `${Math.round(calibration.rating || 900)} · ±${Math.round(calibration.uncertainty || 350)}`)}
           ${metric('Targets', `${summary.unlockedCount}/${summary.targetCount}`)}
           ${metric('Dominados', summary.mastered)}

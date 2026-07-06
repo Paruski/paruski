@@ -13,8 +13,8 @@ export const dictationExercise = {
     listen.textContent = 'Escuchar';
     listen.addEventListener('click', () => {
       context.notify?.('');
-      context.audio.speak(exercise.tts_text || exercise.expected, { allowFallback: true }).then(ok => {
-        if (!ok) context.notify?.('No se pudo reproducir el audio en este navegador.');
+      context.audio.speak(exercise.tts_text || exercise.expected, { requireRecorded: true }).then(ok => {
+        if (!ok) context.notify?.('Ese audio grabado aún no está disponible.');
       });
     });
     actions.appendChild(listen);

@@ -7,6 +7,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     const targetCount = Math.max(6, Math.min(options.targetCount || summary.dailyTarget || 10, 16));
     const candidates = adaptiveOrder(interleaveTargets(rankTargets()), calibration).slice(0, targetCount);
     const tasks = [];
+    const recentTypes = [];
 
     candidates.forEach((entry, index) => {
       const target = entry.target;
@@ -14,7 +15,9 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       if (!state.attempts || state.mastery < 0.35 || entry.reason === 'error') {
         tasks.push(makeExplainTask(target, entry.reason));
       }
-      tasks.push(makeExerciseTask(target, chooseExerciseType(target, state, index, targetCount, calibration)));
+      const type = chooseExerciseType(target, state, index, targetCount, calibration, recentTypes);
+      recentTypes.push(type);
+      tasks.push(makeExerciseTask(target, type));
     });
 
     return {
@@ -26,13 +29,14 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
         due: learnerModel.dueTargets().length,
         weak: learnerModel.weakTargets().length,
         unlocked: summary.unlockedCount,
+        study_lesson_max: learnerModel.studyLessonMax?.() || summary.lessonMax,
         calibration
       }
     };
   }
 
   function previewPlan(days = 14) {
-    const targets = learnerModel.unlockedTargets();
+    const targets = learnerModel.studyTargets?.() || learnerModel.unlockedTargets();
     const grouped = {};
     targets.forEach(target => {
       const state = learnerModel.getTargetState(target.id);
@@ -48,7 +52,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
 
   function rankTargets() {
     const today = new Date();
-    return learnerModel.unlockedTargets()
+    return (learnerModel.studyTargets?.() || learnerModel.unlockedTargets())
       .map((target, index) => {
         const state = learnerModel.getTargetState(target.id);
         const dueAt = state.next_due_at ? new Date(state.next_due_at) : null;
@@ -63,7 +67,8 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
         const starterComplexity = !state.attempts
           ? (target.kind === 'grammar' ? 8 : 0) + (isCopyHostileTarget(target) ? 6 : 0)
           : 0;
-        const score = dueBoost + newBoost + wrongBoost + lowMastery + importance + difficulty + starterVocabulary - starterComplexity - index * 0.001;
+        const earlierLesson = Math.max(0, 12 - Number(target.lesson || 1)) * 2.5;
+        const score = dueBoost + newBoost + wrongBoost + lowMastery + importance + difficulty + starterVocabulary + earlierLesson - starterComplexity - index * 0.001;
         const reason = state.wrong ? 'error' : !state.attempts ? 'nuevo' : isDue ? 'vencido' : 'refuerzo';
         return { target, state, score, reason };
       })
@@ -92,7 +97,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     };
   }
 
-  function chooseExerciseType(target, state, index, targetCount, calibration) {
+  function chooseExerciseType(target, state, index, targetCount, calibration, recentTypes = []) {
     const examples = contentStore.getExamplesForTarget(target);
     const exactExample = examples.some(example => normalizeText(example).includes(target.normalized_text));
     const hasAudio = audioService.hasRecorded(target.text) || examples.some(example => audioService.hasRecorded(example));
@@ -101,25 +106,28 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     const needsGrammar = (state.skills?.grammar_transfer || 0) < 0.58;
     const phase = targetCount > 1 ? index / (targetCount - 1) : 0;
     const calibrating = (calibration?.attempts || 0) < 18 || (calibration?.uncertainty || 0) > 150;
+    let selected = '';
     if (calibrating && !state.attempts) {
-      if (phase < 0.28) return 'multiple-choice';
-      if (phase < 0.58 && exactExample) return 'cloze';
-      if (phase > 0.72 && hasAudio && needsListening) return 'listen-choice';
+      if (phase < 0.28) selected = 'multiple-choice';
+      else if (phase < 0.58 && exactExample) selected = 'cloze';
+      else if (phase > 0.72 && hasAudio && needsListening) selected = 'listen-choice';
     }
-    if (hasAudio && needsListening && (index + 1) % 3 === 0) return state.attempts ? 'dictation' : 'listen-choice';
-    if (target.kind === 'grammar' && needsGrammar && transformSeedFor(target)) return 'transform';
-    if (target.kind === 'vocabulary' && state.attempts >= 1 && state.mastery >= 0.35 && (index + 1) % 5 === 0) return 'production-prompt';
-    if (isCopyHostileTarget(target)) return exactExample ? 'cloze' : 'multiple-choice';
-    if ((index + 1) % 4 === 0 && target.kind === 'vocabulary' && (hasAudio || needsListening)) return 'dictation';
-    if (exactExample) return 'cloze';
-    if (!state.attempts || (index + 1) % 3 === 0 || target.kind === 'grammar') return 'multiple-choice';
-    if (target.kind === 'vocabulary' && needsProduction && (index + 1) % 2 === 0) return 'text-input';
-    return 'text-input';
+    if (!selected && hasAudio && needsListening && (index + 1) % 3 === 0) selected = state.attempts ? 'dictation' : 'listen-choice';
+    if (!selected && target.kind === 'grammar' && needsGrammar && transformSeedFor(target)) selected = 'transform';
+    if (!selected && target.kind === 'vocabulary' && state.attempts >= 1 && state.mastery >= 0.35 && (index + 1) % 5 === 0) selected = 'production-prompt';
+    if (!selected && isCopyHostileTarget(target)) selected = exactExample ? 'cloze' : 'multiple-choice';
+    if (!selected && (index + 1) % 4 === 0 && target.kind === 'vocabulary' && (hasAudio || needsListening)) selected = 'dictation';
+    if (!selected && exactExample) selected = 'cloze';
+    if (!selected && (!state.attempts || (index + 1) % 3 === 0 || target.kind === 'grammar')) selected = 'multiple-choice';
+    if (!selected && target.kind === 'vocabulary' && needsProduction && (index + 1) % 2 === 0) selected = 'text-input';
+    return diversifyExerciseType(selected || 'text-input', { target, exactExample, hasAudio, needsListening, recentTypes });
   }
 
   function staticExerciseFor(target, preferredType) {
+    const studyMax = Number(learnerModel.studyLessonMax?.() || target.lesson || 5);
     const exercises = contentStore.state.exercises
       .filter(exercise => (exercise.target_ids || []).includes(target.id))
+      .filter(exercise => Number(exercise.lesson || target.lesson || 0) <= studyMax)
       .filter(exercise => isUsableStaticExercise(exercise));
     if (!exercises.length) return null;
     const selected = exercises.find(exercise => exercise.type === preferredType) ||
@@ -265,6 +273,19 @@ function adaptiveOrder(entries, calibration) {
 
 function byDifficultyThenPriority(left, right) {
   return left.difficulty - right.difficulty || right.score - left.score;
+}
+
+function diversifyExerciseType(selected, { target, exactExample, hasAudio, needsListening, recentTypes }) {
+  const lastTwo = recentTypes.slice(-2);
+  if (lastTwo.length < 2 || !lastTwo.every(type => type === selected)) return selected;
+  const options = [
+    hasAudio && needsListening ? 'listen-choice' : '',
+    exactExample ? 'cloze' : '',
+    target.kind === 'grammar' && transformSeedFor(target) ? 'transform' : '',
+    target.kind === 'vocabulary' ? 'text-input' : '',
+    'multiple-choice'
+  ].filter(Boolean).filter(type => type !== selected);
+  return options[0] || selected;
 }
 
 function targetDifficulty(target) {

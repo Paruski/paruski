@@ -2,6 +2,8 @@ import { normalizeText } from './utils.js';
 
 export function createAudioService(contentStore) {
   let ruVoice = null;
+  let outputPrimed = false;
+  let mediaOutputPrimed = false;
   const player = document.createElement('audio');
   player.preload = 'auto';
   player.playsInline = true;
@@ -21,9 +23,16 @@ export function createAudioService(contentStore) {
     try {
       player.pause();
       player.removeAttribute('src');
+      player.volume = 1;
+      player.playbackRate = 1;
       player.load();
       player.src = src;
+      player.load();
+      await waitForAudioReady(player);
+      await primeOutput();
+      await primeMediaOutput(player);
       player.currentTime = 0;
+      player.volume = 1;
       await player.play();
       return true;
     } catch {
@@ -47,7 +56,7 @@ export function createAudioService(contentStore) {
     if (!value) return false;
     if (await playRecorded(value)) return true;
     if (await playBank(value)) return true;
-    if (!options.allowFallback && options.requireRecorded) return false;
+    if (options.allowSynthesis !== true) return false;
     if (!('speechSynthesis' in window)) return false;
 
     refreshVoices();
@@ -66,6 +75,63 @@ export function createAudioService(contentStore) {
   }
 
   return { speak, hasRecorded, refreshVoices };
+
+  async function primeOutput() {
+    if (outputPrimed) return;
+    outputPrimed = true;
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      const audioContext = new AudioContextClass();
+      if (audioContext.state === 'suspended') await audioContext.resume();
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      gain.gain.value = 0.0001;
+      oscillator.connect(gain).connect(audioContext.destination);
+      oscillator.start();
+      await new Promise(resolve => window.setTimeout(resolve, 180));
+      oscillator.stop();
+      window.setTimeout(() => audioContext.close?.(), 250);
+    } catch {}
+  }
+
+  async function primeMediaOutput(audio) {
+    if (mediaOutputPrimed) return;
+    mediaOutputPrimed = true;
+    try {
+      audio.currentTime = 0;
+      audio.volume = 0.002;
+      await audio.play();
+      await new Promise(resolve => window.setTimeout(resolve, 180));
+      audio.pause();
+      audio.currentTime = 0;
+      audio.volume = 1;
+    } catch {
+      audio.volume = 1;
+      try { audio.pause(); } catch {}
+      try { audio.currentTime = 0; } catch {}
+    }
+  }
+}
+
+function waitForAudioReady(audio, timeoutMs = 2500) {
+  if (audio.readyState >= 3) return Promise.resolve();
+  return new Promise(resolve => {
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      audio.removeEventListener('canplay', finish);
+      audio.removeEventListener('canplaythrough', finish);
+      audio.removeEventListener('loadeddata', finish);
+      window.clearTimeout(timer);
+      resolve();
+    };
+    const timer = window.setTimeout(finish, timeoutMs);
+    audio.addEventListener('canplay', finish, { once: true });
+    audio.addEventListener('canplaythrough', finish, { once: true });
+    audio.addEventListener('loadeddata', finish, { once: true });
+  });
 }
 
 function audioSource(entry) {

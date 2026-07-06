@@ -149,6 +149,17 @@ dd {
   color: var(--muted);
 }
 
+.exercise-actions {
+  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, max-content));
+}
+
+@media (max-width: 640px) {
+  .exercise-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
 .feedback-box {
   margin-top: 1rem;
   border: 1px solid var(--line);
@@ -164,6 +175,11 @@ dd {
 .feedback-box.wrong {
   border-color: rgba(239,68,68,.5);
   color: #fecaca;
+}
+
+.feedback-box.neutral {
+  border-color: rgba(148,163,184,.45);
+  color: var(--text);
 }
 
 .metric-list,

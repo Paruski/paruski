@@ -46,6 +46,7 @@ function renderExplain(node, task, context, onNext) {
   const target = task.target;
   const examples = card.examples || context.content.getExamplesForTarget(target).slice(0, 3);
   const audioText = explainAudioText(target, examples, context);
+  const renderedExamples = examples.map(example => renderExample(example, context)).join('');
   node.innerHTML = `
     <article class="learning-card focus-card">
       <p class="eyebrow">Objetivo ahora</p>
@@ -62,7 +63,7 @@ function renderExplain(node, task, context, onNext) {
         <div><dt>Forma marcada</dt><dd>${escapeHtml(card.stress_marked || target.text)}</dd></div>
       </dl>
       <p class="big-text">${escapeHtml(card.short_explanation || target.explanation || 'Observa la forma, escúchala y recupérala sin mirar.')}</p>
-      ${examples.length ? `<ul class="example-list">${examples.map(example => `<li><button type="button" data-speak="${escapeHtml(example)}">${escapeHtml(example)}</button></li>`).join('')}</ul>` : ''}
+      ${examples.length ? `<ul class="example-list">${renderedExamples}</ul>` : ''}
       <div class="guided-actions">
         ${audioText ? `<button type="button" class="secondary" data-speak="${escapeHtml(audioText)}">${audioText === target.text ? 'Escuchar' : 'Escuchar ejemplo'}</button>` : ''}
         <button type="button" id="continueTask">Practicar</button>
@@ -98,70 +99,183 @@ function renderExercise(node, exercise, context, startedAt, onNext) {
   node.querySelector('#listenExercise')?.addEventListener('click', () => playAudio(context, audioText));
   const form = node.querySelector('#exerciseForm');
   const controls = document.createElement('div');
-  controls.className = 'exercise-controls';
+  controls.className = 'exercise-controls exercise-actions';
   controls.innerHTML = `
-    <label class="confidence-label">Confianza
-      <select id="confidenceInput">
-        <option value="3">Normal</option>
-        <option value="1">He dudado</option>
-        <option value="5">Muy seguro</option>
-      </select>
-    </label>
+    <button type="button" class="secondary" id="unknownTask">No sé</button>
+    <button type="button" class="secondary" id="deferTask">Resolver luego</button>
     <button type="submit">Comprobar</button>
   `;
   form.append(widget.element, controls);
   form.addEventListener('submit', event => {
     event.preventDefault();
-    const confidence = Number(node.querySelector('#confidenceInput')?.value || 3);
     const answer = widget.readAnswer();
     const result = handler.evaluate(answer, exercise, context);
-    const competencyTags = context.content.getCompetencyTagsForExercise(exercise);
     const responseTime = Math.round(performance.now() - startedAt);
-    context.eventLog.record({
-      skill: exercise.skill,
-      exercise_type: exercise.type,
-      modality: exercise.modality,
-      target_ids: exercise.target_ids || [],
-      competency_ids: competencyTags.map(item => item.id),
-      competency_tags: competencyTags.map(item => ({
-        id: item.id,
-        dimension: item.dimension,
-        label: item.label
-      })),
-      lesson: exercise.lesson,
-      prompt: exercise.prompt,
-      expected: result.expected,
-      answer: result.answer,
-      correct: result.correct,
-      error_type: result.error_type,
-      response_time_ms: responseTime,
-      confidence
-    });
-    context.learner.recordExerciseResult({
+    finishExercise({
+      context,
       exercise,
-      correct: result.correct,
-      confidence,
+      result,
       responseTime,
-      errorType: result.error_type
+      optionUsed: 'responder'
     });
     renderFeedback(node.querySelector('#exerciseFeedback'), result, exercise, onNext);
-    form.querySelectorAll('input, textarea, button, select').forEach(item => {
-      if (item.id !== 'nextTask') item.disabled = true;
-    });
+    lockForm(form);
+  });
+  node.querySelector('#unknownTask')?.addEventListener('click', () => {
+    const responseTime = Math.round(performance.now() - startedAt);
+    const result = {
+      correct: false,
+      answer: '',
+      expected: exercise.expected,
+      displayExpected: exercise.display_expected || exercise.expected,
+      error_type: 'no_se',
+      option_used: 'no_se'
+    };
+    finishExercise({ context, exercise, result, responseTime, optionUsed: 'no_se' });
+    renderFeedback(node.querySelector('#exerciseFeedback'), result, exercise, onNext);
+    lockForm(form);
+  });
+  node.querySelector('#deferTask')?.addEventListener('click', () => {
+    const responseTime = Math.round(performance.now() - startedAt);
+    const result = {
+      correct: null,
+      deferred: true,
+      answer: '',
+      expected: exercise.expected,
+      displayExpected: exercise.display_expected || exercise.expected,
+      error_type: null,
+      option_used: 'resolver_luego'
+    };
+    finishExercise({ context, exercise, result, responseTime, optionUsed: 'resolver_luego' });
+    renderFeedback(node.querySelector('#exerciseFeedback'), result, exercise, onNext);
+    lockForm(form);
   });
   window.setTimeout(() => widget.focus?.(), 50);
 }
 
 function renderFeedback(node, result, exercise, onNext) {
+  const title = result.deferred ? 'Lo dejamos para luego' : result.correct ? 'Correcto' : result.option_used === 'no_se' ? 'Registrado como no sabido' : 'Aún no';
+  const body = result.deferred
+    ? 'Volverá pronto sin contar como fallo completo ni como acierto.'
+    : result.correct
+      ? 'Este objetivo se espaciará más y volverá cuando toque.'
+      : `Respuesta esperada: ${escapeHtml(result.displayExpected || exercise.expected)}`;
   node.innerHTML = `
-    <div class="feedback-box ${result.correct ? 'correct' : 'wrong'}">
-      <strong>${result.correct ? 'Correcto' : 'Aún no'}</strong>
-      <p>${result.correct ? 'Este objetivo se espaciará más y volverá cuando toque.' : `Respuesta esperada: ${escapeHtml(result.displayExpected || exercise.expected)}`}</p>
+    <div class="feedback-box ${result.correct ? 'correct' : result.deferred ? 'neutral' : 'wrong'}">
+      <strong>${escapeHtml(title)}</strong>
+      <p>${body}</p>
       ${result.error_type ? `<p class="muted">Foco de error: ${escapeHtml(result.error_type)}</p>` : ''}
       <button type="button" id="nextTask">Siguiente</button>
     </div>
   `;
   node.querySelector('#nextTask')?.addEventListener('click', onNext);
+}
+
+function finishExercise({ context, exercise, result, responseTime, optionUsed }) {
+  const competencyTags = context.content.getCompetencyTagsForExercise(exercise);
+  const reviewBefore = reviewSnapshot(context, exercise);
+  const targetSnapshots = targetSnapshot(context, exercise);
+  const confidence = inferredConfidence(result.correct, responseTime, optionUsed);
+  if (optionUsed === 'resolver_luego') {
+    context.learner.deferExerciseResult({ exercise, responseTime });
+  } else {
+    context.learner.recordExerciseResult({
+      exercise,
+      correct: Boolean(result.correct),
+      confidence,
+      responseTime,
+      errorType: result.error_type,
+      optionUsed
+    });
+  }
+  const reviewAfter = reviewSnapshot(context, exercise);
+  context.eventLog.record({
+    item_id: exercise.id,
+    exercise_id: exercise.id,
+    skill: exercise.skill,
+    exercise_type: exercise.type,
+    modality: exercise.modality,
+    direction: exercise.direction || directionForExercise(exercise),
+    difficulty: exercise.difficulty ?? exercise.complexity ?? null,
+    importance: exercise.weight ?? exercise.importance ?? null,
+    target_ids: exercise.target_ids || [],
+    targets: targetSnapshots,
+    target_snapshots: targetSnapshots,
+    competency_ids: competencyTags.map(item => item.id),
+    competency_tags: competencyTags.map(item => ({
+      id: item.id,
+      dimension: item.dimension,
+      label: item.label
+    })),
+    lesson: exercise.lesson,
+    prompt: exercise.prompt,
+    expected: result.expected,
+    answer: result.answer,
+    correct: result.correct,
+    option_used: optionUsed,
+    action: optionUsed,
+    error_type: result.error_type,
+    response_time_ms: responseTime,
+    hints_used: 0,
+    confidence,
+    review_before: reviewBefore,
+    review_after: reviewAfter,
+    srs_before: reviewBefore,
+    srs_after: reviewAfter
+  });
+}
+
+function lockForm(form) {
+  form.querySelectorAll('input, textarea, button, select').forEach(item => {
+    if (item.id !== 'nextTask') item.disabled = true;
+  });
+}
+
+function inferredConfidence(correct, responseTime, optionUsed) {
+  if (optionUsed === 'no_se') return 1;
+  if (optionUsed === 'resolver_luego') return null;
+  if (!correct) return 2;
+  if (responseTime && responseTime < 7000) return 5;
+  if (responseTime && responseTime < 18000) return 4;
+  return 3;
+}
+
+function reviewSnapshot(context, exercise) {
+  return Object.fromEntries((exercise.target_ids || []).map(targetId => {
+    const state = context.learner.getTargetState(targetId);
+    return [targetId, {
+      mastery: state.mastery || 0,
+      attempts: state.attempts || 0,
+      correct: state.correct || 0,
+      wrong: state.wrong || 0,
+      interval_days: state.interval_days || 0,
+      next_due_at: state.next_due_at || null,
+      skills: state.skills || {}
+    }];
+  }));
+}
+
+function targetSnapshot(context, exercise) {
+  return (exercise.target_ids || []).map(targetId => {
+    const target = context.content.getTarget(targetId);
+    return {
+      id: targetId,
+      text: target?.text || targetId,
+      kind: target?.kind || null,
+      lesson: target?.lesson || exercise.lesson || null,
+      level: target?.level || exercise.level || null,
+      importance: target?.importance ?? null,
+      difficulty: target?.difficulty ?? null
+    };
+  });
+}
+
+function directionForExercise(exercise) {
+  if (exercise.type === 'listen-choice' || exercise.type === 'dictation') return 'audio_to_russian';
+  if (exercise.type === 'production-prompt' || exercise.type === 'text-input') return 'spanish_or_prompt_to_russian';
+  if (exercise.type === 'multiple-choice') return 'recognition';
+  if (exercise.type === 'cloze' || exercise.type === 'transform') return 'russian_form_manipulation';
+  return 'practice';
 }
 
 function renderDone(node, context, onRestart) {
@@ -197,7 +311,8 @@ function renderSide(node, context, session, taskIndex) {
       <div class="metric-list">
         <span><strong>${summary.todayCount}/${summary.dailyTarget}</strong> objetivo diario</span>
         <span><strong>${summary.streak}</strong> día(s) de racha</span>
-        <span><strong>${summary.lessonMax}</strong> clases desbloqueadas</span>
+        <span><strong>${summary.lessonMax}</strong> clases en estudio</span>
+        <span><strong>${summary.unlockedLessonMax || summary.lessonMax}</strong> clases desbloqueadas</span>
       </div>
     </article>
     <article class="side-card">
@@ -269,9 +384,9 @@ function currentTaskLabel(task) {
 
 function playAudio(context, text) {
   context.notify('');
-  context.audio.speak(text, { allowFallback: true }).then(ok => {
-    if (!ok) context.notify('No se pudo reproducir el audio en este navegador.');
-  }).catch(() => context.notify('No se pudo reproducir el audio en este navegador.'));
+  context.audio.speak(text, { requireRecorded: true }).then(ok => {
+    if (!ok) context.notify('Ese audio grabado aún no está disponible.');
+  }).catch(() => context.notify('Ese audio grabado aún no está disponible.'));
 }
 
 function explainAudioText(target, examples, context) {
@@ -280,9 +395,14 @@ function explainAudioText(target, examples, context) {
     .filter(Boolean);
   const recorded = candidates.find(value => context.audio.hasRecorded(value));
   if (recorded) return recorded;
-  return candidates.find(isNaturalRussianSpeech) || '';
+  return '';
 }
 
-function isNaturalRussianSpeech(value) {
-  return /[а-яё]/i.test(value) && !/[+/_|()[\]{}<>→=]/.test(value) && !/[A-Za-zÁÉÍÓÚáéíóúñÑ]/.test(value);
+function renderExample(example, context) {
+  const value = String(example || '').trim();
+  if (!value) return '';
+  if (!context.audio.hasRecorded(value)) {
+    return `<li><span>${escapeHtml(value)}</span></li>`;
+  }
+  return `<li><button type="button" data-speak="${escapeHtml(value)}">${escapeHtml(value)}</button></li>`;
 }
