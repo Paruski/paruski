@@ -1,6 +1,8 @@
 # Arquitectura objetivo de Paruski
 
 Para continuar el proyecto desde cero, leer primero `docs/agent-handoff.md`.
+La trazabilidad de decisiones, fuentes y proceso de creacion esta en
+`docs/transparencia-metodologica.md`.
 
 Este documento fija la estructura objetivo de la web antes de ampliar funciones. La prioridad es que Paruski sea una app guiada, escalable y mantenible para llevar al alumno desde primer contacto hasta A1-A2 inicial sin obligarle a navegar manualmente.
 

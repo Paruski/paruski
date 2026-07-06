@@ -76,3 +76,25 @@ Implementacion:
 - `assets/core/competency-tagger.js` infiere competencias para ejercicios estaticos y generados.
 - `assets/core/learner-model.js` acumula dominio, precision, errores, modalidades y tipos de ejercicio por competencia.
 - `assets/features/progress/` muestra competencias entrenadas y competencias a reforzar.
+
+## 8. Seleccion lexica por frecuencia y utilidad
+
+Decision: el vocabulario nuevo no se decide por intuicion aislada. Se priorizan palabras frecuentes, campos lexicos de alta utilidad comunicativa y formas que permitan practicar gramatica real.
+
+Implementacion:
+
+- `scripts/enrich_learning_content.py` anota vocabulario suplementario y actualiza `content/vocabulary.json`.
+- `content/lexical-selection.json` registra fuente, banda de frecuencia, campo lexico y razon de incorporacion.
+- La frecuencia se estima localmente con `wordfreq` cuando esta disponible; sus datos para ruso combinan Wikipedia, subtitulos, noticias, libros y Twitter.
+- Las fuentes corpus se documentan en `docs/transparencia-metodologica.md`.
+
+## 9. Banco amplio de ejercicios
+
+Decision: cada frase pedagogica util debe poder aparecer en varias modalidades. La variedad no se consigue cambiando solo el texto del boton, sino entrenando operaciones distintas.
+
+Implementacion:
+
+- El enriquecimiento genera dictados, eleccion auditiva, huecos, produccion guiada y transformaciones desde notas y reglas gramaticales.
+- `assets/core/content-store.js` conserva `tts_text`, `display`, `sample`, `allow_contains` y `listen-choice` para ejercicios estaticos.
+- `assets/core/scheduler.js` selecciona escucha, dictado, huecos, transformacion o produccion segun dominio por habilidad y disponibilidad de audio.
+- `assets/features/guided-session/` muestra una instruccion breve para cada tipo de tarea para que el alumno sepa que hacer sin navegar por la web.

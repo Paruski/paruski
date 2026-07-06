@@ -1,4 +1,4 @@
-const CACHE_NAME = 'paruski-v31';
+const CACHE_NAME = 'paruski-v32';
 const ASSETS = [
   './',
   './index.html',
@@ -6,6 +6,7 @@ const ASSETS = [
   './favicon.ico',
   './assets/styles.css',
   './assets/app-shell.css',
+  './assets/keyboard.css',
   './assets/audio-bank.js',
   './assets/app.js',
   './assets/core/app-context.js',
@@ -44,6 +45,7 @@ const ASSETS = [
   './content/guided-path.json',
   './content/paruski-db.json',
   './content/audio-index.json',
+  './content/lexical-selection.json',
   './manifest.webmanifest'
 ];
 

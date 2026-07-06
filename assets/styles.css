@@ -1,13 +1,13 @@
 :root {
   color-scheme: dark;
-  --bg: #0b1020;
-  --panel: #111827;
-  --panel-2: #172033;
-  --text: #eef2ff;
-  --muted: #9ca3af;
-  --line: #283247;
-  --accent: #8b5cf6;
-  --accent-2: #22c55e;
+  --bg: #0f1115;
+  --panel: #171a1f;
+  --panel-2: #20242b;
+  --text: #f3f0e8;
+  --muted: #a7a29a;
+  --line: #30343b;
+  --accent: #2f7d57;
+  --accent-2: #d8a442;
   --danger: #ef4444;
   --warn: #f59e0b;
   --shadow: 0 16px 50px rgba(0, 0, 0, 0.28);
@@ -18,7 +18,7 @@
 body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top left, rgba(139, 92, 246, 0.22), transparent 36rem), var(--bg);
+  background: radial-gradient(circle at top left, rgba(47, 125, 87, 0.18), transparent 34rem), var(--bg);
   color: var(--text);
 }
 
@@ -41,7 +41,7 @@ button.danger { background: var(--danger); }
 
 input, select, textarea {
   border: 1px solid var(--line);
-  background: #0d1424;
+  background: var(--panel);
   color: var(--text);
   border-radius: 0.75rem;
   padding: 0.7rem 0.85rem;
@@ -52,7 +52,7 @@ code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 
 pre {
   max-height: 24rem;
   overflow: auto;
-  background: #080d19;
+  background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 1rem;
   padding: 1rem;
@@ -133,14 +133,14 @@ main { padding: 1.5rem clamp(1rem, 4vw, 3rem) 4rem; }
   align-items: center;
   gap: 0.25rem;
   border-radius: 999px;
-  background: rgba(139, 92, 246, 0.16);
-  border: 1px solid rgba(139, 92, 246, 0.35);
-  color: #ddd6fe;
+  background: rgba(47, 125, 87, 0.18);
+  border: 1px solid rgba(47, 125, 87, 0.42);
+  color: #d9f2e5;
   padding: 0.25rem 0.55rem;
   font-size: 0.8rem;
 }
 .status-pill.seen, .status-pill.active { background: rgba(34,197,94,0.16); border-color: rgba(34,197,94,0.35); color: #bbf7d0; }
-.status-pill.consolidated { background: rgba(59,130,246,0.16); border-color: rgba(59,130,246,0.35); color: #bfdbfe; }
+.status-pill.consolidated { background: rgba(216,164,66,0.16); border-color: rgba(216,164,66,0.35); color: #f5dfaa; }
 .status-pill.pending { background: rgba(245,158,11,0.16); border-color: rgba(245,158,11,0.35); color: #fde68a; }
 
 .profile-box {
@@ -153,7 +153,7 @@ main { padding: 1.5rem clamp(1rem, 4vw, 3rem) 4rem; }
 .profile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 0.75rem; }
 .profile-grid label { display: grid; gap: 0.35rem; color: var(--muted); }
 .profile-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
-.metric-row { border-color: rgba(139, 92, 246, 0.35); }
+.metric-row { border-color: rgba(47, 125, 87, 0.42); }
 .calendar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; margin: 0.75rem 0 1rem; }
 .calendar-day { border: 1px solid var(--line); border-radius: 1rem; padding: 0.85rem; background: rgba(255,255,255,0.03); display: grid; gap: 0.35rem; }
 .calendar-day.today { border-color: var(--accent-2); background: rgba(34,197,94,0.1); }

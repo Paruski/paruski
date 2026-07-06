@@ -3,7 +3,7 @@ import { dayKey, normalizeText } from './utils.js';
 export function createScheduler({ contentStore, learnerModel, audioService }) {
   function buildSession(options = {}) {
     const summary = learnerModel.summary();
-    const targetCount = Math.max(4, Math.min(options.targetCount || summary.dailyTarget || 8, 12));
+    const targetCount = Math.max(6, Math.min(options.targetCount || summary.dailyTarget || 10, 16));
     const candidates = interleaveTargets(rankTargets()).slice(0, targetCount);
     const tasks = [];
 
@@ -57,7 +57,11 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
         const lowMastery = (1 - (state.mastery || 0)) * 28;
         const importance = (target.importance || 0.5) * 12;
         const difficulty = (target.difficulty || 0.3) * 6;
-        const score = dueBoost + newBoost + wrongBoost + lowMastery + importance + difficulty - index * 0.001;
+        const starterVocabulary = !state.attempts && target.kind === 'vocabulary' ? 10 : 0;
+        const starterComplexity = !state.attempts
+          ? (target.kind === 'grammar' ? 8 : 0) + (isCopyHostileTarget(target) ? 6 : 0)
+          : 0;
+        const score = dueBoost + newBoost + wrongBoost + lowMastery + importance + difficulty + starterVocabulary - starterComplexity - index * 0.001;
         const reason = state.wrong ? 'error' : !state.attempts ? 'nuevo' : isDue ? 'vencido' : 'refuerzo';
         return { target, state, score, reason };
       })
@@ -89,11 +93,18 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
   function chooseExerciseType(target, state, index) {
     const examples = contentStore.getExamplesForTarget(target);
     const exactExample = examples.some(example => normalizeText(example).includes(target.normalized_text));
+    const hasAudio = audioService.hasRecorded(target.text) || examples.some(example => audioService.hasRecorded(example));
+    const needsListening = (state.skills?.listening || 0) < 0.62;
+    const needsProduction = (state.skills?.production || 0) < 0.58;
+    const needsGrammar = (state.skills?.grammar_transfer || 0) < 0.58;
+    if (hasAudio && needsListening && (index + 1) % 3 === 0) return state.attempts ? 'dictation' : 'listen-choice';
+    if (target.kind === 'grammar' && needsGrammar && transformSeedFor(target)) return 'transform';
     if (target.kind === 'vocabulary' && state.attempts >= 1 && state.mastery >= 0.35 && (index + 1) % 5 === 0) return 'production-prompt';
     if (isCopyHostileTarget(target)) return exactExample ? 'cloze' : 'multiple-choice';
-    if ((index + 1) % 4 === 0 && target.kind === 'vocabulary' && (audioService.hasRecorded(target.text) || (state.skills?.listening || 0) < 0.55)) return 'dictation';
+    if ((index + 1) % 4 === 0 && target.kind === 'vocabulary' && (hasAudio || needsListening)) return 'dictation';
     if (exactExample) return 'cloze';
     if (!state.attempts || (index + 1) % 3 === 0 || target.kind === 'grammar') return 'multiple-choice';
+    if (target.kind === 'vocabulary' && needsProduction && (index + 1) % 2 === 0) return 'text-input';
     return 'text-input';
   }
 
@@ -161,20 +172,41 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     }
 
     if (type === 'dictation') {
+      const ttsText = exactExample || target.text;
       return {
         ...base,
         prompt: 'Escucha y escribe en ruso.',
+        expected: ttsText,
+        tts_text: ttsText,
         require_audio: false
       };
     }
 
     if (type === 'listen-choice') {
+      const ttsText = exactExample || target.text;
       return {
         ...base,
         prompt: 'Escucha y elige lo que has oído.',
-        choices: contentStore.choicesForTarget(target),
+        expected: ttsText,
+        tts_text: ttsText,
+        choices: listeningChoices(contentStore, target, ttsText),
         require_audio: false
       };
+    }
+
+    if (type === 'transform') {
+      const seed = transformSeedFor(target);
+      if (seed) {
+        return {
+          ...base,
+          prompt: 'Transforma la forma rusa siguiendo el patrón.',
+          display: `${seed.left} → _____`,
+          expected: seed.right,
+          display_expected: `${seed.left} → ${seed.right}`,
+          accepted: [seed.right],
+          tts_text: seed.example || seed.right
+        };
+      }
     }
 
     if (type === 'production-prompt') {
@@ -184,7 +216,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
           ? `Escribe una frase rusa corta que use esta idea: ${card.translation}`
           : 'Escribe una frase rusa corta que use el objetivo de forma natural.',
         expected: target.text,
-        sample: ''
+        sample: examples[0] || ''
       };
     }
 
@@ -224,6 +256,10 @@ function isCopyHostileTarget(target) {
 
 function isUsableStaticExercise(exercise) {
   if (exercise.type === 'multiple-choice' || exercise.type === 'listen-choice') return true;
+  if (exercise.type === 'dictation') {
+    const value = String(exercise.tts_text || exercise.expected || '').trim();
+    return /[а-яё]/i.test(value) && value.split(/\s+/).length <= 10;
+  }
   return isLowFrictionExercise(exercise);
 }
 
@@ -238,6 +274,54 @@ function buildAcceptedForms(target) {
   const values = [target.text];
   if (target.text.includes('/')) values.push(...target.text.split('/'));
   return values.map(value => value.trim()).filter(Boolean);
+}
+
+function transformSeedFor(target) {
+  const examples = [
+    ...(target.examples || [])
+  ].map(String);
+  for (const example of examples) {
+    const match = example.match(/([А-Яа-яЁё -]+?)\s*[→=]\s*([А-Яа-яЁё -]+)(?::\s*(.+))?/);
+    if (match) {
+      return {
+        left: match[1].trim(),
+        right: match[2].trim(),
+        example: (match[3] || '').trim()
+      };
+    }
+  }
+  return null;
+}
+
+function listeningChoices(contentStore, target, correct, count = 4) {
+  const examples = contentStore.getExamplesForTarget(target).filter(value => /[а-яё]/i.test(String(value || '')));
+  const sameLevelExamples = contentStore.state.targets
+    .filter(item => item.id !== target.id && item.level === target.level)
+    .flatMap(item => contentStore.getExamplesForTarget(item))
+    .filter(value => /[а-яё]/i.test(String(value || '')));
+  const options = uniqueStrings([correct, ...examples, ...sameLevelExamples])
+    .filter(value => normalizeText(value) !== normalizeText(correct))
+    .slice(0, 24);
+  const values = shuffleStrings([correct, ...options.slice(0, Math.max(0, count - 1))]);
+  return values.map(value => ({
+    label: value,
+    value,
+    correct: normalizeText(value) === normalizeText(correct)
+  }));
+}
+
+function uniqueStrings(values) {
+  const seen = new Set();
+  return values.map(value => String(value || '').trim()).filter(value => {
+    const key = normalizeText(value);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function shuffleStrings(values) {
+  return [...values].sort(() => Math.random() - 0.5);
 }
 
 function skillForType(type, target) {

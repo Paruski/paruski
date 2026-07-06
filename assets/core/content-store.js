@@ -224,7 +224,7 @@ export function createContentStore() {
   function normalizeExercises(items) {
     return (items || []).map(item => {
       const type = mapExerciseType(item.type);
-      const targetIds = matchTargets(item);
+      const targetIds = Array.isArray(item.target_ids) && item.target_ids.length ? item.target_ids : matchTargets(item);
       return {
         id: item.id || `exercise-${hashString(JSON.stringify(item))}`,
         source: 'static',
@@ -238,6 +238,12 @@ export function createContentStore() {
         expected: item.expected || '',
         accepted: item.accepted || [],
         choices: item.choices || null,
+        display: item.display || '',
+        display_expected: item.display_expected || '',
+        tts_text: item.tts_text || '',
+        sample: item.sample || '',
+        require_audio: Boolean(item.require_audio),
+        allow_contains: Boolean(item.allow_contains),
         tags: item.tags || [],
         target_ids: targetIds,
         targets: item.targets || {},
@@ -253,7 +259,23 @@ export function createContentStore() {
       if (expected && (expected.includes(target.normalized_text) || target.normalized_text.includes(expected))) return true;
       return tags.some(tag => target.tags.map(normalizeText).includes(tag) || target.normalized_text.includes(tag));
     });
-    return matches.slice(0, 4).map(target => target.id);
+    if (matches.length) return matches.slice(0, 4).map(target => target.id);
+
+    const lesson = Number(item.lesson);
+    if (!lesson) return [];
+    const haystack = normalizeText([
+      item.prompt,
+      item.display,
+      item.display_expected,
+      item.tts_text,
+      item.sample,
+      item.expected
+    ].filter(Boolean).join(' '));
+    const sameLesson = state.targets.filter(target => (target.lesson_refs || []).includes(lesson));
+    const signalMatches = sameLesson.filter(target => sharesRussianSignal(target.text, haystack));
+    if (signalMatches.length) return signalMatches.slice(0, 4).map(target => target.id);
+    const grammarMatches = sameLesson.filter(target => target.kind === 'grammar');
+    return (grammarMatches.length ? grammarMatches : sameLesson).slice(0, 2).map(target => target.id);
   }
 
   function levelForLesson(lessonNumber) {
@@ -427,10 +449,12 @@ function stressFromMarked(value) {
 
 function mapExerciseType(type) {
   const value = String(type || '').trim();
-  if (['multiple_choice', 'mcq', 'eleccion', 'image_choice', 'audio_mcq'].includes(value)) return 'multiple-choice';
+  if (['multiple_choice', 'mcq', 'eleccion', 'image_choice'].includes(value)) return 'multiple-choice';
+  if (['listen-choice', 'listen_choice', 'audio_mcq', 'audio-choice'].includes(value)) return 'listen-choice';
   if (['huecos', 'cloze'].includes(value)) return 'cloze';
   if (['transformacion', 'transform'].includes(value)) return 'transform';
   if (['audio_transcription', 'dictation'].includes(value)) return 'dictation';
+  if (['production-prompt', 'production_prompt', 'respuesta-libre'].includes(value)) return 'production-prompt';
   return 'text-input';
 }
 
@@ -448,4 +472,15 @@ function shuffle(values) {
 
 function hasCyrillic(value) {
   return /[а-яё]/i.test(String(value || ''));
+}
+
+function sharesRussianSignal(targetText, haystack) {
+  return russianSignals(targetText).some(signal => haystack.includes(signal));
+}
+
+function russianSignals(value) {
+  return String(value || '')
+    .toLowerCase()
+    .match(/[а-яё]{4,}/g)
+    ?.flatMap(token => token.length > 5 ? [token, token.slice(0, -1), token.slice(0, -2)] : [token]) || [];
 }

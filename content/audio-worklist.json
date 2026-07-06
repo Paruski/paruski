@@ -4,8 +4,34 @@
   "language": "ru",
   "audio_dir": "content/audio/ru",
   "preferred_ext": ".mp3",
-  "total": 1052,
+  "total": 1111,
   "items": [
+    {
+      "id": "ru-audio-dom-8e35c313",
+      "language": "ru",
+      "kind": "mixed",
+      "text": "дом",
+      "normalized_text": "дом",
+      "suggested_path": "content/audio/ru/dom-8e35c313.mp3",
+      "source_refs": [
+        "materials:class:14",
+        "materials:class:2",
+        "materials:class:49",
+        "materials:class:5",
+        "materials:class:6",
+        "materials:class:9",
+        "paruski-db:cards"
+      ],
+      "lesson_refs": [
+        2,
+        5,
+        6,
+        9,
+        14,
+        49
+      ],
+      "priority": 100
+    },
     {
       "id": "ru-audio-rabota-1bbeed78",
       "language": "ru",
@@ -31,30 +57,6 @@
         33,
         35,
         46
-      ],
-      "priority": 100
-    },
-    {
-      "id": "ru-audio-dom-8e35c313",
-      "language": "ru",
-      "kind": "mixed",
-      "text": "дом",
-      "normalized_text": "дом",
-      "suggested_path": "content/audio/ru/dom-8e35c313.mp3",
-      "source_refs": [
-        "materials:class:14",
-        "materials:class:49",
-        "materials:class:5",
-        "materials:class:6",
-        "materials:class:9",
-        "paruski-db:cards"
-      ],
-      "lesson_refs": [
-        5,
-        6,
-        9,
-        14,
-        49
       ],
       "priority": 100
     },
@@ -169,6 +171,27 @@
         11,
         12,
         41
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-voda-5f376105",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "вода",
+      "normalized_text": "вода",
+      "suggested_path": "content/audio/ru/voda-5f376105.mp3",
+      "source_refs": [
+        "materials:class:1",
+        "materials:class:26",
+        "materials:class:30",
+        "materials:class:42"
+      ],
+      "lesson_refs": [
+        1,
+        26,
+        30,
+        42
       ],
       "priority": 80
     },
@@ -552,6 +575,25 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-hleb-adc547a4",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "хлеб",
+      "normalized_text": "хлеб",
+      "suggested_path": "content/audio/ru/hleb-adc547a4.mp3",
+      "source_refs": [
+        "materials:class:1",
+        "materials:class:15",
+        "materials:class:26"
+      ],
+      "lesson_refs": [
+        1,
+        15,
+        26
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-chay-c90efe38",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -580,6 +622,38 @@
       ],
       "lesson_refs": [
         1
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-apteka-147e7ba6",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "аптека",
+      "normalized_text": "аптека",
+      "suggested_path": "content/audio/ru/apteka-147e7ba6.mp3",
+      "source_refs": [
+        "materials:class:2",
+        "materials:class:45"
+      ],
+      "lesson_refs": [
+        2,
+        45
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-bank-88bdf284",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "банк",
+      "normalized_text": "банк",
+      "suggested_path": "content/audio/ru/bank-88bdf284.mp3",
+      "source_refs": [
+        "materials:class:2"
+      ],
+      "lesson_refs": [
+        2
       ],
       "priority": 80
     },
@@ -654,6 +728,21 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-kafe-676ad17c",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "кафе",
+      "normalized_text": "кафе",
+      "suggested_path": "content/audio/ru/kafe-676ad17c.mp3",
+      "source_refs": [
+        "materials:class:2"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-magazin-dea5c61b",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -707,6 +796,21 @@
         2,
         9,
         34
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-ostanovka-b159695c",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "остановка",
+      "normalized_text": "остановка",
+      "suggested_path": "content/audio/ru/ostanovka-b159695c.mp3",
+      "source_refs": [
+        "materials:class:2"
+      ],
+      "lesson_refs": [
+        2
       ],
       "priority": 80
     },
@@ -788,6 +892,21 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-stantsiya-947eb5d7",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "станция",
+      "normalized_text": "станция",
+      "suggested_path": "content/audio/ru/stantsiya-947eb5d7.mp3",
+      "source_refs": [
+        "materials:class:2"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-tam-fd8f3007",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -841,6 +960,21 @@
         34,
         51,
         53
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-tsentr-77e83705",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "центр",
+      "normalized_text": "центр",
+      "suggested_path": "content/audio/ru/tsentr-77e83705.mp3",
+      "source_refs": [
+        "materials:class:2"
+      ],
+      "lesson_refs": [
+        2
       ],
       "priority": 80
     },
@@ -986,6 +1120,36 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-kollega-b262da9a",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "коллега",
+      "normalized_text": "коллега",
+      "suggested_path": "content/audio/ru/kollega-b262da9a.mp3",
+      "source_refs": [
+        "materials:class:3"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-menedzher-481bc7db",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "менеджер",
+      "normalized_text": "менеджер",
+      "suggested_path": "content/audio/ru/menedzher-481bc7db.mp3",
+      "source_refs": [
+        "materials:class:3"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-my-fa0374f9",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -1106,6 +1270,36 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-student-38107313",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "студент",
+      "normalized_text": "студент",
+      "suggested_path": "content/audio/ru/student-38107313.mp3",
+      "source_refs": [
+        "materials:class:3"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-studentka-8f343f1c",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "студентка",
+      "normalized_text": "студентка",
+      "suggested_path": "content/audio/ru/studentka-8f343f1c.mp3",
+      "source_refs": [
+        "materials:class:3"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-ty-ac60e92a",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -1175,11 +1369,13 @@
       "normalized_text": "делать",
       "suggested_path": "content/audio/ru/delat-5fb3d3a6.mp3",
       "source_refs": [
+        "materials-aspect:class:61",
         "materials-aspect:class:79",
         "materials:class:4"
       ],
       "lesson_refs": [
         4,
+        61,
         79
       ],
       "priority": 80
@@ -1206,6 +1402,21 @@
       "text": "завтракать",
       "normalized_text": "завтракать",
       "suggested_path": "content/audio/ru/zavtrakat-f5cd7c5a.mp3",
+      "source_refs": [
+        "materials:class:4"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-zakryvat-3404cdbe",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "закрывать",
+      "normalized_text": "закрывать",
+      "suggested_path": "content/audio/ru/zakryvat-3404cdbe.mp3",
       "source_refs": [
         "materials:class:4"
       ],
@@ -1247,6 +1458,23 @@
         31,
         50,
         62
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-iskat-11a2913e",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "искать",
+      "normalized_text": "искать",
+      "suggested_path": "content/audio/ru/iskat-11a2913e.mp3",
+      "source_refs": [
+        "materials:class:4",
+        "materials:class:50"
+      ],
+      "lesson_refs": [
+        4,
+        50
       ],
       "priority": 80
     },
@@ -1330,6 +1558,63 @@
       "lesson_refs": [
         4,
         22
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-otkryvat-18207935",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "открывать",
+      "normalized_text": "открывать",
+      "suggested_path": "content/audio/ru/otkryvat-18207935.mp3",
+      "source_refs": [
+        "materials:class:4"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-pisat-6eeb8009",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "писать",
+      "normalized_text": "писать",
+      "suggested_path": "content/audio/ru/pisat-6eeb8009.mp3",
+      "source_refs": [
+        "materials-aspect:class:61",
+        "materials-aspect:class:67",
+        "materials-aspect:class:78",
+        "materials:class:28",
+        "materials:class:4"
+      ],
+      "lesson_refs": [
+        4,
+        28,
+        61,
+        67,
+        78
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-pomogat-1cc827f3",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "помогать",
+      "normalized_text": "помогать",
+      "suggested_path": "content/audio/ru/pomogat-1cc827f3.mp3",
+      "source_refs": [
+        "materials-aspect:class:78",
+        "materials:class:37",
+        "materials:class:4"
+      ],
+      "lesson_refs": [
+        4,
+        37,
+        78
       ],
       "priority": 80
     },
@@ -1495,6 +1780,46 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-muzyka-5bd6ccf6",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "музыка",
+      "normalized_text": "музыка",
+      "suggested_path": "content/audio/ru/muzyka-5bd6ccf6.mp3",
+      "source_refs": [
+        "materials:class:20",
+        "materials:class:21",
+        "materials:class:29",
+        "materials:class:31",
+        "materials:class:5"
+      ],
+      "lesson_refs": [
+        5,
+        20,
+        21,
+        29,
+        31
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-pesnya-6ba60974",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "песня",
+      "normalized_text": "песня",
+      "suggested_path": "content/audio/ru/pesnya-6ba60974.mp3",
+      "source_refs": [
+        "materials:class:20",
+        "materials:class:5"
+      ],
+      "lesson_refs": [
+        5,
+        20
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-pokupat-7ce37627",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -1550,6 +1875,21 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-slovo-f56eb6c3",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "слово",
+      "normalized_text": "слово",
+      "suggested_path": "content/audio/ru/slovo-f56eb6c3.mp3",
+      "source_refs": [
+        "materials:class:5"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-slushat-2d83170d",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -1582,6 +1922,46 @@
       ],
       "lesson_refs": [
         5
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-urok-b958563d",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "урок",
+      "normalized_text": "урок",
+      "suggested_path": "content/audio/ru/urok-b958563d.mp3",
+      "source_refs": [
+        "materials:class:12",
+        "materials:class:17",
+        "materials:class:23",
+        "materials:class:5"
+      ],
+      "lesson_refs": [
+        5,
+        12,
+        17,
+        23
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-film-70ca1f15",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "фильм",
+      "normalized_text": "фильм",
+      "suggested_path": "content/audio/ru/film-70ca1f15.mp3",
+      "source_refs": [
+        "materials:class:29",
+        "materials:class:31",
+        "materials:class:5"
+      ],
+      "lesson_refs": [
+        5,
+        29,
+        31
       ],
       "priority": 80
     },
@@ -2560,6 +2940,57 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-bilet-73c4f474",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "билет",
+      "normalized_text": "билет",
+      "suggested_path": "content/audio/ru/bilet-73c4f474.mp3",
+      "source_refs": [
+        "materials:class:11",
+        "materials:class:17",
+        "materials:class:25"
+      ],
+      "lesson_refs": [
+        11,
+        17,
+        25
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-vopros-de3acba2",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "вопрос",
+      "normalized_text": "вопрос",
+      "suggested_path": "content/audio/ru/vopros-de3acba2.mp3",
+      "source_refs": [
+        "materials:class:11"
+      ],
+      "lesson_refs": [
+        11
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-vremya-b43a77c9",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "время",
+      "normalized_text": "время",
+      "suggested_path": "content/audio/ru/vremya-b43a77c9.mp3",
+      "source_refs": [
+        "materials:class:11",
+        "materials:class:17"
+      ],
+      "lesson_refs": [
+        11,
+        17
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-dengi-5133eb79",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -2613,6 +3044,21 @@
         11,
         49,
         56
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-klyuch-b36af61a",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "ключ",
+      "normalized_text": "ключ",
+      "suggested_path": "content/audio/ru/klyuch-b36af61a.mp3",
+      "source_refs": [
+        "materials:class:11"
+      ],
+      "lesson_refs": [
+        11
       ],
       "priority": 80
     },
@@ -2830,25 +3276,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-urok-b958563d",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "урок",
-      "normalized_text": "урок",
-      "suggested_path": "content/audio/ru/urok-b958563d.mp3",
-      "source_refs": [
-        "materials:class:12",
-        "materials:class:17",
-        "materials:class:23"
-      ],
-      "lesson_refs": [
-        12,
-        17,
-        23
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-chemodan-441887a4",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -2932,12 +3359,57 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-dver-c1029c95",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "дверь",
+      "normalized_text": "дверь",
+      "suggested_path": "content/audio/ru/dver-c1029c95.mp3",
+      "source_refs": [
+        "materials:class:13"
+      ],
+      "lesson_refs": [
+        13
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-karman-4538cca8",
       "language": "ru",
       "kind": "target:vocabulario",
       "text": "карман",
       "normalized_text": "карман",
       "suggested_path": "content/audio/ru/karman-4538cca8.mp3",
+      "source_refs": [
+        "materials:class:13"
+      ],
+      "lesson_refs": [
+        13
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-komnata-34cf877e",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "комната",
+      "normalized_text": "комната",
+      "suggested_path": "content/audio/ru/komnata-34cf877e.mp3",
+      "source_refs": [
+        "materials:class:13"
+      ],
+      "lesson_refs": [
+        13
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-kuhnya-aed56e68",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "кухня",
+      "normalized_text": "кухня",
+      "suggested_path": "content/audio/ru/kuhnya-aed56e68.mp3",
       "source_refs": [
         "materials:class:13"
       ],
@@ -3380,21 +3852,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-hleb-adc547a4",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "хлеб",
-      "normalized_text": "хлеб",
-      "suggested_path": "content/audio/ru/hleb-adc547a4.mp3",
-      "source_refs": [
-        "materials:class:15"
-      ],
-      "lesson_refs": [
-        15
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-byl-8826ed52",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -3611,23 +4068,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-bilet-73c4f474",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "билет",
-      "normalized_text": "билет",
-      "suggested_path": "content/audio/ru/bilet-73c4f474.mp3",
-      "source_refs": [
-        "materials:class:17",
-        "materials:class:25"
-      ],
-      "lesson_refs": [
-        17,
-        25
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-vecherom-ce7144da",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -3668,21 +4108,6 @@
       "text": "вопросы",
       "normalized_text": "вопросы",
       "suggested_path": "content/audio/ru/voprosy-38771938.mp3",
-      "source_refs": [
-        "materials:class:17"
-      ],
-      "lesson_refs": [
-        17
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-vremya-b43a77c9",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "время",
-      "normalized_text": "время",
-      "suggested_path": "content/audio/ru/vremya-b43a77c9.mp3",
       "source_refs": [
         "materials:class:17"
       ],
@@ -4440,27 +4865,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-muzyka-5bd6ccf6",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "музыка",
-      "normalized_text": "музыка",
-      "suggested_path": "content/audio/ru/muzyka-5bd6ccf6.mp3",
-      "source_refs": [
-        "materials:class:20",
-        "materials:class:21",
-        "materials:class:29",
-        "materials:class:31"
-      ],
-      "lesson_refs": [
-        20,
-        21,
-        29,
-        31
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-natasha-1812510f",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -4482,21 +4886,6 @@
       "text": "Наташу",
       "normalized_text": "наташу",
       "suggested_path": "content/audio/ru/natashu-2227248a.mp3",
-      "source_refs": [
-        "materials:class:20"
-      ],
-      "lesson_refs": [
-        20
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-pesnya-6ba60974",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "песня",
-      "normalized_text": "песня",
-      "suggested_path": "content/audio/ru/pesnya-6ba60974.mp3",
       "source_refs": [
         "materials:class:20"
       ],
@@ -4561,10 +4950,12 @@
       "suggested_path": "content/audio/ru/gotovit-97a63716.mp3",
       "source_refs": [
         "materials-aspect:class:67",
-        "materials:class:21"
+        "materials:class:21",
+        "materials:class:37"
       ],
       "lesson_refs": [
         21,
+        37,
         67
       ],
       "priority": 80
@@ -4720,10 +5111,12 @@
       "normalized_text": "танцевать",
       "suggested_path": "content/audio/ru/tantsevat-d1eefcf0.mp3",
       "source_refs": [
-        "materials:class:21"
+        "materials:class:21",
+        "materials:class:37"
       ],
       "lesson_refs": [
-        21
+        21,
+        37
       ],
       "priority": 80
     },
@@ -4878,10 +5271,12 @@
       "normalized_text": "завтра",
       "suggested_path": "content/audio/ru/zavtra-6103388c.mp3",
       "source_refs": [
-        "materials:class:23"
+        "materials:class:23",
+        "materials:class:46"
       ],
       "lesson_refs": [
-        23
+        23,
+        46
       ],
       "priority": 80
     },
@@ -5506,25 +5901,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-voda-5f376105",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "вода",
-      "normalized_text": "вода",
-      "suggested_path": "content/audio/ru/voda-5f376105.mp3",
-      "source_refs": [
-        "materials:class:26",
-        "materials:class:30",
-        "materials:class:42"
-      ],
-      "lesson_refs": [
-        26,
-        30,
-        42
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-edyat-c79764dc",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -5561,6 +5937,21 @@
       "text": "ешь",
       "normalized_text": "ешь",
       "suggested_path": "content/audio/ru/esh-b1084a6f.mp3",
+      "source_refs": [
+        "materials:class:26"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-zavtrak-660e64c5",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "завтрак",
+      "normalized_text": "завтрак",
+      "suggested_path": "content/audio/ru/zavtrak-660e64c5.mp3",
       "source_refs": [
         "materials:class:26"
       ],
@@ -5626,6 +6017,25 @@
       ],
       "lesson_refs": [
         26
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-obed-71d3d5d7",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "обед",
+      "normalized_text": "обед",
+      "suggested_path": "content/audio/ru/obed-71d3d5d7.mp3",
+      "source_refs": [
+        "materials:class:26",
+        "materials:class:30",
+        "materials:class:54"
+      ],
+      "lesson_refs": [
+        26,
+        30,
+        54
       ],
       "priority": 80
     },
@@ -5707,12 +6117,72 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-salat-0a3ca263",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "салат",
+      "normalized_text": "салат",
+      "suggested_path": "content/audio/ru/salat-0a3ca263.mp3",
+      "source_refs": [
+        "materials:class:26"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-sok-69e824fa",
       "language": "ru",
       "kind": "target:vocabulario",
       "text": "сок",
       "normalized_text": "сок",
       "suggested_path": "content/audio/ru/sok-69e824fa.mp3",
+      "source_refs": [
+        "materials:class:26"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-syr-4372c82e",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "сыр",
+      "normalized_text": "сыр",
+      "suggested_path": "content/audio/ru/syr-4372c82e.mp3",
+      "source_refs": [
+        "materials:class:26"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-uzhin-f44647e2",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "ужин",
+      "normalized_text": "ужин",
+      "suggested_path": "content/audio/ru/uzhin-f44647e2.mp3",
+      "source_refs": [
+        "materials:class:26"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-yabloko-88b184ad",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "яблоко",
+      "normalized_text": "яблоко",
+      "suggested_path": "content/audio/ru/yabloko-88b184ad.mp3",
       "source_refs": [
         "materials:class:26"
       ],
@@ -6075,27 +6545,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-pisat-6eeb8009",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "писать",
-      "normalized_text": "писать",
-      "suggested_path": "content/audio/ru/pisat-6eeb8009.mp3",
-      "source_refs": [
-        "materials-aspect:class:61",
-        "materials-aspect:class:67",
-        "materials-aspect:class:78",
-        "materials:class:28"
-      ],
-      "lesson_refs": [
-        28,
-        61,
-        67,
-        78
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-politika-d42e4f9f",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -6246,23 +6695,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-film-70ca1f15",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "фильм",
-      "normalized_text": "фильм",
-      "suggested_path": "content/audio/ru/film-70ca1f15.mp3",
-      "source_refs": [
-        "materials:class:29",
-        "materials:class:31"
-      ],
-      "lesson_refs": [
-        29,
-        31
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-arenda-1624cf19",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -6323,23 +6755,6 @@
         30,
         52,
         58
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-obed-71d3d5d7",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "обед",
-      "normalized_text": "обед",
-      "suggested_path": "content/audio/ru/obed-71d3d5d7.mp3",
-      "source_refs": [
-        "materials:class:30",
-        "materials:class:54"
-      ],
-      "lesson_refs": [
-        30,
-        54
       ],
       "priority": 80
     },
@@ -7443,6 +7858,36 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-pet-b749edaa",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "петь",
+      "normalized_text": "петь",
+      "suggested_path": "content/audio/ru/pet-b749edaa.mp3",
+      "source_refs": [
+        "materials:class:37"
+      ],
+      "lesson_refs": [
+        37
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-plavat-4429182a",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "плавать",
+      "normalized_text": "плавать",
+      "suggested_path": "content/audio/ru/plavat-4429182a.mp3",
+      "source_refs": [
+        "materials:class:37"
+      ],
+      "lesson_refs": [
+        37
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-prava-a6253042",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -7484,6 +7929,36 @@
       ],
       "lesson_refs": [
         37
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-zanyat-418cf416",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "занят",
+      "normalized_text": "занят",
+      "suggested_path": "content/audio/ru/zanyat-418cf416.mp3",
+      "source_refs": [
+        "materials:class:38"
+      ],
+      "lesson_refs": [
+        38
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-opozdat-354325c6",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "опоздать",
+      "normalized_text": "опоздать",
+      "suggested_path": "content/audio/ru/opozdat-354325c6.mp3",
+      "source_refs": [
+        "materials:class:38"
+      ],
+      "lesson_refs": [
+        38
       ],
       "priority": 80
     },
@@ -7533,6 +8008,23 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-problema-3031e09d",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "проблема",
+      "normalized_text": "проблема",
+      "suggested_path": "content/audio/ru/problema-3031e09d.mp3",
+      "source_refs": [
+        "materials-aspect:class:72",
+        "materials:class:38"
+      ],
+      "lesson_refs": [
+        38,
+        72
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-rabotaet-e23dc648",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -7548,12 +8040,61 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-reshenie-237ee704",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "решение",
+      "normalized_text": "решение",
+      "suggested_path": "content/audio/ru/reshenie-237ee704.mp3",
+      "source_refs": [
+        "materials-aspect:class:72",
+        "materials-aspect:class:80",
+        "materials:class:38"
+      ],
+      "lesson_refs": [
+        38,
+        72,
+        80
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-ustal-4cfdc5a1",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "устал",
+      "normalized_text": "устал",
+      "suggested_path": "content/audio/ru/ustal-4cfdc5a1.mp3",
+      "source_refs": [
+        "materials:class:38"
+      ],
+      "lesson_refs": [
+        38
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-bolshoy-f9923400",
       "language": "ru",
       "kind": "target:vocabulario",
       "text": "большой",
       "normalized_text": "большой",
       "suggested_path": "content/audio/ru/bolshoy-f9923400.mp3",
+      "source_refs": [
+        "materials:class:39"
+      ],
+      "lesson_refs": [
+        39
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-vazhnyy-8b983517",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "важный",
+      "normalized_text": "важный",
+      "suggested_path": "content/audio/ru/vazhnyy-8b983517.mp3",
       "source_refs": [
         "materials:class:39"
       ],
@@ -7615,12 +8156,42 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-lyogkiy-77c72315",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "лёгкий",
+      "normalized_text": "лёгкий",
+      "suggested_path": "content/audio/ru/lyogkiy-77c72315.mp3",
+      "source_refs": [
+        "materials:class:39"
+      ],
+      "lesson_refs": [
+        39
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-malenkiy-dfe9a7e8",
       "language": "ru",
       "kind": "target:vocabulario",
       "text": "маленький",
       "normalized_text": "маленький",
       "suggested_path": "content/audio/ru/malenkiy-dfe9a7e8.mp3",
+      "source_refs": [
+        "materials:class:39"
+      ],
+      "lesson_refs": [
+        39
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-molodoy-c1acb4c7",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "молодой",
+      "normalized_text": "молодой",
+      "suggested_path": "content/audio/ru/molodoy-c1acb4c7.mp3",
       "source_refs": [
         "materials:class:39"
       ],
@@ -7683,6 +8254,36 @@
       "text": "синий",
       "normalized_text": "синий",
       "suggested_path": "content/audio/ru/siniy-398bc3d0.mp3",
+      "source_refs": [
+        "materials:class:39"
+      ],
+      "lesson_refs": [
+        39
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-staryy-fb2b3637",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "старый",
+      "normalized_text": "старый",
+      "suggested_path": "content/audio/ru/staryy-fb2b3637.mp3",
+      "source_refs": [
+        "materials:class:39"
+      ],
+      "lesson_refs": [
+        39
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-trudnyy-b69e066e",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "трудный",
+      "normalized_text": "трудный",
+      "suggested_path": "content/audio/ru/trudnyy-b69e066e.mp3",
       "source_refs": [
         "materials:class:39"
       ],
@@ -7844,6 +8445,36 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-vysokiy-eaf38cfb",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "высокий",
+      "normalized_text": "высокий",
+      "suggested_path": "content/audio/ru/vysokiy-eaf38cfb.mp3",
+      "source_refs": [
+        "materials:class:41"
+      ],
+      "lesson_refs": [
+        41
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-glaza-8284ef6a",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "глаза",
+      "normalized_text": "глаза",
+      "suggested_path": "content/audio/ru/glaza-8284ef6a.mp3",
+      "source_refs": [
+        "materials:class:41"
+      ],
+      "lesson_refs": [
+        41
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-kakaya-08fdd5fd",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -7927,6 +8558,36 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-litso-436d3fd7",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "лицо",
+      "normalized_text": "лицо",
+      "suggested_path": "content/audio/ru/litso-436d3fd7.mp3",
+      "source_refs": [
+        "materials:class:41"
+      ],
+      "lesson_refs": [
+        41
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-nizkiy-b76e2053",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "низкий",
+      "normalized_text": "низкий",
+      "suggested_path": "content/audio/ru/nizkiy-b76e2053.mp3",
+      "source_refs": [
+        "materials:class:41"
+      ],
+      "lesson_refs": [
+        41
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-pohozhi-f622f962",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -7948,6 +8609,21 @@
       "text": "прямые",
       "normalized_text": "прямые",
       "suggested_path": "content/audio/ru/pryamye-1274c189.mp3",
+      "source_refs": [
+        "materials:class:41"
+      ],
+      "lesson_refs": [
+        41
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-rost-283b8f4b",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "рост",
+      "normalized_text": "рост",
+      "suggested_path": "content/audio/ru/rost-283b8f4b.mp3",
       "source_refs": [
         "materials:class:41"
       ],
@@ -8462,6 +9138,36 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-zhivot-7ec0fea3",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "живот",
+      "normalized_text": "живот",
+      "suggested_path": "content/audio/ru/zhivot-7ec0fea3.mp3",
+      "source_refs": [
+        "materials:class:45"
+      ],
+      "lesson_refs": [
+        45
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-zub-1ff05b77",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "зуб",
+      "normalized_text": "зуб",
+      "suggested_path": "content/audio/ru/zub-1ff05b77.mp3",
+      "source_refs": [
+        "materials:class:45"
+      ],
+      "lesson_refs": [
+        45
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-kashel-d96ed95a",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -8498,6 +9204,36 @@
       "text": "насморк",
       "normalized_text": "насморк",
       "suggested_path": "content/audio/ru/nasmork-cc340d1e.mp3",
+      "source_refs": [
+        "materials:class:45"
+      ],
+      "lesson_refs": [
+        45
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-pomosch-050adc91",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "помощь",
+      "normalized_text": "помощь",
+      "suggested_path": "content/audio/ru/pomosch-050adc91.mp3",
+      "source_refs": [
+        "materials:class:45"
+      ],
+      "lesson_refs": [
+        45
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-spina-91a5b2d3",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "спина",
+      "normalized_text": "спина",
+      "suggested_path": "content/audio/ru/spina-91a5b2d3.mp3",
       "source_refs": [
         "materials:class:45"
       ],
@@ -8609,6 +9345,66 @@
       "text": "перерыв",
       "normalized_text": "перерыв",
       "suggested_path": "content/audio/ru/pereryv-2c6b562c.mp3",
+      "source_refs": [
+        "materials:class:46"
+      ],
+      "lesson_refs": [
+        46
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-potom-8f0cc4b2",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "потом",
+      "normalized_text": "потом",
+      "suggested_path": "content/audio/ru/potom-8f0cc4b2.mp3",
+      "source_refs": [
+        "materials:class:46"
+      ],
+      "lesson_refs": [
+        46
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-segodnya-42f85ce1",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "сегодня",
+      "normalized_text": "сегодня",
+      "suggested_path": "content/audio/ru/segodnya-42f85ce1.mp3",
+      "source_refs": [
+        "materials:class:46"
+      ],
+      "lesson_refs": [
+        46
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-snachala-7e83300d",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "сначала",
+      "normalized_text": "сначала",
+      "suggested_path": "content/audio/ru/snachala-7e83300d.mp3",
+      "source_refs": [
+        "materials:class:46"
+      ],
+      "lesson_refs": [
+        46
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-srochno-402b66bc",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "срочно",
+      "normalized_text": "срочно",
+      "suggested_path": "content/audio/ru/srochno-402b66bc.mp3",
       "source_refs": [
         "materials:class:46"
       ],
@@ -8876,21 +9672,6 @@
       "text": "инспектор",
       "normalized_text": "инспектор",
       "suggested_path": "content/audio/ru/inspektor-dd7910d4.mp3",
-      "source_refs": [
-        "materials:class:50"
-      ],
-      "lesson_refs": [
-        50
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-iskat-11a2913e",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "искать",
-      "normalized_text": "искать",
-      "suggested_path": "content/audio/ru/iskat-11a2913e.mp3",
       "source_refs": [
         "materials:class:50"
       ],
@@ -9720,6 +10501,38 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-nachat-84d8fab5",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "начать",
+      "normalized_text": "начать",
+      "suggested_path": "content/audio/ru/nachat-84d8fab5.mp3",
+      "source_refs": [
+        "materials-aspect:class:61",
+        "materials-aspect:class:69"
+      ],
+      "lesson_refs": [
+        61,
+        69
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-nachinat-6d0b0b0f",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "начинать",
+      "normalized_text": "начинать",
+      "suggested_path": "content/audio/ru/nachinat-6d0b0b0f.mp3",
+      "source_refs": [
+        "materials-aspect:class:61"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-nesovershennyy-vid-cc5b7f4f",
       "language": "ru",
       "kind": "mixed",
@@ -9728,6 +10541,7 @@
       "suggested_path": "content/audio/ru/nesovershennyy-vid-cc5b7f4f.mp3",
       "source_refs": [
         "materials-aspect:class:61",
+        "materials-aspect:class:80",
         "materials:class:61",
         "materials:class:62",
         "materials:class:78"
@@ -9735,7 +10549,8 @@
       "lesson_refs": [
         61,
         62,
-        78
+        78,
+        80
       ],
       "priority": 80
     },
@@ -9825,6 +10640,65 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-reshat-e03b7ccc",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "решать",
+      "normalized_text": "решать",
+      "suggested_path": "content/audio/ru/reshat-e03b7ccc.mp3",
+      "source_refs": [
+        "materials-aspect:class:61"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-reshit-f0fb1ba3",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "решить",
+      "normalized_text": "решить",
+      "suggested_path": "content/audio/ru/reshit-f0fb1ba3.mp3",
+      "source_refs": [
+        "materials-aspect:class:61",
+        "materials-aspect:class:72",
+        "materials-aspect:class:73"
+      ],
+      "lesson_refs": [
+        61,
+        72,
+        73
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-sdelat-e0e0b927",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "сделать",
+      "normalized_text": "сделать",
+      "suggested_path": "content/audio/ru/sdelat-e0e0b927.mp3",
+      "source_refs": [
+        "materials-aspect:class:61",
+        "materials-aspect:class:63",
+        "materials-aspect:class:70",
+        "materials-aspect:class:72",
+        "materials-aspect:class:73",
+        "materials-aspect:class:79"
+      ],
+      "lesson_refs": [
+        61,
+        63,
+        70,
+        72,
+        73,
+        79
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-skazat-7343fc39",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -9852,6 +10726,7 @@
       "suggested_path": "content/audio/ru/sovershennyy-vid-2283b5f6.mp3",
       "source_refs": [
         "materials-aspect:class:61",
+        "materials-aspect:class:80",
         "materials:class:63",
         "materials:class:64",
         "materials:class:66",
@@ -9870,7 +10745,8 @@
         68,
         69,
         70,
-        77
+        77,
+        80
       ],
       "priority": 80
     },
@@ -10027,6 +10903,36 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-brat-b3e318f3",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "брать",
+      "normalized_text": "брать",
+      "suggested_path": "content/audio/ru/brat-b3e318f3.mp3",
+      "source_refs": [
+        "materials-aspect:class:63"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-vzyat-e1bc3320",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "взять",
+      "normalized_text": "взять",
+      "suggested_path": "content/audio/ru/vzyat-e1bc3320.mp3",
+      "source_refs": [
+        "materials-aspect:class:63"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-zakryt-cbbf6282",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -10143,25 +11049,32 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-sdelat-e0e0b927",
+      "id": "ru-audio-priyti-f39070a8",
       "language": "ru",
       "kind": "target:vocabulario",
-      "text": "сделать",
-      "normalized_text": "сделать",
-      "suggested_path": "content/audio/ru/sdelat-e0e0b927.mp3",
+      "text": "прийти",
+      "normalized_text": "прийти",
+      "suggested_path": "content/audio/ru/priyti-f39070a8.mp3",
       "source_refs": [
-        "materials-aspect:class:63",
-        "materials-aspect:class:70",
-        "materials-aspect:class:72",
-        "materials-aspect:class:73",
-        "materials-aspect:class:79"
+        "materials-aspect:class:63"
       ],
       "lesson_refs": [
-        63,
-        70,
-        72,
-        73,
-        79
+        63
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-prihodit-fc4cffc0",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "приходить",
+      "normalized_text": "приходить",
+      "suggested_path": "content/audio/ru/prihodit-fc4cffc0.mp3",
+      "source_refs": [
+        "materials-aspect:class:63"
+      ],
+      "lesson_refs": [
+        63
       ],
       "priority": 80
     },
@@ -10179,6 +11092,36 @@
       "lesson_refs": [
         63,
         68
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-uyti-777fc9ba",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "уйти",
+      "normalized_text": "уйти",
+      "suggested_path": "content/audio/ru/uyti-777fc9ba.mp3",
+      "source_refs": [
+        "materials-aspect:class:63"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-uhodit-18cf2e1f",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "уходить",
+      "normalized_text": "уходить",
+      "suggested_path": "content/audio/ru/uhodit-18cf2e1f.mp3",
+      "source_refs": [
+        "materials-aspect:class:63"
+      ],
+      "lesson_refs": [
+        63
       ],
       "priority": 80
     },
@@ -10784,21 +11727,6 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-nachat-84d8fab5",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "начать",
-      "normalized_text": "начать",
-      "suggested_path": "content/audio/ru/nachat-84d8fab5.mp3",
-      "source_refs": [
-        "materials-aspect:class:69"
-      ],
-      "lesson_refs": [
-        69
-      ],
-      "priority": 80
-    },
-    {
       "id": "ru-audio-nachatsya-afc03eb9",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -11082,6 +12010,66 @@
       "priority": 80
     },
     {
+      "id": "ru-audio-zakroyu-bf384b2e",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "закрою",
+      "normalized_text": "закрою",
+      "suggested_path": "content/audio/ru/zakroyu-bf384b2e.mp3",
+      "source_refs": [
+        "materials-aspect:class:72"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-otvechu-d0c757c0",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "отвечу",
+      "normalized_text": "отвечу",
+      "suggested_path": "content/audio/ru/otvechu-d0c757c0.mp3",
+      "source_refs": [
+        "materials-aspect:class:72"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-otkroyu-7e69e4ee",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "открою",
+      "normalized_text": "открою",
+      "suggested_path": "content/audio/ru/otkroyu-7e69e4ee.mp3",
+      "source_refs": [
+        "materials-aspect:class:72"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-pomogu-9d590c5e",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "помогу",
+      "normalized_text": "помогу",
+      "suggested_path": "content/audio/ru/pomogu-9d590c5e.mp3",
+      "source_refs": [
+        "materials-aspect:class:72"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 80
+    },
+    {
       "id": "ru-audio-pomoch-3f45ff17",
       "language": "ru",
       "kind": "target:vocabulario",
@@ -11114,51 +12102,19 @@
       "priority": 80
     },
     {
-      "id": "ru-audio-problema-3031e09d",
+      "id": "ru-audio-proveryu-26d20ce4",
       "language": "ru",
       "kind": "target:vocabulario",
-      "text": "проблема",
-      "normalized_text": "проблема",
-      "suggested_path": "content/audio/ru/problema-3031e09d.mp3",
-      "source_refs": [
-        "materials-aspect:class:72"
-      ],
-      "lesson_refs": [
-        72
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-reshenie-237ee704",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "решение",
-      "normalized_text": "решение",
-      "suggested_path": "content/audio/ru/reshenie-237ee704.mp3",
+      "text": "проверю",
+      "normalized_text": "проверю",
+      "suggested_path": "content/audio/ru/proveryu-26d20ce4.mp3",
       "source_refs": [
         "materials-aspect:class:72",
-        "materials-aspect:class:80"
+        "materials-aspect:class:74"
       ],
       "lesson_refs": [
         72,
-        80
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-reshit-f0fb1ba3",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "решить",
-      "normalized_text": "решить",
-      "suggested_path": "content/audio/ru/reshit-f0fb1ba3.mp3",
-      "source_refs": [
-        "materials-aspect:class:72",
-        "materials-aspect:class:73"
-      ],
-      "lesson_refs": [
-        72,
-        73
+        74
       ],
       "priority": 80
     },
@@ -11325,21 +12281,6 @@
       "text": "посмотрю",
       "normalized_text": "посмотрю",
       "suggested_path": "content/audio/ru/posmotryu-a28151a3.mp3",
-      "source_refs": [
-        "materials-aspect:class:74"
-      ],
-      "lesson_refs": [
-        74
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-proveryu-26d20ce4",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "проверю",
-      "normalized_text": "проверю",
-      "suggested_path": "content/audio/ru/proveryu-26d20ce4.mp3",
       "source_refs": [
         "materials-aspect:class:74"
       ],
@@ -11674,10 +12615,12 @@
       "normalized_text": "повторить",
       "suggested_path": "content/audio/ru/povtorit-32e8e270.mp3",
       "source_refs": [
-        "materials-aspect:class:76"
+        "materials-aspect:class:76",
+        "materials-aspect:class:77"
       ],
       "lesson_refs": [
-        76
+        76,
+        77
       ],
       "priority": 80
     },
@@ -11693,6 +12636,21 @@
       ],
       "lesson_refs": [
         76
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-vyuchit-35551f1a",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "выучить",
+      "normalized_text": "выучить",
+      "suggested_path": "content/audio/ru/vyuchit-35551f1a.mp3",
+      "source_refs": [
+        "materials-aspect:class:77"
+      ],
+      "lesson_refs": [
+        77
       ],
       "priority": 80
     },
@@ -11730,6 +12688,36 @@
         77,
         78,
         80
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-obyasnit-f15652fe",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "объяснить",
+      "normalized_text": "объяснить",
+      "suggested_path": "content/audio/ru/obyasnit-f15652fe.mp3",
+      "source_refs": [
+        "materials-aspect:class:77"
+      ],
+      "lesson_refs": [
+        77
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ru-audio-poprobovat-374bb77b",
+      "language": "ru",
+      "kind": "target:vocabulario",
+      "text": "попробовать",
+      "normalized_text": "попробовать",
+      "suggested_path": "content/audio/ru/poprobovat-374bb77b.mp3",
+      "source_refs": [
+        "materials-aspect:class:77"
+      ],
+      "lesson_refs": [
+        77
       ],
       "priority": 80
     },
@@ -11817,21 +12805,6 @@
       "text": "заниматься",
       "normalized_text": "заниматься",
       "suggested_path": "content/audio/ru/zanimatsya-26befe14.mp3",
-      "source_refs": [
-        "materials-aspect:class:78"
-      ],
-      "lesson_refs": [
-        78
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-pomogat-1cc827f3",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "помогать",
-      "normalized_text": "помогать",
-      "suggested_path": "content/audio/ru/pomogat-1cc827f3.mp3",
       "source_refs": [
         "materials-aspect:class:78"
       ],
@@ -11972,36 +12945,6 @@
       ],
       "lesson_refs": [
         79
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-imperfectivo-bedd142b",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "imperfectivo",
-      "normalized_text": "imperfectivo",
-      "suggested_path": "content/audio/ru/imperfectivo-bedd142b.mp3",
-      "source_refs": [
-        "materials-aspect:class:80"
-      ],
-      "lesson_refs": [
-        80
-      ],
-      "priority": 80
-    },
-    {
-      "id": "ru-audio-perfectivo-88584d45",
-      "language": "ru",
-      "kind": "target:vocabulario",
-      "text": "perfectivo",
-      "normalized_text": "perfectivo",
-      "suggested_path": "content/audio/ru/perfectivo-88584d45.mp3",
-      "source_refs": [
-        "materials-aspect:class:80"
-      ],
-      "lesson_refs": [
-        80
       ],
       "priority": 80
     },
@@ -13718,12 +14661,27 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-buduschee-perfectivo-forma-kak-nastoyaschee-imperfectivo-2b1fceac",
+      "id": "ru-audio-aspektnye-pary-5e93939c",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "будущее perfectivo: форма как настоящее imperfectivo",
-      "normalized_text": "будущее perfectivo форма как настоящее imperfectivo",
-      "suggested_path": "content/audio/ru/buduschee-perfectivo-forma-kak-nastoyaschee-imperfectivo-2b1fceac.mp3",
+      "text": "аспектные пары",
+      "normalized_text": "аспектные пары",
+      "suggested_path": "content/audio/ru/aspektnye-pary-5e93939c.mp3",
+      "source_refs": [
+        "materials-aspect:class:61"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-buduschee-sovershennogo-vida-forma-kak-nastoyaschee-nesovershenn-514ee4c4",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "будущее совершенного вида: форма как настоящее несовершенного вида",
+      "normalized_text": "будущее совершенного вида форма как настоящее несовершенного вида",
+      "suggested_path": "content/audio/ru/buduschee-sovershennogo-vida-forma-kak-nastoyaschee-nesovershenn-514ee4c4.mp3",
       "source_refs": [
         "materials-aspect:class:61"
       ],
@@ -13739,21 +14697,6 @@
       "text": "несовершенный вид: процесс / факт / повтор",
       "normalized_text": "несовершенный вид процесс / факт / повтор",
       "suggested_path": "content/audio/ru/nesovershennyy-vid-protsess-fakt-povtor-ddb758ac.mp3",
-      "source_refs": [
-        "materials-aspect:class:61"
-      ],
-      "lesson_refs": [
-        61
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-pary-aspectuales-cb9bf179",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "пары aspectuales",
-      "normalized_text": "пары aspectuales",
-      "suggested_path": "content/audio/ru/pary-aspectuales-cb9bf179.mp3",
       "source_refs": [
         "materials-aspect:class:61"
       ],
@@ -13808,12 +14751,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-budu-infinitiv-imperfectivo-9a71a8b0",
+      "id": "ru-audio-budu-infinitiv-nesovershennogo-vida-abdb25ec",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "буду + инфинитив imperfectivo",
-      "normalized_text": "буду + инфинитив imperfectivo",
-      "suggested_path": "content/audio/ru/budu-infinitiv-imperfectivo-9a71a8b0.mp3",
+      "text": "буду + инфинитив несовершенного вида",
+      "normalized_text": "буду + инфинитив несовершенного вида",
+      "suggested_path": "content/audio/ru/budu-infinitiv-nesovershennogo-vida-abdb25ec.mp3",
       "source_refs": [
         "materials-aspect:class:62"
       ],
@@ -13913,12 +14856,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-buduschee-perfectivo-158f07e4",
+      "id": "ru-audio-buduschee-sovershennogo-vida-8d2c06b2",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "будущее perfectivo",
-      "normalized_text": "будущее perfectivo",
-      "suggested_path": "content/audio/ru/buduschee-perfectivo-158f07e4.mp3",
+      "text": "будущее совершенного вида",
+      "normalized_text": "будущее совершенного вида",
+      "suggested_path": "content/audio/ru/buduschee-sovershennogo-vida-8d2c06b2.mp3",
       "source_refs": [
         "materials-aspect:class:63"
       ],
@@ -13928,12 +14871,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-net-nastoyaschego-vremeni-u-perfectivo-34960648",
+      "id": "ru-audio-net-nastoyaschego-vremeni-u-sovershennogo-vida-702afaeb",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "нет настоящего времени у perfectivo",
-      "normalized_text": "нет настоящего времени у perfectivo",
-      "suggested_path": "content/audio/ru/net-nastoyaschego-vremeni-u-perfectivo-34960648.mp3",
+      "text": "нет настоящего времени у совершенного вида",
+      "normalized_text": "нет настоящего времени у совершенного вида",
+      "suggested_path": "content/audio/ru/net-nastoyaschego-vremeni-u-sovershennogo-vida-702afaeb.mp3",
       "source_refs": [
         "materials-aspect:class:63"
       ],
@@ -13943,27 +14886,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-pristavki-perfectivo-114e3b31",
+      "id": "ru-audio-pristavki-sovershennogo-vida-2e4f8d42",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "приставки perfectivo",
-      "normalized_text": "приставки perfectivo",
-      "suggested_path": "content/audio/ru/pristavki-perfectivo-114e3b31.mp3",
-      "source_refs": [
-        "materials-aspect:class:63"
-      ],
-      "lesson_refs": [
-        63
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-proshedshee-perfectivo-20bbeeb5",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "прошедшее perfectivo",
-      "normalized_text": "прошедшее perfectivo",
-      "suggested_path": "content/audio/ru/proshedshee-perfectivo-20bbeeb5.mp3",
+      "text": "приставки совершенного вида",
+      "normalized_text": "приставки совершенного вида",
+      "suggested_path": "content/audio/ru/pristavki-sovershennogo-vida-2e4f8d42.mp3",
       "source_refs": [
         "materials-aspect:class:63"
       ],
@@ -13981,6 +14909,21 @@
       "suggested_path": "content/audio/ru/proshedshee-i-buduschee-672db945.mp3",
       "source_refs": [
         "materials:class:63"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-proshedshee-sovershennogo-vida-67304240",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "прошедшее совершенного вида",
+      "normalized_text": "прошедшее совершенного вида",
+      "suggested_path": "content/audio/ru/proshedshee-sovershennogo-vida-67304240.mp3",
+      "source_refs": [
+        "materials-aspect:class:63"
       ],
       "lesson_refs": [
         63
@@ -14018,36 +14961,6 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-v-buduschem-dlya-zaversheniya-deystviya-44d88240",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo в будущем для завершения действия",
-      "normalized_text": "perfectivo в будущем для завершения действия",
-      "suggested_path": "content/audio/ru/perfectivo-v-buduschem-dlya-zaversheniya-deystviya-44d88240.mp3",
-      "source_refs": [
-        "materials-aspect:class:64"
-      ],
-      "lesson_refs": [
-        64
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-konets-protsessa-dca87558",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo: конец процесса",
-      "normalized_text": "perfectivo конец процесса",
-      "suggested_path": "content/audio/ru/perfectivo-konets-protsessa-dca87558.mp3",
-      "source_refs": [
-        "materials-aspect:class:64"
-      ],
-      "lesson_refs": [
-        64
-      ],
-      "priority": 70
-    },
-    {
       "id": "ru-audio-kontekst-ozhidaniya-126278f7",
       "language": "ru",
       "kind": "target:patrón",
@@ -14078,12 +14991,42 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-snachala-protsess-imperfectivo-potom-final-perfectivo-b9397089",
+      "id": "ru-audio-snachala-protsess-nesovershennogo-vida-potom-final-sovershennogo-eea34e2b",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "сначала процесс imperfectivo, потом финал perfectivo",
-      "normalized_text": "сначала процесс imperfectivo потом финал perfectivo",
-      "suggested_path": "content/audio/ru/snachala-protsess-imperfectivo-potom-final-perfectivo-b9397089.mp3",
+      "text": "сначала процесс несовершенного вида, потом финал совершенного вида",
+      "normalized_text": "сначала процесс несовершенного вида потом финал совершенного вида",
+      "suggested_path": "content/audio/ru/snachala-protsess-nesovershennogo-vida-potom-final-sovershennogo-eea34e2b.mp3",
+      "source_refs": [
+        "materials-aspect:class:64"
+      ],
+      "lesson_refs": [
+        64
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-sovershennyy-vid-v-buduschem-dlya-zaversheniya-deystviya-85f20287",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "совершенный вид в будущем для завершения действия",
+      "normalized_text": "совершенный вид в будущем для завершения действия",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-v-buduschem-dlya-zaversheniya-deystviya-85f20287.mp3",
+      "source_refs": [
+        "materials-aspect:class:64"
+      ],
+      "lesson_refs": [
+        64
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-sovershennyy-vid-konets-protsessa-9f4a7a5b",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "совершенный вид: конец процесса",
+      "normalized_text": "совершенный вид конец процесса",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-konets-protsessa-9f4a7a5b.mp3",
       "source_refs": [
         "materials-aspect:class:64"
       ],
@@ -14108,12 +15051,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-kontrast-fakt-deystviya-vs-zavershenie-4db9954d",
+      "id": "ru-audio-kontrast-fakt-deystviya-ili-zavershenie-cad5486a",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "контраст: факт действия vs завершение",
-      "normalized_text": "контраст факт действия vs завершение",
-      "suggested_path": "content/audio/ru/kontrast-fakt-deystviya-vs-zavershenie-4db9954d.mp3",
+      "text": "контраст: факт действия или завершение",
+      "normalized_text": "контраст факт действия или завершение",
+      "suggested_path": "content/audio/ru/kontrast-fakt-deystviya-ili-zavershenie-cad5486a.mp3",
       "source_refs": [
         "materials-aspect:class:65"
       ],
@@ -14138,12 +15081,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-otritsanie-imperfectivo-protsessa-ne-bylo-fa670435",
+      "id": "ru-audio-otritsanie-nesovershennyy-vid-protsessa-ne-bylo-c9403015",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "отрицание + imperfectivo: процесса не было",
-      "normalized_text": "отрицание + imperfectivo процесса не было",
-      "suggested_path": "content/audio/ru/otritsanie-imperfectivo-protsessa-ne-bylo-fa670435.mp3",
+      "text": "отрицание + несовершенный вид: процесса не было",
+      "normalized_text": "отрицание + несовершенный вид процесса не было",
+      "suggested_path": "content/audio/ru/otritsanie-nesovershennyy-vid-protsessa-ne-bylo-c9403015.mp3",
       "source_refs": [
         "materials-aspect:class:65"
       ],
@@ -14153,12 +15096,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-otritsanie-perfectivo-protsess-ne-zavershyon-rezultata-net-813a815b",
+      "id": "ru-audio-otritsanie-sovershennyy-vid-protsess-ne-zavershyon-rezultata-net-7a3f2a8e",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "отрицание + perfectivo: процесс не завершён / результата нет",
-      "normalized_text": "отрицание + perfectivo процесс не завершён / результата нет",
-      "suggested_path": "content/audio/ru/otritsanie-perfectivo-protsess-ne-zavershyon-rezultata-net-813a815b.mp3",
+      "text": "отрицание + совершенный вид: процесс не завершён / результата нет",
+      "normalized_text": "отрицание + совершенный вид процесс не завершён / результата нет",
+      "suggested_path": "content/audio/ru/otritsanie-sovershennyy-vid-protsess-ne-zavershyon-rezultata-net-7a3f2a8e.mp3",
       "source_refs": [
         "materials-aspect:class:65"
       ],
@@ -14183,27 +15126,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-future-perfectivo-posle-kogda-kak-tolko-724784af",
+      "id": "ru-audio-buduschee-sovershennogo-vida-posle-kogda-kak-tolko-3fb839b4",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "future perfectivo после когда / как только",
-      "normalized_text": "future perfectivo после когда / как только",
-      "suggested_path": "content/audio/ru/future-perfectivo-posle-kogda-kak-tolko-724784af.mp3",
-      "source_refs": [
-        "materials-aspect:class:66"
-      ],
-      "lesson_refs": [
-        66
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-deystvie-kotoroe-osvobodit-prodolzhenie-1a26fa63",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo: действие, которое освободит продолжение",
-      "normalized_text": "perfectivo действие которое освободит продолжение",
-      "suggested_path": "content/audio/ru/perfectivo-deystvie-kotoroe-osvobodit-prodolzhenie-1a26fa63.mp3",
+      "text": "будущее совершенного вида после когда / как только",
+      "normalized_text": "будущее совершенного вида после когда / как только",
+      "suggested_path": "content/audio/ru/buduschee-sovershennogo-vida-posle-kogda-kak-tolko-3fb839b4.mp3",
       "source_refs": [
         "materials-aspect:class:66"
       ],
@@ -14243,12 +15171,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-slozhnye-predlozheniya-s-perfectivo-61ed46b7",
+      "id": "ru-audio-slozhnye-predlozheniya-s-sovershennym-vidom-bf41bd41",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "сложные предложения с perfectivo",
-      "normalized_text": "сложные предложения с perfectivo",
-      "suggested_path": "content/audio/ru/slozhnye-predlozheniya-s-perfectivo-61ed46b7.mp3",
+      "text": "сложные предложения с совершенным видом",
+      "normalized_text": "сложные предложения с совершенным видом",
+      "suggested_path": "content/audio/ru/slozhnye-predlozheniya-s-sovershennym-vidom-bf41bd41.mp3",
       "source_refs": [
         "materials-aspect:class:66"
       ],
@@ -14258,32 +15186,17 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-imperfectivo-dlya-protsessa-perfectivo-dlya-rezultata-bf50cb01",
+      "id": "ru-audio-sovershennyy-vid-deystvie-kotoroe-osvobodit-prodolzhenie-291224ed",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "imperfectivo для процесса, perfectivo для результата",
-      "normalized_text": "imperfectivo для процесса perfectivo для результата",
-      "suggested_path": "content/audio/ru/imperfectivo-dlya-protsessa-perfectivo-dlya-rezultata-bf50cb01.mp3",
+      "text": "совершенный вид: действие, которое освободит продолжение",
+      "normalized_text": "совершенный вид действие которое освободит продолжение",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-deystvie-kotoroe-osvobodit-prodolzhenie-291224ed.mp3",
       "source_refs": [
-        "materials-aspect:class:67"
+        "materials-aspect:class:66"
       ],
       "lesson_refs": [
-        67
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-rezultat-4af93b2b",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo: результат",
-      "normalized_text": "perfectivo результат",
-      "suggested_path": "content/audio/ru/perfectivo-rezultat-4af93b2b.mp3",
-      "source_refs": [
-        "materials-aspect:class:67"
-      ],
-      "lesson_refs": [
-        67
+        66
       ],
       "priority": 70
     },
@@ -14318,6 +15231,21 @@
       "priority": 70
     },
     {
+      "id": "ru-audio-nesovershennyy-vid-dlya-protsessa-sovershennyy-vid-dlya-rezultat-c067a223",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "несовершенный вид для процесса, совершенный вид для результата",
+      "normalized_text": "несовершенный вид для процесса совершенный вид для результата",
+      "suggested_path": "content/audio/ru/nesovershennyy-vid-dlya-protsessa-sovershennyy-vid-dlya-rezultat-c067a223.mp3",
+      "source_refs": [
+        "materials-aspect:class:67"
+      ],
+      "lesson_refs": [
+        67
+      ],
+      "priority": 70
+    },
+    {
       "id": "ru-audio-polozhitelnyy-i-nulevoy-rezultat-1bc52321",
       "language": "ru",
       "kind": "target:patrón",
@@ -14333,32 +15261,17 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-vidimyy-rezultat-b7756582",
+      "id": "ru-audio-sovershennyy-vid-rezultat-e5376e61",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "perfectivo: видимый результат",
-      "normalized_text": "perfectivo видимый результат",
-      "suggested_path": "content/audio/ru/perfectivo-vidimyy-rezultat-b7756582.mp3",
+      "text": "совершенный вид: результат",
+      "normalized_text": "совершенный вид результат",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-rezultat-e5376e61.mp3",
       "source_refs": [
-        "materials-aspect:class:68"
+        "materials-aspect:class:67"
       ],
       "lesson_refs": [
-        68
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-dlya-vnezapnogo-obnaruzheniya-rezultata-3683d0e6",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo для внезапного обнаружения результата",
-      "normalized_text": "perfectivo для внезапного обнаружения результата",
-      "suggested_path": "content/audio/ru/perfectivo-dlya-vnezapnogo-obnaruzheniya-rezultata-3683d0e6.mp3",
-      "source_refs": [
-        "materials-aspect:class:68"
-      ],
-      "lesson_refs": [
-        68
+        67
       ],
       "priority": 70
     },
@@ -14393,17 +15306,32 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-nachalo-protsessa-e5255d85",
+      "id": "ru-audio-sovershennyy-vid-vidimyy-rezultat-32a68606",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "perfectivo: начало процесса",
-      "normalized_text": "perfectivo начало процесса",
-      "suggested_path": "content/audio/ru/perfectivo-nachalo-protsessa-e5255d85.mp3",
+      "text": "совершенный вид: видимый результат",
+      "normalized_text": "совершенный вид видимый результат",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-vidimyy-rezultat-32a68606.mp3",
       "source_refs": [
-        "materials-aspect:class:69"
+        "materials-aspect:class:68"
       ],
       "lesson_refs": [
-        69
+        68
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-sovershennyy-vid-dlya-vnezapnogo-obnaruzheniya-rezultata-1ea46b7c",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "совершенный вид для внезапного обнаружения результата",
+      "normalized_text": "совершенный вид для внезапного обнаружения результата",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-dlya-vnezapnogo-obnaruzheniya-rezultata-1ea46b7c.mp3",
+      "source_refs": [
+        "materials-aspect:class:68"
+      ],
+      "lesson_refs": [
+        68
       ],
       "priority": 70
     },
@@ -14468,27 +15396,27 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-vypolnennaya-obyazannost-41a81839",
+      "id": "ru-audio-sovershennyy-vid-nachalo-protsessa-2ae5611a",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "perfectivo: выполненная обязанность",
-      "normalized_text": "perfectivo выполненная обязанность",
-      "suggested_path": "content/audio/ru/perfectivo-vypolnennaya-obyazannost-41a81839.mp3",
+      "text": "совершенный вид: начало процесса",
+      "normalized_text": "совершенный вид начало процесса",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-nachalo-protsessa-2ae5611a.mp3",
       "source_refs": [
-        "materials-aspect:class:70"
+        "materials-aspect:class:69"
       ],
       "lesson_refs": [
-        70
+        69
       ],
       "priority": 70
     },
     {
-      "id": "ru-audio-dolzhen-byl-infinitivo-53770060",
+      "id": "ru-audio-dolzhen-byl-infinitiv-bafc9d03",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "должен был + infinitivo",
-      "normalized_text": "должен был + infinitivo",
-      "suggested_path": "content/audio/ru/dolzhen-byl-infinitivo-53770060.mp3",
+      "text": "должен был + инфинитив",
+      "normalized_text": "должен был + инфинитив",
+      "suggested_path": "content/audio/ru/dolzhen-byl-infinitiv-bafc9d03.mp3",
       "source_refs": [
         "materials-aspect:class:70"
       ],
@@ -14513,12 +15441,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-nado-bylo-infinitivo-16fb2997",
+      "id": "ru-audio-nado-bylo-infinitiv-5b383049",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "надо было + infinitivo",
-      "normalized_text": "надо было + infinitivo",
-      "suggested_path": "content/audio/ru/nado-bylo-infinitivo-16fb2997.mp3",
+      "text": "надо было + инфинитив",
+      "normalized_text": "надо было + инфинитив",
+      "suggested_path": "content/audio/ru/nado-bylo-infinitiv-5b383049.mp3",
       "source_refs": [
         "materials-aspect:class:70"
       ],
@@ -14543,32 +15471,17 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-imperfectivo-shirokaya-kartina-deystviya-488c1365",
+      "id": "ru-audio-sovershennyy-vid-vypolnennaya-obyazannost-31347b86",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "imperfectivo: широкая картина действия",
-      "normalized_text": "imperfectivo широкая картина действия",
-      "suggested_path": "content/audio/ru/imperfectivo-shirokaya-kartina-deystviya-488c1365.mp3",
+      "text": "совершенный вид: выполненная обязанность",
+      "normalized_text": "совершенный вид выполненная обязанность",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-vypolnennaya-obyazannost-31347b86.mp3",
       "source_refs": [
-        "materials-aspect:class:71"
+        "materials-aspect:class:70"
       ],
       "lesson_refs": [
-        71
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-konkretnyy-moment-deystviya-4d3caf91",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo: конкретный момент действия",
-      "normalized_text": "perfectivo конкретный момент действия",
-      "suggested_path": "content/audio/ru/perfectivo-konkretnyy-moment-deystviya-4d3caf91.mp3",
-      "source_refs": [
-        "materials-aspect:class:71"
-      ],
-      "lesson_refs": [
-        71
+        70
       ],
       "priority": 70
     },
@@ -14588,12 +15501,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-obzor-kontekstov-imperfectivo-e3c00ef3",
+      "id": "ru-audio-nesovershennyy-vid-shirokaya-kartina-deystviya-fbec16b9",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "обзор контекстов imperfectivo",
-      "normalized_text": "обзор контекстов imperfectivo",
-      "suggested_path": "content/audio/ru/obzor-kontekstov-imperfectivo-e3c00ef3.mp3",
+      "text": "несовершенный вид: широкая картина действия",
+      "normalized_text": "несовершенный вид широкая картина действия",
+      "suggested_path": "content/audio/ru/nesovershennyy-vid-shirokaya-kartina-deystviya-fbec16b9.mp3",
       "source_refs": [
         "materials-aspect:class:71"
       ],
@@ -14603,12 +15516,27 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-obzor-kontekstov-perfectivo-c4d9e1ca",
+      "id": "ru-audio-obzor-kontekstov-nesovershennogo-vida-d2248ef2",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "обзор контекстов perfectivo",
-      "normalized_text": "обзор контекстов perfectivo",
-      "suggested_path": "content/audio/ru/obzor-kontekstov-perfectivo-c4d9e1ca.mp3",
+      "text": "обзор контекстов несовершенного вида",
+      "normalized_text": "обзор контекстов несовершенного вида",
+      "suggested_path": "content/audio/ru/obzor-kontekstov-nesovershennogo-vida-d2248ef2.mp3",
+      "source_refs": [
+        "materials-aspect:class:71"
+      ],
+      "lesson_refs": [
+        71
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-obzor-kontekstov-sovershennogo-vida-b87ca5d4",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "обзор контекстов совершенного вида",
+      "normalized_text": "обзор контекстов совершенного вида",
+      "suggested_path": "content/audio/ru/obzor-kontekstov-sovershennogo-vida-b87ca5d4.mp3",
       "source_refs": [
         "materials-aspect:class:71"
       ],
@@ -14633,47 +15561,17 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-calmar-o-resolver-una-situacin-0af35604",
+      "id": "ru-audio-sovershennyy-vid-konkretnyy-moment-deystviya-b187d8a3",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "calmar o resolver una situación",
-      "normalized_text": "calmar o resolver una situación",
-      "suggested_path": "content/audio/ru/calmar-o-resolver-una-situacin-0af35604.mp3",
+      "text": "совершенный вид: конкретный момент действия",
+      "normalized_text": "совершенный вид конкретный момент действия",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-konkretnyy-moment-deystviya-b187d8a3.mp3",
       "source_refs": [
-        "materials-aspect:class:72"
+        "materials-aspect:class:71"
       ],
       "lesson_refs": [
-        72
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-como-respuesta-puntual-783930a7",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo como respuesta puntual",
-      "normalized_text": "perfectivo como respuesta puntual",
-      "suggested_path": "content/audio/ru/perfectivo-como-respuesta-puntual-783930a7.mp3",
-      "source_refs": [
-        "materials-aspect:class:72"
-      ],
-      "lesson_refs": [
-        72
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-v-buduschem-reshenie-problemy-da294963",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo в будущем: решение проблемы",
-      "normalized_text": "perfectivo в будущем решение проблемы",
-      "suggested_path": "content/audio/ru/perfectivo-v-buduschem-reshenie-problemy-da294963.mp3",
-      "source_refs": [
-        "materials-aspect:class:72"
-      ],
-      "lesson_refs": [
-        72
+        71
       ],
       "priority": 70
     },
@@ -14686,6 +15584,36 @@
       "suggested_path": "content/audio/ru/protsess-i-rezultat-a0af7ba7.mp3",
       "source_refs": [
         "materials:class:72"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-sovershennyy-vid-v-buduschem-reshenie-problemy-2d731bd8",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "совершенный вид в будущем: решение проблемы",
+      "normalized_text": "совершенный вид в будущем решение проблемы",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-v-buduschem-reshenie-problemy-2d731bd8.mp3",
+      "source_refs": [
+        "materials-aspect:class:72"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-sovershennyy-vid-kak-tochnyy-otvet-822e9eb4",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "совершенный вид как точный ответ",
+      "normalized_text": "совершенный вид как точный ответ",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-kak-tochnyy-otvet-822e9eb4.mp3",
+      "source_refs": [
+        "materials-aspect:class:72"
       ],
       "lesson_refs": [
         72
@@ -14708,12 +15636,27 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-intencin-vs-proceso-50e0ec19",
+      "id": "ru-audio-uspokoit-ili-reshit-situatsiyu-1988d673",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "intención vs proceso",
-      "normalized_text": "intención vs proceso",
-      "suggested_path": "content/audio/ru/intencin-vs-proceso-50e0ec19.mp3",
+      "text": "успокоить или решить ситуацию",
+      "normalized_text": "успокоить или решить ситуацию",
+      "suggested_path": "content/audio/ru/uspokoit-ili-reshit-situatsiyu-1988d673.mp3",
+      "source_refs": [
+        "materials-aspect:class:72"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-buduschee-sovershennogo-vida-konkretnyy-plan-52c445c2",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "будущее совершенного вида: конкретный план",
+      "normalized_text": "будущее совершенного вида конкретный план",
+      "suggested_path": "content/audio/ru/buduschee-sovershennogo-vida-konkretnyy-plan-52c445c2.mp3",
       "source_refs": [
         "materials-aspect:class:73"
       ],
@@ -14723,27 +15666,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-para-objetivo-completo-af3f3208",
+      "id": "ru-audio-namerenie-ili-protsess-34ad9919",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "perfectivo para objetivo completo",
-      "normalized_text": "perfectivo para objetivo completo",
-      "suggested_path": "content/audio/ru/perfectivo-para-objetivo-completo-af3f3208.mp3",
-      "source_refs": [
-        "materials-aspect:class:73"
-      ],
-      "lesson_refs": [
-        73
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-buduschee-perfectivo-plan-concreto-41218c90",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "будущее perfectivo: план concreto",
-      "normalized_text": "будущее perfectivo план concreto",
-      "suggested_path": "content/audio/ru/buduschee-perfectivo-plan-concreto-41218c90.mp3",
+      "text": "намерение или процесс",
+      "normalized_text": "намерение или процесс",
+      "suggested_path": "content/audio/ru/namerenie-ili-protsess-34ad9919.mp3",
       "source_refs": [
         "materials-aspect:class:73"
       ],
@@ -14768,12 +15696,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-reshit-infinitivo-perfectivo-4b60b251",
+      "id": "ru-audio-reshit-infinitiv-sovershennogo-vida-1099cf3b",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "решить + infinitivo perfectivo",
-      "normalized_text": "решить + infinitivo perfectivo",
-      "suggested_path": "content/audio/ru/reshit-infinitivo-perfectivo-4b60b251.mp3",
+      "text": "решить + инфинитив совершенного вида",
+      "normalized_text": "решить + инфинитив совершенного вида",
+      "suggested_path": "content/audio/ru/reshit-infinitiv-sovershennogo-vida-1099cf3b.mp3",
       "source_refs": [
         "materials-aspect:class:73"
       ],
@@ -14783,12 +15711,27 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-con-modalnost-0601a501",
+      "id": "ru-audio-sovershennyy-vid-dlya-polnoy-tseli-a5610be6",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "perfectivo con модальность",
-      "normalized_text": "perfectivo con модальность",
-      "suggested_path": "content/audio/ru/perfectivo-con-modalnost-0601a501.mp3",
+      "text": "совершенный вид для полной цели",
+      "normalized_text": "совершенный вид для полной цели",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-dlya-polnoy-tseli-a5610be6.mp3",
+      "source_refs": [
+        "materials-aspect:class:73"
+      ],
+      "lesson_refs": [
+        73
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-buduschee-sovershennogo-vida-predpolozhenie-3b61a453",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "будущее совершенного вида: предположение",
+      "normalized_text": "будущее совершенного вида предположение",
+      "suggested_path": "content/audio/ru/buduschee-sovershennogo-vida-predpolozhenie-3b61a453.mp3",
       "source_refs": [
         "materials-aspect:class:74"
       ],
@@ -14798,12 +15741,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-probabilidad-de-resultado-6c1d93ec",
+      "id": "ru-audio-veroyatnost-rezultata-f81d4503",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "probabilidad de resultado",
-      "normalized_text": "probabilidad de resultado",
-      "suggested_path": "content/audio/ru/probabilidad-de-resultado-6c1d93ec.mp3",
+      "text": "вероятность результата",
+      "normalized_text": "вероятность результата",
+      "suggested_path": "content/audio/ru/veroyatnost-rezultata-f81d4503.mp3",
       "source_refs": [
         "materials-aspect:class:74"
       ],
@@ -14813,27 +15756,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-buduschee-perfectivo-predpolozhenie-cbef91cc",
+      "id": "ru-audio-otsenka-zaversheniya-deystviya-5079346b",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "будущее perfectivo: предположение",
-      "normalized_text": "будущее perfectivo предположение",
-      "suggested_path": "content/audio/ru/buduschee-perfectivo-predpolozhenie-cbef91cc.mp3",
-      "source_refs": [
-        "materials-aspect:class:74"
-      ],
-      "lesson_refs": [
-        74
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-otsenka-de-si-la-accin-se-completar-6f8cfa69",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "оценка de si la acción se completará",
-      "normalized_text": "оценка de si la acción se completará",
-      "suggested_path": "content/audio/ru/otsenka-de-si-la-accin-se-completar-6f8cfa69.mp3",
+      "text": "оценка завершения действия",
+      "normalized_text": "оценка завершения действия",
+      "suggested_path": "content/audio/ru/otsenka-zaversheniya-deystviya-5079346b.mp3",
       "source_refs": [
         "materials-aspect:class:74"
       ],
@@ -14858,12 +15786,27 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-accin-puntual-solicitada-4f4ef28a",
+      "id": "ru-audio-sovershennyy-vid-s-modalnostyu-0c1adb21",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "acción puntual solicitada",
-      "normalized_text": "acción puntual solicitada",
-      "suggested_path": "content/audio/ru/accin-puntual-solicitada-4f4ef28a.mp3",
+      "text": "совершенный вид с модальностью",
+      "normalized_text": "совершенный вид с модальностью",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-s-modalnostyu-0c1adb21.mp3",
+      "source_refs": [
+        "materials-aspect:class:74"
+      ],
+      "lesson_refs": [
+        74
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-zaproshennoe-tochnoe-deystvie-4a9c6fa1",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "запрошенное точное действие",
+      "normalized_text": "запрошенное точное действие",
+      "suggested_path": "content/audio/ru/zaproshennoe-tochnoe-deystvie-4a9c6fa1.mp3",
       "source_refs": [
         "materials-aspect:class:75"
       ],
@@ -14873,12 +15816,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-imperativo-perfectivo-c4ef9683",
+      "id": "ru-audio-imperativ-sovershennogo-vida-36e7ce24",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "imperativo perfectivo",
-      "normalized_text": "imperativo perfectivo",
-      "suggested_path": "content/audio/ru/imperativo-perfectivo-c4ef9683.mp3",
+      "text": "императив совершенного вида",
+      "normalized_text": "императив совершенного вида",
+      "suggested_path": "content/audio/ru/imperativ-sovershennogo-vida-36e7ce24.mp3",
       "source_refs": [
         "materials-aspect:class:75"
       ],
@@ -14888,12 +15831,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-en-peticin-corts-280e2127",
+      "id": "ru-audio-ozhidaemyy-rezultat-prosby-0514522c",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "perfectivo en petición cortés",
-      "normalized_text": "perfectivo en petición cortés",
-      "suggested_path": "content/audio/ru/perfectivo-en-peticin-corts-280e2127.mp3",
+      "text": "ожидаемый результат просьбы",
+      "normalized_text": "ожидаемый результат просьбы",
+      "suggested_path": "content/audio/ru/ozhidaemyy-rezultat-prosby-0514522c.mp3",
       "source_refs": [
         "materials-aspect:class:75"
       ],
@@ -14903,12 +15846,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-resultado-esperado-de-la-peticin-a68fb96f",
+      "id": "ru-audio-sovershennyy-vid-v-vezhlivoy-prosbe-1038da88",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "resultado esperado de la petición",
-      "normalized_text": "resultado esperado de la petición",
-      "suggested_path": "content/audio/ru/resultado-esperado-de-la-peticin-a68fb96f.mp3",
+      "text": "совершенный вид в вежливой просьбе",
+      "normalized_text": "совершенный вид в вежливой просьбе",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-v-vezhlivoy-prosbe-1038da88.mp3",
       "source_refs": [
         "materials-aspect:class:75"
       ],
@@ -14918,42 +15861,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-imperfectivo-para-hbito-770daf1e",
+      "id": "ru-audio-nesovershennyy-vid-dlya-privychki-48dc9d4e",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "imperfectivo para hábito",
-      "normalized_text": "imperfectivo para hábito",
-      "suggested_path": "content/audio/ru/imperfectivo-para-hbito-770daf1e.mp3",
-      "source_refs": [
-        "materials-aspect:class:76"
-      ],
-      "lesson_refs": [
-        76
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-perfectivo-con-prefijos-pere-po-6ed99355",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "perfectivo con prefijos пере- / по-",
-      "normalized_text": "perfectivo con prefijos пере- / по-",
-      "suggested_path": "content/audio/ru/perfectivo-con-prefijos-pere-po-6ed99355.mp3",
-      "source_refs": [
-        "materials-aspect:class:76"
-      ],
-      "lesson_refs": [
-        76
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-repeticin-como-evento-completo-f351e6f5",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "repetición como evento completo",
-      "normalized_text": "repetición como evento completo",
-      "suggested_path": "content/audio/ru/repeticin-como-evento-completo-f351e6f5.mp3",
+      "text": "несовершенный вид для привычки",
+      "normalized_text": "несовершенный вид для привычки",
+      "suggested_path": "content/audio/ru/nesovershennyy-vid-dlya-privychki-48dc9d4e.mp3",
       "source_refs": [
         "materials-aspect:class:76"
       ],
@@ -14978,12 +15891,42 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-accin-puntual-resultado-12949532",
+      "id": "ru-audio-povtorenie-kak-zavershyonnoe-sobytie-24d088a1",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "acción puntual / resultado",
-      "normalized_text": "acción puntual / resultado",
-      "suggested_path": "content/audio/ru/accin-puntual-resultado-12949532.mp3",
+      "text": "повторение как завершённое событие",
+      "normalized_text": "повторение как завершённое событие",
+      "suggested_path": "content/audio/ru/povtorenie-kak-zavershyonnoe-sobytie-24d088a1.mp3",
+      "source_refs": [
+        "materials-aspect:class:76"
+      ],
+      "lesson_refs": [
+        76
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-sovershennyy-vid-s-pristavkami-pere-po-f032ca71",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "совершенный вид с приставками пере- / по-",
+      "normalized_text": "совершенный вид с приставками пере- / по-",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-s-pristavkami-pere-po-f032ca71.mp3",
+      "source_refs": [
+        "materials-aspect:class:76"
+      ],
+      "lesson_refs": [
+        76
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-infinitiv-sovershennogo-vida-posle-modalnyh-slov-7e3f9320",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "инфинитив совершенного вида после модальных слов",
+      "normalized_text": "инфинитив совершенного вида после модальных слов",
+      "suggested_path": "content/audio/ru/infinitiv-sovershennogo-vida-posle-modalnyh-slov-7e3f9320.mp3",
       "source_refs": [
         "materials-aspect:class:77"
       ],
@@ -14993,12 +15936,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-infinitivo-perfectivo-despus-de-verbos-modales-f636dcb3",
+      "id": "ru-audio-nado-infinitiv-sovershennogo-vida-dlya-konkretnoy-zadachi-2e8d7efa",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "infinitivo perfectivo después de verbos modales",
-      "normalized_text": "infinitivo perfectivo después de verbos modales",
-      "suggested_path": "content/audio/ru/infinitivo-perfectivo-despus-de-verbos-modales-f636dcb3.mp3",
+      "text": "надо + инфинитив совершенного вида для конкретной задачи",
+      "normalized_text": "надо + инфинитив совершенного вида для конкретной задачи",
+      "suggested_path": "content/audio/ru/nado-infinitiv-sovershennogo-vida-dlya-konkretnoy-zadachi-2e8d7efa.mp3",
       "source_refs": [
         "materials-aspect:class:77"
       ],
@@ -15008,12 +15951,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-nado-infinitivo-perfectivo-para-tarea-concreta-ceb46e40",
+      "id": "ru-audio-tochnoe-deystvie-rezultat-bae636a7",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "надо + infinitivo perfectivo para tarea concreta",
-      "normalized_text": "надо + infinitivo perfectivo para tarea concreta",
-      "suggested_path": "content/audio/ru/nado-infinitivo-perfectivo-para-tarea-concreta-ceb46e40.mp3",
+      "text": "точное действие / результат",
+      "normalized_text": "точное действие / результат",
+      "suggested_path": "content/audio/ru/tochnoe-deystvie-rezultat-bae636a7.mp3",
       "source_refs": [
         "materials-aspect:class:77"
       ],
@@ -15023,12 +15966,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-hochu-infinitivo-perfectivo-para-intencin-concreta-9d019766",
+      "id": "ru-audio-hochu-infinitiv-sovershennogo-vida-dlya-konkretnogo-namereniya-fa64b227",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "хочу + infinitivo perfectivo para intención concreta",
-      "normalized_text": "хочу + infinitivo perfectivo para intención concreta",
-      "suggested_path": "content/audio/ru/hochu-infinitivo-perfectivo-para-intencin-concreta-9d019766.mp3",
+      "text": "хочу + инфинитив совершенного вида для конкретного намерения",
+      "normalized_text": "хочу + инфинитив совершенного вида для конкретного намерения",
+      "suggested_path": "content/audio/ru/hochu-infinitiv-sovershennogo-vida-dlya-konkretnogo-namereniya-fa64b227.mp3",
       "source_refs": [
         "materials-aspect:class:77"
       ],
@@ -15038,12 +15981,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-debera-estar-haciendo-algo-302d938c",
+      "id": "ru-audio-dlitelnost-i-tekuschaya-deyatelnost-7f4e579b",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "debería estar haciendo algo",
-      "normalized_text": "debería estar haciendo algo",
-      "suggested_path": "content/audio/ru/debera-estar-haciendo-algo-302d938c.mp3",
+      "text": "длительность и текущая деятельность",
+      "normalized_text": "длительность и текущая деятельность",
+      "suggested_path": "content/audio/ru/dlitelnost-i-tekuschaya-deyatelnost-7f4e579b.mp3",
       "source_refs": [
         "materials-aspect:class:78"
       ],
@@ -15053,12 +15996,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-duracin-y-actividad-en-curso-c4f67fdf",
+      "id": "ru-audio-infinitiv-nesovershennogo-vida-dlya-protsessa-e312dab3",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "duración y actividad en curso",
-      "normalized_text": "duración y actividad en curso",
-      "suggested_path": "content/audio/ru/duracin-y-actividad-en-curso-c4f67fdf.mp3",
+      "text": "инфинитив несовершенного вида для процесса",
+      "normalized_text": "инфинитив несовершенного вида для процесса",
+      "suggested_path": "content/audio/ru/infinitiv-nesovershennogo-vida-dlya-protsessa-e312dab3.mp3",
       "source_refs": [
         "materials-aspect:class:78"
       ],
@@ -15068,12 +16011,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-estado-actual-con-infinitivo-imperfectivo-ca35a68c",
+      "id": "ru-audio-nuzhno-zanimatsya-protsessom-573fd064",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "estado actual con infinitivo imperfectivo",
-      "normalized_text": "estado actual con infinitivo imperfectivo",
-      "suggested_path": "content/audio/ru/estado-actual-con-infinitivo-imperfectivo-ca35a68c.mp3",
+      "text": "нужно заниматься процессом",
+      "normalized_text": "нужно заниматься процессом",
+      "suggested_path": "content/audio/ru/nuzhno-zanimatsya-protsessom-573fd064.mp3",
       "source_refs": [
         "materials-aspect:class:78"
       ],
@@ -15083,12 +16026,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-infinitivo-imperfectivo-para-proceso-ff988007",
+      "id": "ru-audio-tekuschee-sostoyanie-s-infinitivom-nesovershennogo-vida-11075660",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "infinitivo imperfectivo para proceso",
-      "normalized_text": "infinitivo imperfectivo para proceso",
-      "suggested_path": "content/audio/ru/infinitivo-imperfectivo-para-proceso-ff988007.mp3",
+      "text": "текущее состояние с инфинитивом несовершенного вида",
+      "normalized_text": "текущее состояние с инфинитивом несовершенного вида",
+      "suggested_path": "content/audio/ru/tekuschee-sostoyanie-s-infinitivom-nesovershennogo-vida-11075660.mp3",
       "source_refs": [
         "materials-aspect:class:78"
       ],
@@ -15098,12 +16041,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-contraste-proceso-vs-objetivo-e4f56a87",
+      "id": "ru-audio-vybor-vida-posle-hotet-a980f101",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "contraste proceso vs objetivo",
-      "normalized_text": "contraste proceso vs objetivo",
-      "suggested_path": "content/audio/ru/contraste-proceso-vs-objetivo-e4f56a87.mp3",
+      "text": "выбор вида после хотеть",
+      "normalized_text": "выбор вида после хотеть",
+      "suggested_path": "content/audio/ru/vybor-vida-posle-hotet-a980f101.mp3",
       "source_refs": [
         "materials-aspect:class:79"
       ],
@@ -15113,12 +16056,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-eleccin-del-aspecto-despus-de-hotet-26f05ed2",
+      "id": "ru-audio-kontrast-protsessa-i-tseli-9c58aba0",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "elección del aspecto después de хотеть",
-      "normalized_text": "elección del aspecto después de хотеть",
-      "suggested_path": "content/audio/ru/eleccin-del-aspecto-despus-de-hotet-26f05ed2.mp3",
+      "text": "контраст процесса и цели",
+      "normalized_text": "контраст процесса и цели",
+      "suggested_path": "content/audio/ru/kontrast-protsessa-i-tseli-9c58aba0.mp3",
       "source_refs": [
         "materials-aspect:class:79"
       ],
@@ -15143,36 +16086,6 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-hotet-infinitivo-imperfectivo-estado-deseo-general-ce8470cf",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "хотеть + infinitivo imperfectivo: estado / deseo general",
-      "normalized_text": "хотеть + infinitivo imperfectivo estado / deseo general",
-      "suggested_path": "content/audio/ru/hotet-infinitivo-imperfectivo-estado-deseo-general-ce8470cf.mp3",
-      "source_refs": [
-        "materials-aspect:class:79"
-      ],
-      "lesson_refs": [
-        79
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-hotet-infinitivo-perfectivo-intencin-concreta-fe53d162",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "хотеть + infinitivo perfectivo: intención concreta",
-      "normalized_text": "хотеть + infinitivo perfectivo intención concreta",
-      "suggested_path": "content/audio/ru/hotet-infinitivo-perfectivo-intencin-concreta-fe53d162.mp3",
-      "source_refs": [
-        "materials-aspect:class:79"
-      ],
-      "lesson_refs": [
-        79
-      ],
-      "priority": 70
-    },
-    {
       "id": "ru-audio-hotet-infinitiv-fe8bc330",
       "language": "ru",
       "kind": "target:patrón",
@@ -15188,12 +16101,42 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-contraste-por-contexto-3832b9ea",
+      "id": "ru-audio-hotet-infinitiv-nesovershennogo-vida-sostoyanie-obschee-zhelanie-ee75e53d",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "contraste por contexto",
-      "normalized_text": "contraste por contexto",
-      "suggested_path": "content/audio/ru/contraste-por-contexto-3832b9ea.mp3",
+      "text": "хотеть + инфинитив несовершенного вида: состояние / общее желание",
+      "normalized_text": "хотеть + инфинитив несовершенного вида состояние / общее желание",
+      "suggested_path": "content/audio/ru/hotet-infinitiv-nesovershennogo-vida-sostoyanie-obschee-zhelanie-ee75e53d.mp3",
+      "source_refs": [
+        "materials-aspect:class:79"
+      ],
+      "lesson_refs": [
+        79
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-hotet-infinitiv-sovershennogo-vida-konkretnoe-namerenie-ca3e5c75",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "хотеть + инфинитив совершенного вида: конкретное намерение",
+      "normalized_text": "хотеть + инфинитив совершенного вида конкретное намерение",
+      "suggested_path": "content/audio/ru/hotet-infinitiv-sovershennogo-vida-konkretnoe-namerenie-ca3e5c75.mp3",
+      "source_refs": [
+        "materials-aspect:class:79"
+      ],
+      "lesson_refs": [
+        79
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-vybor-vida-v-infinitive-58a11e25",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "выбор вида в инфинитиве",
+      "normalized_text": "выбор вида в инфинитиве",
+      "suggested_path": "content/audio/ru/vybor-vida-v-infinitive-58a11e25.mp3",
       "source_refs": [
         "materials-aspect:class:80"
       ],
@@ -15203,12 +16146,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-eleccin-aspectual-en-infinitivo-513f0e4f",
+      "id": "ru-audio-kontrast-po-kontekstu-efab1cea",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "elección aspectual en infinitivo",
-      "normalized_text": "elección aspectual en infinitivo",
-      "suggested_path": "content/audio/ru/eleccin-aspectual-en-infinitivo-513f0e4f.mp3",
+      "text": "контраст по контексту",
+      "normalized_text": "контраст по контексту",
+      "suggested_path": "content/audio/ru/kontrast-po-kontekstu-efab1cea.mp3",
       "source_refs": [
         "materials-aspect:class:80"
       ],
@@ -15218,12 +16161,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-imperfectivo-proceso-estado-repeticin-hecho-general-b1811cca",
+      "id": "ru-audio-nesovershennyy-vid-protsess-sostoyanie-povtorenie-obschiy-fakt-35193d52",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "imperfectivo: proceso / estado / repetición / hecho general",
-      "normalized_text": "imperfectivo proceso / estado / repetición / hecho general",
-      "suggested_path": "content/audio/ru/imperfectivo-proceso-estado-repeticin-hecho-general-b1811cca.mp3",
+      "text": "несовершенный вид: процесс / состояние / повторение / общий факт",
+      "normalized_text": "несовершенный вид процесс / состояние / повторение / общий факт",
+      "suggested_path": "content/audio/ru/nesovershennyy-vid-protsess-sostoyanie-povtorenie-obschiy-fakt-35193d52.mp3",
       "source_refs": [
         "materials-aspect:class:80"
       ],
@@ -15233,27 +16176,12 @@
       "priority": 70
     },
     {
-      "id": "ru-audio-perfectivo-accin-completa-resultado-inicio-final-359e12cc",
+      "id": "ru-audio-obzor-vida-glagola-v-infinitive-7c39ae95",
       "language": "ru",
       "kind": "target:patrón",
-      "text": "perfectivo: acción completa / resultado / inicio / final",
-      "normalized_text": "perfectivo acción completa / resultado / inicio / final",
-      "suggested_path": "content/audio/ru/perfectivo-accin-completa-resultado-inicio-final-359e12cc.mp3",
-      "source_refs": [
-        "materials-aspect:class:80"
-      ],
-      "lesson_refs": [
-        80
-      ],
-      "priority": 70
-    },
-    {
-      "id": "ru-audio-resumen-del-aspecto-verbal-en-infinitivo-06b4b5d7",
-      "language": "ru",
-      "kind": "target:patrón",
-      "text": "resumen del aspecto verbal en infinitivo",
-      "normalized_text": "resumen del aspecto verbal en infinitivo",
-      "suggested_path": "content/audio/ru/resumen-del-aspecto-verbal-en-infinitivo-06b4b5d7.mp3",
+      "text": "обзор вида глагола в инфинитиве",
+      "normalized_text": "обзор вида глагола в инфинитиве",
+      "suggested_path": "content/audio/ru/obzor-vida-glagola-v-infinitive-7c39ae95.mp3",
       "source_refs": [
         "materials-aspect:class:80"
       ],
@@ -15271,6 +16199,21 @@
       "suggested_path": "content/audio/ru/povtorenie-vida-3f8d37ac.mp3",
       "source_refs": [
         "materials:class:80"
+      ],
+      "lesson_refs": [
+        80
+      ],
+      "priority": 70
+    },
+    {
+      "id": "ru-audio-sovershennyy-vid-zavershyonnoe-deystvie-rezultat-nachalo-final-405e9b5c",
+      "language": "ru",
+      "kind": "target:patrón",
+      "text": "совершенный вид: завершённое действие / результат / начало / финал",
+      "normalized_text": "совершенный вид завершённое действие / результат / начало / финал",
+      "suggested_path": "content/audio/ru/sovershennyy-vid-zavershyonnoe-deystvie-rezultat-nachalo-final-405e9b5c.mp3",
+      "source_refs": [
+        "materials-aspect:class:80"
       ],
       "lesson_refs": [
         80

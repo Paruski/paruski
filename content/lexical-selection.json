@@ -1,0 +1,2226 @@
+{
+  "version": 1,
+  "generated_at": "2026-07-05T23:56:30.808521+00:00",
+  "policy": "derived_selection_metadata_no_copied_frequency_lists",
+  "frequency_sources": [
+    {
+      "name": "wordfreq 3.1.1",
+      "url": "https://github.com/rspeer/wordfreq",
+      "note": "Usado localmente para estimar Zipf; ruso combina Wikipedia, subtitulos, noticias, libros y Twitter."
+    },
+    {
+      "name": "Новый частотный словарь русской лексики",
+      "url": "http://dict.ruslang.ru/freq.php",
+      "note": "Referencia lexicografica basada en corpus para validar alta frecuencia de lemas comunes."
+    },
+    {
+      "name": "General Internet Corpus of Russian",
+      "url": "http://www.webcorpora.ru/en/",
+      "note": "Referencia de campo lexico web/social para lengua moderna; se cita como criterio, no se redistribuyen datos."
+    }
+  ],
+  "selection_rules": [
+    "priorizar palabras frecuentes o de alta cobertura comunicativa",
+    "mantener campos lexicos necesarios para frases reales: familia, ciudad, trabajo, comida, salud, transporte, estudio, aspecto verbal",
+    "evitar palabras aisladas que no se practiquen en ejemplos o patrones",
+    "usar frecuencia como desempate, no como unico criterio"
+  ],
+  "entries": [
+    {
+      "russian": "бабушка",
+      "spanish": "abuela",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 4.54,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "брат",
+      "spanish": "hermano",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 5.0,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "вода",
+      "spanish": "agua",
+      "lesson": 1,
+      "theme": "bebidas",
+      "frequency_zipf": 4.83,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "девочка",
+      "spanish": "niña",
+      "lesson": 1,
+      "theme": "personas",
+      "frequency_zipf": 4.84,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "девушка",
+      "spanish": "chica / novia",
+      "lesson": 1,
+      "theme": "personas",
+      "frequency_zipf": 5.08,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "дедушка",
+      "spanish": "abuelo",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 4.11,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "дети",
+      "spanish": "niños / hijos",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 5.19,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "дочь",
+      "spanish": "hija",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 5.06,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "дядя",
+      "spanish": "tío",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 4.45,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "жена",
+      "spanish": "esposa",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 5.07,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "женщина",
+      "spanish": "mujer",
+      "lesson": 1,
+      "theme": "personas",
+      "frequency_zipf": 5.23,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "кот",
+      "spanish": "gato macho",
+      "lesson": 1,
+      "theme": "animales",
+      "frequency_zipf": 4.35,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "кофе",
+      "spanish": "café",
+      "lesson": 1,
+      "theme": "bebidas",
+      "frequency_zipf": 4.89,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "кошка",
+      "spanish": "gato / gata",
+      "lesson": 1,
+      "theme": "animales",
+      "frequency_zipf": 4.07,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "мальчик",
+      "spanish": "niño",
+      "lesson": 1,
+      "theme": "personas",
+      "frequency_zipf": 4.78,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "мама",
+      "spanish": "mamá / madre",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 5.22,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "молоко",
+      "spanish": "leche",
+      "lesson": 1,
+      "theme": "bebidas",
+      "frequency_zipf": 4.38,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "муж",
+      "spanish": "marido",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 4.89,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "мужчина",
+      "spanish": "hombre",
+      "lesson": 1,
+      "theme": "personas",
+      "frequency_zipf": 5.08,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "папа",
+      "spanish": "papá / padre",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 4.84,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "парень",
+      "spanish": "chico / novio",
+      "lesson": 1,
+      "theme": "personas",
+      "frequency_zipf": 4.96,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "семья",
+      "spanish": "familia",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 5.04,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сестра",
+      "spanish": "hermana",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 4.7,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "собака",
+      "spanish": "perro",
+      "lesson": 1,
+      "theme": "animales",
+      "frequency_zipf": 4.5,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сын",
+      "spanish": "hijo",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 5.23,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "тётя",
+      "spanish": "tía",
+      "lesson": 1,
+      "theme": "familia",
+      "frequency_zipf": 3.54,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "хлеб",
+      "spanish": "pan",
+      "lesson": 1,
+      "theme": "comida",
+      "frequency_zipf": 4.49,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "чай",
+      "spanish": "té",
+      "lesson": 1,
+      "theme": "bebidas",
+      "frequency_zipf": 4.56,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "человек",
+      "spanish": "persona",
+      "lesson": 1,
+      "theme": "personas",
+      "frequency_zipf": 5.96,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "аптека",
+      "spanish": "farmacia",
+      "lesson": 2,
+      "theme": "salud",
+      "frequency_zipf": 3.48,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "банк",
+      "spanish": "banco",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.78,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "башня",
+      "spanish": "torre",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.08,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "город",
+      "spanish": "ciudad",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 5.35,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "дом",
+      "spanish": "casa",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 5.51,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "здесь",
+      "spanish": "aquí",
+      "lesson": 2,
+      "theme": "lugar",
+      "frequency_zipf": 5.78,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "кафе",
+      "spanish": "cafetería / café",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.61,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "магазин",
+      "spanish": "tienda",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.69,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "метро",
+      "spanish": "metro",
+      "lesson": 2,
+      "theme": "transporte",
+      "frequency_zipf": 4.84,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "музей",
+      "spanish": "museo",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.65,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "остановка",
+      "spanish": "parada",
+      "lesson": 2,
+      "theme": "transporte",
+      "frequency_zipf": 3.99,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "парк",
+      "spanish": "parque",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.71,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "площадь",
+      "spanish": "plaza",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.82,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "почта",
+      "spanish": "correo / oficina de correos",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.22,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "проспект",
+      "spanish": "avenida",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.13,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "рынок",
+      "spanish": "mercado",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.7,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "станция",
+      "spanish": "estación",
+      "lesson": 2,
+      "theme": "transporte",
+      "frequency_zipf": 4.3,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "там",
+      "spanish": "allí / ahí",
+      "lesson": 2,
+      "theme": "lugar",
+      "frequency_zipf": 5.96,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "улица",
+      "spanish": "calle",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.46,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "университет",
+      "spanish": "universidad",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.54,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "центр",
+      "spanish": "centro",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 5.17,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "церковь",
+      "spanish": "iglesia",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.84,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "школа",
+      "spanish": "escuela",
+      "lesson": 2,
+      "theme": "lugares",
+      "frequency_zipf": 4.84,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "актриса",
+      "spanish": "actriz",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.36,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "актёр",
+      "spanish": "actor",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 3.78,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "артист",
+      "spanish": "artista",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.25,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "врач",
+      "spanish": "médico",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.68,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "вы",
+      "spanish": "usted / vosotros",
+      "lesson": 3,
+      "theme": "pronombres",
+      "frequency_zipf": 6.17,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "журналист",
+      "spanish": "periodista",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.55,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "инженер",
+      "spanish": "ingeniero",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.24,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "коллега",
+      "spanish": "colega",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.03,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "менеджер",
+      "spanish": "gerente / mánager",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.36,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "мы",
+      "spanish": "nosotros",
+      "lesson": 3,
+      "theme": "pronombres",
+      "frequency_zipf": 6.4,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "он",
+      "spanish": "él",
+      "lesson": 3,
+      "theme": "pronombres",
+      "frequency_zipf": 6.59,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "она",
+      "spanish": "ella",
+      "lesson": 3,
+      "theme": "pronombres",
+      "frequency_zipf": 6.19,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "они",
+      "spanish": "ellos",
+      "lesson": 3,
+      "theme": "pronombres",
+      "frequency_zipf": 6.25,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "писатель",
+      "spanish": "escritor",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.57,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "полицейский",
+      "spanish": "policía",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.38,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "преподаватель",
+      "spanish": "profesor",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.09,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "профессия",
+      "spanish": "profesión",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 3.88,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "работа",
+      "spanish": "trabajo",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 5.33,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "студент",
+      "spanish": "estudiante",
+      "lesson": 3,
+      "theme": "estudios",
+      "frequency_zipf": 4.2,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "студентка",
+      "spanish": "estudiante",
+      "lesson": 3,
+      "theme": "estudios",
+      "frequency_zipf": 3.73,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "ты",
+      "spanish": "tú",
+      "lesson": 3,
+      "theme": "pronombres",
+      "frequency_zipf": 6.37,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "учитель",
+      "spanish": "profesor / maestro",
+      "lesson": 3,
+      "theme": "trabajo",
+      "frequency_zipf": 4.58,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "я",
+      "spanish": "yo",
+      "lesson": 3,
+      "theme": "pronombres",
+      "frequency_zipf": 6.91,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "гулять",
+      "spanish": "pasear",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.05,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "делать",
+      "spanish": "hacer",
+      "lesson": 4,
+      "theme": "aspecto",
+      "frequency_zipf": 5.54,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "думать",
+      "spanish": "pensar",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.92,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "завтракать",
+      "spanish": "desayunar",
+      "lesson": 4,
+      "theme": "comida",
+      "frequency_zipf": 3.39,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "закрывать",
+      "spanish": "cerrar",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 3.9,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "знать",
+      "spanish": "saber / conocer",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 5.07,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "играть",
+      "spanish": "jugar / tocar",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 5.13,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "искать",
+      "spanish": "buscar",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.88,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "компьютер",
+      "spanish": "ordenador",
+      "lesson": 4,
+      "theme": "tecnología",
+      "frequency_zipf": 4.42,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "кондиционер",
+      "spanish": "aire acondicionado",
+      "lesson": 4,
+      "theme": "casa",
+      "frequency_zipf": 3.55,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "ноутбук",
+      "spanish": "portátil",
+      "lesson": 4,
+      "theme": "tecnología",
+      "frequency_zipf": 3.77,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "обедать",
+      "spanish": "comer / almorzar",
+      "lesson": 4,
+      "theme": "comida",
+      "frequency_zipf": 3.65,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "отдыхать",
+      "spanish": "descansar",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.09,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "открывать",
+      "spanish": "abrir",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.14,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "писать",
+      "spanish": "escribir",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.74,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "помогать",
+      "spanish": "ayudar",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.44,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "пульт",
+      "spanish": "mando a distancia",
+      "lesson": 4,
+      "theme": "casa",
+      "frequency_zipf": 3.7,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "работать",
+      "spanish": "trabajar",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 5.26,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "ужинать",
+      "spanish": "cenar",
+      "lesson": 4,
+      "theme": "comida",
+      "frequency_zipf": 3.35,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "читать",
+      "spanish": "leer",
+      "lesson": 4,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.69,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "баскетбол",
+      "spanish": "baloncesto",
+      "lesson": 5,
+      "theme": "deporte",
+      "frequency_zipf": 3.92,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "бильярд",
+      "spanish": "billar",
+      "lesson": 5,
+      "theme": "juegos",
+      "frequency_zipf": 3.16,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "журнал",
+      "spanish": "revista",
+      "lesson": 5,
+      "theme": "medios",
+      "frequency_zipf": 4.94,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "изучать",
+      "spanish": "estudiar",
+      "lesson": 5,
+      "theme": "estudios",
+      "frequency_zipf": 4.13,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "карты",
+      "spanish": "cartas / mapas",
+      "lesson": 5,
+      "theme": "juegos",
+      "frequency_zipf": 4.72,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "музыка",
+      "spanish": "música",
+      "lesson": 5,
+      "theme": "ocio",
+      "frequency_zipf": 4.85,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "песня",
+      "spanish": "canción",
+      "lesson": 5,
+      "theme": "ocio",
+      "frequency_zipf": 4.94,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "покупать",
+      "spanish": "comprar",
+      "lesson": 5,
+      "theme": "compras",
+      "frequency_zipf": 4.44,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "радио",
+      "spanish": "radio",
+      "lesson": 5,
+      "theme": "medios",
+      "frequency_zipf": 4.76,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "русский язык",
+      "spanish": "idioma ruso",
+      "lesson": 5,
+      "theme": "lengua",
+      "frequency_zipf": 5.1,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "слово",
+      "spanish": "palabra",
+      "lesson": 5,
+      "theme": "lengua",
+      "frequency_zipf": 5.2,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "слушать",
+      "spanish": "escuchar",
+      "lesson": 5,
+      "theme": "percepción",
+      "frequency_zipf": 4.61,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сообщение",
+      "spanish": "mensaje",
+      "lesson": 5,
+      "theme": "comunicación",
+      "frequency_zipf": 4.88,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "урок",
+      "spanish": "clase / lección",
+      "lesson": 5,
+      "theme": "estudios",
+      "frequency_zipf": 4.42,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "фильм",
+      "spanish": "película",
+      "lesson": 5,
+      "theme": "ocio",
+      "frequency_zipf": 5.37,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "футбол",
+      "spanish": "fútbol",
+      "lesson": 5,
+      "theme": "deporte",
+      "frequency_zipf": 4.73,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "шахматы",
+      "spanish": "ajedrez",
+      "lesson": 5,
+      "theme": "juegos",
+      "frequency_zipf": 3.89,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "больница",
+      "spanish": "hospital",
+      "lesson": 6,
+      "theme": "salud",
+      "frequency_zipf": 4.11,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "говорить",
+      "spanish": "hablar",
+      "lesson": 6,
+      "theme": "comunicación",
+      "frequency_zipf": 5.32,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "курить",
+      "spanish": "fumar",
+      "lesson": 6,
+      "theme": "rutina",
+      "frequency_zipf": 4.15,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "по-английски",
+      "spanish": "en inglés",
+      "lesson": 6,
+      "theme": "lengua",
+      "frequency_zipf": 3.8,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "по-испански",
+      "spanish": "en español",
+      "lesson": 6,
+      "theme": "lengua",
+      "frequency_zipf": 2.93,
+      "frequency_band": "baja_frecuencia",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "по-русски",
+      "spanish": "en ruso",
+      "lesson": 6,
+      "theme": "lengua",
+      "frequency_zipf": 4.07,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "смотреть",
+      "spanish": "mirar / ver",
+      "lesson": 6,
+      "theme": "percepción",
+      "frequency_zipf": 5.0,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "стадион",
+      "spanish": "estadio",
+      "lesson": 6,
+      "theme": "lugares",
+      "frequency_zipf": 4.33,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "строить",
+      "spanish": "construir",
+      "lesson": 6,
+      "theme": "verbos frecuentes",
+      "frequency_zipf": 4.51,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "телевизор",
+      "spanish": "televisor",
+      "lesson": 6,
+      "theme": "casa",
+      "frequency_zipf": 4.3,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "понимать",
+      "spanish": "entender",
+      "lesson": 7,
+      "theme": "comunicación",
+      "frequency_zipf": 4.66,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "директор",
+      "spanish": "director",
+      "lesson": 8,
+      "theme": "trabajo",
+      "frequency_zipf": 4.96,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "звать",
+      "spanish": "llamar(se)",
+      "lesson": 8,
+      "theme": "comunicación",
+      "frequency_zipf": 3.88,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "отвечать",
+      "spanish": "responder",
+      "lesson": 8,
+      "theme": "comunicación",
+      "frequency_zipf": 4.55,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "помнить",
+      "spanish": "recordar",
+      "lesson": 8,
+      "theme": "memoria",
+      "frequency_zipf": 4.35,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "родители",
+      "spanish": "padres",
+      "lesson": 8,
+      "theme": "familia",
+      "frequency_zipf": 4.9,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "спрашивать",
+      "spanish": "preguntar",
+      "lesson": 8,
+      "theme": "comunicación",
+      "frequency_zipf": 4.1,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "газета",
+      "spanish": "periódico",
+      "lesson": 9,
+      "theme": "medios",
+      "frequency_zipf": 4.74,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "друг",
+      "spanish": "amigo",
+      "lesson": 9,
+      "theme": "personas",
+      "frequency_zipf": 5.47,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "книга",
+      "spanish": "libro",
+      "lesson": 9,
+      "theme": "estudios",
+      "frequency_zipf": 5.05,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "кровать",
+      "spanish": "cama",
+      "lesson": 9,
+      "theme": "casa",
+      "frequency_zipf": 4.33,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "люди",
+      "spanish": "gente / personas",
+      "lesson": 9,
+      "theme": "personas",
+      "frequency_zipf": 5.75,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "машина",
+      "spanish": "coche / máquina",
+      "lesson": 9,
+      "theme": "transporte",
+      "frequency_zipf": 4.82,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "новость",
+      "spanish": "noticia",
+      "lesson": 9,
+      "theme": "medios",
+      "frequency_zipf": 4.56,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "окно",
+      "spanish": "ventana",
+      "lesson": 9,
+      "theme": "casa",
+      "frequency_zipf": 4.66,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "остров",
+      "spanish": "isla",
+      "lesson": 9,
+      "theme": "lugares",
+      "frequency_zipf": 4.8,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "письмо",
+      "spanish": "carta",
+      "lesson": 9,
+      "theme": "comunicación",
+      "frequency_zipf": 4.91,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "ребёнок",
+      "spanish": "niño",
+      "lesson": 9,
+      "theme": "personas",
+      "frequency_zipf": 4.24,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "рубль",
+      "spanish": "rublo",
+      "lesson": 9,
+      "theme": "dinero",
+      "frequency_zipf": 4.42,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "язык",
+      "spanish": "lengua / idioma",
+      "lesson": 9,
+      "theme": "lengua",
+      "frequency_zipf": 5.07,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "быстро",
+      "spanish": "rápido",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 5.33,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "довольно",
+      "spanish": "bastante",
+      "lesson": 10,
+      "theme": "grado",
+      "frequency_zipf": 5.16,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "жарко",
+      "spanish": "hace calor",
+      "lesson": 10,
+      "theme": "clima",
+      "frequency_zipf": 4.19,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "интересно",
+      "spanish": "interesante",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 5.08,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "легко",
+      "spanish": "fácil",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 5.1,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "мало",
+      "spanish": "poco",
+      "lesson": 10,
+      "theme": "cantidad",
+      "frequency_zipf": 5.22,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "медленно",
+      "spanish": "despacio",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 4.55,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "много",
+      "spanish": "mucho",
+      "lesson": 10,
+      "theme": "cantidad",
+      "frequency_zipf": 5.75,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "отлично",
+      "spanish": "excelente",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 4.86,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "очень",
+      "spanish": "muy",
+      "lesson": 10,
+      "theme": "grado",
+      "frequency_zipf": 6.14,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "плохо",
+      "spanish": "mal",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 5.19,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "скучно",
+      "spanish": "aburrido",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 4.31,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "слишком",
+      "spanish": "demasiado",
+      "lesson": 10,
+      "theme": "grado",
+      "frequency_zipf": 5.38,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "так",
+      "spanish": "así / tan",
+      "lesson": 10,
+      "theme": "grado",
+      "frequency_zipf": 6.49,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "тепло",
+      "spanish": "hace templado / calor suave",
+      "lesson": 10,
+      "theme": "clima",
+      "frequency_zipf": 4.44,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "трудно",
+      "spanish": "difícil",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 5.06,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "холодно",
+      "spanish": "hace frío / frío",
+      "lesson": 10,
+      "theme": "clima",
+      "frequency_zipf": 4.43,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "хорошо",
+      "spanish": "bien",
+      "lesson": 10,
+      "theme": "modo",
+      "frequency_zipf": 5.71,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "билет",
+      "spanish": "billete / entrada",
+      "lesson": 11,
+      "theme": "viajes",
+      "frequency_zipf": 4.43,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "вопрос",
+      "spanish": "pregunta",
+      "lesson": 11,
+      "theme": "comunicación",
+      "frequency_zipf": 5.57,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "время",
+      "spanish": "tiempo",
+      "lesson": 11,
+      "theme": "tiempo",
+      "frequency_zipf": 6.21,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "деньги",
+      "spanish": "dinero",
+      "lesson": 11,
+      "theme": "dinero",
+      "frequency_zipf": 5.57,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "карандаш",
+      "spanish": "lápiz",
+      "lesson": 11,
+      "theme": "objetos",
+      "frequency_zipf": 3.7,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "ключ",
+      "spanish": "llave",
+      "lesson": 11,
+      "theme": "objetos",
+      "frequency_zipf": 4.68,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "словарь",
+      "spanish": "diccionario",
+      "lesson": 11,
+      "theme": "estudios",
+      "frequency_zipf": 4.2,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "встреча",
+      "spanish": "reunión / cita",
+      "lesson": 12,
+      "theme": "agenda",
+      "frequency_zipf": 4.79,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "паспорт",
+      "spanish": "pasaporte",
+      "lesson": 12,
+      "theme": "viajes",
+      "frequency_zipf": 4.26,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "телефон",
+      "spanish": "teléfono",
+      "lesson": 12,
+      "theme": "comunicación",
+      "frequency_zipf": 4.95,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "чемодан",
+      "spanish": "maleta",
+      "lesson": 12,
+      "theme": "viajes",
+      "frequency_zipf": 3.94,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "экзамен",
+      "spanish": "examen",
+      "lesson": 12,
+      "theme": "estudios",
+      "frequency_zipf": 4.19,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "аэропорт",
+      "spanish": "aeropuerto",
+      "lesson": 13,
+      "theme": "viajes",
+      "frequency_zipf": 4.61,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "карман",
+      "spanish": "bolsillo",
+      "lesson": 13,
+      "theme": "ropa",
+      "frequency_zipf": 3.92,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "лес",
+      "spanish": "bosque",
+      "lesson": 13,
+      "theme": "lugares",
+      "frequency_zipf": 4.58,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "море",
+      "spanish": "mar",
+      "lesson": 13,
+      "theme": "lugares",
+      "frequency_zipf": 5.0,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "пол",
+      "spanish": "suelo",
+      "lesson": 13,
+      "theme": "casa",
+      "frequency_zipf": 4.94,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "рюкзак",
+      "spanish": "mochila",
+      "lesson": 13,
+      "theme": "objetos",
+      "frequency_zipf": 3.75,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сад",
+      "spanish": "jardín",
+      "lesson": 13,
+      "theme": "lugares",
+      "frequency_zipf": 4.55,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "стол",
+      "spanish": "mesa",
+      "lesson": 13,
+      "theme": "casa",
+      "frequency_zipf": 4.78,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сумка",
+      "spanish": "bolso",
+      "lesson": 13,
+      "theme": "objetos",
+      "frequency_zipf": 3.83,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "супермаркет",
+      "spanish": "supermercado",
+      "lesson": 13,
+      "theme": "compras",
+      "frequency_zipf": 3.44,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "шкаф",
+      "spanish": "armario",
+      "lesson": 13,
+      "theme": "casa",
+      "frequency_zipf": 3.89,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "Испания",
+      "spanish": "España",
+      "lesson": 14,
+      "theme": "lugares",
+      "frequency_zipf": 4.15,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "Москва",
+      "spanish": "Moscú",
+      "lesson": 14,
+      "theme": "lugares",
+      "frequency_zipf": 5.37,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "Россия",
+      "spanish": "Rusia",
+      "lesson": 14,
+      "theme": "lugares",
+      "frequency_zipf": 5.52,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "Сибирь",
+      "spanish": "Siberia",
+      "lesson": 14,
+      "theme": "lugares",
+      "frequency_zipf": 4.36,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "квартира",
+      "spanish": "piso / apartamento",
+      "lesson": 14,
+      "theme": "vivienda",
+      "frequency_zipf": 4.43,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "вчера",
+      "spanish": "ayer",
+      "lesson": 16,
+      "theme": "tiempo",
+      "frequency_zipf": 5.31,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сейчас",
+      "spanish": "ahora",
+      "lesson": 16,
+      "theme": "tiempo",
+      "frequency_zipf": 6.0,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "готовить",
+      "spanish": "cocinar / preparar",
+      "lesson": 21,
+      "theme": "habilidades",
+      "frequency_zipf": 4.4,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "танцевать",
+      "spanish": "bailar",
+      "lesson": 21,
+      "theme": "habilidades",
+      "frequency_zipf": 4.15,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "завтра",
+      "spanish": "mañana",
+      "lesson": 23,
+      "theme": "tiempo",
+      "frequency_zipf": 5.31,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "завтрак",
+      "spanish": "desayuno",
+      "lesson": 26,
+      "theme": "comida",
+      "frequency_zipf": 4.34,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "обед",
+      "spanish": "comida / almuerzo",
+      "lesson": 26,
+      "theme": "comida",
+      "frequency_zipf": 4.52,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "салат",
+      "spanish": "ensalada",
+      "lesson": 26,
+      "theme": "comida",
+      "frequency_zipf": 4.01,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сыр",
+      "spanish": "queso",
+      "lesson": 26,
+      "theme": "comida",
+      "frequency_zipf": 4.12,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "ужин",
+      "spanish": "cena",
+      "lesson": 26,
+      "theme": "comida",
+      "frequency_zipf": 4.63,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "яблоко",
+      "spanish": "manzana",
+      "lesson": 26,
+      "theme": "comida",
+      "frequency_zipf": 4.02,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "петь",
+      "spanish": "cantar",
+      "lesson": 37,
+      "theme": "habilidades",
+      "frequency_zipf": 4.36,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "плавать",
+      "spanish": "nadar",
+      "lesson": 37,
+      "theme": "habilidades",
+      "frequency_zipf": 3.79,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "занят",
+      "spanish": "ocupado",
+      "lesson": 38,
+      "theme": "estado",
+      "frequency_zipf": 4.2,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "опоздать",
+      "spanish": "llegar tarde",
+      "lesson": 38,
+      "theme": "tiempo",
+      "frequency_zipf": 3.36,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "проблема",
+      "spanish": "problema",
+      "lesson": 38,
+      "theme": "abstracto",
+      "frequency_zipf": 5.04,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "решение",
+      "spanish": "solución / decisión",
+      "lesson": 38,
+      "theme": "abstracto",
+      "frequency_zipf": 5.27,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "устал",
+      "spanish": "cansado",
+      "lesson": 38,
+      "theme": "estado",
+      "frequency_zipf": 4.34,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "важный",
+      "spanish": "importante",
+      "lesson": 39,
+      "theme": "descripción",
+      "frequency_zipf": 4.44,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "лёгкий",
+      "spanish": "fácil / ligero",
+      "lesson": 39,
+      "theme": "descripción",
+      "frequency_zipf": 3.64,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "молодой",
+      "spanish": "joven",
+      "lesson": 39,
+      "theme": "descripción",
+      "frequency_zipf": 4.83,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "старый",
+      "spanish": "viejo / antiguo",
+      "lesson": 39,
+      "theme": "descripción",
+      "frequency_zipf": 4.78,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "трудный",
+      "spanish": "difícil",
+      "lesson": 39,
+      "theme": "descripción",
+      "frequency_zipf": 3.9,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "высокий",
+      "spanish": "alto",
+      "lesson": 41,
+      "theme": "descripción",
+      "frequency_zipf": 4.59,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "глаза",
+      "spanish": "ojos",
+      "lesson": 41,
+      "theme": "cuerpo",
+      "frequency_zipf": 5.28,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "лицо",
+      "spanish": "cara",
+      "lesson": 41,
+      "theme": "cuerpo",
+      "frequency_zipf": 5.16,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "низкий",
+      "spanish": "bajo",
+      "lesson": 41,
+      "theme": "descripción",
+      "frequency_zipf": 4.14,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "рост",
+      "spanish": "altura / estatura",
+      "lesson": 41,
+      "theme": "cuerpo",
+      "frequency_zipf": 4.95,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "живот",
+      "spanish": "barriga / abdomen",
+      "lesson": 45,
+      "theme": "salud",
+      "frequency_zipf": 4.25,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "зуб",
+      "spanish": "diente",
+      "lesson": 45,
+      "theme": "salud",
+      "frequency_zipf": 3.91,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "помощь",
+      "spanish": "ayuda",
+      "lesson": 45,
+      "theme": "salud",
+      "frequency_zipf": 5.25,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "спина",
+      "spanish": "espalda",
+      "lesson": 45,
+      "theme": "salud",
+      "frequency_zipf": 3.95,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "потом",
+      "spanish": "después",
+      "lesson": 46,
+      "theme": "tiempo",
+      "frequency_zipf": 5.71,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сегодня",
+      "spanish": "hoy",
+      "lesson": 46,
+      "theme": "tiempo",
+      "frequency_zipf": 5.91,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сначала",
+      "spanish": "primero / al principio",
+      "lesson": 46,
+      "theme": "tiempo",
+      "frequency_zipf": 5.19,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "срочно",
+      "spanish": "urgente",
+      "lesson": 46,
+      "theme": "tiempo",
+      "frequency_zipf": 4.55,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "начать",
+      "spanish": "empezar / iniciar",
+      "lesson": 61,
+      "theme": "aspecto",
+      "frequency_zipf": 4.95,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "начинать",
+      "spanish": "empezar",
+      "lesson": 61,
+      "theme": "aspecto",
+      "frequency_zipf": 4.4,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "решать",
+      "spanish": "resolver / decidir",
+      "lesson": 61,
+      "theme": "aspecto",
+      "frequency_zipf": 4.62,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "решить",
+      "spanish": "resolver / decidir",
+      "lesson": 61,
+      "theme": "aspecto",
+      "frequency_zipf": 4.67,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "сделать",
+      "spanish": "hacer / completar",
+      "lesson": 61,
+      "theme": "aspecto",
+      "frequency_zipf": 5.65,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "брать",
+      "spanish": "tomar / coger",
+      "lesson": 63,
+      "theme": "aspecto",
+      "frequency_zipf": 4.66,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "взять",
+      "spanish": "tomar / coger",
+      "lesson": 63,
+      "theme": "aspecto",
+      "frequency_zipf": 5.08,
+      "frequency_band": "muy_frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "прийти",
+      "spanish": "venir / llegar",
+      "lesson": 63,
+      "theme": "movimiento",
+      "frequency_zipf": 4.53,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "приходить",
+      "spanish": "venir / llegar",
+      "lesson": 63,
+      "theme": "movimiento",
+      "frequency_zipf": 4.14,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "уйти",
+      "spanish": "irse",
+      "lesson": 63,
+      "theme": "movimiento",
+      "frequency_zipf": 4.7,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "уходить",
+      "spanish": "irse",
+      "lesson": 63,
+      "theme": "movimiento",
+      "frequency_zipf": 4.31,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "закрою",
+      "spanish": "cerraré",
+      "lesson": 72,
+      "theme": "aspecto",
+      "frequency_zipf": 3.14,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "отвечу",
+      "spanish": "responderé",
+      "lesson": 72,
+      "theme": "aspecto",
+      "frequency_zipf": 3.87,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "открою",
+      "spanish": "abriré",
+      "lesson": 72,
+      "theme": "aspecto",
+      "frequency_zipf": 3.56,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "помогу",
+      "spanish": "ayudaré",
+      "lesson": 72,
+      "theme": "aspecto",
+      "frequency_zipf": 3.78,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "проверю",
+      "spanish": "comprobaré",
+      "lesson": 72,
+      "theme": "aspecto",
+      "frequency_zipf": 3.18,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "повторить",
+      "spanish": "repetir",
+      "lesson": 76,
+      "theme": "aspecto",
+      "frequency_zipf": 4.23,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "выучить",
+      "spanish": "aprender / memorizar",
+      "lesson": 77,
+      "theme": "aspecto",
+      "frequency_zipf": 3.66,
+      "frequency_band": "util_especifico",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "объяснить",
+      "spanish": "explicar",
+      "lesson": 77,
+      "theme": "aspecto",
+      "frequency_zipf": 4.7,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    },
+    {
+      "russian": "попробовать",
+      "spanish": "probar / intentar",
+      "lesson": 77,
+      "theme": "aspecto",
+      "frequency_zipf": 4.5,
+      "frequency_band": "frecuente",
+      "reason": "frecuencia corpus + campo lexico comunicativo + productividad gramatical"
+    }
+  ]
+}

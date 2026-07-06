@@ -1,24 +1,7280 @@
 [
-  {"id":"ex-001-001","lesson":1,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Esto es té.'","expected":"Это чай.","tags":["это"],"weight":0.25},
-  {"id":"ex-001-002","lesson":1,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Esto no es café.'","expected":"Это не кофе.","tags":["negacion"],"weight":0.25},
-  {"id":"ex-001-003","lesson":1,"skill":"comprension","type":"traduccion-directa","prompt":"Qué significa: 'Кто это?'","expected":"¿Quién es?","tags":["кто"],"weight":0.2},
-  {"id":"ex-001-004","lesson":1,"skill":"comprension","type":"multiple_choice","modality":"text","prompt":"Elige la traducción correcta de: 'Это чай.'","expected":"Esto es té.","choices":[{"label":"Esto es té.","value":"Esto es té.","correct":true},{"label":"Esto no es café.","value":"Esto no es café."},{"label":"¿Quién es?","value":"¿Quién es?"},{"label":"Esto es leche.","value":"Esto es leche."}],"tags":["это","multiple-choice"],"targets":{"skills":["reading","recognition"],"vocabulary":["чай"],"structures":["это + noun"],"direction":"ru_to_es","modality":"text"},"weight":0.18},
-  {"id":"ex-018-001","lesson":18,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Hoy hace calor.'","expected":"Сегодня жарко.","tags":["clima"],"weight":0.25},
-  {"id":"ex-018-002","lesson":18,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Ayer hizo frío.'","expected":"Вчера было холодно.","tags":["clima","pasado"],"weight":0.25},
-  {"id":"ex-018-003","lesson":18,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'En invierno hace frío.'","expected":"Зимой холодно.","tags":["estaciones"],"weight":0.2},
-  {"id":"ex-019-001","lesson":19,"skill":"vocabulario","type":"traduccion-inversa","prompt":"¿Cómo se dice 'juego al fútbol'?","expected":"Я играю в футбол.","tags":["играть-в"],"weight":0.25},
-  {"id":"ex-019-002","lesson":19,"skill":"gramatica","type":"transformacion","prompt":"Pon en acusativo: Я читаю ___ (книга).","expected":"книгу","tags":["acusativo"],"weight":0.2},
-  {"id":"ex-019-003","lesson":19,"skill":"gramatica","type":"multiple_choice","modality":"text","prompt":"Elige la forma correcta: Я читаю ___ (книга).","expected":"книгу","choices":[{"label":"книга","value":"книга"},{"label":"книгу","value":"книгу","correct":true},{"label":"книги","value":"книги"},{"label":"книге","value":"книге"}],"tags":["acusativo","multiple-choice"],"targets":{"skills":["grammar_recognition"],"grammar":["acusative_singular_feminine_a_to_u"],"vocabulary":["книга"],"cases":["accusative"],"morphology":["feminine_noun_a_to_u"],"direction":"form_selection","modality":"text"},"weight":0.18},
-  {"id":"ex-020-001","lesson":20,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: '¿Me escuchas?'","expected":"Ты меня слушаешь?","tags":["pronombres"],"weight":0.25},
-  {"id":"ex-020-002","lesson":20,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Yo te entiendo.'","expected":"Я тебя понимаю.","tags":["pronombres"],"weight":0.25},
-  {"id":"ex-021-001","lesson":21,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Me gusta la música.'","expected":"Я люблю музыку.","tags":["любить"],"weight":0.2},
-  {"id":"ex-022-001","lesson":22,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Voy a leer.'","expected":"Я буду читать.","tags":["futuro"],"weight":0.2},
-  {"id":"ex-023-001","lesson":23,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Mañana hará frío.'","expected":"Завтра будет холодно.","tags":["clima"],"weight":0.2},
-  {"id":"ex-031-001","lesson":31,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Ella toca la guitarra.'","expected":"Она играет на гитаре.","tags":["играть-на"],"weight":0.2},
-  {"id":"ex-032-001","lesson":32,"skill":"gramatica","type":"eleccion-productiva","prompt":"Traduce: 'Estoy en casa.'","expected":"Я дома.","tags":["gde-kuda"],"weight":0.35},
-  {"id":"ex-032-002","lesson":32,"skill":"gramatica","type":"eleccion-productiva","prompt":"Traduce: 'Voy a casa.'","expected":"Я иду домой.","tags":["gde-kuda"],"weight":0.35},
-  {"id":"ex-033-001","lesson":33,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Ahora voy al trabajo a pie.'","expected":"Сейчас я иду на работу.","tags":["идти-ходить"],"weight":0.3},
-  {"id":"ex-033-002","lesson":33,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Cada día voy al trabajo a pie.'","expected":"Каждый день я хожу на работу.","tags":["идти-ходить"],"weight":0.3},
-  {"id":"ex-035-001","lesson":35,"skill":"gramatica","type":"traduccion-inversa","prompt":"Traduce: 'Voy a Moscú en transporte.'","expected":"Я еду в Москву.","tags":["ехать-ездить"],"weight":0.3},
-  {"id":"ex-036-001","lesson":36,"skill":"vocabulario","type":"traduccion-inversa","prompt":"Traduce: 'Voy a pie.'","expected":"Я иду пешком.","tags":["пешком"],"weight":0.2}
+  {
+    "id": "auto-note-note-esto-01-cloze",
+    "lesson": 1,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Это _____.",
+    "expected": "чай",
+    "display_expected": "Это чай.",
+    "tts_text": "Это чай.",
+    "tags": [
+      "note-esto",
+      "чай"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-esto-01-dict",
+    "lesson": 1,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Это чай.",
+    "tts_text": "Это чай.",
+    "tags": [
+      "note-esto",
+      "чай"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-esto-01-listen",
+    "lesson": 1,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Это чай.",
+    "tts_text": "Это чай.",
+    "choices": [
+      {
+        "label": "Это чай.",
+        "value": "Это чай.",
+        "correct": true
+      },
+      {
+        "label": "Это не кофе.",
+        "value": "Это не кофе.",
+        "correct": false
+      },
+      {
+        "label": "Кто это?",
+        "value": "Кто это?",
+        "correct": false
+      },
+      {
+        "label": "Что это?",
+        "value": "Что это?",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-esto",
+      "чай"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-esto-01-produce",
+    "lesson": 1,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «чай».",
+    "expected": "чай",
+    "allow_contains": true,
+    "sample": "Это чай.",
+    "tags": [
+      "note-esto",
+      "чай"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-esto-02-cloze",
+    "lesson": 1,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Это не _____.",
+    "expected": "кофе",
+    "display_expected": "Это не кофе.",
+    "tts_text": "Это не кофе.",
+    "tags": [
+      "note-esto",
+      "кофе"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-esto-02-dict",
+    "lesson": 1,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Это не кофе.",
+    "tts_text": "Это не кофе.",
+    "tags": [
+      "note-esto",
+      "кофе"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-esto-02-listen",
+    "lesson": 1,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Это не кофе.",
+    "tts_text": "Это не кофе.",
+    "choices": [
+      {
+        "label": "Это не кофе.",
+        "value": "Это не кофе.",
+        "correct": true
+      },
+      {
+        "label": "Это чай.",
+        "value": "Это чай.",
+        "correct": false
+      },
+      {
+        "label": "Кто это?",
+        "value": "Кто это?",
+        "correct": false
+      },
+      {
+        "label": "Что это?",
+        "value": "Что это?",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-esto",
+      "кофе"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-esto-02-produce",
+    "lesson": 1,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «кофе».",
+    "expected": "кофе",
+    "allow_contains": true,
+    "sample": "Это не кофе.",
+    "tags": [
+      "note-esto",
+      "кофе"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-esto-03-dict",
+    "lesson": 1,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Кто это?",
+    "tts_text": "Кто это?",
+    "tags": [
+      "note-esto",
+      ""
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-esto-03-listen",
+    "lesson": 1,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Кто это?",
+    "tts_text": "Кто это?",
+    "choices": [
+      {
+        "label": "Кто это?",
+        "value": "Кто это?",
+        "correct": true
+      },
+      {
+        "label": "Это чай.",
+        "value": "Это чай.",
+        "correct": false
+      },
+      {
+        "label": "Это не кофе.",
+        "value": "Это не кофе.",
+        "correct": false
+      },
+      {
+        "label": "Что это?",
+        "value": "Что это?",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-esto",
+      ""
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-esto-04-dict",
+    "lesson": 1,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Что это?",
+    "tts_text": "Что это?",
+    "tags": [
+      "note-esto",
+      ""
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-esto-04-listen",
+    "lesson": 1,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Что это?",
+    "tts_text": "Что это?",
+    "choices": [
+      {
+        "label": "Что это?",
+        "value": "Что это?",
+        "correct": true
+      },
+      {
+        "label": "Это чай.",
+        "value": "Это чай.",
+        "correct": false
+      },
+      {
+        "label": "Это не кофе.",
+        "value": "Это не кофе.",
+        "correct": false
+      },
+      {
+        "label": "Кто это?",
+        "value": "Кто это?",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-esto",
+      ""
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "ex-001-001",
+    "lesson": 1,
+    "skill": "vocabulario",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Esto es té.'",
+    "expected": "Это чай.",
+    "tags": [
+      "это"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "ex-001-002",
+    "lesson": 1,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Esto no es café.'",
+    "expected": "Это не кофе.",
+    "tags": [
+      "negacion"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "ex-001-003",
+    "lesson": 1,
+    "skill": "comprension",
+    "type": "traduccion-directa",
+    "prompt": "Qué significa: 'Кто это?'",
+    "expected": "¿Quién es?",
+    "tags": [
+      "кто"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "ex-001-004",
+    "lesson": 1,
+    "skill": "comprension",
+    "type": "multiple_choice",
+    "modality": "text",
+    "prompt": "Elige la traducción correcta de: 'Это чай.'",
+    "expected": "Esto es té.",
+    "choices": [
+      {
+        "label": "Esto es té.",
+        "value": "Esto es té.",
+        "correct": true
+      },
+      {
+        "label": "Esto no es café.",
+        "value": "Esto no es café."
+      },
+      {
+        "label": "¿Quién es?",
+        "value": "¿Quién es?"
+      },
+      {
+        "label": "Esto es leche.",
+        "value": "Esto es leche."
+      }
+    ],
+    "tags": [
+      "это",
+      "multiple-choice"
+    ],
+    "targets": {
+      "skills": [
+        "reading",
+        "recognition"
+      ],
+      "vocabulary": [
+        "чай"
+      ],
+      "structures": [
+        "это + noun"
+      ],
+      "direction": "ru_to_es",
+      "modality": "text"
+    },
+    "weight": 0.18
+  },
+  {
+    "id": "auto-note-note-pronouns-01-cloze",
+    "lesson": 3,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я слушаю _____.",
+    "expected": "тебя",
+    "display_expected": "Я слушаю тебя.",
+    "tts_text": "Я слушаю тебя.",
+    "tags": [
+      "note-pronouns",
+      "тебя"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-pronouns-01-dict",
+    "lesson": 3,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я слушаю тебя.",
+    "tts_text": "Я слушаю тебя.",
+    "tags": [
+      "note-pronouns",
+      "тебя"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-pronouns-01-listen",
+    "lesson": 3,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я слушаю тебя.",
+    "tts_text": "Я слушаю тебя.",
+    "choices": [
+      {
+        "label": "Я слушаю тебя.",
+        "value": "Я слушаю тебя.",
+        "correct": true
+      },
+      {
+        "label": "Ты меня понимаешь?",
+        "value": "Ты меня понимаешь?",
+        "correct": false
+      },
+      {
+        "label": "Он слушает её.",
+        "value": "Он слушает её.",
+        "correct": false
+      },
+      {
+        "label": "Мы вас знаем.",
+        "value": "Мы вас знаем.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-pronouns",
+      "тебя"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-pronouns-01-produce",
+    "lesson": 3,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «тебя».",
+    "expected": "тебя",
+    "allow_contains": true,
+    "sample": "Я слушаю тебя.",
+    "tags": [
+      "note-pronouns",
+      "тебя"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-pronouns-02-cloze",
+    "lesson": 3,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Ты _____ понимаешь?",
+    "expected": "меня",
+    "display_expected": "Ты меня понимаешь?",
+    "tts_text": "Ты меня понимаешь?",
+    "tags": [
+      "note-pronouns",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-pronouns-02-dict",
+    "lesson": 3,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Ты меня понимаешь?",
+    "tts_text": "Ты меня понимаешь?",
+    "tags": [
+      "note-pronouns",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-pronouns-02-listen",
+    "lesson": 3,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Ты меня понимаешь?",
+    "tts_text": "Ты меня понимаешь?",
+    "choices": [
+      {
+        "label": "Ты меня понимаешь?",
+        "value": "Ты меня понимаешь?",
+        "correct": true
+      },
+      {
+        "label": "Я слушаю тебя.",
+        "value": "Я слушаю тебя.",
+        "correct": false
+      },
+      {
+        "label": "Он слушает её.",
+        "value": "Он слушает её.",
+        "correct": false
+      },
+      {
+        "label": "Мы вас знаем.",
+        "value": "Мы вас знаем.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-pronouns",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-pronouns-02-produce",
+    "lesson": 3,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "Ты меня понимаешь?",
+    "tags": [
+      "note-pronouns",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-pronouns-03-cloze",
+    "lesson": 3,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Он _____ её.",
+    "expected": "слушает",
+    "display_expected": "Он слушает её.",
+    "tts_text": "Он слушает её.",
+    "tags": [
+      "note-pronouns",
+      "слушает"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-pronouns-03-dict",
+    "lesson": 3,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Он слушает её.",
+    "tts_text": "Он слушает её.",
+    "tags": [
+      "note-pronouns",
+      "слушает"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-pronouns-03-listen",
+    "lesson": 3,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Он слушает её.",
+    "tts_text": "Он слушает её.",
+    "choices": [
+      {
+        "label": "Он слушает её.",
+        "value": "Он слушает её.",
+        "correct": true
+      },
+      {
+        "label": "Я слушаю тебя.",
+        "value": "Я слушаю тебя.",
+        "correct": false
+      },
+      {
+        "label": "Ты меня понимаешь?",
+        "value": "Ты меня понимаешь?",
+        "correct": false
+      },
+      {
+        "label": "Мы вас знаем.",
+        "value": "Мы вас знаем.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-pronouns",
+      "слушает"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-pronouns-03-produce",
+    "lesson": 3,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «слушает».",
+    "expected": "слушает",
+    "allow_contains": true,
+    "sample": "Он слушает её.",
+    "tags": [
+      "note-pronouns",
+      "слушает"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-pronouns-04-cloze",
+    "lesson": 3,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Мы вас _____.",
+    "expected": "знаем",
+    "display_expected": "Мы вас знаем.",
+    "tts_text": "Мы вас знаем.",
+    "tags": [
+      "note-pronouns",
+      "знаем"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-pronouns-04-dict",
+    "lesson": 3,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Мы вас знаем.",
+    "tts_text": "Мы вас знаем.",
+    "tags": [
+      "note-pronouns",
+      "знаем"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-pronouns-04-listen",
+    "lesson": 3,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Мы вас знаем.",
+    "tts_text": "Мы вас знаем.",
+    "choices": [
+      {
+        "label": "Мы вас знаем.",
+        "value": "Мы вас знаем.",
+        "correct": true
+      },
+      {
+        "label": "Я слушаю тебя.",
+        "value": "Я слушаю тебя.",
+        "correct": false
+      },
+      {
+        "label": "Ты меня понимаешь?",
+        "value": "Ты меня понимаешь?",
+        "correct": false
+      },
+      {
+        "label": "Он слушает её.",
+        "value": "Он слушает её.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-pronouns",
+      "знаем"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-pronouns-04-produce",
+    "lesson": 3,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «знаем».",
+    "expected": "знаем",
+    "allow_contains": true,
+    "sample": "Мы вас знаем.",
+    "tags": [
+      "note-pronouns",
+      "знаем"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-igrat-01-cloze",
+    "lesson": 5,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я играю в _____.",
+    "expected": "футбол",
+    "display_expected": "Я играю в футбол.",
+    "tts_text": "Я играю в футбол.",
+    "tags": [
+      "note-igrat",
+      "футбол"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-igrat-01-dict",
+    "lesson": 5,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я играю в футбол.",
+    "tts_text": "Я играю в футбол.",
+    "tags": [
+      "note-igrat",
+      "футбол"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-igrat-01-listen",
+    "lesson": 5,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я играю в футбол.",
+    "tts_text": "Я играю в футбол.",
+    "choices": [
+      {
+        "label": "Я играю в футбол.",
+        "value": "Я играю в футбол.",
+        "correct": true
+      },
+      {
+        "label": "Мы играем в шахматы.",
+        "value": "Мы играем в шахматы.",
+        "correct": false
+      },
+      {
+        "label": "Она играет на гитаре.",
+        "value": "Она играет на гитаре.",
+        "correct": false
+      },
+      {
+        "label": "Он играет на фортепиано.",
+        "value": "Он играет на фортепиано.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-igrat",
+      "футбол"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-igrat-01-produce",
+    "lesson": 5,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «футбол».",
+    "expected": "футбол",
+    "allow_contains": true,
+    "sample": "Я играю в футбол.",
+    "tags": [
+      "note-igrat",
+      "футбол"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-igrat-02-cloze",
+    "lesson": 5,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Мы _____ в шахматы.",
+    "expected": "играем",
+    "display_expected": "Мы играем в шахматы.",
+    "tts_text": "Мы играем в шахматы.",
+    "tags": [
+      "note-igrat",
+      "играем"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-igrat-02-dict",
+    "lesson": 5,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Мы играем в шахматы.",
+    "tts_text": "Мы играем в шахматы.",
+    "tags": [
+      "note-igrat",
+      "играем"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-igrat-02-listen",
+    "lesson": 5,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Мы играем в шахматы.",
+    "tts_text": "Мы играем в шахматы.",
+    "choices": [
+      {
+        "label": "Мы играем в шахматы.",
+        "value": "Мы играем в шахматы.",
+        "correct": true
+      },
+      {
+        "label": "Я играю в футбол.",
+        "value": "Я играю в футбол.",
+        "correct": false
+      },
+      {
+        "label": "Она играет на гитаре.",
+        "value": "Она играет на гитаре.",
+        "correct": false
+      },
+      {
+        "label": "Он играет на фортепиано.",
+        "value": "Он играет на фортепиано.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-igrat",
+      "играем"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-igrat-02-produce",
+    "lesson": 5,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «играем».",
+    "expected": "играем",
+    "allow_contains": true,
+    "sample": "Мы играем в шахматы.",
+    "tags": [
+      "note-igrat",
+      "играем"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-igrat-03-cloze",
+    "lesson": 5,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Она _____ на гитаре.",
+    "expected": "играет",
+    "display_expected": "Она играет на гитаре.",
+    "tts_text": "Она играет на гитаре.",
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-igrat-03-dict",
+    "lesson": 5,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Она играет на гитаре.",
+    "tts_text": "Она играет на гитаре.",
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-igrat-03-listen",
+    "lesson": 5,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Она играет на гитаре.",
+    "tts_text": "Она играет на гитаре.",
+    "choices": [
+      {
+        "label": "Она играет на гитаре.",
+        "value": "Она играет на гитаре.",
+        "correct": true
+      },
+      {
+        "label": "Я играю в футбол.",
+        "value": "Я играю в футбол.",
+        "correct": false
+      },
+      {
+        "label": "Мы играем в шахматы.",
+        "value": "Мы играем в шахматы.",
+        "correct": false
+      },
+      {
+        "label": "Он играет на фортепиано.",
+        "value": "Он играет на фортепиано.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-igrat-03-produce",
+    "lesson": 5,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «играет».",
+    "expected": "играет",
+    "allow_contains": true,
+    "sample": "Она играет на гитаре.",
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-igrat-04-cloze",
+    "lesson": 5,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Он _____ на фортепиано.",
+    "expected": "играет",
+    "display_expected": "Он играет на фортепиано.",
+    "tts_text": "Он играет на фортепиано.",
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-igrat-04-dict",
+    "lesson": 5,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Он играет на фортепиано.",
+    "tts_text": "Он играет на фортепиано.",
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-igrat-04-listen",
+    "lesson": 5,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Он играет на фортепиано.",
+    "tts_text": "Он играет на фортепиано.",
+    "choices": [
+      {
+        "label": "Он играет на фортепиано.",
+        "value": "Он играет на фортепиано.",
+        "correct": true
+      },
+      {
+        "label": "Я играю в футбол.",
+        "value": "Я играю в футбол.",
+        "correct": false
+      },
+      {
+        "label": "Мы играем в шахматы.",
+        "value": "Мы играем в шахматы.",
+        "correct": false
+      },
+      {
+        "label": "Она играет на гитаре.",
+        "value": "Она играет на гитаре.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-igrat-04-produce",
+    "lesson": 5,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «играет».",
+    "expected": "играет",
+    "allow_contains": true,
+    "sample": "Он играет на фортепиано.",
+    "tags": [
+      "note-igrat",
+      "играет"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-u-menya-01-cloze",
+    "lesson": 11,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ есть словарь.",
+    "expected": "меня",
+    "display_expected": "У меня есть словарь.",
+    "tts_text": "У меня есть словарь.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-u-menya-01-dict",
+    "lesson": 11,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня есть словарь.",
+    "tts_text": "У меня есть словарь.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-u-menya-01-listen",
+    "lesson": 11,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня есть словарь.",
+    "tts_text": "У меня есть словарь.",
+    "choices": [
+      {
+        "label": "У меня есть словарь.",
+        "value": "У меня есть словарь.",
+        "correct": true
+      },
+      {
+        "label": "У меня встреча.",
+        "value": "У меня встреча.",
+        "correct": false
+      },
+      {
+        "label": "Вчера у меня был экзамен.",
+        "value": "Вчера у меня был экзамен.",
+        "correct": false
+      },
+      {
+        "label": "Завтра у меня будет урок.",
+        "value": "Завтра у меня будет урок.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-u-menya-01-produce",
+    "lesson": 11,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня есть словарь.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-u-menya-02-cloze",
+    "lesson": 11,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ встреча.",
+    "expected": "меня",
+    "display_expected": "У меня встреча.",
+    "tts_text": "У меня встреча.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-u-menya-02-dict",
+    "lesson": 11,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня встреча.",
+    "tts_text": "У меня встреча.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-u-menya-02-listen",
+    "lesson": 11,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня встреча.",
+    "tts_text": "У меня встреча.",
+    "choices": [
+      {
+        "label": "У меня встреча.",
+        "value": "У меня встреча.",
+        "correct": true
+      },
+      {
+        "label": "У меня есть словарь.",
+        "value": "У меня есть словарь.",
+        "correct": false
+      },
+      {
+        "label": "Вчера у меня был экзамен.",
+        "value": "Вчера у меня был экзамен.",
+        "correct": false
+      },
+      {
+        "label": "Завтра у меня будет урок.",
+        "value": "Завтра у меня будет урок.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-u-menya-02-produce",
+    "lesson": 11,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня встреча.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-u-menya-03-cloze",
+    "lesson": 11,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Вчера у _____ был экзамен.",
+    "expected": "меня",
+    "display_expected": "Вчера у меня был экзамен.",
+    "tts_text": "Вчера у меня был экзамен.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-u-menya-03-dict",
+    "lesson": 11,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Вчера у меня был экзамен.",
+    "tts_text": "Вчера у меня был экзамен.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-u-menya-03-listen",
+    "lesson": 11,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Вчера у меня был экзамен.",
+    "tts_text": "Вчера у меня был экзамен.",
+    "choices": [
+      {
+        "label": "Вчера у меня был экзамен.",
+        "value": "Вчера у меня был экзамен.",
+        "correct": true
+      },
+      {
+        "label": "У меня есть словарь.",
+        "value": "У меня есть словарь.",
+        "correct": false
+      },
+      {
+        "label": "У меня встреча.",
+        "value": "У меня встреча.",
+        "correct": false
+      },
+      {
+        "label": "Завтра у меня будет урок.",
+        "value": "Завтра у меня будет урок.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-u-menya-03-produce",
+    "lesson": 11,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "Вчера у меня был экзамен.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-u-menya-04-cloze",
+    "lesson": 11,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Завтра у _____ будет урок.",
+    "expected": "меня",
+    "display_expected": "Завтра у меня будет урок.",
+    "tts_text": "Завтра у меня будет урок.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-u-menya-04-dict",
+    "lesson": 11,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Завтра у меня будет урок.",
+    "tts_text": "Завтра у меня будет урок.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-u-menya-04-listen",
+    "lesson": 11,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Завтра у меня будет урок.",
+    "tts_text": "Завтра у меня будет урок.",
+    "choices": [
+      {
+        "label": "Завтра у меня будет урок.",
+        "value": "Завтра у меня будет урок.",
+        "correct": true
+      },
+      {
+        "label": "У меня есть словарь.",
+        "value": "У меня есть словарь.",
+        "correct": false
+      },
+      {
+        "label": "У меня встреча.",
+        "value": "У меня встреча.",
+        "correct": false
+      },
+      {
+        "label": "Вчера у меня был экзамен.",
+        "value": "Вчера у меня был экзамен.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-u-menya-04-produce",
+    "lesson": 11,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "Завтра у меня будет урок.",
+    "tags": [
+      "note-u-menya",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-place-01-cloze",
+    "lesson": 13,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я живу в _____.",
+    "expected": "Испании",
+    "display_expected": "Я живу в Испании.",
+    "tts_text": "Я живу в Испании.",
+    "tags": [
+      "note-place",
+      "Испании"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-place-01-dict",
+    "lesson": 13,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я живу в Испании.",
+    "tts_text": "Я живу в Испании.",
+    "tags": [
+      "note-place",
+      "Испании"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-place-01-listen",
+    "lesson": 13,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я живу в Испании.",
+    "tts_text": "Я живу в Испании.",
+    "choices": [
+      {
+        "label": "Я живу в Испании.",
+        "value": "Я живу в Испании.",
+        "correct": true
+      },
+      {
+        "label": "Книга на столе.",
+        "value": "Книга на столе.",
+        "correct": false
+      },
+      {
+        "label": "Мы говорим о политике.",
+        "value": "Мы говорим о политике.",
+        "correct": false
+      },
+      {
+        "label": "Он учится в университете.",
+        "value": "Он учится в университете.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-place",
+      "Испании"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-place-01-produce",
+    "lesson": 13,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Испании».",
+    "expected": "Испании",
+    "allow_contains": true,
+    "sample": "Я живу в Испании.",
+    "tags": [
+      "note-place",
+      "Испании"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-place-02-cloze",
+    "lesson": 13,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ на столе.",
+    "expected": "Книга",
+    "display_expected": "Книга на столе.",
+    "tts_text": "Книга на столе.",
+    "tags": [
+      "note-place",
+      "Книга"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-place-02-dict",
+    "lesson": 13,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Книга на столе.",
+    "tts_text": "Книга на столе.",
+    "tags": [
+      "note-place",
+      "Книга"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-place-02-listen",
+    "lesson": 13,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Книга на столе.",
+    "tts_text": "Книга на столе.",
+    "choices": [
+      {
+        "label": "Книга на столе.",
+        "value": "Книга на столе.",
+        "correct": true
+      },
+      {
+        "label": "Я живу в Испании.",
+        "value": "Я живу в Испании.",
+        "correct": false
+      },
+      {
+        "label": "Мы говорим о политике.",
+        "value": "Мы говорим о политике.",
+        "correct": false
+      },
+      {
+        "label": "Он учится в университете.",
+        "value": "Он учится в университете.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-place",
+      "Книга"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-place-02-produce",
+    "lesson": 13,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Книга».",
+    "expected": "Книга",
+    "allow_contains": true,
+    "sample": "Книга на столе.",
+    "tags": [
+      "note-place",
+      "Книга"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-place-03-cloze",
+    "lesson": 13,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Мы говорим о _____.",
+    "expected": "политике",
+    "display_expected": "Мы говорим о политике.",
+    "tts_text": "Мы говорим о политике.",
+    "tags": [
+      "note-place",
+      "политике"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-place-03-dict",
+    "lesson": 13,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Мы говорим о политике.",
+    "tts_text": "Мы говорим о политике.",
+    "tags": [
+      "note-place",
+      "политике"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-place-03-listen",
+    "lesson": 13,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Мы говорим о политике.",
+    "tts_text": "Мы говорим о политике.",
+    "choices": [
+      {
+        "label": "Мы говорим о политике.",
+        "value": "Мы говорим о политике.",
+        "correct": true
+      },
+      {
+        "label": "Я живу в Испании.",
+        "value": "Я живу в Испании.",
+        "correct": false
+      },
+      {
+        "label": "Книга на столе.",
+        "value": "Книга на столе.",
+        "correct": false
+      },
+      {
+        "label": "Он учится в университете.",
+        "value": "Он учится в университете.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-place",
+      "политике"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-place-03-produce",
+    "lesson": 13,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «политике».",
+    "expected": "политике",
+    "allow_contains": true,
+    "sample": "Мы говорим о политике.",
+    "tags": [
+      "note-place",
+      "политике"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-place-04-cloze",
+    "lesson": 13,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Он учится в _____.",
+    "expected": "университете",
+    "display_expected": "Он учится в университете.",
+    "tts_text": "Он учится в университете.",
+    "tags": [
+      "note-place",
+      "университете"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-place-04-dict",
+    "lesson": 13,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Он учится в университете.",
+    "tts_text": "Он учится в университете.",
+    "tags": [
+      "note-place",
+      "университете"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-place-04-listen",
+    "lesson": 13,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Он учится в университете.",
+    "tts_text": "Он учится в университете.",
+    "choices": [
+      {
+        "label": "Он учится в университете.",
+        "value": "Он учится в университете.",
+        "correct": true
+      },
+      {
+        "label": "Я живу в Испании.",
+        "value": "Я живу в Испании.",
+        "correct": false
+      },
+      {
+        "label": "Книга на столе.",
+        "value": "Книга на столе.",
+        "correct": false
+      },
+      {
+        "label": "Мы говорим о политике.",
+        "value": "Мы говорим о политике.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-place",
+      "университете"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-place-04-produce",
+    "lesson": 13,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «университете».",
+    "expected": "университете",
+    "allow_contains": true,
+    "sample": "Он учится в университете.",
+    "tags": [
+      "note-place",
+      "университете"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-past-01-cloze",
+    "lesson": 16,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Он _____.",
+    "expected": "работал",
+    "display_expected": "Он работал.",
+    "tts_text": "Он работал.",
+    "tags": [
+      "note-past",
+      "работал"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-past-01-dict",
+    "lesson": 16,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Он работал.",
+    "tts_text": "Он работал.",
+    "tags": [
+      "note-past",
+      "работал"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-past-01-listen",
+    "lesson": 16,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Он работал.",
+    "tts_text": "Он работал.",
+    "choices": [
+      {
+        "label": "Он работал.",
+        "value": "Он работал.",
+        "correct": true
+      },
+      {
+        "label": "Она говорила.",
+        "value": "Она говорила.",
+        "correct": false
+      },
+      {
+        "label": "У меня была встреча.",
+        "value": "У меня была встреча.",
+        "correct": false
+      },
+      {
+        "label": "Вчера я ходил в театр.",
+        "value": "Вчера я ходил в театр.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-past",
+      "работал"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-past-01-produce",
+    "lesson": 16,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «работал».",
+    "expected": "работал",
+    "allow_contains": true,
+    "sample": "Он работал.",
+    "tags": [
+      "note-past",
+      "работал"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-past-02-cloze",
+    "lesson": 16,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Она _____.",
+    "expected": "говорила",
+    "display_expected": "Она говорила.",
+    "tts_text": "Она говорила.",
+    "tags": [
+      "note-past",
+      "говорила"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-past-02-dict",
+    "lesson": 16,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Она говорила.",
+    "tts_text": "Она говорила.",
+    "tags": [
+      "note-past",
+      "говорила"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-past-02-listen",
+    "lesson": 16,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Она говорила.",
+    "tts_text": "Она говорила.",
+    "choices": [
+      {
+        "label": "Она говорила.",
+        "value": "Она говорила.",
+        "correct": true
+      },
+      {
+        "label": "Он работал.",
+        "value": "Он работал.",
+        "correct": false
+      },
+      {
+        "label": "У меня была встреча.",
+        "value": "У меня была встреча.",
+        "correct": false
+      },
+      {
+        "label": "Вчера я ходил в театр.",
+        "value": "Вчера я ходил в театр.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-past",
+      "говорила"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-past-02-produce",
+    "lesson": 16,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «говорила».",
+    "expected": "говорила",
+    "allow_contains": true,
+    "sample": "Она говорила.",
+    "tags": [
+      "note-past",
+      "говорила"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-past-03-cloze",
+    "lesson": 16,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ была встреча.",
+    "expected": "меня",
+    "display_expected": "У меня была встреча.",
+    "tts_text": "У меня была встреча.",
+    "tags": [
+      "note-past",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-past-03-dict",
+    "lesson": 16,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня была встреча.",
+    "tts_text": "У меня была встреча.",
+    "tags": [
+      "note-past",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-past-03-listen",
+    "lesson": 16,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня была встреча.",
+    "tts_text": "У меня была встреча.",
+    "choices": [
+      {
+        "label": "У меня была встреча.",
+        "value": "У меня была встреча.",
+        "correct": true
+      },
+      {
+        "label": "Он работал.",
+        "value": "Он работал.",
+        "correct": false
+      },
+      {
+        "label": "Она говорила.",
+        "value": "Она говорила.",
+        "correct": false
+      },
+      {
+        "label": "Вчера я ходил в театр.",
+        "value": "Вчера я ходил в театр.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-past",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-past-03-produce",
+    "lesson": 16,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня была встреча.",
+    "tags": [
+      "note-past",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-past-04-cloze",
+    "lesson": 16,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ я ходил в театр.",
+    "expected": "Вчера",
+    "display_expected": "Вчера я ходил в театр.",
+    "tts_text": "Вчера я ходил в театр.",
+    "tags": [
+      "note-past",
+      "Вчера"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-past-04-dict",
+    "lesson": 16,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Вчера я ходил в театр.",
+    "tts_text": "Вчера я ходил в театр.",
+    "tags": [
+      "note-past",
+      "Вчера"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-past-04-listen",
+    "lesson": 16,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Вчера я ходил в театр.",
+    "tts_text": "Вчера я ходил в театр.",
+    "choices": [
+      {
+        "label": "Вчера я ходил в театр.",
+        "value": "Вчера я ходил в театр.",
+        "correct": true
+      },
+      {
+        "label": "Он работал.",
+        "value": "Он работал.",
+        "correct": false
+      },
+      {
+        "label": "Она говорила.",
+        "value": "Она говорила.",
+        "correct": false
+      },
+      {
+        "label": "У меня была встреча.",
+        "value": "У меня была встреча.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-past",
+      "Вчера"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-past-04-produce",
+    "lesson": 16,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Вчера».",
+    "expected": "Вчера",
+    "allow_contains": true,
+    "sample": "Вчера я ходил в театр.",
+    "tags": [
+      "note-past",
+      "Вчера"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-weather-01-cloze",
+    "lesson": 18,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ жарко.",
+    "expected": "Сегодня",
+    "display_expected": "Сегодня жарко.",
+    "tts_text": "Сегодня жарко.",
+    "tags": [
+      "note-weather",
+      "Сегодня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-weather-01-dict",
+    "lesson": 18,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Сегодня жарко.",
+    "tts_text": "Сегодня жарко.",
+    "tags": [
+      "note-weather",
+      "Сегодня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-weather-01-listen",
+    "lesson": 18,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Сегодня жарко.",
+    "tts_text": "Сегодня жарко.",
+    "choices": [
+      {
+        "label": "Сегодня жарко.",
+        "value": "Сегодня жарко.",
+        "correct": true
+      },
+      {
+        "label": "Вчера было холодно.",
+        "value": "Вчера было холодно.",
+        "correct": false
+      },
+      {
+        "label": "Зимой холодно.",
+        "value": "Зимой холодно.",
+        "correct": false
+      },
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-weather",
+      "Сегодня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-weather-01-produce",
+    "lesson": 18,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Сегодня».",
+    "expected": "Сегодня",
+    "allow_contains": true,
+    "sample": "Сегодня жарко.",
+    "tags": [
+      "note-weather",
+      "Сегодня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-weather-02-cloze",
+    "lesson": 18,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Вчера _____ холодно.",
+    "expected": "было",
+    "display_expected": "Вчера было холодно.",
+    "tts_text": "Вчера было холодно.",
+    "tags": [
+      "note-weather",
+      "было"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-weather-02-dict",
+    "lesson": 18,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Вчера было холодно.",
+    "tts_text": "Вчера было холодно.",
+    "tags": [
+      "note-weather",
+      "было"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-weather-02-listen",
+    "lesson": 18,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Вчера было холодно.",
+    "tts_text": "Вчера было холодно.",
+    "choices": [
+      {
+        "label": "Вчера было холодно.",
+        "value": "Вчера было холодно.",
+        "correct": true
+      },
+      {
+        "label": "Сегодня жарко.",
+        "value": "Сегодня жарко.",
+        "correct": false
+      },
+      {
+        "label": "Зимой холодно.",
+        "value": "Зимой холодно.",
+        "correct": false
+      },
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-weather",
+      "было"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-weather-02-produce",
+    "lesson": 18,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «было».",
+    "expected": "было",
+    "allow_contains": true,
+    "sample": "Вчера было холодно.",
+    "tags": [
+      "note-weather",
+      "было"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-weather-03-cloze",
+    "lesson": 18,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ холодно.",
+    "expected": "Зимой",
+    "display_expected": "Зимой холодно.",
+    "tts_text": "Зимой холодно.",
+    "tags": [
+      "note-weather",
+      "Зимой"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-weather-03-dict",
+    "lesson": 18,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Зимой холодно.",
+    "tts_text": "Зимой холодно.",
+    "tags": [
+      "note-weather",
+      "Зимой"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-weather-03-listen",
+    "lesson": 18,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Зимой холодно.",
+    "tts_text": "Зимой холодно.",
+    "choices": [
+      {
+        "label": "Зимой холодно.",
+        "value": "Зимой холодно.",
+        "correct": true
+      },
+      {
+        "label": "Сегодня жарко.",
+        "value": "Сегодня жарко.",
+        "correct": false
+      },
+      {
+        "label": "Вчера было холодно.",
+        "value": "Вчера было холодно.",
+        "correct": false
+      },
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-weather",
+      "Зимой"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-weather-03-produce",
+    "lesson": 18,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Зимой».",
+    "expected": "Зимой",
+    "allow_contains": true,
+    "sample": "Зимой холодно.",
+    "tags": [
+      "note-weather",
+      "Зимой"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-weather-04-cloze",
+    "lesson": 18,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Завтра _____ холодно.",
+    "expected": "будет",
+    "display_expected": "Завтра будет холодно.",
+    "tts_text": "Завтра будет холодно.",
+    "tags": [
+      "note-weather",
+      "будет"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-weather-04-dict",
+    "lesson": 18,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Завтра будет холодно.",
+    "tts_text": "Завтра будет холодно.",
+    "tags": [
+      "note-weather",
+      "будет"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-weather-04-listen",
+    "lesson": 18,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Завтра будет холодно.",
+    "tts_text": "Завтра будет холодно.",
+    "choices": [
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": true
+      },
+      {
+        "label": "Сегодня жарко.",
+        "value": "Сегодня жарко.",
+        "correct": false
+      },
+      {
+        "label": "Вчера было холодно.",
+        "value": "Вчера было холодно.",
+        "correct": false
+      },
+      {
+        "label": "Зимой холодно.",
+        "value": "Зимой холодно.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-weather",
+      "будет"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-weather-04-produce",
+    "lesson": 18,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «будет».",
+    "expected": "будет",
+    "allow_contains": true,
+    "sample": "Завтра будет холодно.",
+    "tags": [
+      "note-weather",
+      "будет"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "ex-018-001",
+    "lesson": 18,
+    "skill": "vocabulario",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Hoy hace calor.'",
+    "expected": "Сегодня жарко.",
+    "tags": [
+      "clima"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "ex-018-002",
+    "lesson": 18,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Ayer hizo frío.'",
+    "expected": "Вчера было холодно.",
+    "tags": [
+      "clima",
+      "pasado"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "ex-018-003",
+    "lesson": 18,
+    "skill": "vocabulario",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'En invierno hace frío.'",
+    "expected": "Зимой холодно.",
+    "tags": [
+      "estaciones"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "auto-grammar-grammar-019-acusativo-fem-01-transform",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "transform",
+    "prompt": "Transforma la forma rusa siguiendo el patrón.",
+    "display": "книга → _____",
+    "expected": "книгу",
+    "display_expected": "книга → книгу",
+    "tts_text": "Я читаю книгу.",
+    "tags": [
+      "grammar-019-acusativo-fem",
+      "книга",
+      "книгу"
+    ],
+    "weight": 0.34
+  },
+  {
+    "id": "auto-grammar-grammar-019-acusativo-fem-02-transform",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "transform",
+    "prompt": "Transforma la forma rusa siguiendo el patrón.",
+    "display": "статья → _____",
+    "expected": "статью",
+    "display_expected": "статья → статью",
+    "tts_text": "Она читает статью.",
+    "tags": [
+      "grammar-019-acusativo-fem",
+      "статья",
+      "статью"
+    ],
+    "weight": 0.34
+  },
+  {
+    "id": "auto-note-note-accusative-01-cloze",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я читаю _____.",
+    "expected": "книгу",
+    "display_expected": "Я читаю книгу.",
+    "tts_text": "Я читаю книгу.",
+    "tags": [
+      "note-accusative",
+      "книгу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-accusative-01-dict",
+    "lesson": 19,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я читаю книгу.",
+    "tts_text": "Я читаю книгу.",
+    "tags": [
+      "note-accusative",
+      "книгу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-accusative-01-listen",
+    "lesson": 19,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я читаю книгу.",
+    "tts_text": "Я читаю книгу.",
+    "choices": [
+      {
+        "label": "Я читаю книгу.",
+        "value": "Я читаю книгу.",
+        "correct": true
+      },
+      {
+        "label": "Я тебя понимаю.",
+        "value": "Я тебя понимаю.",
+        "correct": false
+      },
+      {
+        "label": "Я люблю музыку.",
+        "value": "Я люблю музыку.",
+        "correct": false
+      },
+      {
+        "label": "Я плачу за билет.",
+        "value": "Я плачу за билет.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-accusative",
+      "книгу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-accusative-01-produce",
+    "lesson": 19,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «книгу».",
+    "expected": "книгу",
+    "allow_contains": true,
+    "sample": "Я читаю книгу.",
+    "tags": [
+      "note-accusative",
+      "книгу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-accusative-02-cloze",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ понимаю.",
+    "expected": "тебя",
+    "display_expected": "Я тебя понимаю.",
+    "tts_text": "Я тебя понимаю.",
+    "tags": [
+      "note-accusative",
+      "тебя"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-accusative-02-dict",
+    "lesson": 19,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я тебя понимаю.",
+    "tts_text": "Я тебя понимаю.",
+    "tags": [
+      "note-accusative",
+      "тебя"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-accusative-02-listen",
+    "lesson": 19,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я тебя понимаю.",
+    "tts_text": "Я тебя понимаю.",
+    "choices": [
+      {
+        "label": "Я тебя понимаю.",
+        "value": "Я тебя понимаю.",
+        "correct": true
+      },
+      {
+        "label": "Я читаю книгу.",
+        "value": "Я читаю книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я люблю музыку.",
+        "value": "Я люблю музыку.",
+        "correct": false
+      },
+      {
+        "label": "Я плачу за билет.",
+        "value": "Я плачу за билет.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-accusative",
+      "тебя"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-accusative-02-produce",
+    "lesson": 19,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «тебя».",
+    "expected": "тебя",
+    "allow_contains": true,
+    "sample": "Я тебя понимаю.",
+    "tags": [
+      "note-accusative",
+      "тебя"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-accusative-03-cloze",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ музыку.",
+    "expected": "люблю",
+    "display_expected": "Я люблю музыку.",
+    "tts_text": "Я люблю музыку.",
+    "tags": [
+      "note-accusative",
+      "люблю"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-accusative-03-dict",
+    "lesson": 19,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я люблю музыку.",
+    "tts_text": "Я люблю музыку.",
+    "tags": [
+      "note-accusative",
+      "люблю"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-accusative-03-listen",
+    "lesson": 19,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я люблю музыку.",
+    "tts_text": "Я люблю музыку.",
+    "choices": [
+      {
+        "label": "Я люблю музыку.",
+        "value": "Я люблю музыку.",
+        "correct": true
+      },
+      {
+        "label": "Я читаю книгу.",
+        "value": "Я читаю книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я тебя понимаю.",
+        "value": "Я тебя понимаю.",
+        "correct": false
+      },
+      {
+        "label": "Я плачу за билет.",
+        "value": "Я плачу за билет.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-accusative",
+      "люблю"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-accusative-03-produce",
+    "lesson": 19,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «люблю».",
+    "expected": "люблю",
+    "allow_contains": true,
+    "sample": "Я люблю музыку.",
+    "tags": [
+      "note-accusative",
+      "люблю"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-accusative-04-cloze",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я плачу за _____.",
+    "expected": "билет",
+    "display_expected": "Я плачу за билет.",
+    "tts_text": "Я плачу за билет.",
+    "tags": [
+      "note-accusative",
+      "билет"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-accusative-04-dict",
+    "lesson": 19,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я плачу за билет.",
+    "tts_text": "Я плачу за билет.",
+    "tags": [
+      "note-accusative",
+      "билет"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-accusative-04-listen",
+    "lesson": 19,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я плачу за билет.",
+    "tts_text": "Я плачу за билет.",
+    "choices": [
+      {
+        "label": "Я плачу за билет.",
+        "value": "Я плачу за билет.",
+        "correct": true
+      },
+      {
+        "label": "Я читаю книгу.",
+        "value": "Я читаю книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я тебя понимаю.",
+        "value": "Я тебя понимаю.",
+        "correct": false
+      },
+      {
+        "label": "Я люблю музыку.",
+        "value": "Я люблю музыку.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-accusative",
+      "билет"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-accusative-04-produce",
+    "lesson": 19,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «билет».",
+    "expected": "билет",
+    "allow_contains": true,
+    "sample": "Я плачу за билет.",
+    "tags": [
+      "note-accusative",
+      "билет"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "ex-019-001",
+    "lesson": 19,
+    "skill": "vocabulario",
+    "type": "traduccion-inversa",
+    "prompt": "¿Cómo se dice 'juego al fútbol'?",
+    "expected": "Я играю в футбол.",
+    "tags": [
+      "играть-в"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "ex-019-002",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "transformacion",
+    "prompt": "Pon en acusativo: Я читаю ___ (книга).",
+    "expected": "книгу",
+    "tags": [
+      "acusativo"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "ex-019-003",
+    "lesson": 19,
+    "skill": "gramatica",
+    "type": "multiple_choice",
+    "modality": "text",
+    "prompt": "Elige la forma correcta: Я читаю ___ (книга).",
+    "expected": "книгу",
+    "choices": [
+      {
+        "label": "книга",
+        "value": "книга"
+      },
+      {
+        "label": "книгу",
+        "value": "книгу",
+        "correct": true
+      },
+      {
+        "label": "книги",
+        "value": "книги"
+      },
+      {
+        "label": "книге",
+        "value": "книге"
+      }
+    ],
+    "tags": [
+      "acusativo",
+      "multiple-choice"
+    ],
+    "targets": {
+      "skills": [
+        "grammar_recognition"
+      ],
+      "grammar": [
+        "acusative_singular_feminine_a_to_u"
+      ],
+      "vocabulary": [
+        "книга"
+      ],
+      "cases": [
+        "accusative"
+      ],
+      "morphology": [
+        "feminine_noun_a_to_u"
+      ],
+      "direction": "form_selection",
+      "modality": "text"
+    },
+    "weight": 0.18
+  },
+  {
+    "id": "ex-020-001",
+    "lesson": 20,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: '¿Me escuchas?'",
+    "expected": "Ты меня слушаешь?",
+    "tags": [
+      "pronombres"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "ex-020-002",
+    "lesson": 20,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Yo te entiendo.'",
+    "expected": "Я тебя понимаю.",
+    "tags": [
+      "pronombres"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "ex-021-001",
+    "lesson": 21,
+    "skill": "vocabulario",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Me gusta la música.'",
+    "expected": "Я люблю музыку.",
+    "tags": [
+      "любить"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "auto-note-note-future-01-cloze",
+    "lesson": 22,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ читать.",
+    "expected": "буду",
+    "display_expected": "Я буду читать.",
+    "tts_text": "Я буду читать.",
+    "tags": [
+      "note-future",
+      "буду"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-future-01-dict",
+    "lesson": 22,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я буду читать.",
+    "tts_text": "Я буду читать.",
+    "tags": [
+      "note-future",
+      "буду"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-future-01-listen",
+    "lesson": 22,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я буду читать.",
+    "tts_text": "Я буду читать.",
+    "choices": [
+      {
+        "label": "Я буду читать.",
+        "value": "Я буду читать.",
+        "correct": true
+      },
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": false
+      },
+      {
+        "label": "Я позвоню.",
+        "value": "Я позвоню.",
+        "correct": false
+      },
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-future",
+      "буду"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-future-01-produce",
+    "lesson": 22,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «буду».",
+    "expected": "буду",
+    "allow_contains": true,
+    "sample": "Я буду читать.",
+    "tags": [
+      "note-future",
+      "буду"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-future-02-cloze",
+    "lesson": 22,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Завтра _____ холодно.",
+    "expected": "будет",
+    "display_expected": "Завтра будет холодно.",
+    "tts_text": "Завтра будет холодно.",
+    "tags": [
+      "note-future",
+      "будет"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-future-02-dict",
+    "lesson": 22,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Завтра будет холодно.",
+    "tts_text": "Завтра будет холодно.",
+    "tags": [
+      "note-future",
+      "будет"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-future-02-listen",
+    "lesson": 22,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Завтра будет холодно.",
+    "tts_text": "Завтра будет холодно.",
+    "choices": [
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": true
+      },
+      {
+        "label": "Я буду читать.",
+        "value": "Я буду читать.",
+        "correct": false
+      },
+      {
+        "label": "Я позвоню.",
+        "value": "Я позвоню.",
+        "correct": false
+      },
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-future",
+      "будет"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-future-02-produce",
+    "lesson": 22,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «будет».",
+    "expected": "будет",
+    "allow_contains": true,
+    "sample": "Завтра будет холодно.",
+    "tags": [
+      "note-future",
+      "будет"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-future-03-cloze",
+    "lesson": 22,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____.",
+    "expected": "позвоню",
+    "display_expected": "Я позвоню.",
+    "tts_text": "Я позвоню.",
+    "tags": [
+      "note-future",
+      "позвоню"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-future-03-dict",
+    "lesson": 22,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я позвоню.",
+    "tts_text": "Я позвоню.",
+    "tags": [
+      "note-future",
+      "позвоню"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-future-03-listen",
+    "lesson": 22,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я позвоню.",
+    "tts_text": "Я позвоню.",
+    "choices": [
+      {
+        "label": "Я позвоню.",
+        "value": "Я позвоню.",
+        "correct": true
+      },
+      {
+        "label": "Я буду читать.",
+        "value": "Я буду читать.",
+        "correct": false
+      },
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": false
+      },
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-future",
+      "позвоню"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-future-03-produce",
+    "lesson": 22,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «позвоню».",
+    "expected": "позвоню",
+    "allow_contains": true,
+    "sample": "Я позвоню.",
+    "tags": [
+      "note-future",
+      "позвоню"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-future-04-cloze",
+    "lesson": 22,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я куплю _____.",
+    "expected": "билет",
+    "display_expected": "Я куплю билет.",
+    "tts_text": "Я куплю билет.",
+    "tags": [
+      "note-future",
+      "билет"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-future-04-dict",
+    "lesson": 22,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я куплю билет.",
+    "tts_text": "Я куплю билет.",
+    "tags": [
+      "note-future",
+      "билет"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-future-04-listen",
+    "lesson": 22,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я куплю билет.",
+    "tts_text": "Я куплю билет.",
+    "choices": [
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": true
+      },
+      {
+        "label": "Я буду читать.",
+        "value": "Я буду читать.",
+        "correct": false
+      },
+      {
+        "label": "Завтра будет холодно.",
+        "value": "Завтра будет холодно.",
+        "correct": false
+      },
+      {
+        "label": "Я позвоню.",
+        "value": "Я позвоню.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-future",
+      "билет"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-future-04-produce",
+    "lesson": 22,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «билет».",
+    "expected": "билет",
+    "allow_contains": true,
+    "sample": "Я куплю билет.",
+    "tags": [
+      "note-future",
+      "билет"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "ex-022-001",
+    "lesson": 22,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Voy a leer.'",
+    "expected": "Я буду читать.",
+    "tags": [
+      "futuro"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "ex-023-001",
+    "lesson": 23,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Mañana hará frío.'",
+    "expected": "Завтра будет холодно.",
+    "tags": [
+      "clima"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "auto-note-note-numbers-01-cloze",
+    "lesson": 24,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ стоит билет?",
+    "expected": "Сколько",
+    "display_expected": "Сколько стоит билет?",
+    "tts_text": "Сколько стоит билет?",
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-numbers-01-dict",
+    "lesson": 24,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Сколько стоит билет?",
+    "tts_text": "Сколько стоит билет?",
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-numbers-01-listen",
+    "lesson": 24,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Сколько стоит билет?",
+    "tts_text": "Сколько стоит билет?",
+    "choices": [
+      {
+        "label": "Сколько стоит билет?",
+        "value": "Сколько стоит билет?",
+        "correct": true
+      },
+      {
+        "label": "Пять рублей.",
+        "value": "Пять рублей.",
+        "correct": false
+      },
+      {
+        "label": "Два чая, пожалуйста.",
+        "value": "Два чая, пожалуйста.",
+        "correct": false
+      },
+      {
+        "label": "Сколько дней в месяце?",
+        "value": "Сколько дней в месяце?",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-numbers-01-produce",
+    "lesson": 24,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Сколько».",
+    "expected": "Сколько",
+    "allow_contains": true,
+    "sample": "Сколько стоит билет?",
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-numbers-02-cloze",
+    "lesson": 24,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Пять _____.",
+    "expected": "рублей",
+    "display_expected": "Пять рублей.",
+    "tts_text": "Пять рублей.",
+    "tags": [
+      "note-numbers",
+      "рублей"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-numbers-02-dict",
+    "lesson": 24,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Пять рублей.",
+    "tts_text": "Пять рублей.",
+    "tags": [
+      "note-numbers",
+      "рублей"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-numbers-02-listen",
+    "lesson": 24,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Пять рублей.",
+    "tts_text": "Пять рублей.",
+    "choices": [
+      {
+        "label": "Пять рублей.",
+        "value": "Пять рублей.",
+        "correct": true
+      },
+      {
+        "label": "Сколько стоит билет?",
+        "value": "Сколько стоит билет?",
+        "correct": false
+      },
+      {
+        "label": "Два чая, пожалуйста.",
+        "value": "Два чая, пожалуйста.",
+        "correct": false
+      },
+      {
+        "label": "Сколько дней в месяце?",
+        "value": "Сколько дней в месяце?",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-numbers",
+      "рублей"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-numbers-02-produce",
+    "lesson": 24,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «рублей».",
+    "expected": "рублей",
+    "allow_contains": true,
+    "sample": "Пять рублей.",
+    "tags": [
+      "note-numbers",
+      "рублей"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-numbers-03-cloze",
+    "lesson": 24,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Два чая, _____.",
+    "expected": "пожалуйста",
+    "display_expected": "Два чая, пожалуйста.",
+    "tts_text": "Два чая, пожалуйста.",
+    "tags": [
+      "note-numbers",
+      "пожалуйста"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-numbers-03-dict",
+    "lesson": 24,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Два чая, пожалуйста.",
+    "tts_text": "Два чая, пожалуйста.",
+    "tags": [
+      "note-numbers",
+      "пожалуйста"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-numbers-03-listen",
+    "lesson": 24,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Два чая, пожалуйста.",
+    "tts_text": "Два чая, пожалуйста.",
+    "choices": [
+      {
+        "label": "Два чая, пожалуйста.",
+        "value": "Два чая, пожалуйста.",
+        "correct": true
+      },
+      {
+        "label": "Сколько стоит билет?",
+        "value": "Сколько стоит билет?",
+        "correct": false
+      },
+      {
+        "label": "Пять рублей.",
+        "value": "Пять рублей.",
+        "correct": false
+      },
+      {
+        "label": "Сколько дней в месяце?",
+        "value": "Сколько дней в месяце?",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-numbers",
+      "пожалуйста"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-numbers-03-produce",
+    "lesson": 24,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «пожалуйста».",
+    "expected": "пожалуйста",
+    "allow_contains": true,
+    "sample": "Два чая, пожалуйста.",
+    "tags": [
+      "note-numbers",
+      "пожалуйста"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-numbers-04-cloze",
+    "lesson": 24,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ дней в месяце?",
+    "expected": "Сколько",
+    "display_expected": "Сколько дней в месяце?",
+    "tts_text": "Сколько дней в месяце?",
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-numbers-04-dict",
+    "lesson": 24,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Сколько дней в месяце?",
+    "tts_text": "Сколько дней в месяце?",
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-numbers-04-listen",
+    "lesson": 24,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Сколько дней в месяце?",
+    "tts_text": "Сколько дней в месяце?",
+    "choices": [
+      {
+        "label": "Сколько дней в месяце?",
+        "value": "Сколько дней в месяце?",
+        "correct": true
+      },
+      {
+        "label": "Сколько стоит билет?",
+        "value": "Сколько стоит билет?",
+        "correct": false
+      },
+      {
+        "label": "Пять рублей.",
+        "value": "Пять рублей.",
+        "correct": false
+      },
+      {
+        "label": "Два чая, пожалуйста.",
+        "value": "Два чая, пожалуйста.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-numbers-04-produce",
+    "lesson": 24,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Сколько».",
+    "expected": "Сколько",
+    "allow_contains": true,
+    "sample": "Сколько дней в месяце?",
+    "tags": [
+      "note-numbers",
+      "Сколько"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-possessives-01-cloze",
+    "lesson": 27,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Моя _____.",
+    "expected": "книга",
+    "display_expected": "Моя книга.",
+    "tts_text": "Моя книга.",
+    "tags": [
+      "note-possessives",
+      "книга"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-possessives-01-dict",
+    "lesson": 27,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Моя книга.",
+    "tts_text": "Моя книга.",
+    "tags": [
+      "note-possessives",
+      "книга"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-possessives-01-listen",
+    "lesson": 27,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Моя книга.",
+    "tts_text": "Моя книга.",
+    "choices": [
+      {
+        "label": "Моя книга.",
+        "value": "Моя книга.",
+        "correct": true
+      },
+      {
+        "label": "Мой дом.",
+        "value": "Мой дом.",
+        "correct": false
+      },
+      {
+        "label": "Наши друзья.",
+        "value": "Наши друзья.",
+        "correct": false
+      },
+      {
+        "label": "Это мамина ручка.",
+        "value": "Это мамина ручка.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-possessives",
+      "книга"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-possessives-01-produce",
+    "lesson": 27,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «книга».",
+    "expected": "книга",
+    "allow_contains": true,
+    "sample": "Моя книга.",
+    "tags": [
+      "note-possessives",
+      "книга"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-possessives-02-cloze",
+    "lesson": 27,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ дом.",
+    "expected": "Мой",
+    "display_expected": "Мой дом.",
+    "tts_text": "Мой дом.",
+    "tags": [
+      "note-possessives",
+      "Мой"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-possessives-02-dict",
+    "lesson": 27,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Мой дом.",
+    "tts_text": "Мой дом.",
+    "tags": [
+      "note-possessives",
+      "Мой"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-possessives-02-listen",
+    "lesson": 27,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Мой дом.",
+    "tts_text": "Мой дом.",
+    "choices": [
+      {
+        "label": "Мой дом.",
+        "value": "Мой дом.",
+        "correct": true
+      },
+      {
+        "label": "Моя книга.",
+        "value": "Моя книга.",
+        "correct": false
+      },
+      {
+        "label": "Наши друзья.",
+        "value": "Наши друзья.",
+        "correct": false
+      },
+      {
+        "label": "Это мамина ручка.",
+        "value": "Это мамина ручка.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-possessives",
+      "Мой"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-possessives-02-produce",
+    "lesson": 27,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Мой».",
+    "expected": "Мой",
+    "allow_contains": true,
+    "sample": "Мой дом.",
+    "tags": [
+      "note-possessives",
+      "Мой"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-possessives-03-cloze",
+    "lesson": 27,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ друзья.",
+    "expected": "Наши",
+    "display_expected": "Наши друзья.",
+    "tts_text": "Наши друзья.",
+    "tags": [
+      "note-possessives",
+      "Наши"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-possessives-03-dict",
+    "lesson": 27,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Наши друзья.",
+    "tts_text": "Наши друзья.",
+    "tags": [
+      "note-possessives",
+      "Наши"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-possessives-03-listen",
+    "lesson": 27,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Наши друзья.",
+    "tts_text": "Наши друзья.",
+    "choices": [
+      {
+        "label": "Наши друзья.",
+        "value": "Наши друзья.",
+        "correct": true
+      },
+      {
+        "label": "Моя книга.",
+        "value": "Моя книга.",
+        "correct": false
+      },
+      {
+        "label": "Мой дом.",
+        "value": "Мой дом.",
+        "correct": false
+      },
+      {
+        "label": "Это мамина ручка.",
+        "value": "Это мамина ручка.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-possessives",
+      "Наши"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-possessives-03-produce",
+    "lesson": 27,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Наши».",
+    "expected": "Наши",
+    "allow_contains": true,
+    "sample": "Наши друзья.",
+    "tags": [
+      "note-possessives",
+      "Наши"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-possessives-04-cloze",
+    "lesson": 27,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Это мамина _____.",
+    "expected": "ручка",
+    "display_expected": "Это мамина ручка.",
+    "tts_text": "Это мамина ручка.",
+    "tags": [
+      "note-possessives",
+      "ручка"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-possessives-04-dict",
+    "lesson": 27,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Это мамина ручка.",
+    "tts_text": "Это мамина ручка.",
+    "tags": [
+      "note-possessives",
+      "ручка"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-possessives-04-listen",
+    "lesson": 27,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Это мамина ручка.",
+    "tts_text": "Это мамина ручка.",
+    "choices": [
+      {
+        "label": "Это мамина ручка.",
+        "value": "Это мамина ручка.",
+        "correct": true
+      },
+      {
+        "label": "Моя книга.",
+        "value": "Моя книга.",
+        "correct": false
+      },
+      {
+        "label": "Мой дом.",
+        "value": "Мой дом.",
+        "correct": false
+      },
+      {
+        "label": "Наши друзья.",
+        "value": "Наши друзья.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-possessives",
+      "ручка"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-possessives-04-produce",
+    "lesson": 27,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «ручка».",
+    "expected": "ручка",
+    "allow_contains": true,
+    "sample": "Это мамина ручка.",
+    "tags": [
+      "note-possessives",
+      "ручка"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-01-cloze",
+    "lesson": 29,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я смотрю _____.",
+    "expected": "фильм",
+    "display_expected": "Я смотрю фильм.",
+    "tts_text": "Я смотрю фильм.",
+    "tags": [
+      "note-videt-slyshat",
+      "фильм"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-01-dict",
+    "lesson": 29,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я смотрю фильм.",
+    "tts_text": "Я смотрю фильм.",
+    "tags": [
+      "note-videt-slyshat",
+      "фильм"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-01-listen",
+    "lesson": 29,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я смотрю фильм.",
+    "tts_text": "Я смотрю фильм.",
+    "choices": [
+      {
+        "label": "Я смотрю фильм.",
+        "value": "Я смотрю фильм.",
+        "correct": true
+      },
+      {
+        "label": "Я вижу ключи.",
+        "value": "Я вижу ключи.",
+        "correct": false
+      },
+      {
+        "label": "Я слушаю музыку.",
+        "value": "Я слушаю музыку.",
+        "correct": false
+      },
+      {
+        "label": "Я слышу телефон.",
+        "value": "Я слышу телефон.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-videt-slyshat",
+      "фильм"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-01-produce",
+    "lesson": 29,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «фильм».",
+    "expected": "фильм",
+    "allow_contains": true,
+    "sample": "Я смотрю фильм.",
+    "tags": [
+      "note-videt-slyshat",
+      "фильм"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-02-cloze",
+    "lesson": 29,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ ключи.",
+    "expected": "вижу",
+    "display_expected": "Я вижу ключи.",
+    "tts_text": "Я вижу ключи.",
+    "tags": [
+      "note-videt-slyshat",
+      "вижу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-02-dict",
+    "lesson": 29,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я вижу ключи.",
+    "tts_text": "Я вижу ключи.",
+    "tags": [
+      "note-videt-slyshat",
+      "вижу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-02-listen",
+    "lesson": 29,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я вижу ключи.",
+    "tts_text": "Я вижу ключи.",
+    "choices": [
+      {
+        "label": "Я вижу ключи.",
+        "value": "Я вижу ключи.",
+        "correct": true
+      },
+      {
+        "label": "Я смотрю фильм.",
+        "value": "Я смотрю фильм.",
+        "correct": false
+      },
+      {
+        "label": "Я слушаю музыку.",
+        "value": "Я слушаю музыку.",
+        "correct": false
+      },
+      {
+        "label": "Я слышу телефон.",
+        "value": "Я слышу телефон.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-videt-slyshat",
+      "вижу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-02-produce",
+    "lesson": 29,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «вижу».",
+    "expected": "вижу",
+    "allow_contains": true,
+    "sample": "Я вижу ключи.",
+    "tags": [
+      "note-videt-slyshat",
+      "вижу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-03-cloze",
+    "lesson": 29,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я слушаю _____.",
+    "expected": "музыку",
+    "display_expected": "Я слушаю музыку.",
+    "tts_text": "Я слушаю музыку.",
+    "tags": [
+      "note-videt-slyshat",
+      "музыку"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-03-dict",
+    "lesson": 29,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я слушаю музыку.",
+    "tts_text": "Я слушаю музыку.",
+    "tags": [
+      "note-videt-slyshat",
+      "музыку"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-03-listen",
+    "lesson": 29,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я слушаю музыку.",
+    "tts_text": "Я слушаю музыку.",
+    "choices": [
+      {
+        "label": "Я слушаю музыку.",
+        "value": "Я слушаю музыку.",
+        "correct": true
+      },
+      {
+        "label": "Я смотрю фильм.",
+        "value": "Я смотрю фильм.",
+        "correct": false
+      },
+      {
+        "label": "Я вижу ключи.",
+        "value": "Я вижу ключи.",
+        "correct": false
+      },
+      {
+        "label": "Я слышу телефон.",
+        "value": "Я слышу телефон.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-videt-slyshat",
+      "музыку"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-03-produce",
+    "lesson": 29,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «музыку».",
+    "expected": "музыку",
+    "allow_contains": true,
+    "sample": "Я слушаю музыку.",
+    "tags": [
+      "note-videt-slyshat",
+      "музыку"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-04-cloze",
+    "lesson": 29,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я слышу _____.",
+    "expected": "телефон",
+    "display_expected": "Я слышу телефон.",
+    "tts_text": "Я слышу телефон.",
+    "tags": [
+      "note-videt-slyshat",
+      "телефон"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-04-dict",
+    "lesson": 29,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я слышу телефон.",
+    "tts_text": "Я слышу телефон.",
+    "tags": [
+      "note-videt-slyshat",
+      "телефон"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-04-listen",
+    "lesson": 29,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я слышу телефон.",
+    "tts_text": "Я слышу телефон.",
+    "choices": [
+      {
+        "label": "Я слышу телефон.",
+        "value": "Я слышу телефон.",
+        "correct": true
+      },
+      {
+        "label": "Я смотрю фильм.",
+        "value": "Я смотрю фильм.",
+        "correct": false
+      },
+      {
+        "label": "Я вижу ключи.",
+        "value": "Я вижу ключи.",
+        "correct": false
+      },
+      {
+        "label": "Я слушаю музыку.",
+        "value": "Я слушаю музыку.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-videt-slyshat",
+      "телефон"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-videt-slyshat-04-produce",
+    "lesson": 29,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «телефон».",
+    "expected": "телефон",
+    "allow_contains": true,
+    "sample": "Я слышу телефон.",
+    "tags": [
+      "note-videt-slyshat",
+      "телефон"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "ex-031-001",
+    "lesson": 31,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Ella toca la guitarra.'",
+    "expected": "Она играет на гитаре.",
+    "tags": [
+      "играть-на"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "auto-note-note-gde-kuda-01-cloze",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____.",
+    "expected": "дома",
+    "display_expected": "Я дома.",
+    "tts_text": "Я дома.",
+    "tags": [
+      "note-gde-kuda",
+      "дома"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-gde-kuda-01-dict",
+    "lesson": 32,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я дома.",
+    "tts_text": "Я дома.",
+    "tags": [
+      "note-gde-kuda",
+      "дома"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-gde-kuda-01-listen",
+    "lesson": 32,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я дома.",
+    "tts_text": "Я дома.",
+    "choices": [
+      {
+        "label": "Я дома.",
+        "value": "Я дома.",
+        "correct": true
+      },
+      {
+        "label": "Я иду домой.",
+        "value": "Я иду домой.",
+        "correct": false
+      },
+      {
+        "label": "Я иду на работу.",
+        "value": "Я иду на работу.",
+        "correct": false
+      },
+      {
+        "label": "Я хожу на работу каждый день.",
+        "value": "Я хожу на работу каждый день.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-gde-kuda",
+      "дома"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-gde-kuda-01-produce",
+    "lesson": 32,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «дома».",
+    "expected": "дома",
+    "allow_contains": true,
+    "sample": "Я дома.",
+    "tags": [
+      "note-gde-kuda",
+      "дома"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-gde-kuda-02-cloze",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я иду _____.",
+    "expected": "домой",
+    "display_expected": "Я иду домой.",
+    "tts_text": "Я иду домой.",
+    "tags": [
+      "note-gde-kuda",
+      "домой"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-gde-kuda-02-dict",
+    "lesson": 32,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я иду домой.",
+    "tts_text": "Я иду домой.",
+    "tags": [
+      "note-gde-kuda",
+      "домой"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-gde-kuda-02-listen",
+    "lesson": 32,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я иду домой.",
+    "tts_text": "Я иду домой.",
+    "choices": [
+      {
+        "label": "Я иду домой.",
+        "value": "Я иду домой.",
+        "correct": true
+      },
+      {
+        "label": "Я дома.",
+        "value": "Я дома.",
+        "correct": false
+      },
+      {
+        "label": "Я иду на работу.",
+        "value": "Я иду на работу.",
+        "correct": false
+      },
+      {
+        "label": "Я хожу на работу каждый день.",
+        "value": "Я хожу на работу каждый день.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-gde-kuda",
+      "домой"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-gde-kuda-02-produce",
+    "lesson": 32,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «домой».",
+    "expected": "домой",
+    "allow_contains": true,
+    "sample": "Я иду домой.",
+    "tags": [
+      "note-gde-kuda",
+      "домой"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-gde-kuda-03-cloze",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я иду на _____.",
+    "expected": "работу",
+    "display_expected": "Я иду на работу.",
+    "tts_text": "Я иду на работу.",
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-gde-kuda-03-dict",
+    "lesson": 32,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я иду на работу.",
+    "tts_text": "Я иду на работу.",
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-gde-kuda-03-listen",
+    "lesson": 32,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я иду на работу.",
+    "tts_text": "Я иду на работу.",
+    "choices": [
+      {
+        "label": "Я иду на работу.",
+        "value": "Я иду на работу.",
+        "correct": true
+      },
+      {
+        "label": "Я дома.",
+        "value": "Я дома.",
+        "correct": false
+      },
+      {
+        "label": "Я иду домой.",
+        "value": "Я иду домой.",
+        "correct": false
+      },
+      {
+        "label": "Я хожу на работу каждый день.",
+        "value": "Я хожу на работу каждый день.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-gde-kuda-03-produce",
+    "lesson": 32,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «работу».",
+    "expected": "работу",
+    "allow_contains": true,
+    "sample": "Я иду на работу.",
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-gde-kuda-04-cloze",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я хожу на работу каждый _____.",
+    "expected": "день",
+    "display_expected": "Я хожу на работу каждый день.",
+    "tts_text": "Я хожу на работу каждый день.",
+    "tags": [
+      "note-gde-kuda",
+      "день"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-gde-kuda-04-dict",
+    "lesson": 32,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я хожу на работу каждый день.",
+    "tts_text": "Я хожу на работу каждый день.",
+    "tags": [
+      "note-gde-kuda",
+      "день"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-gde-kuda-04-listen",
+    "lesson": 32,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я хожу на работу каждый день.",
+    "tts_text": "Я хожу на работу каждый день.",
+    "choices": [
+      {
+        "label": "Я хожу на работу каждый день.",
+        "value": "Я хожу на работу каждый день.",
+        "correct": true
+      },
+      {
+        "label": "Я дома.",
+        "value": "Я дома.",
+        "correct": false
+      },
+      {
+        "label": "Я иду домой.",
+        "value": "Я иду домой.",
+        "correct": false
+      },
+      {
+        "label": "Я иду на работу.",
+        "value": "Я иду на работу.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-gde-kuda",
+      "день"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-gde-kuda-04-produce",
+    "lesson": 32,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «день».",
+    "expected": "день",
+    "allow_contains": true,
+    "sample": "Я хожу на работу каждый день.",
+    "tags": [
+      "note-gde-kuda",
+      "день"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-gde-kuda-05-cloze",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я еду в _____.",
+    "expected": "Москву",
+    "display_expected": "Я еду в Москву.",
+    "tts_text": "Я еду в Москву.",
+    "tags": [
+      "note-gde-kuda",
+      "Москву"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-gde-kuda-05-dict",
+    "lesson": 32,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я еду в Москву.",
+    "tts_text": "Я еду в Москву.",
+    "tags": [
+      "note-gde-kuda",
+      "Москву"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-gde-kuda-05-listen",
+    "lesson": 32,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я еду в Москву.",
+    "tts_text": "Я еду в Москву.",
+    "choices": [
+      {
+        "label": "Я еду в Москву.",
+        "value": "Я еду в Москву.",
+        "correct": true
+      },
+      {
+        "label": "Я дома.",
+        "value": "Я дома.",
+        "correct": false
+      },
+      {
+        "label": "Я иду домой.",
+        "value": "Я иду домой.",
+        "correct": false
+      },
+      {
+        "label": "Я иду на работу.",
+        "value": "Я иду на работу.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-gde-kuda",
+      "Москву"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-gde-kuda-05-produce",
+    "lesson": 32,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Москву».",
+    "expected": "Москву",
+    "allow_contains": true,
+    "sample": "Я еду в Москву.",
+    "tags": [
+      "note-gde-kuda",
+      "Москву"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-gde-kuda-06-cloze",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я езжу на _____.",
+    "expected": "работу",
+    "display_expected": "Я езжу на работу.",
+    "tts_text": "Я езжу на работу.",
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-gde-kuda-06-dict",
+    "lesson": 32,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я езжу на работу.",
+    "tts_text": "Я езжу на работу.",
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-gde-kuda-06-listen",
+    "lesson": 32,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я езжу на работу.",
+    "tts_text": "Я езжу на работу.",
+    "choices": [
+      {
+        "label": "Я езжу на работу.",
+        "value": "Я езжу на работу.",
+        "correct": true
+      },
+      {
+        "label": "Я дома.",
+        "value": "Я дома.",
+        "correct": false
+      },
+      {
+        "label": "Я иду домой.",
+        "value": "Я иду домой.",
+        "correct": false
+      },
+      {
+        "label": "Я иду на работу.",
+        "value": "Я иду на работу.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-gde-kuda-06-produce",
+    "lesson": 32,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «работу».",
+    "expected": "работу",
+    "allow_contains": true,
+    "sample": "Я езжу на работу.",
+    "tags": [
+      "note-gde-kuda",
+      "работу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "ex-032-001",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "eleccion-productiva",
+    "prompt": "Traduce: 'Estoy en casa.'",
+    "expected": "Я дома.",
+    "tags": [
+      "gde-kuda"
+    ],
+    "weight": 0.35
+  },
+  {
+    "id": "ex-032-002",
+    "lesson": 32,
+    "skill": "gramatica",
+    "type": "eleccion-productiva",
+    "prompt": "Traduce: 'Voy a casa.'",
+    "expected": "Я иду домой.",
+    "tags": [
+      "gde-kuda"
+    ],
+    "weight": 0.35
+  },
+  {
+    "id": "ex-033-001",
+    "lesson": 33,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Ahora voy al trabajo a pie.'",
+    "expected": "Сейчас я иду на работу.",
+    "tags": [
+      "идти-ходить"
+    ],
+    "weight": 0.3
+  },
+  {
+    "id": "ex-033-002",
+    "lesson": 33,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Cada día voy al trabajo a pie.'",
+    "expected": "Каждый день я хожу на работу.",
+    "tags": [
+      "идти-ходить"
+    ],
+    "weight": 0.3
+  },
+  {
+    "id": "ex-035-001",
+    "lesson": 35,
+    "skill": "gramatica",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Voy a Moscú en transporte.'",
+    "expected": "Я еду в Москву.",
+    "tags": [
+      "ехать-ездить"
+    ],
+    "weight": 0.3
+  },
+  {
+    "id": "ex-036-001",
+    "lesson": 36,
+    "skill": "vocabulario",
+    "type": "traduccion-inversa",
+    "prompt": "Traduce: 'Voy a pie.'",
+    "expected": "Я иду пешком.",
+    "tags": [
+      "пешком"
+    ],
+    "weight": 0.2
+  },
+  {
+    "id": "auto-note-note-adjectives-01-cloze",
+    "lesson": 39,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ дом.",
+    "expected": "Новый",
+    "display_expected": "Новый дом.",
+    "tts_text": "Новый дом.",
+    "tags": [
+      "note-adjectives",
+      "Новый"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-adjectives-01-dict",
+    "lesson": 39,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Новый дом.",
+    "tts_text": "Новый дом.",
+    "tags": [
+      "note-adjectives",
+      "Новый"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-adjectives-01-listen",
+    "lesson": 39,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Новый дом.",
+    "tts_text": "Новый дом.",
+    "choices": [
+      {
+        "label": "Новый дом.",
+        "value": "Новый дом.",
+        "correct": true
+      },
+      {
+        "label": "Новая сумка.",
+        "value": "Новая сумка.",
+        "correct": false
+      },
+      {
+        "label": "Самое глубокое озеро.",
+        "value": "Самое глубокое озеро.",
+        "correct": false
+      },
+      {
+        "label": "Эта сумка новая.",
+        "value": "Эта сумка новая.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-adjectives",
+      "Новый"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-adjectives-01-produce",
+    "lesson": 39,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Новый».",
+    "expected": "Новый",
+    "allow_contains": true,
+    "sample": "Новый дом.",
+    "tags": [
+      "note-adjectives",
+      "Новый"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-adjectives-02-cloze",
+    "lesson": 39,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ сумка.",
+    "expected": "Новая",
+    "display_expected": "Новая сумка.",
+    "tts_text": "Новая сумка.",
+    "tags": [
+      "note-adjectives",
+      "Новая"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-adjectives-02-dict",
+    "lesson": 39,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Новая сумка.",
+    "tts_text": "Новая сумка.",
+    "tags": [
+      "note-adjectives",
+      "Новая"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-adjectives-02-listen",
+    "lesson": 39,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Новая сумка.",
+    "tts_text": "Новая сумка.",
+    "choices": [
+      {
+        "label": "Новая сумка.",
+        "value": "Новая сумка.",
+        "correct": true
+      },
+      {
+        "label": "Новый дом.",
+        "value": "Новый дом.",
+        "correct": false
+      },
+      {
+        "label": "Самое глубокое озеро.",
+        "value": "Самое глубокое озеро.",
+        "correct": false
+      },
+      {
+        "label": "Эта сумка новая.",
+        "value": "Эта сумка новая.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-adjectives",
+      "Новая"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-adjectives-02-produce",
+    "lesson": 39,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Новая».",
+    "expected": "Новая",
+    "allow_contains": true,
+    "sample": "Новая сумка.",
+    "tags": [
+      "note-adjectives",
+      "Новая"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-adjectives-03-cloze",
+    "lesson": 39,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ глубокое озеро.",
+    "expected": "Самое",
+    "display_expected": "Самое глубокое озеро.",
+    "tts_text": "Самое глубокое озеро.",
+    "tags": [
+      "note-adjectives",
+      "Самое"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-adjectives-03-dict",
+    "lesson": 39,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Самое глубокое озеро.",
+    "tts_text": "Самое глубокое озеро.",
+    "tags": [
+      "note-adjectives",
+      "Самое"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-adjectives-03-listen",
+    "lesson": 39,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Самое глубокое озеро.",
+    "tts_text": "Самое глубокое озеро.",
+    "choices": [
+      {
+        "label": "Самое глубокое озеро.",
+        "value": "Самое глубокое озеро.",
+        "correct": true
+      },
+      {
+        "label": "Новый дом.",
+        "value": "Новый дом.",
+        "correct": false
+      },
+      {
+        "label": "Новая сумка.",
+        "value": "Новая сумка.",
+        "correct": false
+      },
+      {
+        "label": "Эта сумка новая.",
+        "value": "Эта сумка новая.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-adjectives",
+      "Самое"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-adjectives-03-produce",
+    "lesson": 39,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Самое».",
+    "expected": "Самое",
+    "allow_contains": true,
+    "sample": "Самое глубокое озеро.",
+    "tags": [
+      "note-adjectives",
+      "Самое"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-adjectives-04-cloze",
+    "lesson": 39,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Эта сумка _____.",
+    "expected": "новая",
+    "display_expected": "Эта сумка новая.",
+    "tts_text": "Эта сумка новая.",
+    "tags": [
+      "note-adjectives",
+      "новая"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-adjectives-04-dict",
+    "lesson": 39,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Эта сумка новая.",
+    "tts_text": "Эта сумка новая.",
+    "tags": [
+      "note-adjectives",
+      "новая"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-adjectives-04-listen",
+    "lesson": 39,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Эта сумка новая.",
+    "tts_text": "Эта сумка новая.",
+    "choices": [
+      {
+        "label": "Эта сумка новая.",
+        "value": "Эта сумка новая.",
+        "correct": true
+      },
+      {
+        "label": "Новый дом.",
+        "value": "Новый дом.",
+        "correct": false
+      },
+      {
+        "label": "Новая сумка.",
+        "value": "Новая сумка.",
+        "correct": false
+      },
+      {
+        "label": "Самое глубокое озеро.",
+        "value": "Самое глубокое озеро.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-adjectives",
+      "новая"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-adjectives-04-produce",
+    "lesson": 39,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «новая».",
+    "expected": "новая",
+    "allow_contains": true,
+    "sample": "Эта сумка новая.",
+    "tags": [
+      "note-adjectives",
+      "новая"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-adjectives-05-cloze",
+    "lesson": 39,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Весь _____.",
+    "expected": "день",
+    "display_expected": "Весь день.",
+    "tts_text": "Весь день.",
+    "tags": [
+      "note-adjectives",
+      "день"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-adjectives-05-dict",
+    "lesson": 39,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Весь день.",
+    "tts_text": "Весь день.",
+    "tags": [
+      "note-adjectives",
+      "день"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-adjectives-05-listen",
+    "lesson": 39,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Весь день.",
+    "tts_text": "Весь день.",
+    "choices": [
+      {
+        "label": "Весь день.",
+        "value": "Весь день.",
+        "correct": true
+      },
+      {
+        "label": "Новый дом.",
+        "value": "Новый дом.",
+        "correct": false
+      },
+      {
+        "label": "Новая сумка.",
+        "value": "Новая сумка.",
+        "correct": false
+      },
+      {
+        "label": "Самое глубокое озеро.",
+        "value": "Самое глубокое озеро.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-adjectives",
+      "день"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-adjectives-05-produce",
+    "lesson": 39,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «день».",
+    "expected": "день",
+    "allow_contains": true,
+    "sample": "Весь день.",
+    "tags": [
+      "note-adjectives",
+      "день"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-health-duty-01-cloze",
+    "lesson": 45,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ болит голова.",
+    "expected": "меня",
+    "display_expected": "У меня болит голова.",
+    "tts_text": "У меня болит голова.",
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-health-duty-01-dict",
+    "lesson": 45,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня болит голова.",
+    "tts_text": "У меня болит голова.",
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-health-duty-01-listen",
+    "lesson": 45,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня болит голова.",
+    "tts_text": "У меня болит голова.",
+    "choices": [
+      {
+        "label": "У меня болит голова.",
+        "value": "У меня болит голова.",
+        "correct": true
+      },
+      {
+        "label": "У меня температура.",
+        "value": "У меня температура.",
+        "correct": false
+      },
+      {
+        "label": "Я должен работать.",
+        "value": "Я должен работать.",
+        "correct": false
+      },
+      {
+        "label": "Нужно отдохнуть.",
+        "value": "Нужно отдохнуть.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-health-duty-01-produce",
+    "lesson": 45,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня болит голова.",
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-health-duty-02-cloze",
+    "lesson": 45,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ температура.",
+    "expected": "меня",
+    "display_expected": "У меня температура.",
+    "tts_text": "У меня температура.",
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-health-duty-02-dict",
+    "lesson": 45,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня температура.",
+    "tts_text": "У меня температура.",
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-health-duty-02-listen",
+    "lesson": 45,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня температура.",
+    "tts_text": "У меня температура.",
+    "choices": [
+      {
+        "label": "У меня температура.",
+        "value": "У меня температура.",
+        "correct": true
+      },
+      {
+        "label": "У меня болит голова.",
+        "value": "У меня болит голова.",
+        "correct": false
+      },
+      {
+        "label": "Я должен работать.",
+        "value": "Я должен работать.",
+        "correct": false
+      },
+      {
+        "label": "Нужно отдохнуть.",
+        "value": "Нужно отдохнуть.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-health-duty-02-produce",
+    "lesson": 45,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня температура.",
+    "tags": [
+      "note-health-duty",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-health-duty-03-cloze",
+    "lesson": 45,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ работать.",
+    "expected": "должен",
+    "display_expected": "Я должен работать.",
+    "tts_text": "Я должен работать.",
+    "tags": [
+      "note-health-duty",
+      "должен"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-health-duty-03-dict",
+    "lesson": 45,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я должен работать.",
+    "tts_text": "Я должен работать.",
+    "tags": [
+      "note-health-duty",
+      "должен"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-health-duty-03-listen",
+    "lesson": 45,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я должен работать.",
+    "tts_text": "Я должен работать.",
+    "choices": [
+      {
+        "label": "Я должен работать.",
+        "value": "Я должен работать.",
+        "correct": true
+      },
+      {
+        "label": "У меня болит голова.",
+        "value": "У меня болит голова.",
+        "correct": false
+      },
+      {
+        "label": "У меня температура.",
+        "value": "У меня температура.",
+        "correct": false
+      },
+      {
+        "label": "Нужно отдохнуть.",
+        "value": "Нужно отдохнуть.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-health-duty",
+      "должен"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-health-duty-03-produce",
+    "lesson": 45,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «должен».",
+    "expected": "должен",
+    "allow_contains": true,
+    "sample": "Я должен работать.",
+    "tags": [
+      "note-health-duty",
+      "должен"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-health-duty-04-cloze",
+    "lesson": 45,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ отдохнуть.",
+    "expected": "Нужно",
+    "display_expected": "Нужно отдохнуть.",
+    "tts_text": "Нужно отдохнуть.",
+    "tags": [
+      "note-health-duty",
+      "Нужно"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-health-duty-04-dict",
+    "lesson": 45,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Нужно отдохнуть.",
+    "tts_text": "Нужно отдохнуть.",
+    "tags": [
+      "note-health-duty",
+      "Нужно"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-health-duty-04-listen",
+    "lesson": 45,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Нужно отдохнуть.",
+    "tts_text": "Нужно отдохнуть.",
+    "choices": [
+      {
+        "label": "Нужно отдохнуть.",
+        "value": "Нужно отдохнуть.",
+        "correct": true
+      },
+      {
+        "label": "У меня болит голова.",
+        "value": "У меня болит голова.",
+        "correct": false
+      },
+      {
+        "label": "У меня температура.",
+        "value": "У меня температура.",
+        "correct": false
+      },
+      {
+        "label": "Я должен работать.",
+        "value": "Я должен работать.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-health-duty",
+      "Нужно"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-health-duty-04-produce",
+    "lesson": 45,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Нужно».",
+    "expected": "Нужно",
+    "allow_contains": true,
+    "sample": "Нужно отдохнуть.",
+    "tags": [
+      "note-health-duty",
+      "Нужно"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-genitive-01-cloze",
+    "lesson": 47,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ нет времени.",
+    "expected": "меня",
+    "display_expected": "У меня нет времени.",
+    "tts_text": "У меня нет времени.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-genitive-01-dict",
+    "lesson": 47,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня нет времени.",
+    "tts_text": "У меня нет времени.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-genitive-01-listen",
+    "lesson": 47,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня нет времени.",
+    "tts_text": "У меня нет времени.",
+    "choices": [
+      {
+        "label": "У меня нет времени.",
+        "value": "У меня нет времени.",
+        "correct": true
+      },
+      {
+        "label": "У меня много книг.",
+        "value": "У меня много книг.",
+        "correct": false
+      },
+      {
+        "label": "Я из университета.",
+        "value": "Я из университета.",
+        "correct": false
+      },
+      {
+        "label": "Директора не было.",
+        "value": "Директора не было.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-genitive-01-produce",
+    "lesson": 47,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня нет времени.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-genitive-02-cloze",
+    "lesson": 47,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ много книг.",
+    "expected": "меня",
+    "display_expected": "У меня много книг.",
+    "tts_text": "У меня много книг.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-genitive-02-dict",
+    "lesson": 47,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня много книг.",
+    "tts_text": "У меня много книг.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-genitive-02-listen",
+    "lesson": 47,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня много книг.",
+    "tts_text": "У меня много книг.",
+    "choices": [
+      {
+        "label": "У меня много книг.",
+        "value": "У меня много книг.",
+        "correct": true
+      },
+      {
+        "label": "У меня нет времени.",
+        "value": "У меня нет времени.",
+        "correct": false
+      },
+      {
+        "label": "Я из университета.",
+        "value": "Я из университета.",
+        "correct": false
+      },
+      {
+        "label": "Директора не было.",
+        "value": "Директора не было.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-genitive-02-produce",
+    "lesson": 47,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня много книг.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-genitive-03-cloze",
+    "lesson": 47,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я из _____.",
+    "expected": "университета",
+    "display_expected": "Я из университета.",
+    "tts_text": "Я из университета.",
+    "tags": [
+      "note-genitive",
+      "университета"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-genitive-03-dict",
+    "lesson": 47,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я из университета.",
+    "tts_text": "Я из университета.",
+    "tags": [
+      "note-genitive",
+      "университета"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-genitive-03-listen",
+    "lesson": 47,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я из университета.",
+    "tts_text": "Я из университета.",
+    "choices": [
+      {
+        "label": "Я из университета.",
+        "value": "Я из университета.",
+        "correct": true
+      },
+      {
+        "label": "У меня нет времени.",
+        "value": "У меня нет времени.",
+        "correct": false
+      },
+      {
+        "label": "У меня много книг.",
+        "value": "У меня много книг.",
+        "correct": false
+      },
+      {
+        "label": "Директора не было.",
+        "value": "Директора не было.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-genitive",
+      "университета"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-genitive-03-produce",
+    "lesson": 47,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «университета».",
+    "expected": "университета",
+    "allow_contains": true,
+    "sample": "Я из университета.",
+    "tags": [
+      "note-genitive",
+      "университета"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-genitive-04-cloze",
+    "lesson": 47,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Директора не _____.",
+    "expected": "было",
+    "display_expected": "Директора не было.",
+    "tts_text": "Директора не было.",
+    "tags": [
+      "note-genitive",
+      "было"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-genitive-04-dict",
+    "lesson": 47,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Директора не было.",
+    "tts_text": "Директора не было.",
+    "tags": [
+      "note-genitive",
+      "было"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-genitive-04-listen",
+    "lesson": 47,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Директора не было.",
+    "tts_text": "Директора не было.",
+    "choices": [
+      {
+        "label": "Директора не было.",
+        "value": "Директора не было.",
+        "correct": true
+      },
+      {
+        "label": "У меня нет времени.",
+        "value": "У меня нет времени.",
+        "correct": false
+      },
+      {
+        "label": "У меня много книг.",
+        "value": "У меня много книг.",
+        "correct": false
+      },
+      {
+        "label": "Я из университета.",
+        "value": "Я из университета.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-genitive",
+      "было"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-genitive-04-produce",
+    "lesson": 47,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «было».",
+    "expected": "было",
+    "allow_contains": true,
+    "sample": "Директора не было.",
+    "tags": [
+      "note-genitive",
+      "было"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-genitive-05-cloze",
+    "lesson": 47,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "У _____ много друзей.",
+    "expected": "меня",
+    "display_expected": "У меня много друзей.",
+    "tts_text": "У меня много друзей.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-genitive-05-dict",
+    "lesson": 47,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "У меня много друзей.",
+    "tts_text": "У меня много друзей.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-genitive-05-listen",
+    "lesson": 47,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "У меня много друзей.",
+    "tts_text": "У меня много друзей.",
+    "choices": [
+      {
+        "label": "У меня много друзей.",
+        "value": "У меня много друзей.",
+        "correct": true
+      },
+      {
+        "label": "У меня нет времени.",
+        "value": "У меня нет времени.",
+        "correct": false
+      },
+      {
+        "label": "У меня много книг.",
+        "value": "У меня много книг.",
+        "correct": false
+      },
+      {
+        "label": "Я из университета.",
+        "value": "Я из университета.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-genitive-05-produce",
+    "lesson": 47,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «меня».",
+    "expected": "меня",
+    "allow_contains": true,
+    "sample": "У меня много друзей.",
+    "tags": [
+      "note-genitive",
+      "меня"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-basic-01-cloze",
+    "lesson": 61,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я читал _____.",
+    "expected": "книгу",
+    "display_expected": "Я читал книгу.",
+    "tts_text": "Я читал книгу.",
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-basic-01-dict",
+    "lesson": 61,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я читал книгу.",
+    "tts_text": "Я читал книгу.",
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-basic-01-listen",
+    "lesson": 61,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я читал книгу.",
+    "tts_text": "Я читал книгу.",
+    "choices": [
+      {
+        "label": "Я читал книгу.",
+        "value": "Я читал книгу.",
+        "correct": true
+      },
+      {
+        "label": "Я прочитал книгу.",
+        "value": "Я прочитал книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я часто читаю.",
+        "value": "Я часто читаю.",
+        "correct": false
+      },
+      {
+        "label": "Я написал письмо.",
+        "value": "Я написал письмо.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-basic-01-produce",
+    "lesson": 61,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «книгу».",
+    "expected": "книгу",
+    "allow_contains": true,
+    "sample": "Я читал книгу.",
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-basic-02-cloze",
+    "lesson": 61,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я прочитал _____.",
+    "expected": "книгу",
+    "display_expected": "Я прочитал книгу.",
+    "tts_text": "Я прочитал книгу.",
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-basic-02-dict",
+    "lesson": 61,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я прочитал книгу.",
+    "tts_text": "Я прочитал книгу.",
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-basic-02-listen",
+    "lesson": 61,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я прочитал книгу.",
+    "tts_text": "Я прочитал книгу.",
+    "choices": [
+      {
+        "label": "Я прочитал книгу.",
+        "value": "Я прочитал книгу.",
+        "correct": true
+      },
+      {
+        "label": "Я читал книгу.",
+        "value": "Я читал книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я часто читаю.",
+        "value": "Я часто читаю.",
+        "correct": false
+      },
+      {
+        "label": "Я написал письмо.",
+        "value": "Я написал письмо.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-basic-02-produce",
+    "lesson": 61,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «книгу».",
+    "expected": "книгу",
+    "allow_contains": true,
+    "sample": "Я прочитал книгу.",
+    "tags": [
+      "note-aspect-basic",
+      "книгу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-basic-03-cloze",
+    "lesson": 61,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ читаю.",
+    "expected": "часто",
+    "display_expected": "Я часто читаю.",
+    "tts_text": "Я часто читаю.",
+    "tags": [
+      "note-aspect-basic",
+      "часто"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-basic-03-dict",
+    "lesson": 61,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я часто читаю.",
+    "tts_text": "Я часто читаю.",
+    "tags": [
+      "note-aspect-basic",
+      "часто"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-basic-03-listen",
+    "lesson": 61,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я часто читаю.",
+    "tts_text": "Я часто читаю.",
+    "choices": [
+      {
+        "label": "Я часто читаю.",
+        "value": "Я часто читаю.",
+        "correct": true
+      },
+      {
+        "label": "Я читал книгу.",
+        "value": "Я читал книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я прочитал книгу.",
+        "value": "Я прочитал книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я написал письмо.",
+        "value": "Я написал письмо.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-basic",
+      "часто"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-basic-03-produce",
+    "lesson": 61,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «часто».",
+    "expected": "часто",
+    "allow_contains": true,
+    "sample": "Я часто читаю.",
+    "tags": [
+      "note-aspect-basic",
+      "часто"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-basic-04-cloze",
+    "lesson": 61,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ письмо.",
+    "expected": "написал",
+    "display_expected": "Я написал письмо.",
+    "tts_text": "Я написал письмо.",
+    "tags": [
+      "note-aspect-basic",
+      "написал"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-basic-04-dict",
+    "lesson": 61,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я написал письмо.",
+    "tts_text": "Я написал письмо.",
+    "tags": [
+      "note-aspect-basic",
+      "написал"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-basic-04-listen",
+    "lesson": 61,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я написал письмо.",
+    "tts_text": "Я написал письмо.",
+    "choices": [
+      {
+        "label": "Я написал письмо.",
+        "value": "Я написал письмо.",
+        "correct": true
+      },
+      {
+        "label": "Я читал книгу.",
+        "value": "Я читал книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я прочитал книгу.",
+        "value": "Я прочитал книгу.",
+        "correct": false
+      },
+      {
+        "label": "Я часто читаю.",
+        "value": "Я часто читаю.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-basic",
+      "написал"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-basic-04-produce",
+    "lesson": 61,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «написал».",
+    "expected": "написал",
+    "allow_contains": true,
+    "sample": "Я написал письмо.",
+    "tags": [
+      "note-aspect-basic",
+      "написал"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-result-01-cloze",
+    "lesson": 64,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я закончил _____.",
+    "expected": "работу",
+    "display_expected": "Я закончил работу.",
+    "tts_text": "Я закончил работу.",
+    "tags": [
+      "note-aspect-result",
+      "работу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-result-01-dict",
+    "lesson": 64,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я закончил работу.",
+    "tts_text": "Я закончил работу.",
+    "tags": [
+      "note-aspect-result",
+      "работу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-result-01-listen",
+    "lesson": 64,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я закончил работу.",
+    "tts_text": "Я закончил работу.",
+    "choices": [
+      {
+        "label": "Я закончил работу.",
+        "value": "Я закончил работу.",
+        "correct": true
+      },
+      {
+        "label": "Я не написал письмо.",
+        "value": "Я не написал письмо.",
+        "correct": false
+      },
+      {
+        "label": "Как только прочитаю, отвечу.",
+        "value": "Как только прочитаю, отвечу.",
+        "correct": false
+      },
+      {
+        "label": "Я увидел результат.",
+        "value": "Я увидел результат.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-result",
+      "работу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-result-01-produce",
+    "lesson": 64,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «работу».",
+    "expected": "работу",
+    "allow_contains": true,
+    "sample": "Я закончил работу.",
+    "tags": [
+      "note-aspect-result",
+      "работу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-result-02-cloze",
+    "lesson": 64,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я не _____ письмо.",
+    "expected": "написал",
+    "display_expected": "Я не написал письмо.",
+    "tts_text": "Я не написал письмо.",
+    "tags": [
+      "note-aspect-result",
+      "написал"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-result-02-dict",
+    "lesson": 64,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я не написал письмо.",
+    "tts_text": "Я не написал письмо.",
+    "tags": [
+      "note-aspect-result",
+      "написал"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-result-02-listen",
+    "lesson": 64,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я не написал письмо.",
+    "tts_text": "Я не написал письмо.",
+    "choices": [
+      {
+        "label": "Я не написал письмо.",
+        "value": "Я не написал письмо.",
+        "correct": true
+      },
+      {
+        "label": "Я закончил работу.",
+        "value": "Я закончил работу.",
+        "correct": false
+      },
+      {
+        "label": "Как только прочитаю, отвечу.",
+        "value": "Как только прочитаю, отвечу.",
+        "correct": false
+      },
+      {
+        "label": "Я увидел результат.",
+        "value": "Я увидел результат.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-result",
+      "написал"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-result-02-produce",
+    "lesson": 64,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «написал».",
+    "expected": "написал",
+    "allow_contains": true,
+    "sample": "Я не написал письмо.",
+    "tags": [
+      "note-aspect-result",
+      "написал"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-result-03-cloze",
+    "lesson": 64,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Как _____ прочитаю, отвечу.",
+    "expected": "только",
+    "display_expected": "Как только прочитаю, отвечу.",
+    "tts_text": "Как только прочитаю, отвечу.",
+    "tags": [
+      "note-aspect-result",
+      "только"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-result-03-dict",
+    "lesson": 64,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Как только прочитаю, отвечу.",
+    "tts_text": "Как только прочитаю, отвечу.",
+    "tags": [
+      "note-aspect-result",
+      "только"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-result-03-listen",
+    "lesson": 64,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Как только прочитаю, отвечу.",
+    "tts_text": "Как только прочитаю, отвечу.",
+    "choices": [
+      {
+        "label": "Как только прочитаю, отвечу.",
+        "value": "Как только прочитаю, отвечу.",
+        "correct": true
+      },
+      {
+        "label": "Я закончил работу.",
+        "value": "Я закончил работу.",
+        "correct": false
+      },
+      {
+        "label": "Я не написал письмо.",
+        "value": "Я не написал письмо.",
+        "correct": false
+      },
+      {
+        "label": "Я увидел результат.",
+        "value": "Я увидел результат.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-result",
+      "только"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-result-03-produce",
+    "lesson": 64,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «только».",
+    "expected": "только",
+    "allow_contains": true,
+    "sample": "Как только прочитаю, отвечу.",
+    "tags": [
+      "note-aspect-result",
+      "только"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-result-04-cloze",
+    "lesson": 64,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я увидел _____.",
+    "expected": "результат",
+    "display_expected": "Я увидел результат.",
+    "tts_text": "Я увидел результат.",
+    "tags": [
+      "note-aspect-result",
+      "результат"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-result-04-dict",
+    "lesson": 64,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я увидел результат.",
+    "tts_text": "Я увидел результат.",
+    "tags": [
+      "note-aspect-result",
+      "результат"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-result-04-listen",
+    "lesson": 64,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я увидел результат.",
+    "tts_text": "Я увидел результат.",
+    "choices": [
+      {
+        "label": "Я увидел результат.",
+        "value": "Я увидел результат.",
+        "correct": true
+      },
+      {
+        "label": "Я закончил работу.",
+        "value": "Я закончил работу.",
+        "correct": false
+      },
+      {
+        "label": "Я не написал письмо.",
+        "value": "Я не написал письмо.",
+        "correct": false
+      },
+      {
+        "label": "Как только прочитаю, отвечу.",
+        "value": "Как только прочитаю, отвечу.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-result",
+      "результат"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-result-04-produce",
+    "lesson": 64,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «результат».",
+    "expected": "результат",
+    "allow_contains": true,
+    "sample": "Я увидел результат.",
+    "tags": [
+      "note-aspect-result",
+      "результат"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-result-05-cloze",
+    "lesson": 64,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ позвонить.",
+    "expected": "пообещал",
+    "display_expected": "Я пообещал позвонить.",
+    "tts_text": "Я пообещал позвонить.",
+    "tags": [
+      "note-aspect-result",
+      "пообещал"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-result-05-dict",
+    "lesson": 64,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я пообещал позвонить.",
+    "tts_text": "Я пообещал позвонить.",
+    "tags": [
+      "note-aspect-result",
+      "пообещал"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-result-05-listen",
+    "lesson": 64,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я пообещал позвонить.",
+    "tts_text": "Я пообещал позвонить.",
+    "choices": [
+      {
+        "label": "Я пообещал позвонить.",
+        "value": "Я пообещал позвонить.",
+        "correct": true
+      },
+      {
+        "label": "Я закончил работу.",
+        "value": "Я закончил работу.",
+        "correct": false
+      },
+      {
+        "label": "Я не написал письмо.",
+        "value": "Я не написал письмо.",
+        "correct": false
+      },
+      {
+        "label": "Как только прочитаю, отвечу.",
+        "value": "Как только прочитаю, отвечу.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-result",
+      "пообещал"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-result-05-produce",
+    "lesson": 64,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «пообещал».",
+    "expected": "пообещал",
+    "allow_contains": true,
+    "sample": "Я пообещал позвонить.",
+    "tags": [
+      "note-aspect-result",
+      "пообещал"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-future-01-cloze",
+    "lesson": 72,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____.",
+    "expected": "сделаю",
+    "display_expected": "Я сделаю.",
+    "tts_text": "Я сделаю.",
+    "tags": [
+      "note-aspect-future",
+      "сделаю"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-future-01-dict",
+    "lesson": 72,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я сделаю.",
+    "tts_text": "Я сделаю.",
+    "tags": [
+      "note-aspect-future",
+      "сделаю"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-future-01-listen",
+    "lesson": 72,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я сделаю.",
+    "tts_text": "Я сделаю.",
+    "choices": [
+      {
+        "label": "Я сделаю.",
+        "value": "Я сделаю.",
+        "correct": true
+      },
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": false
+      },
+      {
+        "label": "Наверное, успею.",
+        "value": "Наверное, успею.",
+        "correct": false
+      },
+      {
+        "label": "Помогите, пожалуйста.",
+        "value": "Помогите, пожалуйста.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-future",
+      "сделаю"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-future-01-produce",
+    "lesson": 72,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «сделаю».",
+    "expected": "сделаю",
+    "allow_contains": true,
+    "sample": "Я сделаю.",
+    "tags": [
+      "note-aspect-future",
+      "сделаю"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-future-02-cloze",
+    "lesson": 72,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я куплю _____.",
+    "expected": "билет",
+    "display_expected": "Я куплю билет.",
+    "tts_text": "Я куплю билет.",
+    "tags": [
+      "note-aspect-future",
+      "билет"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-future-02-dict",
+    "lesson": 72,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я куплю билет.",
+    "tts_text": "Я куплю билет.",
+    "tags": [
+      "note-aspect-future",
+      "билет"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-future-02-listen",
+    "lesson": 72,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я куплю билет.",
+    "tts_text": "Я куплю билет.",
+    "choices": [
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": true
+      },
+      {
+        "label": "Я сделаю.",
+        "value": "Я сделаю.",
+        "correct": false
+      },
+      {
+        "label": "Наверное, успею.",
+        "value": "Наверное, успею.",
+        "correct": false
+      },
+      {
+        "label": "Помогите, пожалуйста.",
+        "value": "Помогите, пожалуйста.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-future",
+      "билет"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-future-02-produce",
+    "lesson": 72,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «билет».",
+    "expected": "билет",
+    "allow_contains": true,
+    "sample": "Я куплю билет.",
+    "tags": [
+      "note-aspect-future",
+      "билет"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-future-03-cloze",
+    "lesson": 72,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____, успею.",
+    "expected": "Наверное",
+    "display_expected": "Наверное, успею.",
+    "tts_text": "Наверное, успею.",
+    "tags": [
+      "note-aspect-future",
+      "Наверное"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-future-03-dict",
+    "lesson": 72,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Наверное, успею.",
+    "tts_text": "Наверное, успею.",
+    "tags": [
+      "note-aspect-future",
+      "Наверное"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-future-03-listen",
+    "lesson": 72,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Наверное, успею.",
+    "tts_text": "Наверное, успею.",
+    "choices": [
+      {
+        "label": "Наверное, успею.",
+        "value": "Наверное, успею.",
+        "correct": true
+      },
+      {
+        "label": "Я сделаю.",
+        "value": "Я сделаю.",
+        "correct": false
+      },
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": false
+      },
+      {
+        "label": "Помогите, пожалуйста.",
+        "value": "Помогите, пожалуйста.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-future",
+      "Наверное"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-future-03-produce",
+    "lesson": 72,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Наверное».",
+    "expected": "Наверное",
+    "allow_contains": true,
+    "sample": "Наверное, успею.",
+    "tags": [
+      "note-aspect-future",
+      "Наверное"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-future-04-cloze",
+    "lesson": 72,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Помогите, _____.",
+    "expected": "пожалуйста",
+    "display_expected": "Помогите, пожалуйста.",
+    "tts_text": "Помогите, пожалуйста.",
+    "tags": [
+      "note-aspect-future",
+      "пожалуйста"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-future-04-dict",
+    "lesson": 72,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Помогите, пожалуйста.",
+    "tts_text": "Помогите, пожалуйста.",
+    "tags": [
+      "note-aspect-future",
+      "пожалуйста"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-future-04-listen",
+    "lesson": 72,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Помогите, пожалуйста.",
+    "tts_text": "Помогите, пожалуйста.",
+    "choices": [
+      {
+        "label": "Помогите, пожалуйста.",
+        "value": "Помогите, пожалуйста.",
+        "correct": true
+      },
+      {
+        "label": "Я сделаю.",
+        "value": "Я сделаю.",
+        "correct": false
+      },
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": false
+      },
+      {
+        "label": "Наверное, успею.",
+        "value": "Наверное, успею.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-future",
+      "пожалуйста"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-future-04-produce",
+    "lesson": 72,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «пожалуйста».",
+    "expected": "пожалуйста",
+    "allow_contains": true,
+    "sample": "Помогите, пожалуйста.",
+    "tags": [
+      "note-aspect-future",
+      "пожалуйста"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-future-05-cloze",
+    "lesson": 72,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я переделаю _____.",
+    "expected": "упражнение",
+    "display_expected": "Я переделаю упражнение.",
+    "tts_text": "Я переделаю упражнение.",
+    "tags": [
+      "note-aspect-future",
+      "упражнение"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-future-05-dict",
+    "lesson": 72,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я переделаю упражнение.",
+    "tts_text": "Я переделаю упражнение.",
+    "tags": [
+      "note-aspect-future",
+      "упражнение"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-future-05-listen",
+    "lesson": 72,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я переделаю упражнение.",
+    "tts_text": "Я переделаю упражнение.",
+    "choices": [
+      {
+        "label": "Я переделаю упражнение.",
+        "value": "Я переделаю упражнение.",
+        "correct": true
+      },
+      {
+        "label": "Я сделаю.",
+        "value": "Я сделаю.",
+        "correct": false
+      },
+      {
+        "label": "Я куплю билет.",
+        "value": "Я куплю билет.",
+        "correct": false
+      },
+      {
+        "label": "Наверное, успею.",
+        "value": "Наверное, успею.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-future",
+      "упражнение"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-future-05-produce",
+    "lesson": 72,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «упражнение».",
+    "expected": "упражнение",
+    "allow_contains": true,
+    "sample": "Я переделаю упражнение.",
+    "tags": [
+      "note-aspect-future",
+      "упражнение"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-01-cloze",
+    "lesson": 77,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ читать.",
+    "expected": "хочу",
+    "display_expected": "Я хочу читать.",
+    "tts_text": "Я хочу читать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-01-dict",
+    "lesson": 77,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я хочу читать.",
+    "tts_text": "Я хочу читать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-01-listen",
+    "lesson": 77,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я хочу читать.",
+    "tts_text": "Я хочу читать.",
+    "choices": [
+      {
+        "label": "Я хочу читать.",
+        "value": "Я хочу читать.",
+        "correct": true
+      },
+      {
+        "label": "Я хочу прочитать.",
+        "value": "Я хочу прочитать.",
+        "correct": false
+      },
+      {
+        "label": "Надо делать.",
+        "value": "Надо делать.",
+        "correct": false
+      },
+      {
+        "label": "Надо сделать.",
+        "value": "Надо сделать.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-01-produce",
+    "lesson": 77,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «хочу».",
+    "expected": "хочу",
+    "allow_contains": true,
+    "sample": "Я хочу читать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-02-cloze",
+    "lesson": 77,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "Я _____ прочитать.",
+    "expected": "хочу",
+    "display_expected": "Я хочу прочитать.",
+    "tts_text": "Я хочу прочитать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-02-dict",
+    "lesson": 77,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Я хочу прочитать.",
+    "tts_text": "Я хочу прочитать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-02-listen",
+    "lesson": 77,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Я хочу прочитать.",
+    "tts_text": "Я хочу прочитать.",
+    "choices": [
+      {
+        "label": "Я хочу прочитать.",
+        "value": "Я хочу прочитать.",
+        "correct": true
+      },
+      {
+        "label": "Я хочу читать.",
+        "value": "Я хочу читать.",
+        "correct": false
+      },
+      {
+        "label": "Надо делать.",
+        "value": "Надо делать.",
+        "correct": false
+      },
+      {
+        "label": "Надо сделать.",
+        "value": "Надо сделать.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-02-produce",
+    "lesson": 77,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «хочу».",
+    "expected": "хочу",
+    "allow_contains": true,
+    "sample": "Я хочу прочитать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "хочу"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-03-cloze",
+    "lesson": 77,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ делать.",
+    "expected": "Надо",
+    "display_expected": "Надо делать.",
+    "tts_text": "Надо делать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-03-dict",
+    "lesson": 77,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Надо делать.",
+    "tts_text": "Надо делать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-03-listen",
+    "lesson": 77,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Надо делать.",
+    "tts_text": "Надо делать.",
+    "choices": [
+      {
+        "label": "Надо делать.",
+        "value": "Надо делать.",
+        "correct": true
+      },
+      {
+        "label": "Я хочу читать.",
+        "value": "Я хочу читать.",
+        "correct": false
+      },
+      {
+        "label": "Я хочу прочитать.",
+        "value": "Я хочу прочитать.",
+        "correct": false
+      },
+      {
+        "label": "Надо сделать.",
+        "value": "Надо сделать.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-03-produce",
+    "lesson": 77,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Надо».",
+    "expected": "Надо",
+    "allow_contains": true,
+    "sample": "Надо делать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.22
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-04-cloze",
+    "lesson": 77,
+    "skill": "gramatica",
+    "type": "cloze",
+    "prompt": "Completa la palabra que falta en la frase rusa.",
+    "display": "_____ сделать.",
+    "expected": "Надо",
+    "display_expected": "Надо сделать.",
+    "tts_text": "Надо сделать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.25
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-04-dict",
+    "lesson": 77,
+    "skill": "pronunciacion",
+    "type": "dictation",
+    "prompt": "Escucha y escribe la frase rusa.",
+    "expected": "Надо сделать.",
+    "tts_text": "Надо сделать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.32
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-04-listen",
+    "lesson": 77,
+    "skill": "comprension",
+    "type": "listen-choice",
+    "prompt": "Escucha y elige la frase que has oído.",
+    "expected": "Надо сделать.",
+    "tts_text": "Надо сделать.",
+    "choices": [
+      {
+        "label": "Надо сделать.",
+        "value": "Надо сделать.",
+        "correct": true
+      },
+      {
+        "label": "Я хочу читать.",
+        "value": "Я хочу читать.",
+        "correct": false
+      },
+      {
+        "label": "Я хочу прочитать.",
+        "value": "Я хочу прочитать.",
+        "correct": false
+      },
+      {
+        "label": "Надо делать.",
+        "value": "Надо делать.",
+        "correct": false
+      }
+    ],
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.28
+  },
+  {
+    "id": "auto-note-note-aspect-infinitive-04-produce",
+    "lesson": 77,
+    "skill": "produccion",
+    "type": "production-prompt",
+    "prompt": "Escribe una frase rusa breve y natural que use «Надо».",
+    "expected": "Надо",
+    "allow_contains": true,
+    "sample": "Надо сделать.",
+    "tags": [
+      "note-aspect-infinitive",
+      "Надо"
+    ],
+    "weight": 0.22
+  }
 ]

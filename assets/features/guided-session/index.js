@@ -45,6 +45,7 @@ function renderExplain(node, task, context, onNext) {
   const card = task.card || {};
   const target = task.target;
   const examples = card.examples || context.content.getExamplesForTarget(target).slice(0, 3);
+  const audioText = explainAudioText(target, examples, context);
   node.innerHTML = `
     <article class="learning-card focus-card">
       <p class="eyebrow">Objetivo ahora</p>
@@ -63,7 +64,7 @@ function renderExplain(node, task, context, onNext) {
       <p class="big-text">${escapeHtml(card.short_explanation || target.explanation || 'Observa la forma, escúchala y recupérala sin mirar.')}</p>
       ${examples.length ? `<ul class="example-list">${examples.map(example => `<li><button type="button" data-speak="${escapeHtml(example)}">${escapeHtml(example)}</button></li>`).join('')}</ul>` : ''}
       <div class="guided-actions">
-        <button type="button" class="secondary" data-speak="${escapeHtml(target.text)}">Escuchar</button>
+        ${audioText ? `<button type="button" class="secondary" data-speak="${escapeHtml(audioText)}">${audioText === target.text ? 'Escuchar' : 'Escuchar ejemplo'}</button>` : ''}
         <button type="button" id="continueTask">Practicar</button>
       </div>
     </article>
@@ -77,19 +78,24 @@ function renderExplain(node, task, context, onNext) {
 function renderExercise(node, exercise, context, startedAt, onNext) {
   const handler = context.registry.getExercise(exercise.type);
   const widget = handler.render(exercise, context);
+  const audioText = exercise.tts_text || exercise.expected || '';
+  const showListen = audioText && !['dictation', 'listen-choice'].includes(exercise.type) && context.audio.hasRecorded(audioText);
   node.innerHTML = `
     <article class="learning-card focus-card">
       <p class="eyebrow">Recuperación activa</p>
       <h2>${escapeHtml(exercise.prompt)}</h2>
+      <p class="task-guidance">${escapeHtml(guidanceForExercise(exercise))}</p>
       <div class="tag-row">
         <span class="tag">${escapeHtml(labelForExercise(exercise.type))}</span>
         <span class="tag">Clase ${String(exercise.lesson || '').padStart(2, '0')}</span>
         <span class="tag">${escapeHtml(skillLabel(exercise.skill))}</span>
       </div>
+      ${showListen ? `<div class="inline-actions"><button type="button" class="secondary" id="listenExercise">Escuchar modelo</button></div>` : ''}
       <form id="exerciseForm" class="exercise-form"></form>
       <div id="exerciseFeedback"></div>
     </article>
   `;
+  node.querySelector('#listenExercise')?.addEventListener('click', () => playAudio(context, audioText));
   const form = node.querySelector('#exerciseForm');
   const controls = document.createElement('div');
   controls.className = 'exercise-controls';
@@ -150,7 +156,7 @@ function renderFeedback(node, result, exercise, onNext) {
   node.innerHTML = `
     <div class="feedback-box ${result.correct ? 'correct' : 'wrong'}">
       <strong>${result.correct ? 'Correcto' : 'Aún no'}</strong>
-      <p>${result.correct ? 'Este objetivo se espaciará más.' : `Respuesta esperada: ${escapeHtml(result.displayExpected || exercise.expected)}`}</p>
+      <p>${result.correct ? 'Este objetivo se espaciará más y volverá cuando toque.' : `Respuesta esperada: ${escapeHtml(result.displayExpected || exercise.expected)}`}</p>
       ${result.error_type ? `<p class="muted">Foco de error: ${escapeHtml(result.error_type)}</p>` : ''}
       <button type="button" id="nextTask">Siguiente</button>
     </div>
@@ -163,8 +169,8 @@ function renderDone(node, context, onRestart) {
   node.innerHTML = `
     <article class="learning-card focus-card">
       <p class="eyebrow">Sesión completada</p>
-      <h2>Buen cierre por hoy.</h2>
-      <p class="big-text">Has registrado ${summary.todayCount}/${summary.dailyTarget} actividades hoy. La próxima sesión priorizará lo fallado y lo vencido.</p>
+      <h2>Sesión cerrada.</h2>
+      <p class="big-text">Has registrado ${summary.todayCount}/${summary.dailyTarget} actividades hoy. La siguiente ronda mezclará material nuevo, repaso vencido y objetivos fallados para que no tengas que escoger qué estudiar.</p>
       <div class="guided-actions">
         <button type="button" id="restartSession">Otra ronda</button>
         <button type="button" class="secondary" id="openCalendar">Ver calendario</button>
@@ -179,7 +185,13 @@ function renderSide(node, context, session, taskIndex) {
   const summary = context.learner.summary();
   const weak = context.learner.weakTargets(3);
   const nextPlan = context.scheduler.previewPlan(4);
+  const task = session.tasks[taskIndex];
   node.innerHTML = `
+    <article class="side-card">
+      <h3>Ahora</h3>
+      <p>${escapeHtml(currentTaskLabel(task))}</p>
+      <p class="muted small">Sigue el panel principal: escuchar, responder, comprobar y pasar a la siguiente tarea.</p>
+    </article>
     <article class="side-card">
       <h3>Hoy</h3>
       <div class="metric-list">
@@ -234,9 +246,43 @@ function skillLabel(skill) {
   })[skill] || skill || 'práctica';
 }
 
+function guidanceForExercise(exercise) {
+  return ({
+    'text-input': 'Recupera la forma rusa de memoria. Si dudas, escribe una respuesta corta y comprueba.',
+    cloze: 'Lee la frase y completa sólo la parte que falta.',
+    'multiple-choice': 'No busques la opción por descarte superficial: lee las cuatro y elige la que cumple el objetivo.',
+    dictation: 'Escucha primero la frase completa; luego escríbela en ruso.',
+    'listen-choice': 'Escucha antes de mirar demasiado las opciones y elige la frase que oyes.',
+    transform: 'Cambia la forma, no traduzcas palabra por palabra.',
+    'production-prompt': 'Produce una frase breve y natural usando el objetivo.'
+  })[exercise.type] || 'Responde antes de mirar la solución.';
+}
+
+function currentTaskLabel(task) {
+  if (!task) return 'Cierre de la sesión.';
+  if (task.kind === 'explain') {
+    return `Primero observa: ${task.target?.text || 'nuevo objetivo'}.`;
+  }
+  const exercise = task.exercise || {};
+  return `Practica ${labelForExercise(exercise.type).toLowerCase()} de clase ${String(exercise.lesson || '').padStart(2, '0')}.`;
+}
+
 function playAudio(context, text) {
   context.notify('');
   context.audio.speak(text, { allowFallback: true }).then(ok => {
     if (!ok) context.notify('No se pudo reproducir el audio en este navegador.');
   }).catch(() => context.notify('No se pudo reproducir el audio en este navegador.'));
+}
+
+function explainAudioText(target, examples, context) {
+  const candidates = [target?.text, ...(examples || [])]
+    .map(value => String(value || '').trim())
+    .filter(Boolean);
+  const recorded = candidates.find(value => context.audio.hasRecorded(value));
+  if (recorded) return recorded;
+  return candidates.find(isNaturalRussianSpeech) || '';
+}
+
+function isNaturalRussianSpeech(value) {
+  return /[а-яё]/i.test(value) && !/[+/_|()[\]{}<>→=]/.test(value) && !/[A-Za-zÁÉÍÓÚáéíóúñÑ]/.test(value);
 }

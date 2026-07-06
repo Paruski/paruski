@@ -44,6 +44,9 @@ AUDIO_EXTS = {
     ".m4a": "audio/mp4",
 }
 
+CYRILLIC_RE = re.compile(r"[а-яё]", re.IGNORECASE)
+LATIN_RE = re.compile(r"[a-záéíóúüñ]", re.IGNORECASE)
+
 
 @dataclass
 class AudioNeed:
@@ -139,6 +142,8 @@ def add_need(needs: dict[str, AudioNeed], text: str, *, kind: str, source_ref: s
     normalized = normalize(text)
     if not normalized:
         return
+    if not is_recordable_russian(text):
+        return
     key = f"ru:{normalized}"
     item = needs.get(key)
     if item is None:
@@ -158,6 +163,15 @@ def add_need(needs: dict[str, AudioNeed], text: str, *, kind: str, source_ref: s
     item.priority = max(item.priority, priority)
     if item.kind != kind:
         item.kind = "mixed"
+
+
+def is_recordable_russian(text: str) -> bool:
+    value = str(text or "").strip()
+    if not CYRILLIC_RE.search(value):
+        return False
+    if LATIN_RE.search(value):
+        return False
+    return True
 
 
 def collect_needs(repo_root: Path, db_path: Path, include_examples: bool = True) -> list[AudioNeed]:

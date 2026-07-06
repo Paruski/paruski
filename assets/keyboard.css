@@ -27,7 +27,7 @@
 .ru-keyboard button {
   padding: 0.55rem 0.35rem;
   border-radius: 0.55rem;
-  background: #111827;
+  background: var(--panel-2);
   border: 1px solid var(--line);
   color: var(--text);
   min-height: 2.4rem;
