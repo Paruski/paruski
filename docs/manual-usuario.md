@@ -22,7 +22,7 @@ La aplicación principal está en `index.html` y está preparada para GitHub Pag
 
 ## Datos que registra
 
-La aplicación registra fecha, clase, ejercicio, respuesta esperada, respuesta dada, acierto o error, tipo de error, tiempo de respuesta y confianza.
+La aplicación registra fecha, clase, ejercicio, respuesta esperada, respuesta dada, acierto o error, tipo de error, tiempo de respuesta y la acción usada: responder, `No sé` o `Resolver luego`. La confianza ya no se pide al alumno; se infiere internamente.
 
 ## Exportaciones
 

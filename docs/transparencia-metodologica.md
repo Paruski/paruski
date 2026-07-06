@@ -87,15 +87,21 @@ Postproceso aplicado por `scripts/generate_xtts_audio.py`:
 
 - MP3 mono a 24 kHz;
 - `tempo=0.96`;
-- margen inicial de 60 ms;
+- margen inicial de 180 ms en las nuevas generaciones para evitar arranques inaudibles;
 - cola de 350 ms;
 - normalizacion loudness a -19 LUFS;
 - bitrate 96 kbps.
 
-El manifiesto de audio se genera desde `content/paruski-db.json`, `content/materials.json`, `content/materials-aspect.json` y `content/learning-notes.json`. El filtro actual excluye textos con letras latinas para evitar locutar glosas espanolas como si fueran ruso.
+El manifiesto de audio se genera desde `content/paruski-db.json`, `content/materials.json`, `content/materials-aspect.json`, `content/learning-notes.json`, `content/exercises.json` y `content/vocabulary.json`. El filtro actual excluye textos con letras latinas para evitar locutar glosas espanolas como si fueran ruso.
 Tambien recoge `tts_text` de ejercicios de audio para publicar dialogos de comprension. Antes de llamar a XTTS, el script elimina puntuacion hablable del texto de entrada; asi el contenido escrito conserva puntos e interrogaciones, pero el modelo no pronuncia esos signos.
 
-Estado conocido el 2026-07-06: tras la reparacion de puntuacion y la adicion de dialogos hay 1123 necesidades de audio validas. Las 1123 locuciones estan generadas en `content/audio/ru/` e indexadas en `content/audio-index.json`. El indice solo referencia archivos existentes, por lo que no deja enlaces rotos.
+Estado conocido el 2026-07-06: tras la reparacion de puntuacion, la adicion de dialogos y la inclusion de ejemplos de vocabulario hay 1253 necesidades de audio validas. Las 1253 locuciones estan generadas en `content/audio/ru/` e indexadas en `content/audio-index.json`. El indice solo referencia archivos existentes, por lo que no deja enlaces rotos.
+
+La interfaz modular exige audio grabado para los materiales del curso: no recurre a la voz del navegador cuando falta un MP3. Los ejemplos sin archivo grabado se muestran como texto sin boton de escucha; los ejercicios de audio fallan de forma visible en vez de sonar con una voz del sistema.
+
+Reparacion puntual de audio el 2026-07-06: el archivo `content/audio/ru/menya-tebya-ego-eyo-7ec253d7.mp3` se recorto de 6.432 s a 4.512 s para eliminar una silaba final sobrante posterior a los cuatro pronombres.
+
+Revision editorial de ejemplos el 2026-07-06: se sustituyeron `Я хочу кровать.` y `Я хочу новость.` por `В комнате есть кровать.` y `Это важная новость.` antes de publicar sus audios, por ser frases mas naturales y utiles.
 
 ## Practica oral futura
 
@@ -122,6 +128,7 @@ Ultima validacion local:
 - Scripts Python compilados.
 - `git diff --check` sin errores.
 - `bun build assets/app.js --target=browser` empaqueta los modulos JS sin errores.
-- Chromium headless no pudo usarse en esta pasada: el binario del entorno aborto con codigo 133 antes de devolver DOM.
-- `content/audio-worklist.json`: 1123 necesidades.
-- `content/audio-index.json`: 1123 entradas existentes.
+- Chromium headless cargo la app estatica desde `http://127.0.0.1:8080/` y devolvio DOM con la sesion guiada renderizada.
+- Prueba Bun del scheduler: una cuenta nueva y una cuenta con `unlockedLessonMax=80` no reciben ejercicios por encima de la frontera `studyLessonMax`.
+- `content/audio-worklist.json`: 1253 necesidades.
+- `content/audio-index.json`: 1253 entradas existentes.

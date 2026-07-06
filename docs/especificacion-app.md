@@ -27,7 +27,7 @@ Exporta:
 
 ## Evento de aprendizaje
 
-Cada evento registra fecha, usuario de sesión, clase, ejercicio, respuesta esperada, respuesta dada, acierto o error, tipo de error, tiempo de respuesta, confianza y objetivos examinados.
+Cada evento registra fecha, usuario de sesión, clase, ejercicio, respuesta esperada, respuesta dada, acierto/error o posposición, tipo de error, tiempo de respuesta, acción usada, seguridad inferida y objetivos examinados.
 
 ## Algoritmo de repaso
 

@@ -22,7 +22,7 @@ Este documento recoge requisitos de producto para implementar después de estabi
 - Implementar repetición espaciada por targets, no solo por ejercicio.
 - Aplicar recuperación activa, feedback inmediato, intercalado, práctica de producción y análisis de errores recurrentes.
 - Investigar y documentar las decisiones metodológicas antes de cerrar la implementación.
-- La cola de repaso debe considerar dificultad, importancia, antigüedad, historial de errores, confianza y tiempo de respuesta.
+- La cola de repaso debe considerar dificultad, importancia, antigüedad, historial de errores, seguridad inferida y tiempo de respuesta.
 
 ## Experiencia motivadora
 
@@ -48,17 +48,17 @@ Este documento recoge requisitos de producto para implementar después de estabi
 - Incluir ejercicios con imágenes: elegir imagen, describir imagen, asociar palabra e imagen, audio a imagen y producción guiada por imagen.
 - Incluir ejercicios con audio: transcripción, dictado, comprensión con elección múltiple, audio a imagen, audio a traducción y respuesta abierta.
 - Cada ejercicio debe declarar modalidad: texto, imagen, audio o combinaciones multimodales.
-- El sistema debe registrar métricas específicas: reintentos, repeticiones de audio, tiempo de respuesta, confianza, tipo de error y targets afectados.
+- El sistema debe registrar métricas específicas: reintentos, repeticiones de audio, tiempo de respuesta, acción usada, tipo de error y targets afectados.
 - Los ejercicios de producción propia deben tener corrección flexible, pero los de elección múltiple deben evaluar opciones explícitas.
 
 ## Imágenes y audio
 
 - Las imágenes didácticas generadas deben ser simples, reutilizables y coherentes visualmente.
 - Guardar imágenes derivadas en `assets/images/` con nombres estables y sin datos personales.
-- Para audio, soportar archivos pregrabados en `assets/audio/` y texto TTS como alternativa.
+- Para audio, soportar archivos pregrabados en `content/audio/ru/`; el texto TTS sirve para generar el archivo estático, no como voz automática del navegador.
 - Si se usa una herramienta TTS externa o local, generar los archivos fuera del navegador y subir solo los audios finales.
 - Nunca subir claves de servicios TTS al repo ni exponerlas en la web.
-- Mantener un fallback con SpeechSynthesis del navegador cuando no exista audio pregrabado.
+- Evitar `SpeechSynthesis` del navegador en la experiencia de curso: si falta audio, debe quedar visible como audio pendiente.
 
 ## Gamificación moderada
 

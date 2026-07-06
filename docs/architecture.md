@@ -28,7 +28,7 @@ assets/core/
   event-log.js        eventos de aprendizaje y agregados
   competency-tagger.js etiquetado de ejercicios por competencias
   storage.js          localStorage, import/export y sincronizacion base
-  audio.js            audio grabado, indice y fallback de navegador
+  audio.js            audio grabado, indice y sintesis solo si se solicita explicitamente
   registry.js         registro de features y tipos de ejercicio
 
 assets/features/
@@ -290,9 +290,9 @@ content/audio-index.json
 
 1. archivo local comprimido;
 2. banco embebido temporal;
-3. fallback SpeechSynthesis.
+3. sintesis del navegador solo si una llamada de desarrollo pasa `allowSynthesis: true`.
 
-Los ejercicios auditivos solo se programan como tarea principal cuando el target tenga audio grabado o cuando se acepte explicitamente el fallback.
+Los ejercicios auditivos solo se programan como tarea principal cuando el target o ejemplo tenga audio grabado.
 
 ## Matriz de cumplimiento
 

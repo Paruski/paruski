@@ -76,7 +76,7 @@ Para opciones con imagen:
 ```
 
 - `audio_asset` tiene prioridad cuando existe.
-- `tts_text` permite fallback con voz del navegador.
+- `tts_text` identifica el texto que debe tener audio estatico grabado. No se usa como fallback normal con voz del navegador en la app modular.
 - No se guardan claves TTS en el repo ni en el navegador de producción.
 
 ## Targets multidimensionales

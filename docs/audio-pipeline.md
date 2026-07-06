@@ -17,6 +17,7 @@ content/materials.json
 content/materials-aspect.json
 content/learning-notes.json
 content/exercises.json
+content/vocabulary.json
 ```
 
 No se mantiene una lista manual paralela de palabras.
@@ -67,7 +68,7 @@ Configuracion aplicada por defecto:
 - modelo `tts_models/multilingual/multi-dataset/xtts_v2`;
 - voz `xtts-v2-anastasiia-librivox-cpml-noncommercial`;
 - `tempo=0.96`;
-- 60 ms de margen inicial;
+- 180 ms de margen inicial para evitar arranques inaudibles en el primer play;
 - 350 ms de margen final;
 - loudness objetivo `-19 LUFS`;
 - MP3 mono, 24 kHz, 96 kbps.
@@ -80,7 +81,11 @@ El usuario acepto la Coqui Public Model License para uso no comercial. La refere
 https://archive.org/details/stepnyyeskazki_2204_librivox
 ```
 
-Estado publicado el 2026-07-06: 1123 locuciones MP3 generadas e indexadas con esta voz. El corpus ocupa unos 31 MB en `content/audio/ru/`.
+Estado publicado el 2026-07-06: 1253 locuciones MP3 generadas e indexadas con esta voz. El corpus ocupa unos 34 MB en `content/audio/ru/`.
+
+La app modular no usa `SpeechSynthesis` del navegador como fallback normal para materiales del curso. Si no existe audio grabado, el botón de escucha se oculta o avisa de que el audio está pendiente. La síntesis del navegador sólo queda disponible para llamadas explícitas de desarrollo con `allowSynthesis: true`.
+
+Reparación puntual aplicada el 2026-07-06: `content/audio/ru/menya-tebya-ego-eyo-7ec253d7.mp3` se recortó de 6.432 s a 4.512 s para eliminar un bloque final sobrante después de `меня / тебя / его / её`. El recorte conserva unos 0.49 s de cola silenciosa tras la cuarta palabra.
 
 ## Regenerar índice
 

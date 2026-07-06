@@ -37,12 +37,14 @@ El evento debe copiar los `targets` del ejercicio. Asi se puede actualizar el do
 La prioridad futura debe combinar:
 
 - fallos recientes;
-- baja confianza;
+- seguridad inferida baja por error o respuesta lenta;
 - tiempo desde ultimo intento;
 - dificultad del item;
 - importancia de la estructura;
 - errores recurrentes;
 - si la clase esta activa.
+
+`No sé` se trata como lapse explicito. `Resolver luego` mueve el target fuera de la ronda actual sin aumentar dominio ni contarlo como fallo completo.
 
 ## Error util
 

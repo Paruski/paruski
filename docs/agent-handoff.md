@@ -40,7 +40,7 @@ Entrada:
 Nucleo:
 
 - `assets/core/app-context.js`: contexto compartido.
-- `assets/core/audio.js`: reproduce audio estatico y fallback de sintesis si no hay audio.
+- `assets/core/audio.js`: reproduce audio estatico; la sintesis del navegador solo se permite con `allowSynthesis: true` para usos explicitos de desarrollo.
 - `assets/core/content-store.js`: carga y normaliza contenido.
 - `assets/core/competency-tagger.js`: etiqueta ejercicios con competencias.
 - `assets/core/event-log.js`: registra eventos de practica.

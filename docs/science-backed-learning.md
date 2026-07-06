@@ -33,7 +33,8 @@ Aplicacion:
 - cada target tiene `next_due_at` e `interval_days`;
 - el scheduler prioriza material vencido, nuevo, fallado y de bajo dominio;
 - el calendario muestra repasos futuros;
-- la confianza declarada modifica el intervalo.
+- la seguridad se infiere internamente por acierto/error y tiempo de respuesta;
+- `No sé` cuenta como fallo explicito y `Resolver luego` pospone sin premiar.
 
 Fuente base: Dunlosky et al. (2013) consideran la practica distribuida de alta
 utilidad; los modelos de curva de olvido son habituales en tutores de
@@ -58,7 +59,7 @@ a decir correcto/incorrecto.
 Aplicacion:
 
 - cada evaluador devuelve `error_type`;
-- el evento guarda respuesta, esperado, confianza, tiempo y competencias;
+- el evento guarda respuesta, esperado, accion usada, tiempo, estado SRS antes/despues y competencias;
 - el modelo adaptativo aumenta prioridad de errores recurrentes.
 
 Fuente base: la investigacion sobre corrective feedback en adquisicion de segundas

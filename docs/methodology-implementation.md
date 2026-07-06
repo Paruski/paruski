@@ -111,16 +111,28 @@ Implementacion:
 
 ## 11. Calibracion adaptativa
 
-Decision: una cuenta nueva empieza con incertidumbre alta. La sesion va de sencillo a complejo, pero prueba material mas dificil pronto si el alumno responde bien. Cuando hay evidencia suficiente, el ajuste se estabiliza.
+Decision: una cuenta nueva empieza con incertidumbre alta. La sesion va de sencillo a complejo dentro de una frontera de estudio progresiva: el rating tipo Elo ordena y calibra dificultad, pero no salta a clases lejanas si las anteriores no estan cubiertas.
 
 Implementacion:
 
 - `assets/core/storage.js` guarda `calibration.rating`, `calibration.uncertainty` y numero de intentos.
 - `assets/core/learner-model.js` actualiza el rating con una regla tipo Elo: K alto al principio, K menor al bajar la incertidumbre.
+- `assets/core/learner-model.js` separa `unlockedLessonMax` de `studyLessonMax`; la sesion usa la frontera de estudio para impedir saltos como escuchar una clase avanzada sin haber cubierto el material previo.
 - `assets/core/scheduler.js` ordena objetivos por dificultad ascendente durante calibracion y despues prioriza objetivos cercanos al rating estimado.
 - `assets/features/progress/` muestra rating e incertidumbre para auditar el ajuste.
 
-## 12. Practica oral futura
+## 12. Acciones del alumno sin friccion
+
+Decision: el alumno no declara confianza en cada ejercicio. La app infiere seguridad a partir de acierto/error y tiempo de respuesta, y ofrece dos salidas pedagogicamente distintas.
+
+Implementacion:
+
+- `No sé` registra desconocimiento real, cuenta como fallo explícito y reduce el intervalo del target.
+- `Resolver luego` pospone el target hasta la siguiente ronda/dia sin premiarlo ni castigarlo como fallo completo.
+- `assets/core/event-log.js` guarda `option_used`, `target_snapshots`, `review_before` y `review_after` para interpretar eventos aunque el ejercicio cambie en el futuro.
+- `assets/features/guided-session/` elimina el desplegable de confianza y deja tres acciones: responder, no saber o resolver luego.
+
+## 13. Practica oral futura
 
 Decision: la practica hablada queda separada como modulo experimental. No se activa grabacion ni LLM todavia; solo se reserva la seccion y el contrato de crecimiento.
 
