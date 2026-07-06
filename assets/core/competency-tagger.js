@@ -176,20 +176,21 @@ function addBaseExerciseIds(ids, exercise) {
     ids.add('modality.audio');
     ids.add('skill.listening');
   }
-  if (['text-input', 'cloze', 'dictation', 'transform', 'production-prompt'].includes(exercise.type)) {
+  if (['text-input', 'cloze', 'dictation', 'transform', 'production-prompt', 'error-correction'].includes(exercise.type)) {
     ids.add('modality.keyboard');
     ids.add('morphology.cyrillic_form');
   }
 
   if (exercise.type === 'multiple-choice' || exercise.type === 'listen-choice') ids.add('retrieval.recognition');
   if (exercise.type === 'text-input' || exercise.type === 'dictation') ids.add('retrieval.cued_recall');
-  if (exercise.type === 'cloze' || exercise.type === 'transform') ids.add('retrieval.application');
+  if (exercise.type === 'cloze' || exercise.type === 'transform' || exercise.type === 'error-correction') ids.add('retrieval.application');
   if (exercise.type === 'production-prompt') ids.add('retrieval.transfer');
 
   if (exercise.skill === 'recognition') ids.add('skill.recognition');
   if (exercise.skill === 'production') ids.add('skill.controlled_production');
   if (exercise.skill === 'listening') ids.add('skill.listening');
   if (exercise.skill === 'grammar_transfer') ids.add('skill.grammar_transfer');
+  if (exercise.type === 'error-correction') ids.add('skill.grammar_transfer');
   if (exercise.type === 'production-prompt') ids.add('skill.semantic_production');
 
   const prompt = normalizeText(`${exercise.prompt || ''} ${exercise.type || ''} ${exercise.targets?.direction || ''}`);

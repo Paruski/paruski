@@ -7,7 +7,14 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     const targetCount = Math.max(6, Math.min(options.targetCount || summary.dailyTarget || 10, 16));
     const candidates = adaptiveOrder(interleaveTargets(rankTargets()), calibration).slice(0, targetCount);
     const tasks = [];
-    const recentTypes = [];
+    const sessionState = {
+      recentTypes: [],
+      typeCounts: {},
+      targetCounts: {},
+      recognitionCount: 0,
+      productiveCount: 0,
+      comprehensionCount: 0
+    };
 
     candidates.forEach((entry, index) => {
       const target = entry.target;
@@ -15,8 +22,8 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       if (!state.attempts || state.mastery < 0.35 || entry.reason === 'error') {
         tasks.push(makeExplainTask(target, entry.reason));
       }
-      const type = chooseExerciseType(target, state, index, targetCount, calibration, recentTypes);
-      recentTypes.push(type);
+      const type = chooseExerciseType(target, state, index, targetCount, calibration, sessionState);
+      recordSessionType(sessionState, type, target);
       tasks.push(makeExerciseTask(target, type));
     });
 
@@ -97,30 +104,40 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     };
   }
 
-  function chooseExerciseType(target, state, index, targetCount, calibration, recentTypes = []) {
+  function chooseExerciseType(target, state, index, targetCount, calibration, sessionState) {
     const examples = contentStore.getExamplesForTarget(target);
     const exactExample = examples.some(example => normalizeText(example).includes(target.normalized_text));
     const hasAudio = audioService.hasRecorded(target.text) || examples.some(example => audioService.hasRecorded(example));
+    const hasErrorCorrection = Boolean(errorCorrectionSeedFor(target));
+    const hasTransform = Boolean(transformSeedFor(target));
     const needsListening = (state.skills?.listening || 0) < 0.62;
     const needsProduction = (state.skills?.production || 0) < 0.58;
     const needsGrammar = (state.skills?.grammar_transfer || 0) < 0.58;
-    const phase = targetCount > 1 ? index / (targetCount - 1) : 0;
     const calibrating = (calibration?.attempts || 0) < 18 || (calibration?.uncertainty || 0) > 150;
-    let selected = '';
-    if (calibrating && !state.attempts) {
-      if (phase < 0.28) selected = 'multiple-choice';
-      else if (phase < 0.58 && exactExample) selected = 'cloze';
-      else if (phase > 0.72 && hasAudio && needsListening) selected = 'listen-choice';
+    const available = [
+      hasAudio && needsListening ? 'listen-choice' : '',
+      exactExample ? 'cloze' : '',
+      hasErrorCorrection && needsGrammar ? 'error-correction' : '',
+      hasTransform && needsGrammar ? 'transform' : '',
+      target.kind === 'vocabulary' && needsProduction ? 'text-input' : '',
+      target.kind === 'vocabulary' || state.attempts ? 'production-prompt' : '',
+      state.attempts >= 2 && hasAudio ? 'dictation' : '',
+      canUseContextChoice(target) ? 'multiple-choice' : ''
+    ].filter(Boolean);
+    const plan = calibrating
+      ? ['cloze', 'listen-choice', 'text-input', 'error-correction', 'production-prompt', 'transform', 'multiple-choice']
+      : ['text-input', 'listen-choice', 'error-correction', 'cloze', 'production-prompt', 'transform', 'multiple-choice'];
+    if (sessionState.productiveCount < Math.floor((index + 2) / 3)) {
+      const productive = ['text-input', 'error-correction', 'transform', 'production-prompt'].find(type => available.includes(type));
+      if (productive) return diversifyExerciseType(productive, { target, exactExample, hasAudio, needsListening, sessionState, available });
     }
-    if (!selected && hasAudio && needsListening && (index + 1) % 3 === 0) selected = state.attempts ? 'dictation' : 'listen-choice';
-    if (!selected && target.kind === 'grammar' && needsGrammar && transformSeedFor(target)) selected = 'transform';
-    if (!selected && target.kind === 'vocabulary' && state.attempts >= 1 && state.mastery >= 0.35 && (index + 1) % 5 === 0) selected = 'production-prompt';
-    if (!selected && isCopyHostileTarget(target)) selected = exactExample ? 'cloze' : 'multiple-choice';
-    if (!selected && (index + 1) % 4 === 0 && target.kind === 'vocabulary' && (hasAudio || needsListening)) selected = 'dictation';
-    if (!selected && exactExample) selected = 'cloze';
-    if (!selected && (!state.attempts || (index + 1) % 3 === 0 || target.kind === 'grammar')) selected = 'multiple-choice';
-    if (!selected && target.kind === 'vocabulary' && needsProduction && (index + 1) % 2 === 0) selected = 'text-input';
-    return diversifyExerciseType(selected || 'text-input', { target, exactExample, hasAudio, needsListening, recentTypes });
+    if (!sessionState.comprehensionCount && index >= Math.min(2, targetCount - 1)) {
+      const comprehension = ['listen-choice', 'cloze'].find(type => available.includes(type));
+      if (comprehension) return diversifyExerciseType(comprehension, { target, exactExample, hasAudio, needsListening, sessionState, available });
+    }
+    const planned = plan[index % plan.length];
+    const selected = available.includes(planned) ? planned : plan.find(type => available.includes(type)) || available[0] || 'text-input';
+    return diversifyExerciseType(selected, { target, exactExample, hasAudio, needsListening, sessionState, available });
   }
 
   function staticExerciseFor(target, preferredType) {
@@ -130,9 +147,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       .filter(exercise => Number(exercise.lesson || target.lesson || 0) <= studyMax)
       .filter(exercise => isUsableStaticExercise(exercise));
     if (!exercises.length) return null;
-    const selected = exercises.find(exercise => exercise.type === preferredType) ||
-      exercises.find(exercise => exercise.type === 'multiple-choice') ||
-      (isLowFrictionExercise(exercises[0]) ? exercises[0] : null);
+    const selected = exercises.find(exercise => exercise.type === preferredType) || null;
     if (!selected) return null;
     return {
       ...selected,
@@ -164,24 +179,26 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       tts_text: target.text,
       weight: target.importance || 0.5
     };
+    enrichProtocolMetadata(base, target, type);
 
     if (type === 'cloze' && exactExample) {
       return {
         ...base,
         display: exactExample.replace(new RegExp(escapeRegExp(target.text), 'i'), '_____'),
-        prompt: 'Completa la frase rusa.',
+        prompt: 'Completa la frase rusa para conservar el significado del ejemplo.',
         display_expected: target.text,
         tts_text: exactExample
       };
     }
 
     if (type === 'multiple-choice') {
-      const grammarPrompt = card?.short_explanation || target.explanation || target.translation || 'esta estructura';
+      const context = contextForTarget(target, card);
       return {
         ...base,
+        context,
         prompt: target.kind === 'grammar'
-          ? `Elige la frase rusa que aplica: ${grammarPrompt}`
-          : card?.translation ? `Elige la forma rusa para: ${card.translation}` : 'Elige la forma rusa correcta.',
+          ? `${context} Elige la frase rusa natural.`
+          : card?.translation ? `Quieres expresar "${card.translation}". Elige la opcion rusa natural.` : 'Elige la opcion rusa que encaja en el contexto.',
         choices: target.kind === 'grammar'
           ? contentStore.semanticChoicesForTarget(target)
           : contentStore.choicesForTarget(target)
@@ -192,7 +209,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       const ttsText = exactExample || target.text;
       return {
         ...base,
-        prompt: 'Escucha y escribe en ruso.',
+        prompt: 'Escucha y escribe la frase rusa completa. Esto entrena percepcion, no cuenta por si solo como dominio.',
         expected: ttsText,
         tts_text: ttsText,
         require_audio: false
@@ -201,14 +218,34 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
 
     if (type === 'listen-choice') {
       const ttsText = exactExample || target.text;
+      const listening = listeningComprehensionForTarget(contentStore, target, card, ttsText);
       return {
         ...base,
-        prompt: 'Escucha y elige lo que has oído.',
-        expected: ttsText,
+        prompt: listening.prompt,
+        context: listening.context,
+        expected: listening.expected,
         tts_text: ttsText,
-        choices: listeningChoices(contentStore, target, ttsText),
+        choices: listening.choices,
         require_audio: false
       };
+    }
+
+    if (type === 'error-correction') {
+      const seed = errorCorrectionSeedFor(target);
+      if (seed) {
+        return {
+          ...base,
+          prompt: seed.prompt,
+          context: seed.context,
+          display: seed.display,
+          expected: seed.expected,
+          accepted: [seed.expected],
+          display_expected: seed.expected,
+          feedback: seed.feedback,
+          diagnostics: seed.diagnostics
+        };
+      }
+      return buildExercise(target, 'text-input');
     }
 
     if (type === 'transform') {
@@ -216,7 +253,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       if (seed) {
         return {
           ...base,
-          prompt: 'Transforma la forma rusa siguiendo el patrón.',
+          prompt: 'Transforma la forma rusa: aplica el cambio gramatical, no traduzcas palabra por palabra.',
           display: `${seed.left} → _____`,
           expected: seed.right,
           display_expected: `${seed.left} → ${seed.right}`,
@@ -230,16 +267,16 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       return {
         ...base,
         prompt: card?.translation
-          ? `Escribe una frase rusa corta que use esta idea: ${card.translation}`
-          : 'Escribe una frase rusa corta que use el objetivo de forma natural.',
+          ? `Escribe una frase rusa nueva que incluya la idea "${card.translation}". No copies un modelo.`
+          : 'Escribe una frase rusa nueva que use el objetivo de forma natural. No copies un modelo.',
         expected: target.text,
-        sample: examples[0] || ''
+        sample: ''
       };
     }
 
     return {
       ...base,
-      prompt: card?.translation ? `Escribe en ruso: ${card.translation}` : 'Escribe de memoria la forma rusa practicada.',
+      prompt: card?.translation ? `Produce en ruso, sin mirar opciones: ${card.translation}` : 'Produce de memoria una forma rusa natural para este objetivo.',
       allow_contains: target.kind === 'vocabulary',
       accepted: buildAcceptedForms(target)
     };
@@ -259,10 +296,10 @@ function adaptiveOrder(entries, calibration) {
   if (calibrating) {
     const easy = decorated
       .filter(entry => entry.difficulty <= rating + uncertainty * 0.2)
-      .sort(byDifficultyThenPriority);
+      .sort(byCalibrationPriority);
     const probes = decorated
       .filter(entry => entry.difficulty > rating + uncertainty * 0.2)
-      .sort(byDifficultyThenPriority);
+      .sort(byCalibrationPriority);
     return [...easy, ...probes];
   }
   return decorated.sort((left, right) =>
@@ -275,17 +312,46 @@ function byDifficultyThenPriority(left, right) {
   return left.difficulty - right.difficulty || right.score - left.score;
 }
 
-function diversifyExerciseType(selected, { target, exactExample, hasAudio, needsListening, recentTypes }) {
+function byCalibrationPriority(left, right) {
+  return reasonPriority(left.reason) - reasonPriority(right.reason) ||
+    left.difficulty - right.difficulty ||
+    right.score - left.score;
+}
+
+function reasonPriority(reason) {
+  return ({
+    error: 0,
+    vencido: 1,
+    nuevo: 2,
+    refuerzo: 3
+  })[reason] ?? 4;
+}
+
+function diversifyExerciseType(selected, { target, exactExample, hasAudio, needsListening, sessionState, available = [] }) {
+  const recentTypes = sessionState.recentTypes || [];
+  const overTypeLimit = (type) => (sessionState.typeCounts?.[type] || 0) >= 3;
   const lastTwo = recentTypes.slice(-2);
-  if (lastTwo.length < 2 || !lastTwo.every(type => type === selected)) return selected;
   const options = [
     hasAudio && needsListening ? 'listen-choice' : '',
+    available.includes('error-correction') ? 'error-correction' : '',
     exactExample ? 'cloze' : '',
     target.kind === 'grammar' && transformSeedFor(target) ? 'transform' : '',
     target.kind === 'vocabulary' ? 'text-input' : '',
+    available.includes('production-prompt') ? 'production-prompt' : '',
     'multiple-choice'
-  ].filter(Boolean).filter(type => type !== selected);
+  ].filter(Boolean).filter(type => type !== selected && !overTypeLimit(type) && (!available.length || available.includes(type)));
+  if (overTypeLimit(selected)) return options[0] || selected;
+  if (lastTwo.length < 2 || !lastTwo.every(type => type === selected)) return selected;
   return options[0] || selected;
+}
+
+function recordSessionType(sessionState, type, target) {
+  sessionState.recentTypes.push(type);
+  sessionState.typeCounts[type] = (sessionState.typeCounts[type] || 0) + 1;
+  sessionState.targetCounts[target.id] = (sessionState.targetCounts[target.id] || 0) + 1;
+  if (type === 'multiple-choice') sessionState.recognitionCount += 1;
+  if (['text-input', 'production-prompt', 'transform', 'error-correction'].includes(type)) sessionState.productiveCount += 1;
+  if (['listen-choice', 'cloze'].includes(type)) sessionState.comprehensionCount += 1;
 }
 
 function targetDifficulty(target) {
@@ -319,12 +385,25 @@ function isCopyHostileTarget(target) {
 }
 
 function isUsableStaticExercise(exercise) {
+  if (hasRejectedPrompt(exercise.prompt)) return false;
+  if (exercise.type === 'listen-choice' && isTranscriptionChoice(exercise)) return false;
   if (exercise.type === 'multiple-choice' || exercise.type === 'listen-choice') return true;
   if (exercise.type === 'dictation') {
     const value = String(exercise.tts_text || exercise.expected || '').trim();
     return /[а-яё]/i.test(value) && value.split(/\s+/).length <= 10;
   }
   return isLowFrictionExercise(exercise);
+}
+
+function hasRejectedPrompt(prompt) {
+  return /Elige la frase rusa que aplica|Estructura que conviene reconocer|Selecciona el ejemplo|Reconoce la estructura|Frase de práctica|Ejemplo de uso/i.test(String(prompt || ''));
+}
+
+function isTranscriptionChoice(exercise) {
+  const prompt = String(exercise.prompt || '');
+  const choices = exercise.choices || [];
+  const russianChoices = choices.filter(choice => /[а-яё]/i.test(String(choice.label || choice.value || ''))).length;
+  return /frase que has oído|lo que has oído/i.test(prompt) && russianChoices >= Math.max(2, choices.length - 1);
 }
 
 function isLowFrictionExercise(exercise) {
@@ -338,6 +417,215 @@ function buildAcceptedForms(target) {
   const values = [target.text];
   if (target.text.includes('/')) values.push(...target.text.split('/'));
   return values.map(value => value.trim()).filter(Boolean);
+}
+
+function canUseContextChoice(target) {
+  if (target.kind === 'grammar') return Boolean(errorCorrectionSeedFor(target) || contextForTarget(target, null));
+  return Boolean(target.translation || target.text);
+}
+
+function contextForTarget(target, card) {
+  const haystack = normalizeText([target.text, target.explanation, card?.short_explanation, ...(target.tags || [])].join(' '));
+  if (haystack.includes('играть') && haystack.includes('гитар')) return 'Quieres decir que ella toca la guitarra.';
+  if (haystack.includes('играть') && (haystack.includes('футбол') || haystack.includes('шахмат') || haystack.includes('игра'))) return 'Quieres decir que alguien juega a un deporte o a un juego.';
+  if (haystack.includes('у меня') || haystack.includes('есть')) return 'Quieres expresar posesion basica sin traducir literalmente "tener".';
+  if (haystack.includes('нет') || haystack.includes('genitivo')) return 'Quieres negar posesion o existencia y necesitas la forma tras нет.';
+  if (haystack.includes('прошед') || haystack.includes('был')) return 'Quieres poner la frase en pasado y hacer concordar la forma.';
+  if (haystack.includes('где') || haystack.includes('куда') || haystack.includes('домой')) return 'Debes distinguir lugar donde estas y direccion hacia donde vas.';
+  if (haystack.includes('это')) return 'Quieres identificar una persona o cosa en presente, sin anadir un verbo copulativo.';
+  return '';
+}
+
+function listeningComprehensionForTarget(contentStore, target, card, ttsText) {
+  const translation = card?.translation || target.translation || '';
+  if (target.kind === 'vocabulary' && translation) {
+    const choices = meaningChoices(contentStore, target, translation);
+    return {
+      prompt: 'Escucha y responde por significado: ¿que comunica el audio?',
+      context: 'No transcribas mentalmente palabra por palabra; identifica la idea.',
+      expected: translation,
+      choices
+    };
+  }
+  return {
+    prompt: 'Escucha la frase y elige la interpretacion mas precisa.',
+    context: 'La respuesta depende del significado, no de reconocer letras.',
+    expected: ttsText,
+    choices: listeningChoices(contentStore, target, ttsText)
+  };
+}
+
+function meaningChoices(contentStore, target, correct, count = 4) {
+  const pool = contentStore.state.targets
+    .filter(item => item.id !== target.id && item.kind === 'vocabulary' && item.level === target.level)
+    .map(item => contentStore.getCard(item)?.translation || item.translation)
+    .filter(Boolean)
+    .filter(value => normalizeText(value) !== normalizeText(correct));
+  return shuffleStrings(uniqueStrings([correct, ...pool]).slice(0, count)).map(value => ({
+    label: value,
+    value,
+    correct: normalizeText(value) === normalizeText(correct)
+  }));
+}
+
+function errorCorrectionSeedFor(target) {
+  const haystack = normalizeText([target.text, target.explanation, ...(target.tags || [])].join(' '));
+  if (haystack.includes('играть') && haystack.includes('на')) {
+    return correctionSeed({
+      context: 'Un hispanohablante ha usado la preposicion de juegos con un instrumento.',
+      wrong: 'Она играет в гитару.',
+      expected: 'Она играет на гитаре.',
+      target: 'играть на + instrumento',
+      error: 'wrong_preposition'
+    });
+  }
+  if (haystack.includes('играть') && haystack.includes('в')) {
+    return correctionSeed({
+      context: 'Un hispanohablante ha omitido la preposicion obligatoria con un deporte.',
+      wrong: 'Я играю футбол.',
+      expected: 'Я играю в футбол.',
+      target: 'играть в + juego/deporte',
+      error: 'missing_preposition'
+    });
+  }
+  if (haystack.includes('у меня') || haystack.includes('есть')) {
+    return correctionSeed({
+      context: 'La frase copia literalmente el espanol "yo tengo".',
+      wrong: 'Я имею брат.',
+      expected: 'У меня есть брат.',
+      target: 'у + genitivo + есть',
+      error: 'literal_translation_from_spanish'
+    });
+  }
+  if (haystack.includes('это')) {
+    return correctionSeed({
+      context: 'La frase anade un verbo copulativo que no se usa en presente en esta estructura.',
+      wrong: 'Это есть чай.',
+      expected: 'Это чай.',
+      target: 'это + sustantivo sin быть en presente',
+      error: 'spanish_ser_estar_interference'
+    });
+  }
+  if (haystack.includes('нет')) {
+    return correctionSeed({
+      context: 'Tras нет, el sustantivo debe ir en genitivo.',
+      wrong: 'У меня нет время.',
+      expected: 'У меня нет времени.',
+      target: 'нет + genitivo',
+      error: 'wrong_case'
+    });
+  }
+  if (haystack.includes('где') || haystack.includes('куда') || haystack.includes('домой')) {
+    return correctionSeed({
+      context: 'La frase confunde lugar estatico y direccion.',
+      wrong: 'Я иду дома.',
+      expected: 'Я иду домой.',
+      target: 'где vs куда',
+      error: 'location_direction_confusion'
+    });
+  }
+  return null;
+}
+
+function correctionSeed({ context, wrong, expected, target, error }) {
+  return {
+    prompt: 'Corrige la frase rusa. Explica en tu cabeza que interferencia espanola evita la forma correcta.',
+    context,
+    display: `Frase incorrecta: ${wrong}`,
+    expected,
+    feedback: {
+      correct: `Correcto: aplicas ${target}.`,
+      incorrect: `La correccion debe aplicar ${target}; el error diagnosticado es ${error}.`
+    },
+    diagnostics: {
+      possibleErrors: [error],
+      criticalErrors: [error]
+    }
+  };
+}
+
+function enrichProtocolMetadata(exercise, target, type) {
+  exercise.direction = directionForType(type);
+  exercise.processing = processingForType(type);
+  exercise.difficulty = protocolDifficulty(type, target);
+  exercise.importance = target.importance || exercise.weight || 0.5;
+  exercise.feedback = exercise.feedback || feedbackForTarget(target, type);
+  exercise.diagnostics = exercise.diagnostics || {
+    possibleErrors: possibleErrorsForTarget(target),
+    criticalErrors: target.kind === 'grammar' ? possibleErrorsForTarget(target).slice(0, 2) : []
+  };
+  exercise.quality = {
+    status: 'approved',
+    requiresUnderstanding: !['dictation'].includes(type),
+    requiresRecall: !['multiple-choice'].includes(type),
+    requiresApplication: ['cloze', 'transform', 'error-correction', 'text-input', 'production-prompt'].includes(type),
+    isTrivialRecognition: false,
+    answerGivenInPrompt: false,
+    hasSpecificFeedback: true,
+    hasPlausibleDistractors: ['multiple-choice', 'listen-choice'].includes(type),
+    suitableForUnlockExam: ['text-input', 'transform', 'error-correction', 'listen-choice', 'production-prompt'].includes(type)
+  };
+  exercise.srs = {
+    scheduleByTarget: true,
+    countsAsEvidenceFor: [`${target.id}:${skillForType(type, target)}`],
+    doesNotCountAsMasteryFor: type === 'multiple-choice' ? [`${target.id}:production`] : []
+  };
+}
+
+function directionForType(type) {
+  if (type === 'listen-choice') return 'audio_to_meaning';
+  if (type === 'dictation') return 'audio_to_ru';
+  if (type === 'multiple-choice') return 'context_to_ru';
+  if (type === 'text-input' || type === 'production-prompt') return 'es_to_ru';
+  if (type === 'error-correction' || type === 'transform' || type === 'cloze') return 'ru_to_ru';
+  return 'mixed';
+}
+
+function processingForType(type) {
+  if (type === 'multiple-choice') return 'recognition';
+  if (type === 'listen-choice') return 'comprehension';
+  if (type === 'error-correction') return 'diagnosis';
+  if (type === 'transform') return 'transformation';
+  if (type === 'text-input' || type === 'production-prompt') return 'production';
+  return 'comprehension';
+}
+
+function protocolDifficulty(type, target) {
+  const base = {
+    'multiple-choice': 2,
+    cloze: 2,
+    dictation: 2,
+    'listen-choice': 3,
+    'text-input': 3,
+    transform: 3,
+    'production-prompt': 4,
+    'error-correction': 4
+  }[type] || 3;
+  return Math.min(5, base + (target.kind === 'grammar' ? 1 : 0));
+}
+
+function feedbackForTarget(target, type) {
+  const errors = possibleErrorsForTarget(target);
+  return {
+    correct: 'Correcto: has usado el target en una tarea con significado.',
+    incorrect: errors.length
+      ? `Revisa el target "${target.text}". Posibles focos: ${errors.join(', ')}.`
+      : `Revisa forma, significado y contexto de "${target.text}".`,
+    byErrorType: Object.fromEntries(errors.map(error => [error, `Este fallo apunta a ${error} en el target "${target.text}".`]))
+  };
+}
+
+function possibleErrorsForTarget(target) {
+  const haystack = normalizeText([target.text, target.explanation, ...(target.tags || [])].join(' '));
+  const errors = [];
+  if (haystack.includes('у меня') || haystack.includes('есть')) errors.push('literal_translation_from_spanish', 'wrong_possession_structure');
+  if (haystack.includes('нет') || haystack.includes('genitivo')) errors.push('wrong_case');
+  if (haystack.includes('играть')) errors.push('wrong_preposition');
+  if (haystack.includes('где') || haystack.includes('куда')) errors.push('location_direction_confusion');
+  if (haystack.includes('вид') || haystack.includes('соверш')) errors.push('wrong_aspect');
+  if (!errors.length && target.kind === 'grammar') errors.push('grammar_transfer_error');
+  if (!errors.length) errors.push('lexical_recall_error');
+  return uniqueStrings(errors);
 }
 
 function transformSeedFor(target) {
@@ -391,7 +679,7 @@ function shuffleStrings(values) {
 function skillForType(type, target) {
   if (type === 'dictation' || type === 'listen-choice') return 'listening';
   if (type === 'multiple-choice') return 'recognition';
-  if (type === 'cloze' || target.kind === 'grammar') return 'grammar_transfer';
+  if (type === 'cloze' || type === 'error-correction' || target.kind === 'grammar') return 'grammar_transfer';
   return 'production';
 }
 

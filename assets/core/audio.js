@@ -3,7 +3,9 @@ import { normalizeText } from './utils.js';
 export function createAudioService(contentStore) {
   let ruVoice = null;
   let outputPrimed = false;
-  let mediaOutputPrimed = false;
+  let audioContext = null;
+  let activeSource = null;
+  const bufferCache = new Map();
   const player = document.createElement('audio');
   player.preload = 'auto';
   player.playsInline = true;
@@ -20,6 +22,7 @@ export function createAudioService(contentStore) {
 
   async function playFile(src) {
     if (!src) return false;
+    if (await playWithAudioContext(src)) return true;
     try {
       player.pause();
       player.removeAttribute('src');
@@ -29,8 +32,6 @@ export function createAudioService(contentStore) {
       player.src = src;
       player.load();
       await waitForAudioReady(player);
-      await primeOutput();
-      await primeMediaOutput(player);
       player.currentTime = 0;
       player.volume = 1;
       await player.play();
@@ -76,41 +77,62 @@ export function createAudioService(contentStore) {
 
   return { speak, hasRecorded, refreshVoices };
 
-  async function primeOutput() {
+  async function playWithAudioContext(src) {
+    try {
+      const context = await getAudioContext();
+      if (!context) return false;
+      const buffer = await loadAudioBuffer(context, src);
+      if (!buffer) return false;
+      await primeOutput(context);
+      try { activeSource?.stop(); } catch {}
+      const source = context.createBufferSource();
+      const gain = context.createGain();
+      source.buffer = buffer;
+      gain.gain.setValueAtTime(1, context.currentTime);
+      source.connect(gain).connect(context.destination);
+      source.onended = () => {
+        if (activeSource === source) activeSource = null;
+      };
+      activeSource = source;
+      source.start(context.currentTime + 0.08);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  async function getAudioContext() {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return null;
+    if (!audioContext || audioContext.state === 'closed') audioContext = new AudioContextClass();
+    if (audioContext.state === 'suspended') await audioContext.resume();
+    return audioContext;
+  }
+
+  async function loadAudioBuffer(context, src) {
+    if (bufferCache.has(src)) return bufferCache.get(src);
+    const response = await fetch(src, { cache: 'force-cache' });
+    if (!response.ok) return null;
+    const data = await response.arrayBuffer();
+    const buffer = await context.decodeAudioData(data.slice(0));
+    bufferCache.set(src, buffer);
+    while (bufferCache.size > 48) bufferCache.delete(bufferCache.keys().next().value);
+    return buffer;
+  }
+
+  async function primeOutput(context) {
     if (outputPrimed) return;
     outputPrimed = true;
     try {
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContextClass) return;
-      const audioContext = new AudioContextClass();
-      if (audioContext.state === 'suspended') await audioContext.resume();
-      const oscillator = audioContext.createOscillator();
-      const gain = audioContext.createGain();
+      if (!context) return;
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
       gain.gain.value = 0.0001;
-      oscillator.connect(gain).connect(audioContext.destination);
+      oscillator.connect(gain).connect(context.destination);
       oscillator.start();
       await new Promise(resolve => window.setTimeout(resolve, 180));
       oscillator.stop();
-      window.setTimeout(() => audioContext.close?.(), 250);
     } catch {}
-  }
-
-  async function primeMediaOutput(audio) {
-    if (mediaOutputPrimed) return;
-    mediaOutputPrimed = true;
-    try {
-      audio.currentTime = 0;
-      audio.volume = 0.002;
-      await audio.play();
-      await new Promise(resolve => window.setTimeout(resolve, 180));
-      audio.pause();
-      audio.currentTime = 0;
-      audio.volume = 1;
-    } catch {
-      audio.volume = 1;
-      try { audio.pause(); } catch {}
-      try { audio.currentTime = 0; } catch {}
-    }
   }
 }
 

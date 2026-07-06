@@ -18,6 +18,7 @@ import { syncFeature } from './features/sync/index.js';
 
 import { clozeExercise } from './exercises/cloze/index.js';
 import { dictationExercise } from './exercises/dictation/index.js';
+import { errorCorrectionExercise } from './exercises/error-correction/index.js';
 import { listenChoiceExercise } from './exercises/listen-choice/index.js';
 import { multipleChoiceExercise } from './exercises/multiple-choice/index.js';
 import { productionPromptExercise } from './exercises/production-prompt/index.js';
@@ -41,6 +42,7 @@ const registry = createRegistry();
   multipleChoiceExercise,
   dictationExercise,
   listenChoiceExercise,
+  errorCorrectionExercise,
   transformExercise,
   productionPromptExercise
 ].forEach(exercise => registry.registerExercise(exercise));

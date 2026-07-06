@@ -157,9 +157,9 @@ function renderFeedback(node, result, exercise, onNext) {
   const title = result.deferred ? 'Lo dejamos para luego' : result.correct ? 'Correcto' : result.option_used === 'no_se' ? 'Registrado como no sabido' : 'Aún no';
   const body = result.deferred
     ? 'Volverá pronto sin contar como fallo completo ni como acierto.'
-    : result.correct
-      ? 'Este objetivo se espaciará más y volverá cuando toque.'
-      : `Respuesta esperada: ${escapeHtml(result.displayExpected || exercise.expected)}`;
+      : result.correct
+        ? 'Este objetivo se espaciará más y volverá cuando toque.'
+        : `${result.feedback ? `${escapeHtml(result.feedback)} ` : ''}Respuesta esperada: ${escapeHtml(result.displayExpected || exercise.expected)}`;
   node.innerHTML = `
     <div class="feedback-box ${result.correct ? 'correct' : result.deferred ? 'neutral' : 'wrong'}">
       <strong>${escapeHtml(title)}</strong>
@@ -274,6 +274,7 @@ function directionForExercise(exercise) {
   if (exercise.type === 'listen-choice' || exercise.type === 'dictation') return 'audio_to_russian';
   if (exercise.type === 'production-prompt' || exercise.type === 'text-input') return 'spanish_or_prompt_to_russian';
   if (exercise.type === 'multiple-choice') return 'recognition';
+  if (exercise.type === 'error-correction') return 'error_diagnosis';
   if (exercise.type === 'cloze' || exercise.type === 'transform') return 'russian_form_manipulation';
   return 'practice';
 }
@@ -347,6 +348,7 @@ function labelForExercise(type) {
     'multiple-choice': 'elección',
     dictation: 'dictado',
     'listen-choice': 'escucha',
+    'error-correction': 'corrección',
     transform: 'transformación',
     'production-prompt': 'producción'
   })[type] || type;
@@ -367,7 +369,8 @@ function guidanceForExercise(exercise) {
     cloze: 'Lee la frase y completa sólo la parte que falta.',
     'multiple-choice': 'No busques la opción por descarte superficial: lee las cuatro y elige la que cumple el objetivo.',
     dictation: 'Escucha primero la frase completa; luego escríbela en ruso.',
-    'listen-choice': 'Escucha antes de mirar demasiado las opciones y elige la frase que oyes.',
+    'listen-choice': 'Escucha antes de mirar demasiado las opciones y elige el significado o la interpretación más precisa.',
+    'error-correction': 'Detecta el error, corrige la frase rusa y comprueba que no traduces literalmente desde el español.',
     transform: 'Cambia la forma, no traduzcas palabra por palabra.',
     'production-prompt': 'Produce una frase breve y natural usando el objetivo.'
   })[exercise.type] || 'Responde antes de mirar la solución.';

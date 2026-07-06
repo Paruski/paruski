@@ -5,7 +5,7 @@ export const productionPromptExercise = {
   modalities: ['text'],
   render(exercise) {
     return makeTextInputExercise(exercise, {
-      display: exercise.sample ? `Modelo: ${exercise.sample}` : '',
+      display: exercise.context || '',
       multiline: true,
       placeholder: 'Escribe una frase rusa...'
     });

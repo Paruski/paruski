@@ -442,8 +442,8 @@ function difficultyForLesson(lesson) {
 }
 
 function fallbackExplanation(target) {
-  if (target.kind === 'grammar') return 'Estructura que conviene reconocer en ejemplos y producir en frases propias.';
-  return 'Palabra o expresion del curso. Escuchala, repitela y usala en una frase corta.';
+  if (target.kind === 'grammar') return 'Patron gramatical que cambia la forma o el significado de una frase rusa.';
+  return 'Unidad lexica del curso para comprender y producir frases rusas breves.';
 }
 
 function stressFromMarked(value) {

@@ -285,13 +285,43 @@ function lessonIsCovered(contentStore, getTargetState, lesson) {
   const targets = lessonTargets(contentStore, lesson);
   if (!targets.length) return true;
   const states = targets.map(target => getTargetState(target.id));
+  const attempts = states.reduce((sum, state) => sum + (state.attempts || 0), 0);
+  const correct = states.reduce((sum, state) => sum + (state.correct || 0), 0);
+  const wrong = states.reduce((sum, state) => sum + (state.wrong || 0), 0);
+  const accuracy = attempts ? correct / attempts : 0;
   const seen = states.filter(state => state.attempts > 0).length;
   const coverage = seen / targets.length;
-  const averageMastery = average(states.map(state => state.mastery || 0));
+  const averageMastery = average(states.map(state => bestSkillMastery(state)));
   const grammarTargets = targets.filter(target => target.kind === 'grammar');
   const seenGrammar = grammarTargets.filter(target => getTargetState(target.id).attempts > 0).length;
   const grammarCoverage = grammarTargets.length ? seenGrammar / grammarTargets.length : 1;
-  return coverage >= 0.82 && grammarCoverage >= 0.8 && averageMastery >= 0.48;
+  const productiveEvidence = states.filter(state =>
+    (state.skills?.production || 0) >= 0.18 ||
+    (state.skills?.grammar_transfer || 0) >= 0.18 ||
+    (state.skills?.listening || 0) >= 0.18
+  ).length;
+  const criticalBlocker = targets.some(target => {
+    const state = getTargetState(target.id);
+    const critical = target.kind === 'grammar' || Number(target.importance || 0) >= 0.72;
+    return critical && (state.lapses || state.wrong || 0) >= 3 && (state.wrong || 0) >= (state.correct || 0);
+  });
+  if (criticalBlocker) return false;
+  const minimumEvidence = Math.min(10, Math.max(4, Math.ceil(targets.length * 0.08)));
+  const fastPass = attempts >= minimumEvidence &&
+    accuracy >= 0.86 &&
+    productiveEvidence >= Math.min(3, Math.max(1, Math.ceil(targets.length * 0.03))) &&
+    averageMastery >= 0.2;
+  const standardPass = coverage >= 0.36 &&
+    grammarCoverage >= 0.5 &&
+    averageMastery >= 0.32 &&
+    accuracy >= 0.72 &&
+    productiveEvidence >= Math.min(5, Math.max(2, Math.ceil(targets.length * 0.05)));
+  return fastPass || standardPass;
+}
+
+function bestSkillMastery(state) {
+  const values = Object.values(state.skills || {}).map(Number).filter(Number.isFinite);
+  return values.length ? Math.max(...values, state.mastery || 0) : state.mastery || 0;
 }
 
 function defaultTargetState(targetId) {
@@ -365,17 +395,19 @@ function exerciseDifficultyRating(exercise) {
     dictation: 85,
     'listen-choice': 110,
     transform: 125,
+    'error-correction': 150,
     'production-prompt': 165,
     'text-input': 150
   }[exercise.type] || 70;
-  const complexity = Number(exercise.difficulty || exercise.complexity || 0);
+  const rawDifficulty = Number(exercise.difficulty || exercise.complexity || 0);
+  const complexity = rawDifficulty > 1 ? (rawDifficulty - 1) / 4 : rawDifficulty;
   return 820 + lesson * 18 + typeBonus + complexity * 160;
 }
 
 function skillForExercise(exercise) {
   if (exercise.type === 'dictation' || exercise.type === 'listen-choice') return 'listening';
   if (exercise.type === 'multiple-choice') return 'recognition';
-  if (exercise.type === 'transform' || exercise.type === 'cloze') return 'grammar_transfer';
+  if (exercise.type === 'transform' || exercise.type === 'cloze' || exercise.type === 'error-correction') return 'grammar_transfer';
   return 'production';
 }
 

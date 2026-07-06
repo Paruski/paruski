@@ -87,9 +87,14 @@ function result(correct, answer, exercise, acceptedBy) {
     answer,
     expected: exercise.expected,
     displayExpected: exercise.display_expected || exercise.expected,
+    feedback: correct ? exercise.feedback?.correct : feedbackForError(exercise, inferErrorType(answer, exercise)),
     accepted_by: acceptedBy,
     error_type: correct ? null : inferErrorType(answer, exercise)
   };
+}
+
+function feedbackForError(exercise, errorType) {
+  return exercise.feedback?.byErrorType?.[errorType] || exercise.feedback?.errorSpecific?.[errorType] || exercise.feedback?.incorrect || '';
 }
 
 function normalizeRussian(value) {
