@@ -181,12 +181,29 @@ def collect_needs(repo_root: Path, db_path: Path, include_examples: bool = True)
     aspect_path = resolve_repo_path(repo_root, sources.get("legacy_aspect_materials", "content/materials-aspect.json"))
     notes_path = resolve_repo_path(repo_root, sources.get("learning_notes", "content/learning-notes.json"))
     exercises_path = resolve_repo_path(repo_root, sources.get("exercises", "content/exercises.json"))
+    vocabulary_path = resolve_repo_path(repo_root, sources.get("vocabulary", "content/vocabulary.json"))
 
     needs: dict[str, AudioNeed] = {}
 
     for card in db.get("cards", []):
       if card.get("language", "ru") == "ru":
         add_need(needs, card.get("text", ""), kind="card", source_ref="paruski-db:cards", priority=100)
+        if include_examples:
+            for example in card.get("examples", []):
+                add_need(needs, example, kind="example", source_ref=f"paruski-db:card:{card.get('id', 'card')}", priority=62)
+
+    vocabulary = read_json(vocabulary_path, [])
+    if include_examples:
+        for item in vocabulary:
+            lesson = int(item.get("lesson") or 0) if str(item.get("lesson") or "").isdigit() else 0
+            add_need(
+                needs,
+                item.get("example", ""),
+                kind="example:vocabulary",
+                source_ref=f"vocabulary:{item.get('id', item.get('russian', 'item'))}",
+                lesson_refs=[lesson] if lesson else [],
+                priority=61,
+            )
 
     for label, path in (("materials", materials_path), ("materials-aspect", aspect_path)):
         data = read_json(path, {"classes": []})

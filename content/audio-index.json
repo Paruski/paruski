@@ -19352,7 +19352,8 @@
         "exercise:auto-note-note-esto-01-cloze",
         "exercise:auto-note-note-esto-01-dict",
         "exercise:auto-note-note-esto-01-listen",
-        "learning-notes:note-esto"
+        "learning-notes:note-esto",
+        "vocabulary:vocab-001-chay"
       ],
       "lesson_refs": [
         1
@@ -19452,6 +19453,32 @@
       "preload": false
     },
     {
+      "id": "ru-audio-ya-hochu-chitat-7110f5aa",
+      "text": "Я хочу читать.",
+      "normalized_text": "я хочу читать",
+      "kind": "mixed",
+      "audio_path": "content/audio/ru/ya-hochu-chitat-7110f5aa.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "exercise:auto-note-note-aspect-infinitive-01-cloze",
+        "exercise:auto-note-note-aspect-infinitive-01-dict",
+        "exercise:auto-note-note-aspect-infinitive-01-listen",
+        "learning-notes:note-aspect-infinitive",
+        "vocabulary:vocab-004-chitat"
+      ],
+      "lesson_refs": [
+        4,
+        77,
+        78,
+        79,
+        80
+      ],
+      "preload": false
+    },
+    {
       "id": "ru-audio-my-igraem-v-shahmaty-dd669d9a",
       "text": "Мы играем в шахматы.",
       "normalized_text": "мы играем в шахматы",
@@ -19488,12 +19515,36 @@
         "exercise:auto-note-note-igrat-v-01-cloze",
         "exercise:auto-note-note-igrat-v-01-dict",
         "exercise:auto-note-note-igrat-v-01-listen",
-        "learning-notes:note-igrat-v"
+        "learning-notes:note-igrat-v",
+        "vocabulary:vocab-019-igrat-v"
       ],
       "lesson_refs": [
         5,
         19,
         31
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-smotryu-film-f7db411e",
+      "text": "Я смотрю фильм.",
+      "normalized_text": "я смотрю фильм",
+      "kind": "mixed",
+      "audio_path": "content/audio/ru/ya-smotryu-film-f7db411e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "exercise:auto-note-note-videt-slyshat-01-cloze",
+        "exercise:auto-note-note-videt-slyshat-01-dict",
+        "exercise:auto-note-note-videt-slyshat-01-listen",
+        "learning-notes:note-videt-slyshat",
+        "vocabulary:vocab-005-film"
+      ],
+      "lesson_refs": [
+        5,
+        29
       ],
       "preload": false
     },
@@ -19604,6 +19655,36 @@
         11,
         12,
         17
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-u-menya-net-vremeni-fc888be7",
+      "text": "У меня нет времени.",
+      "normalized_text": "у меня нет времени",
+      "kind": "mixed",
+      "audio_path": "content/audio/ru/u-menya-net-vremeni-fc888be7.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "exercise:auto-note-note-genitive-01-cloze",
+        "exercise:auto-note-note-genitive-01-dict",
+        "exercise:auto-note-note-genitive-01-listen",
+        "learning-notes:note-genitive",
+        "vocabulary:vocab-011-vremya"
+      ],
+      "lesson_refs": [
+        11,
+        47,
+        48,
+        53,
+        54,
+        55,
+        56,
+        59,
+        60
       ],
       "preload": false
     },
@@ -19857,7 +19938,8 @@
         "exercise:auto-note-note-weather-04-dict",
         "exercise:auto-note-note-weather-04-listen",
         "learning-notes:note-future",
-        "learning-notes:note-weather"
+        "learning-notes:note-weather",
+        "vocabulary:vocab-023-budet-holodno"
       ],
       "lesson_refs": [
         18,
@@ -19945,7 +20027,8 @@
         "exercise:auto-note-note-accusative-03-cloze",
         "exercise:auto-note-note-accusative-03-dict",
         "exercise:auto-note-note-accusative-03-listen",
-        "learning-notes:note-accusative"
+        "learning-notes:note-accusative",
+        "vocabulary:vocab-021-lyubit"
       ],
       "lesson_refs": [
         19,
@@ -19993,7 +20076,8 @@
         "exercise:auto-note-note-accusative-02-cloze",
         "exercise:auto-note-note-accusative-02-dict",
         "exercise:auto-note-note-accusative-02-listen",
-        "learning-notes:note-accusative"
+        "learning-notes:note-accusative",
+        "vocabulary:vocab-020-tebya"
       ],
       "lesson_refs": [
         19,
@@ -20042,7 +20126,8 @@
         "exercise:auto-note-note-future-01-cloze",
         "exercise:auto-note-note-future-01-dict",
         "exercise:auto-note-note-future-01-listen",
-        "learning-notes:note-future"
+        "learning-notes:note-future",
+        "vocabulary:vocab-022-budu"
       ],
       "lesson_refs": [
         22,
@@ -20401,27 +20486,6 @@
       "preload": false
     },
     {
-      "id": "ru-audio-ya-smotryu-film-f7db411e",
-      "text": "Я смотрю фильм.",
-      "normalized_text": "я смотрю фильм",
-      "kind": "mixed",
-      "audio_path": "content/audio/ru/ya-smotryu-film-f7db411e.mp3",
-      "mime": "audio/mpeg",
-      "duration_ms": null,
-      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
-      "source": "generated_static",
-      "source_refs": [
-        "exercise:auto-note-note-videt-slyshat-01-cloze",
-        "exercise:auto-note-note-videt-slyshat-01-dict",
-        "exercise:auto-note-note-videt-slyshat-01-listen",
-        "learning-notes:note-videt-slyshat"
-      ],
-      "lesson_refs": [
-        29
-      ],
-      "preload": false
-    },
-    {
       "id": "ru-audio-ty-vidish-klyuchi-da-oni-na-stole-a-telefon-slyshish-da-no-on-v-f27d3e2d",
       "text": "— Ты видишь ключи?\n— Да, они на столе.\n— А телефон слышишь?\n— Да, но он в другой комнате.",
       "normalized_text": "— ты видишь ключи — да они на столе — а телефон слышишь — да но он в другой комнате",
@@ -20474,7 +20538,8 @@
         "exercise:auto-note-note-igrat-na-01-cloze",
         "exercise:auto-note-note-igrat-na-01-dict",
         "exercise:auto-note-note-igrat-na-01-listen",
-        "learning-notes:note-igrat-na"
+        "learning-notes:note-igrat-na",
+        "vocabulary:vocab-031-igrat-na"
       ],
       "lesson_refs": [
         31
@@ -20537,7 +20602,8 @@
         "exercise:auto-note-note-gde-kuda-05-cloze",
         "exercise:auto-note-note-gde-kuda-05-dict",
         "exercise:auto-note-note-gde-kuda-05-listen",
-        "learning-notes:note-gde-kuda"
+        "learning-notes:note-gde-kuda",
+        "vocabulary:vocab-035-ehat"
       ],
       "lesson_refs": [
         32,
@@ -20609,7 +20675,8 @@
         "exercise:auto-note-note-gde-kuda-03-cloze",
         "exercise:auto-note-note-gde-kuda-03-dict",
         "exercise:auto-note-note-gde-kuda-03-listen",
-        "learning-notes:note-gde-kuda"
+        "learning-notes:note-gde-kuda",
+        "vocabulary:vocab-033-idti"
       ],
       "lesson_refs": [
         32,
@@ -20941,34 +21008,6 @@
         "exercise:auto-note-note-genitive-02-cloze",
         "exercise:auto-note-note-genitive-02-dict",
         "exercise:auto-note-note-genitive-02-listen",
-        "learning-notes:note-genitive"
-      ],
-      "lesson_refs": [
-        47,
-        48,
-        53,
-        54,
-        55,
-        56,
-        59,
-        60
-      ],
-      "preload": false
-    },
-    {
-      "id": "ru-audio-u-menya-net-vremeni-fc888be7",
-      "text": "У меня нет времени.",
-      "normalized_text": "у меня нет времени",
-      "kind": "mixed",
-      "audio_path": "content/audio/ru/u-menya-net-vremeni-fc888be7.mp3",
-      "mime": "audio/mpeg",
-      "duration_ms": null,
-      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
-      "source": "generated_static",
-      "source_refs": [
-        "exercise:auto-note-note-genitive-01-cloze",
-        "exercise:auto-note-note-genitive-01-dict",
-        "exercise:auto-note-note-genitive-01-listen",
         "learning-notes:note-genitive"
       ],
       "lesson_refs": [
@@ -21451,26 +21490,2344 @@
       "preload": false
     },
     {
-      "id": "ru-audio-ya-hochu-chitat-7110f5aa",
-      "text": "Я хочу читать.",
-      "normalized_text": "я хочу читать",
-      "kind": "mixed",
-      "audio_path": "content/audio/ru/ya-hochu-chitat-7110f5aa.mp3",
+      "id": "ru-audio-eto-babushka-5dfb1123",
+      "text": "Это бабушка.",
+      "normalized_text": "это бабушка",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-babushka-5dfb1123.mp3",
       "mime": "audio/mpeg",
       "duration_ms": null,
       "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
       "source": "generated_static",
       "source_refs": [
-        "exercise:auto-note-note-aspect-infinitive-01-cloze",
-        "exercise:auto-note-note-aspect-infinitive-01-dict",
-        "exercise:auto-note-note-aspect-infinitive-01-listen",
-        "learning-notes:note-aspect-infinitive"
+        "vocabulary:vocab-001-babushka"
       ],
       "lesson_refs": [
-        77,
-        78,
-        79,
-        80
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-brat-82267321",
+      "text": "Это брат.",
+      "normalized_text": "это брат",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-brat-82267321.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-brat"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-voda-5c3d9b9d",
+      "text": "Это вода.",
+      "normalized_text": "это вода",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-voda-5c3d9b9d.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-voda"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-devochka-8b73b862",
+      "text": "Это девочка.",
+      "normalized_text": "это девочка",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-devochka-8b73b862.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-devochka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-devushka-ba3f4bf9",
+      "text": "Это девушка.",
+      "normalized_text": "это девушка",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-devushka-ba3f4bf9.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-devushka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-dedushka-6de61a5f",
+      "text": "Это дедушка.",
+      "normalized_text": "это дедушка",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-dedushka-6de61a5f.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-dedushka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-deti-6c8e4cb9",
+      "text": "Это дети.",
+      "normalized_text": "это дети",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-deti-6c8e4cb9.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-deti"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-doch-f7c5e21b",
+      "text": "Это дочь.",
+      "normalized_text": "это дочь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-doch-f7c5e21b.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-doch"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-dyadya-a023907c",
+      "text": "Это дядя.",
+      "normalized_text": "это дядя",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-dyadya-a023907c.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-dyadya"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-zhena-77ea36e6",
+      "text": "Это жена.",
+      "normalized_text": "это жена",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-zhena-77ea36e6.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-zhena"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-zhenschina-d8a49a29",
+      "text": "Это женщина.",
+      "normalized_text": "это женщина",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-zhenschina-d8a49a29.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-zhenschina"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-kot-4ef65fb0",
+      "text": "Это кот.",
+      "normalized_text": "это кот",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-kot-4ef65fb0.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-kot"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-kofe-4d2e9965",
+      "text": "Это кофе.",
+      "normalized_text": "это кофе",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-kofe-4d2e9965.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-kofe"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-koshka-37e666c7",
+      "text": "Это кошка.",
+      "normalized_text": "это кошка",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-koshka-37e666c7.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-koshka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-malchik-fa65a1d1",
+      "text": "Это мальчик.",
+      "normalized_text": "это мальчик",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-malchik-fa65a1d1.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-malchik"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-mama-dc372762",
+      "text": "Это мама.",
+      "normalized_text": "это мама",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-mama-dc372762.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-mama"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-moloko-8620f233",
+      "text": "Это молоко.",
+      "normalized_text": "это молоко",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-moloko-8620f233.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-moloko"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-muzh-abfdca91",
+      "text": "Это муж.",
+      "normalized_text": "это муж",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-muzh-abfdca91.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-muzh"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-muzhchina-aeebf906",
+      "text": "Это мужчина.",
+      "normalized_text": "это мужчина",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-muzhchina-aeebf906.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-muzhchina"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-papa-46b67def",
+      "text": "Это папа.",
+      "normalized_text": "это папа",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-papa-46b67def.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-papa"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-paren-fb3e8bc4",
+      "text": "Это парень.",
+      "normalized_text": "это парень",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-paren-fb3e8bc4.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-paren"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-semya-23f7776b",
+      "text": "Это семья.",
+      "normalized_text": "это семья",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-semya-23f7776b.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-semya"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-sestra-9f0dca15",
+      "text": "Это сестра.",
+      "normalized_text": "это сестра",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-sestra-9f0dca15.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-sestra"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-sobaka-6db25ea6",
+      "text": "Это собака.",
+      "normalized_text": "это собака",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-sobaka-6db25ea6.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-sobaka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-syn-5d0950a0",
+      "text": "Это сын.",
+      "normalized_text": "это сын",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-syn-5d0950a0.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-syn"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-tyotya-23de6c39",
+      "text": "Это тётя.",
+      "normalized_text": "это тётя",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-tyotya-23de6c39.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-tyotya"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-hleb-09cc38a0",
+      "text": "Это хлеб.",
+      "normalized_text": "это хлеб",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-hleb-09cc38a0.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-hleb"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-chelovek-7058ef42",
+      "text": "Это человек.",
+      "normalized_text": "это человек",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-chelovek-7058ef42.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-001-chelovek"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-apteka-tam-a7c43d4d",
+      "text": "Аптека там.",
+      "normalized_text": "аптека там",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/apteka-tam-a7c43d4d.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-apteka"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-kafe-zdes-128e7b86",
+      "text": "Кафе здесь.",
+      "normalized_text": "кафе здесь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/kafe-zdes-128e7b86.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-kafe"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-bank-9bbde44c",
+      "text": "Это банк.",
+      "normalized_text": "это банк",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-bank-9bbde44c.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-bank"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-bashnya-fef41d1c",
+      "text": "Это башня.",
+      "normalized_text": "это башня",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-bashnya-fef41d1c.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-bashnya"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-gorod-88822e8f",
+      "text": "Это город.",
+      "normalized_text": "это город",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-gorod-88822e8f.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-gorod"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-dom-cd3e4070",
+      "text": "Это дом.",
+      "normalized_text": "это дом",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-dom-cd3e4070.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-dom"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-zdes-ce61d7c0",
+      "text": "Это здесь.",
+      "normalized_text": "это здесь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-zdes-ce61d7c0.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-zdes"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-magazin-b464c711",
+      "text": "Это магазин.",
+      "normalized_text": "это магазин",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-magazin-b464c711.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-magazin"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-metro-59f3b5a1",
+      "text": "Это метро.",
+      "normalized_text": "это метро",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-metro-59f3b5a1.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-metro"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-muzey-166cbd8e",
+      "text": "Это музей.",
+      "normalized_text": "это музей",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-muzey-166cbd8e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-muzey"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-ostanovka-c20afc99",
+      "text": "Это остановка.",
+      "normalized_text": "это остановка",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-ostanovka-c20afc99.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-ostanovka"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-park-3c5e6361",
+      "text": "Это парк.",
+      "normalized_text": "это парк",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-park-3c5e6361.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-park"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-ploschad-b30f9e01",
+      "text": "Это площадь.",
+      "normalized_text": "это площадь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-ploschad-b30f9e01.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-ploschad"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-pochta-c4d58787",
+      "text": "Это почта.",
+      "normalized_text": "это почта",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-pochta-c4d58787.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-pochta"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-prospekt-b286ae8c",
+      "text": "Это проспект.",
+      "normalized_text": "это проспект",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-prospekt-b286ae8c.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-prospekt"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-rynok-1a72e069",
+      "text": "Это рынок.",
+      "normalized_text": "это рынок",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-rynok-1a72e069.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-rynok"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-stantsiya-6ebb4465",
+      "text": "Это станция.",
+      "normalized_text": "это станция",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-stantsiya-6ebb4465.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-stantsiya"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-tam-c2f94504",
+      "text": "Это там.",
+      "normalized_text": "это там",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-tam-c2f94504.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-tam"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-ulitsa-505760c8",
+      "text": "Это улица.",
+      "normalized_text": "это улица",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-ulitsa-505760c8.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-ulitsa"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-universitet-7f39dae0",
+      "text": "Это университет.",
+      "normalized_text": "это университет",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-universitet-7f39dae0.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-universitet"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-tsentr-096a6c89",
+      "text": "Это центр.",
+      "normalized_text": "это центр",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-tsentr-096a6c89.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-tsentr"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-tserkov-d20b458b",
+      "text": "Это церковь.",
+      "normalized_text": "это церковь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-tserkov-d20b458b.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-tserkov"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-shkola-8cf1cf0f",
+      "text": "Это школа.",
+      "normalized_text": "это школа",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-shkola-8cf1cf0f.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-002-shkola"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-on-student-a7046a54",
+      "text": "Он студент.",
+      "normalized_text": "он студент",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/on-student-a7046a54.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-student"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-aktrisa-a5b94909",
+      "text": "Это актриса.",
+      "normalized_text": "это актриса",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-aktrisa-a5b94909.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-aktrisa"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-aktyor-c7f14000",
+      "text": "Это актёр.",
+      "normalized_text": "это актёр",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-aktyor-c7f14000.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-aktyor"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-artist-f483e306",
+      "text": "Это артист.",
+      "normalized_text": "это артист",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-artist-f483e306.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-artist"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-vrach-203543a7",
+      "text": "Это врач.",
+      "normalized_text": "это врач",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-vrach-203543a7.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-vrach"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-vy-7743df09",
+      "text": "Это вы.",
+      "normalized_text": "это вы",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-vy-7743df09.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-vy"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-zhurnalist-5575a21b",
+      "text": "Это журналист.",
+      "normalized_text": "это журналист",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-zhurnalist-5575a21b.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-zhurnalist"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-inzhener-9850a326",
+      "text": "Это инженер.",
+      "normalized_text": "это инженер",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-inzhener-9850a326.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-inzhener"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-kollega-8138d9e2",
+      "text": "Это коллега.",
+      "normalized_text": "это коллега",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-kollega-8138d9e2.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-kollega"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-menedzher-15251839",
+      "text": "Это менеджер.",
+      "normalized_text": "это менеджер",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-menedzher-15251839.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-menedzher"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-my-0fce2278",
+      "text": "Это мы.",
+      "normalized_text": "это мы",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-my-0fce2278.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-my"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-on-afcffbac",
+      "text": "Это он.",
+      "normalized_text": "это он",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-on-afcffbac.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-on"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-ona-4cef6884",
+      "text": "Это она.",
+      "normalized_text": "это она",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-ona-4cef6884.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-ona"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-oni-f27c48c3",
+      "text": "Это они.",
+      "normalized_text": "это они",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-oni-f27c48c3.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-oni"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-pisatel-37eea049",
+      "text": "Это писатель.",
+      "normalized_text": "это писатель",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-pisatel-37eea049.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-pisatel"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-politseyskiy-458e08af",
+      "text": "Это полицейский.",
+      "normalized_text": "это полицейский",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-politseyskiy-458e08af.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-politseyskiy"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-prepodavatel-f4244d3b",
+      "text": "Это преподаватель.",
+      "normalized_text": "это преподаватель",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-prepodavatel-f4244d3b.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-prepodavatel"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-professiya-cf4ef9ac",
+      "text": "Это профессия.",
+      "normalized_text": "это профессия",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-professiya-cf4ef9ac.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-professiya"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-rabota-7b710aeb",
+      "text": "Это работа.",
+      "normalized_text": "это работа",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-rabota-7b710aeb.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-rabota"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-studentka-eb14e5f4",
+      "text": "Это студентка.",
+      "normalized_text": "это студентка",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-studentka-eb14e5f4.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-studentka"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-ty-3b1c81c3",
+      "text": "Это ты.",
+      "normalized_text": "это ты",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-ty-3b1c81c3.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-ty"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-uchitel-c302d1a8",
+      "text": "Это учитель.",
+      "normalized_text": "это учитель",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-uchitel-c302d1a8.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-uchitel"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-ya-6ecaeb3e",
+      "text": "Это я.",
+      "normalized_text": "это я",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-ya-6ecaeb3e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-003-ya"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-pomogayu-35239c60",
+      "text": "Я помогаю.",
+      "normalized_text": "я помогаю",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-pomogayu-35239c60.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-pomogat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-gulyat-d0a9bf4e",
+      "text": "Я хочу гулять.",
+      "normalized_text": "я хочу гулять",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-gulyat-d0a9bf4e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-gulyat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-delat-103987f9",
+      "text": "Я хочу делать.",
+      "normalized_text": "я хочу делать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-delat-103987f9.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-delat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-dumat-56dc7c55",
+      "text": "Я хочу думать.",
+      "normalized_text": "я хочу думать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-dumat-56dc7c55.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-dumat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-zavtrakat-c5044407",
+      "text": "Я хочу завтракать.",
+      "normalized_text": "я хочу завтракать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-zavtrakat-c5044407.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-zavtrakat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-zakryvat-5a1d5d43",
+      "text": "Я хочу закрывать.",
+      "normalized_text": "я хочу закрывать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-zakryvat-5a1d5d43.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-zakryvat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-znat-a3a5c679",
+      "text": "Я хочу знать.",
+      "normalized_text": "я хочу знать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-znat-a3a5c679.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-znat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-igrat-3bb5ed9a",
+      "text": "Я хочу играть.",
+      "normalized_text": "я хочу играть",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-igrat-3bb5ed9a.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-igrat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-iskat-26a49498",
+      "text": "Я хочу искать.",
+      "normalized_text": "я хочу искать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-iskat-26a49498.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-iskat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-obedat-63353258",
+      "text": "Я хочу обедать.",
+      "normalized_text": "я хочу обедать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-obedat-63353258.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-obedat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-otdyhat-92dd0ce8",
+      "text": "Я хочу отдыхать.",
+      "normalized_text": "я хочу отдыхать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-otdyhat-92dd0ce8.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-otdyhat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-otkryvat-a5f79b56",
+      "text": "Я хочу открывать.",
+      "normalized_text": "я хочу открывать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-otkryvat-a5f79b56.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-otkryvat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-pisat-d702ad64",
+      "text": "Я хочу писать.",
+      "normalized_text": "я хочу писать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-pisat-d702ad64.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-pisat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-rabotat-2fccb2c8",
+      "text": "Я хочу работать.",
+      "normalized_text": "я хочу работать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-rabotat-2fccb2c8.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-rabotat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-uzhinat-487edecc",
+      "text": "Я хочу ужинать.",
+      "normalized_text": "я хочу ужинать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-uzhinat-487edecc.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-004-uzhinat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-u-menya-urok-21884fae",
+      "text": "У меня урок.",
+      "normalized_text": "у меня урок",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/u-menya-urok-21884fae.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-005-urok"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-izuchat-0a0fdfb3",
+      "text": "Я хочу изучать.",
+      "normalized_text": "я хочу изучать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-izuchat-0a0fdfb3.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-005-izuchat"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-pokupat-79eb1eba",
+      "text": "Я хочу покупать.",
+      "normalized_text": "я хочу покупать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-pokupat-79eb1eba.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-005-pokupat"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-slushat-f3b28249",
+      "text": "Я хочу слушать.",
+      "normalized_text": "я хочу слушать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-slushat-f3b28249.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-005-slushat"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-govorit-e0e68e74",
+      "text": "Я хочу говорить.",
+      "normalized_text": "я хочу говорить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-govorit-e0e68e74.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-006-govorit"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-kurit-bea6224e",
+      "text": "Я хочу курить.",
+      "normalized_text": "я хочу курить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-kurit-bea6224e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-006-kurit"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-smotret-b0e9e596",
+      "text": "Я хочу смотреть.",
+      "normalized_text": "я хочу смотреть",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-smotret-b0e9e596.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-006-smotret"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-stroit-cbc6330d",
+      "text": "Я хочу строить.",
+      "normalized_text": "я хочу строить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-stroit-cbc6330d.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-006-stroit"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-ponimat-fa00bc13",
+      "text": "Я хочу понимать.",
+      "normalized_text": "я хочу понимать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-ponimat-fa00bc13.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-007-ponimat"
+      ],
+      "lesson_refs": [
+        7
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-zvat-32cf9cf6",
+      "text": "Я хочу звать.",
+      "normalized_text": "я хочу звать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-zvat-32cf9cf6.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-008-zvat"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-otvechat-1ca6c3ad",
+      "text": "Я хочу отвечать.",
+      "normalized_text": "я хочу отвечать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-otvechat-1ca6c3ad.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-008-otvechat"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-pomnit-94b314cb",
+      "text": "Я хочу помнить.",
+      "normalized_text": "я хочу помнить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-pomnit-94b314cb.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-008-pomnit"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-sprashivat-26421a6e",
+      "text": "Я хочу спрашивать.",
+      "normalized_text": "я хочу спрашивать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-sprashivat-26421a6e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-008-sprashivat"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-v-komnate-est-krovat-6c8c461a",
+      "text": "В комнате есть кровать.",
+      "normalized_text": "в комнате есть кровать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/v-komnate-est-krovat-6c8c461a.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-009-krovat"
+      ],
+      "lesson_refs": [
+        9
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-eto-vazhnaya-novost-3e407d6f",
+      "text": "Это важная новость.",
+      "normalized_text": "это важная новость",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/eto-vazhnaya-novost-3e407d6f.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-009-novost"
+      ],
+      "lesson_refs": [
+        9
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ona-chitaet-knigu-c8116ac9",
+      "text": "Она читает книгу.",
+      "normalized_text": "она читает книгу",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ona-chitaet-knigu-c8116ac9.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-019-knigu"
+      ],
+      "lesson_refs": [
+        19
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ty-menya-slushaesh-6c973b5e",
+      "text": "Ты меня слушаешь?",
+      "normalized_text": "ты меня слушаешь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ty-menya-slushaesh-6c973b5e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-020-menya"
+      ],
+      "lesson_refs": [
+        20
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-gotovit-a0ea7666",
+      "text": "Я хочу готовить.",
+      "normalized_text": "я хочу готовить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-gotovit-a0ea7666.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-021-gotovit"
+      ],
+      "lesson_refs": [
+        21
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-tantsevat-e2a69c02",
+      "text": "Я хочу танцевать.",
+      "normalized_text": "я хочу танцевать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-tantsevat-e2a69c02.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-021-tantsevat"
+      ],
+      "lesson_refs": [
+        21
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-na-zavtrak-chay-48863066",
+      "text": "На завтрак чай.",
+      "normalized_text": "на завтрак чай",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/na-zavtrak-chay-48863066.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-026-zavtrak"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-gde-ty-kuda-ty-idyosh-2f0638f2",
+      "text": "Где ты? Куда ты идёшь?",
+      "normalized_text": "где ты куда ты идёшь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/gde-ty-kuda-ty-idyosh-2f0638f2.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-032-gde-kuda"
+      ],
+      "lesson_refs": [
+        32
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-doma-ya-idu-domoy-265d8f84",
+      "text": "Я дома. Я иду домой.",
+      "normalized_text": "я дома я иду домой",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-doma-ya-idu-domoy-265d8f84.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-032-doma-domoy"
+      ],
+      "lesson_refs": [
+        32
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hozhu-peshkom-6f845e50",
+      "text": "Я хожу пешком.",
+      "normalized_text": "я хожу пешком",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hozhu-peshkom-6f845e50.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-033-hodit",
+        "vocabulary:vocab-036-peshkom"
+      ],
+      "lesson_refs": [
+        33,
+        36
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ona-ezdit-na-rabotu-07f2bf24",
+      "text": "Она ездит на работу.",
+      "normalized_text": "она ездит на работу",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ona-ezdit-na-rabotu-07f2bf24.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-035-ezdit"
+      ],
+      "lesson_refs": [
+        35
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-pet-da5bf77a",
+      "text": "Я хочу петь.",
+      "normalized_text": "я хочу петь",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-pet-da5bf77a.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-037-pet"
+      ],
+      "lesson_refs": [
+        37
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-plavat-9875672a",
+      "text": "Я хочу плавать.",
+      "normalized_text": "я хочу плавать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-plavat-9875672a.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-037-plavat"
+      ],
+      "lesson_refs": [
+        37
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-opozdat-51acb167",
+      "text": "Я хочу опоздать.",
+      "normalized_text": "я хочу опоздать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-opozdat-51acb167.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-038-opozdat"
+      ],
+      "lesson_refs": [
+        38
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-nachat-31ca1265",
+      "text": "Я хочу начать.",
+      "normalized_text": "я хочу начать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-nachat-31ca1265.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-061-nachat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-nachinat-310e19d6",
+      "text": "Я хочу начинать.",
+      "normalized_text": "я хочу начинать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-nachinat-310e19d6.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-061-nachinat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-reshat-7b01e411",
+      "text": "Я хочу решать.",
+      "normalized_text": "я хочу решать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-reshat-7b01e411.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-061-reshat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-reshit-f5ae6760",
+      "text": "Я хочу решить.",
+      "normalized_text": "я хочу решить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-reshit-f5ae6760.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-061-reshit"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-sdelat-b9a9726b",
+      "text": "Я хочу сделать.",
+      "normalized_text": "я хочу сделать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-sdelat-b9a9726b.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-061-sdelat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-brat-41a88d5c",
+      "text": "Я хочу брать.",
+      "normalized_text": "я хочу брать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-brat-41a88d5c.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-063-brat"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-vzyat-b767cd52",
+      "text": "Я хочу взять.",
+      "normalized_text": "я хочу взять",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-vzyat-b767cd52.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-063-vzyat"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-prihodit-37d44f71",
+      "text": "Я хочу приходить.",
+      "normalized_text": "я хочу приходить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-prihodit-37d44f71.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-063-prihodit"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-uhodit-79e30738",
+      "text": "Я хочу уходить.",
+      "normalized_text": "я хочу уходить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-uhodit-79e30738.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-063-uhodit"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-pomogu-fce90c97",
+      "text": "Я помогу.",
+      "normalized_text": "я помогу",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-pomogu-fce90c97.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-072-pomogu"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-povtorit-b52e5f8e",
+      "text": "Я хочу повторить.",
+      "normalized_text": "я хочу повторить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-povtorit-b52e5f8e.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-076-povtorit"
+      ],
+      "lesson_refs": [
+        76
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-vyuchit-f231a191",
+      "text": "Я хочу выучить.",
+      "normalized_text": "я хочу выучить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-vyuchit-f231a191.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-077-vyuchit"
+      ],
+      "lesson_refs": [
+        77
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-obyasnit-96e43669",
+      "text": "Я хочу объяснить.",
+      "normalized_text": "я хочу объяснить",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-obyasnit-96e43669.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-077-obyasnit"
+      ],
+      "lesson_refs": [
+        77
+      ],
+      "preload": false
+    },
+    {
+      "id": "ru-audio-ya-hochu-poprobovat-1224fc92",
+      "text": "Я хочу попробовать.",
+      "normalized_text": "я хочу попробовать",
+      "kind": "example:vocabulary",
+      "audio_path": "content/audio/ru/ya-hochu-poprobovat-1224fc92.mp3",
+      "mime": "audio/mpeg",
+      "duration_ms": null,
+      "voice": "xtts-v2-anastasiia-librivox-cpml-noncommercial",
+      "source": "generated_static",
+      "source_refs": [
+        "vocabulary:vocab-077-poprobovat"
+      ],
+      "lesson_refs": [
+        77
       ],
       "preload": false
     },

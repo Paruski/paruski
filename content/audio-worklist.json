@@ -4,7 +4,7 @@
   "language": "ru",
   "audio_dir": "content/audio/ru",
   "preferred_ext": ".mp3",
-  "total": 1123,
+  "total": 1253,
   "items": [
     {
       "id": "ru-audio-dom-8e35c313",
@@ -16256,7 +16256,8 @@
         "exercise:auto-note-note-esto-01-cloze",
         "exercise:auto-note-note-esto-01-dict",
         "exercise:auto-note-note-esto-01-listen",
-        "learning-notes:note-esto"
+        "learning-notes:note-esto",
+        "vocabulary:vocab-001-chay"
       ],
       "lesson_refs": [
         1
@@ -16344,6 +16345,29 @@
       "priority": 66
     },
     {
+      "id": "ru-audio-ya-hochu-chitat-7110f5aa",
+      "language": "ru",
+      "kind": "mixed",
+      "text": "Я хочу читать.",
+      "normalized_text": "я хочу читать",
+      "suggested_path": "content/audio/ru/ya-hochu-chitat-7110f5aa.mp3",
+      "source_refs": [
+        "exercise:auto-note-note-aspect-infinitive-01-cloze",
+        "exercise:auto-note-note-aspect-infinitive-01-dict",
+        "exercise:auto-note-note-aspect-infinitive-01-listen",
+        "learning-notes:note-aspect-infinitive",
+        "vocabulary:vocab-004-chitat"
+      ],
+      "lesson_refs": [
+        4,
+        77,
+        78,
+        79,
+        80
+      ],
+      "priority": 66
+    },
+    {
       "id": "ru-audio-my-igraem-v-shahmaty-dd669d9a",
       "language": "ru",
       "kind": "mixed",
@@ -16374,12 +16398,33 @@
         "exercise:auto-note-note-igrat-v-01-cloze",
         "exercise:auto-note-note-igrat-v-01-dict",
         "exercise:auto-note-note-igrat-v-01-listen",
-        "learning-notes:note-igrat-v"
+        "learning-notes:note-igrat-v",
+        "vocabulary:vocab-019-igrat-v"
       ],
       "lesson_refs": [
         5,
         19,
         31
+      ],
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-ya-smotryu-film-f7db411e",
+      "language": "ru",
+      "kind": "mixed",
+      "text": "Я смотрю фильм.",
+      "normalized_text": "я смотрю фильм",
+      "suggested_path": "content/audio/ru/ya-smotryu-film-f7db411e.mp3",
+      "source_refs": [
+        "exercise:auto-note-note-videt-slyshat-01-cloze",
+        "exercise:auto-note-note-videt-slyshat-01-dict",
+        "exercise:auto-note-note-videt-slyshat-01-listen",
+        "learning-notes:note-videt-slyshat",
+        "vocabulary:vocab-005-film"
+      ],
+      "lesson_refs": [
+        5,
+        29
       ],
       "priority": 66
     },
@@ -16475,6 +16520,33 @@
         11,
         12,
         17
+      ],
+      "priority": 66
+    },
+    {
+      "id": "ru-audio-u-menya-net-vremeni-fc888be7",
+      "language": "ru",
+      "kind": "mixed",
+      "text": "У меня нет времени.",
+      "normalized_text": "у меня нет времени",
+      "suggested_path": "content/audio/ru/u-menya-net-vremeni-fc888be7.mp3",
+      "source_refs": [
+        "exercise:auto-note-note-genitive-01-cloze",
+        "exercise:auto-note-note-genitive-01-dict",
+        "exercise:auto-note-note-genitive-01-listen",
+        "learning-notes:note-genitive",
+        "vocabulary:vocab-011-vremya"
+      ],
+      "lesson_refs": [
+        11,
+        47,
+        48,
+        53,
+        54,
+        55,
+        56,
+        59,
+        60
       ],
       "priority": 66
     },
@@ -16695,7 +16767,8 @@
         "exercise:auto-note-note-weather-04-dict",
         "exercise:auto-note-note-weather-04-listen",
         "learning-notes:note-future",
-        "learning-notes:note-weather"
+        "learning-notes:note-weather",
+        "vocabulary:vocab-023-budet-holodno"
       ],
       "lesson_refs": [
         18,
@@ -16771,7 +16844,8 @@
         "exercise:auto-note-note-accusative-03-cloze",
         "exercise:auto-note-note-accusative-03-dict",
         "exercise:auto-note-note-accusative-03-listen",
-        "learning-notes:note-accusative"
+        "learning-notes:note-accusative",
+        "vocabulary:vocab-021-lyubit"
       ],
       "lesson_refs": [
         19,
@@ -16813,7 +16887,8 @@
         "exercise:auto-note-note-accusative-02-cloze",
         "exercise:auto-note-note-accusative-02-dict",
         "exercise:auto-note-note-accusative-02-listen",
-        "learning-notes:note-accusative"
+        "learning-notes:note-accusative",
+        "vocabulary:vocab-020-tebya"
       ],
       "lesson_refs": [
         19,
@@ -16856,7 +16931,8 @@
         "exercise:auto-note-note-future-01-cloze",
         "exercise:auto-note-note-future-01-dict",
         "exercise:auto-note-note-future-01-listen",
-        "learning-notes:note-future"
+        "learning-notes:note-future",
+        "vocabulary:vocab-022-budu"
       ],
       "lesson_refs": [
         22,
@@ -17170,24 +17246,6 @@
       "priority": 66
     },
     {
-      "id": "ru-audio-ya-smotryu-film-f7db411e",
-      "language": "ru",
-      "kind": "mixed",
-      "text": "Я смотрю фильм.",
-      "normalized_text": "я смотрю фильм",
-      "suggested_path": "content/audio/ru/ya-smotryu-film-f7db411e.mp3",
-      "source_refs": [
-        "exercise:auto-note-note-videt-slyshat-01-cloze",
-        "exercise:auto-note-note-videt-slyshat-01-dict",
-        "exercise:auto-note-note-videt-slyshat-01-listen",
-        "learning-notes:note-videt-slyshat"
-      ],
-      "lesson_refs": [
-        29
-      ],
-      "priority": 66
-    },
-    {
       "id": "ru-audio-ty-vidish-klyuchi-da-oni-na-stole-a-telefon-slyshish-da-no-on-v-f27d3e2d",
       "language": "ru",
       "kind": "exercise:listen-choice",
@@ -17231,7 +17289,8 @@
         "exercise:auto-note-note-igrat-na-01-cloze",
         "exercise:auto-note-note-igrat-na-01-dict",
         "exercise:auto-note-note-igrat-na-01-listen",
-        "learning-notes:note-igrat-na"
+        "learning-notes:note-igrat-na",
+        "vocabulary:vocab-031-igrat-na"
       ],
       "lesson_refs": [
         31
@@ -17285,7 +17344,8 @@
         "exercise:auto-note-note-gde-kuda-05-cloze",
         "exercise:auto-note-note-gde-kuda-05-dict",
         "exercise:auto-note-note-gde-kuda-05-listen",
-        "learning-notes:note-gde-kuda"
+        "learning-notes:note-gde-kuda",
+        "vocabulary:vocab-035-ehat"
       ],
       "lesson_refs": [
         32,
@@ -17348,7 +17408,8 @@
         "exercise:auto-note-note-gde-kuda-03-cloze",
         "exercise:auto-note-note-gde-kuda-03-dict",
         "exercise:auto-note-note-gde-kuda-03-listen",
-        "learning-notes:note-gde-kuda"
+        "learning-notes:note-gde-kuda",
+        "vocabulary:vocab-033-idti"
       ],
       "lesson_refs": [
         32,
@@ -17638,31 +17699,6 @@
         "exercise:auto-note-note-genitive-02-cloze",
         "exercise:auto-note-note-genitive-02-dict",
         "exercise:auto-note-note-genitive-02-listen",
-        "learning-notes:note-genitive"
-      ],
-      "lesson_refs": [
-        47,
-        48,
-        53,
-        54,
-        55,
-        56,
-        59,
-        60
-      ],
-      "priority": 66
-    },
-    {
-      "id": "ru-audio-u-menya-net-vremeni-fc888be7",
-      "language": "ru",
-      "kind": "mixed",
-      "text": "У меня нет времени.",
-      "normalized_text": "у меня нет времени",
-      "suggested_path": "content/audio/ru/u-menya-net-vremeni-fc888be7.mp3",
-      "source_refs": [
-        "exercise:auto-note-note-genitive-01-cloze",
-        "exercise:auto-note-note-genitive-01-dict",
-        "exercise:auto-note-note-genitive-01-listen",
         "learning-notes:note-genitive"
       ],
       "lesson_refs": [
@@ -18088,25 +18124,1956 @@
       "priority": 66
     },
     {
-      "id": "ru-audio-ya-hochu-chitat-7110f5aa",
+      "id": "ru-audio-eto-babushka-5dfb1123",
       "language": "ru",
-      "kind": "mixed",
-      "text": "Я хочу читать.",
-      "normalized_text": "я хочу читать",
-      "suggested_path": "content/audio/ru/ya-hochu-chitat-7110f5aa.mp3",
+      "kind": "example:vocabulary",
+      "text": "Это бабушка.",
+      "normalized_text": "это бабушка",
+      "suggested_path": "content/audio/ru/eto-babushka-5dfb1123.mp3",
       "source_refs": [
-        "exercise:auto-note-note-aspect-infinitive-01-cloze",
-        "exercise:auto-note-note-aspect-infinitive-01-dict",
-        "exercise:auto-note-note-aspect-infinitive-01-listen",
-        "learning-notes:note-aspect-infinitive"
+        "vocabulary:vocab-001-babushka"
       ],
       "lesson_refs": [
-        77,
-        78,
-        79,
-        80
+        1
       ],
-      "priority": 66
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-brat-82267321",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это брат.",
+      "normalized_text": "это брат",
+      "suggested_path": "content/audio/ru/eto-brat-82267321.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-brat"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-voda-5c3d9b9d",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это вода.",
+      "normalized_text": "это вода",
+      "suggested_path": "content/audio/ru/eto-voda-5c3d9b9d.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-voda"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-devochka-8b73b862",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это девочка.",
+      "normalized_text": "это девочка",
+      "suggested_path": "content/audio/ru/eto-devochka-8b73b862.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-devochka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-devushka-ba3f4bf9",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это девушка.",
+      "normalized_text": "это девушка",
+      "suggested_path": "content/audio/ru/eto-devushka-ba3f4bf9.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-devushka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-dedushka-6de61a5f",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это дедушка.",
+      "normalized_text": "это дедушка",
+      "suggested_path": "content/audio/ru/eto-dedushka-6de61a5f.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-dedushka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-deti-6c8e4cb9",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это дети.",
+      "normalized_text": "это дети",
+      "suggested_path": "content/audio/ru/eto-deti-6c8e4cb9.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-deti"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-doch-f7c5e21b",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это дочь.",
+      "normalized_text": "это дочь",
+      "suggested_path": "content/audio/ru/eto-doch-f7c5e21b.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-doch"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-dyadya-a023907c",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это дядя.",
+      "normalized_text": "это дядя",
+      "suggested_path": "content/audio/ru/eto-dyadya-a023907c.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-dyadya"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-zhena-77ea36e6",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это жена.",
+      "normalized_text": "это жена",
+      "suggested_path": "content/audio/ru/eto-zhena-77ea36e6.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-zhena"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-zhenschina-d8a49a29",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это женщина.",
+      "normalized_text": "это женщина",
+      "suggested_path": "content/audio/ru/eto-zhenschina-d8a49a29.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-zhenschina"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-kot-4ef65fb0",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это кот.",
+      "normalized_text": "это кот",
+      "suggested_path": "content/audio/ru/eto-kot-4ef65fb0.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-kot"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-kofe-4d2e9965",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это кофе.",
+      "normalized_text": "это кофе",
+      "suggested_path": "content/audio/ru/eto-kofe-4d2e9965.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-kofe"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-koshka-37e666c7",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это кошка.",
+      "normalized_text": "это кошка",
+      "suggested_path": "content/audio/ru/eto-koshka-37e666c7.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-koshka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-malchik-fa65a1d1",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это мальчик.",
+      "normalized_text": "это мальчик",
+      "suggested_path": "content/audio/ru/eto-malchik-fa65a1d1.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-malchik"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-mama-dc372762",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это мама.",
+      "normalized_text": "это мама",
+      "suggested_path": "content/audio/ru/eto-mama-dc372762.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-mama"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-moloko-8620f233",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это молоко.",
+      "normalized_text": "это молоко",
+      "suggested_path": "content/audio/ru/eto-moloko-8620f233.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-moloko"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-muzh-abfdca91",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это муж.",
+      "normalized_text": "это муж",
+      "suggested_path": "content/audio/ru/eto-muzh-abfdca91.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-muzh"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-muzhchina-aeebf906",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это мужчина.",
+      "normalized_text": "это мужчина",
+      "suggested_path": "content/audio/ru/eto-muzhchina-aeebf906.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-muzhchina"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-papa-46b67def",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это папа.",
+      "normalized_text": "это папа",
+      "suggested_path": "content/audio/ru/eto-papa-46b67def.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-papa"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-paren-fb3e8bc4",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это парень.",
+      "normalized_text": "это парень",
+      "suggested_path": "content/audio/ru/eto-paren-fb3e8bc4.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-paren"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-semya-23f7776b",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это семья.",
+      "normalized_text": "это семья",
+      "suggested_path": "content/audio/ru/eto-semya-23f7776b.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-semya"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-sestra-9f0dca15",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это сестра.",
+      "normalized_text": "это сестра",
+      "suggested_path": "content/audio/ru/eto-sestra-9f0dca15.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-sestra"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-sobaka-6db25ea6",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это собака.",
+      "normalized_text": "это собака",
+      "suggested_path": "content/audio/ru/eto-sobaka-6db25ea6.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-sobaka"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-syn-5d0950a0",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это сын.",
+      "normalized_text": "это сын",
+      "suggested_path": "content/audio/ru/eto-syn-5d0950a0.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-syn"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-tyotya-23de6c39",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это тётя.",
+      "normalized_text": "это тётя",
+      "suggested_path": "content/audio/ru/eto-tyotya-23de6c39.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-tyotya"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-hleb-09cc38a0",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это хлеб.",
+      "normalized_text": "это хлеб",
+      "suggested_path": "content/audio/ru/eto-hleb-09cc38a0.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-hleb"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-chelovek-7058ef42",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это человек.",
+      "normalized_text": "это человек",
+      "suggested_path": "content/audio/ru/eto-chelovek-7058ef42.mp3",
+      "source_refs": [
+        "vocabulary:vocab-001-chelovek"
+      ],
+      "lesson_refs": [
+        1
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-apteka-tam-a7c43d4d",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Аптека там.",
+      "normalized_text": "аптека там",
+      "suggested_path": "content/audio/ru/apteka-tam-a7c43d4d.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-apteka"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-kafe-zdes-128e7b86",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Кафе здесь.",
+      "normalized_text": "кафе здесь",
+      "suggested_path": "content/audio/ru/kafe-zdes-128e7b86.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-kafe"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-bank-9bbde44c",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это банк.",
+      "normalized_text": "это банк",
+      "suggested_path": "content/audio/ru/eto-bank-9bbde44c.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-bank"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-bashnya-fef41d1c",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это башня.",
+      "normalized_text": "это башня",
+      "suggested_path": "content/audio/ru/eto-bashnya-fef41d1c.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-bashnya"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-gorod-88822e8f",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это город.",
+      "normalized_text": "это город",
+      "suggested_path": "content/audio/ru/eto-gorod-88822e8f.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-gorod"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-dom-cd3e4070",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это дом.",
+      "normalized_text": "это дом",
+      "suggested_path": "content/audio/ru/eto-dom-cd3e4070.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-dom"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-zdes-ce61d7c0",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это здесь.",
+      "normalized_text": "это здесь",
+      "suggested_path": "content/audio/ru/eto-zdes-ce61d7c0.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-zdes"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-magazin-b464c711",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это магазин.",
+      "normalized_text": "это магазин",
+      "suggested_path": "content/audio/ru/eto-magazin-b464c711.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-magazin"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-metro-59f3b5a1",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это метро.",
+      "normalized_text": "это метро",
+      "suggested_path": "content/audio/ru/eto-metro-59f3b5a1.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-metro"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-muzey-166cbd8e",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это музей.",
+      "normalized_text": "это музей",
+      "suggested_path": "content/audio/ru/eto-muzey-166cbd8e.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-muzey"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-ostanovka-c20afc99",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это остановка.",
+      "normalized_text": "это остановка",
+      "suggested_path": "content/audio/ru/eto-ostanovka-c20afc99.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-ostanovka"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-park-3c5e6361",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это парк.",
+      "normalized_text": "это парк",
+      "suggested_path": "content/audio/ru/eto-park-3c5e6361.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-park"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-ploschad-b30f9e01",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это площадь.",
+      "normalized_text": "это площадь",
+      "suggested_path": "content/audio/ru/eto-ploschad-b30f9e01.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-ploschad"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-pochta-c4d58787",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это почта.",
+      "normalized_text": "это почта",
+      "suggested_path": "content/audio/ru/eto-pochta-c4d58787.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-pochta"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-prospekt-b286ae8c",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это проспект.",
+      "normalized_text": "это проспект",
+      "suggested_path": "content/audio/ru/eto-prospekt-b286ae8c.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-prospekt"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-rynok-1a72e069",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это рынок.",
+      "normalized_text": "это рынок",
+      "suggested_path": "content/audio/ru/eto-rynok-1a72e069.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-rynok"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-stantsiya-6ebb4465",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это станция.",
+      "normalized_text": "это станция",
+      "suggested_path": "content/audio/ru/eto-stantsiya-6ebb4465.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-stantsiya"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-tam-c2f94504",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это там.",
+      "normalized_text": "это там",
+      "suggested_path": "content/audio/ru/eto-tam-c2f94504.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-tam"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-ulitsa-505760c8",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это улица.",
+      "normalized_text": "это улица",
+      "suggested_path": "content/audio/ru/eto-ulitsa-505760c8.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-ulitsa"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-universitet-7f39dae0",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это университет.",
+      "normalized_text": "это университет",
+      "suggested_path": "content/audio/ru/eto-universitet-7f39dae0.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-universitet"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-tsentr-096a6c89",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это центр.",
+      "normalized_text": "это центр",
+      "suggested_path": "content/audio/ru/eto-tsentr-096a6c89.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-tsentr"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-tserkov-d20b458b",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это церковь.",
+      "normalized_text": "это церковь",
+      "suggested_path": "content/audio/ru/eto-tserkov-d20b458b.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-tserkov"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-shkola-8cf1cf0f",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это школа.",
+      "normalized_text": "это школа",
+      "suggested_path": "content/audio/ru/eto-shkola-8cf1cf0f.mp3",
+      "source_refs": [
+        "vocabulary:vocab-002-shkola"
+      ],
+      "lesson_refs": [
+        2
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-on-student-a7046a54",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Он студент.",
+      "normalized_text": "он студент",
+      "suggested_path": "content/audio/ru/on-student-a7046a54.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-student"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-aktrisa-a5b94909",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это актриса.",
+      "normalized_text": "это актриса",
+      "suggested_path": "content/audio/ru/eto-aktrisa-a5b94909.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-aktrisa"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-aktyor-c7f14000",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это актёр.",
+      "normalized_text": "это актёр",
+      "suggested_path": "content/audio/ru/eto-aktyor-c7f14000.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-aktyor"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-artist-f483e306",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это артист.",
+      "normalized_text": "это артист",
+      "suggested_path": "content/audio/ru/eto-artist-f483e306.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-artist"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-vrach-203543a7",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это врач.",
+      "normalized_text": "это врач",
+      "suggested_path": "content/audio/ru/eto-vrach-203543a7.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-vrach"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-vy-7743df09",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это вы.",
+      "normalized_text": "это вы",
+      "suggested_path": "content/audio/ru/eto-vy-7743df09.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-vy"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-zhurnalist-5575a21b",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это журналист.",
+      "normalized_text": "это журналист",
+      "suggested_path": "content/audio/ru/eto-zhurnalist-5575a21b.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-zhurnalist"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-inzhener-9850a326",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это инженер.",
+      "normalized_text": "это инженер",
+      "suggested_path": "content/audio/ru/eto-inzhener-9850a326.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-inzhener"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-kollega-8138d9e2",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это коллега.",
+      "normalized_text": "это коллега",
+      "suggested_path": "content/audio/ru/eto-kollega-8138d9e2.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-kollega"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-menedzher-15251839",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это менеджер.",
+      "normalized_text": "это менеджер",
+      "suggested_path": "content/audio/ru/eto-menedzher-15251839.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-menedzher"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-my-0fce2278",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это мы.",
+      "normalized_text": "это мы",
+      "suggested_path": "content/audio/ru/eto-my-0fce2278.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-my"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-on-afcffbac",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это он.",
+      "normalized_text": "это он",
+      "suggested_path": "content/audio/ru/eto-on-afcffbac.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-on"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-ona-4cef6884",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это она.",
+      "normalized_text": "это она",
+      "suggested_path": "content/audio/ru/eto-ona-4cef6884.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-ona"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-oni-f27c48c3",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это они.",
+      "normalized_text": "это они",
+      "suggested_path": "content/audio/ru/eto-oni-f27c48c3.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-oni"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-pisatel-37eea049",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это писатель.",
+      "normalized_text": "это писатель",
+      "suggested_path": "content/audio/ru/eto-pisatel-37eea049.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-pisatel"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-politseyskiy-458e08af",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это полицейский.",
+      "normalized_text": "это полицейский",
+      "suggested_path": "content/audio/ru/eto-politseyskiy-458e08af.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-politseyskiy"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-prepodavatel-f4244d3b",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это преподаватель.",
+      "normalized_text": "это преподаватель",
+      "suggested_path": "content/audio/ru/eto-prepodavatel-f4244d3b.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-prepodavatel"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-professiya-cf4ef9ac",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это профессия.",
+      "normalized_text": "это профессия",
+      "suggested_path": "content/audio/ru/eto-professiya-cf4ef9ac.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-professiya"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-rabota-7b710aeb",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это работа.",
+      "normalized_text": "это работа",
+      "suggested_path": "content/audio/ru/eto-rabota-7b710aeb.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-rabota"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-studentka-eb14e5f4",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это студентка.",
+      "normalized_text": "это студентка",
+      "suggested_path": "content/audio/ru/eto-studentka-eb14e5f4.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-studentka"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-ty-3b1c81c3",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это ты.",
+      "normalized_text": "это ты",
+      "suggested_path": "content/audio/ru/eto-ty-3b1c81c3.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-ty"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-uchitel-c302d1a8",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это учитель.",
+      "normalized_text": "это учитель",
+      "suggested_path": "content/audio/ru/eto-uchitel-c302d1a8.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-uchitel"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-ya-6ecaeb3e",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это я.",
+      "normalized_text": "это я",
+      "suggested_path": "content/audio/ru/eto-ya-6ecaeb3e.mp3",
+      "source_refs": [
+        "vocabulary:vocab-003-ya"
+      ],
+      "lesson_refs": [
+        3
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-pomogayu-35239c60",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я помогаю.",
+      "normalized_text": "я помогаю",
+      "suggested_path": "content/audio/ru/ya-pomogayu-35239c60.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-pomogat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-gulyat-d0a9bf4e",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу гулять.",
+      "normalized_text": "я хочу гулять",
+      "suggested_path": "content/audio/ru/ya-hochu-gulyat-d0a9bf4e.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-gulyat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-delat-103987f9",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу делать.",
+      "normalized_text": "я хочу делать",
+      "suggested_path": "content/audio/ru/ya-hochu-delat-103987f9.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-delat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-dumat-56dc7c55",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу думать.",
+      "normalized_text": "я хочу думать",
+      "suggested_path": "content/audio/ru/ya-hochu-dumat-56dc7c55.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-dumat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-zavtrakat-c5044407",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу завтракать.",
+      "normalized_text": "я хочу завтракать",
+      "suggested_path": "content/audio/ru/ya-hochu-zavtrakat-c5044407.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-zavtrakat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-zakryvat-5a1d5d43",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу закрывать.",
+      "normalized_text": "я хочу закрывать",
+      "suggested_path": "content/audio/ru/ya-hochu-zakryvat-5a1d5d43.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-zakryvat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-znat-a3a5c679",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу знать.",
+      "normalized_text": "я хочу знать",
+      "suggested_path": "content/audio/ru/ya-hochu-znat-a3a5c679.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-znat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-igrat-3bb5ed9a",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу играть.",
+      "normalized_text": "я хочу играть",
+      "suggested_path": "content/audio/ru/ya-hochu-igrat-3bb5ed9a.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-igrat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-iskat-26a49498",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу искать.",
+      "normalized_text": "я хочу искать",
+      "suggested_path": "content/audio/ru/ya-hochu-iskat-26a49498.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-iskat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-obedat-63353258",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу обедать.",
+      "normalized_text": "я хочу обедать",
+      "suggested_path": "content/audio/ru/ya-hochu-obedat-63353258.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-obedat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-otdyhat-92dd0ce8",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу отдыхать.",
+      "normalized_text": "я хочу отдыхать",
+      "suggested_path": "content/audio/ru/ya-hochu-otdyhat-92dd0ce8.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-otdyhat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-otkryvat-a5f79b56",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу открывать.",
+      "normalized_text": "я хочу открывать",
+      "suggested_path": "content/audio/ru/ya-hochu-otkryvat-a5f79b56.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-otkryvat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-pisat-d702ad64",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу писать.",
+      "normalized_text": "я хочу писать",
+      "suggested_path": "content/audio/ru/ya-hochu-pisat-d702ad64.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-pisat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-rabotat-2fccb2c8",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу работать.",
+      "normalized_text": "я хочу работать",
+      "suggested_path": "content/audio/ru/ya-hochu-rabotat-2fccb2c8.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-rabotat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-uzhinat-487edecc",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу ужинать.",
+      "normalized_text": "я хочу ужинать",
+      "suggested_path": "content/audio/ru/ya-hochu-uzhinat-487edecc.mp3",
+      "source_refs": [
+        "vocabulary:vocab-004-uzhinat"
+      ],
+      "lesson_refs": [
+        4
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-u-menya-urok-21884fae",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "У меня урок.",
+      "normalized_text": "у меня урок",
+      "suggested_path": "content/audio/ru/u-menya-urok-21884fae.mp3",
+      "source_refs": [
+        "vocabulary:vocab-005-urok"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-izuchat-0a0fdfb3",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу изучать.",
+      "normalized_text": "я хочу изучать",
+      "suggested_path": "content/audio/ru/ya-hochu-izuchat-0a0fdfb3.mp3",
+      "source_refs": [
+        "vocabulary:vocab-005-izuchat"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-pokupat-79eb1eba",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу покупать.",
+      "normalized_text": "я хочу покупать",
+      "suggested_path": "content/audio/ru/ya-hochu-pokupat-79eb1eba.mp3",
+      "source_refs": [
+        "vocabulary:vocab-005-pokupat"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-slushat-f3b28249",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу слушать.",
+      "normalized_text": "я хочу слушать",
+      "suggested_path": "content/audio/ru/ya-hochu-slushat-f3b28249.mp3",
+      "source_refs": [
+        "vocabulary:vocab-005-slushat"
+      ],
+      "lesson_refs": [
+        5
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-govorit-e0e68e74",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу говорить.",
+      "normalized_text": "я хочу говорить",
+      "suggested_path": "content/audio/ru/ya-hochu-govorit-e0e68e74.mp3",
+      "source_refs": [
+        "vocabulary:vocab-006-govorit"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-kurit-bea6224e",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу курить.",
+      "normalized_text": "я хочу курить",
+      "suggested_path": "content/audio/ru/ya-hochu-kurit-bea6224e.mp3",
+      "source_refs": [
+        "vocabulary:vocab-006-kurit"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-smotret-b0e9e596",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу смотреть.",
+      "normalized_text": "я хочу смотреть",
+      "suggested_path": "content/audio/ru/ya-hochu-smotret-b0e9e596.mp3",
+      "source_refs": [
+        "vocabulary:vocab-006-smotret"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-stroit-cbc6330d",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу строить.",
+      "normalized_text": "я хочу строить",
+      "suggested_path": "content/audio/ru/ya-hochu-stroit-cbc6330d.mp3",
+      "source_refs": [
+        "vocabulary:vocab-006-stroit"
+      ],
+      "lesson_refs": [
+        6
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-ponimat-fa00bc13",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу понимать.",
+      "normalized_text": "я хочу понимать",
+      "suggested_path": "content/audio/ru/ya-hochu-ponimat-fa00bc13.mp3",
+      "source_refs": [
+        "vocabulary:vocab-007-ponimat"
+      ],
+      "lesson_refs": [
+        7
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-zvat-32cf9cf6",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу звать.",
+      "normalized_text": "я хочу звать",
+      "suggested_path": "content/audio/ru/ya-hochu-zvat-32cf9cf6.mp3",
+      "source_refs": [
+        "vocabulary:vocab-008-zvat"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-otvechat-1ca6c3ad",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу отвечать.",
+      "normalized_text": "я хочу отвечать",
+      "suggested_path": "content/audio/ru/ya-hochu-otvechat-1ca6c3ad.mp3",
+      "source_refs": [
+        "vocabulary:vocab-008-otvechat"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-pomnit-94b314cb",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу помнить.",
+      "normalized_text": "я хочу помнить",
+      "suggested_path": "content/audio/ru/ya-hochu-pomnit-94b314cb.mp3",
+      "source_refs": [
+        "vocabulary:vocab-008-pomnit"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-sprashivat-26421a6e",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу спрашивать.",
+      "normalized_text": "я хочу спрашивать",
+      "suggested_path": "content/audio/ru/ya-hochu-sprashivat-26421a6e.mp3",
+      "source_refs": [
+        "vocabulary:vocab-008-sprashivat"
+      ],
+      "lesson_refs": [
+        8
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-v-komnate-est-krovat-6c8c461a",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "В комнате есть кровать.",
+      "normalized_text": "в комнате есть кровать",
+      "suggested_path": "content/audio/ru/v-komnate-est-krovat-6c8c461a.mp3",
+      "source_refs": [
+        "vocabulary:vocab-009-krovat"
+      ],
+      "lesson_refs": [
+        9
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-eto-vazhnaya-novost-3e407d6f",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Это важная новость.",
+      "normalized_text": "это важная новость",
+      "suggested_path": "content/audio/ru/eto-vazhnaya-novost-3e407d6f.mp3",
+      "source_refs": [
+        "vocabulary:vocab-009-novost"
+      ],
+      "lesson_refs": [
+        9
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ona-chitaet-knigu-c8116ac9",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Она читает книгу.",
+      "normalized_text": "она читает книгу",
+      "suggested_path": "content/audio/ru/ona-chitaet-knigu-c8116ac9.mp3",
+      "source_refs": [
+        "vocabulary:vocab-019-knigu"
+      ],
+      "lesson_refs": [
+        19
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ty-menya-slushaesh-6c973b5e",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Ты меня слушаешь?",
+      "normalized_text": "ты меня слушаешь",
+      "suggested_path": "content/audio/ru/ty-menya-slushaesh-6c973b5e.mp3",
+      "source_refs": [
+        "vocabulary:vocab-020-menya"
+      ],
+      "lesson_refs": [
+        20
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-gotovit-a0ea7666",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу готовить.",
+      "normalized_text": "я хочу готовить",
+      "suggested_path": "content/audio/ru/ya-hochu-gotovit-a0ea7666.mp3",
+      "source_refs": [
+        "vocabulary:vocab-021-gotovit"
+      ],
+      "lesson_refs": [
+        21
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-tantsevat-e2a69c02",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу танцевать.",
+      "normalized_text": "я хочу танцевать",
+      "suggested_path": "content/audio/ru/ya-hochu-tantsevat-e2a69c02.mp3",
+      "source_refs": [
+        "vocabulary:vocab-021-tantsevat"
+      ],
+      "lesson_refs": [
+        21
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-na-zavtrak-chay-48863066",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "На завтрак чай.",
+      "normalized_text": "на завтрак чай",
+      "suggested_path": "content/audio/ru/na-zavtrak-chay-48863066.mp3",
+      "source_refs": [
+        "vocabulary:vocab-026-zavtrak"
+      ],
+      "lesson_refs": [
+        26
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-gde-ty-kuda-ty-idyosh-2f0638f2",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Где ты? Куда ты идёшь?",
+      "normalized_text": "где ты куда ты идёшь",
+      "suggested_path": "content/audio/ru/gde-ty-kuda-ty-idyosh-2f0638f2.mp3",
+      "source_refs": [
+        "vocabulary:vocab-032-gde-kuda"
+      ],
+      "lesson_refs": [
+        32
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-doma-ya-idu-domoy-265d8f84",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я дома. Я иду домой.",
+      "normalized_text": "я дома я иду домой",
+      "suggested_path": "content/audio/ru/ya-doma-ya-idu-domoy-265d8f84.mp3",
+      "source_refs": [
+        "vocabulary:vocab-032-doma-domoy"
+      ],
+      "lesson_refs": [
+        32
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hozhu-peshkom-6f845e50",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хожу пешком.",
+      "normalized_text": "я хожу пешком",
+      "suggested_path": "content/audio/ru/ya-hozhu-peshkom-6f845e50.mp3",
+      "source_refs": [
+        "vocabulary:vocab-033-hodit",
+        "vocabulary:vocab-036-peshkom"
+      ],
+      "lesson_refs": [
+        33,
+        36
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ona-ezdit-na-rabotu-07f2bf24",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Она ездит на работу.",
+      "normalized_text": "она ездит на работу",
+      "suggested_path": "content/audio/ru/ona-ezdit-na-rabotu-07f2bf24.mp3",
+      "source_refs": [
+        "vocabulary:vocab-035-ezdit"
+      ],
+      "lesson_refs": [
+        35
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-pet-da5bf77a",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу петь.",
+      "normalized_text": "я хочу петь",
+      "suggested_path": "content/audio/ru/ya-hochu-pet-da5bf77a.mp3",
+      "source_refs": [
+        "vocabulary:vocab-037-pet"
+      ],
+      "lesson_refs": [
+        37
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-plavat-9875672a",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу плавать.",
+      "normalized_text": "я хочу плавать",
+      "suggested_path": "content/audio/ru/ya-hochu-plavat-9875672a.mp3",
+      "source_refs": [
+        "vocabulary:vocab-037-plavat"
+      ],
+      "lesson_refs": [
+        37
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-opozdat-51acb167",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу опоздать.",
+      "normalized_text": "я хочу опоздать",
+      "suggested_path": "content/audio/ru/ya-hochu-opozdat-51acb167.mp3",
+      "source_refs": [
+        "vocabulary:vocab-038-opozdat"
+      ],
+      "lesson_refs": [
+        38
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-nachat-31ca1265",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу начать.",
+      "normalized_text": "я хочу начать",
+      "suggested_path": "content/audio/ru/ya-hochu-nachat-31ca1265.mp3",
+      "source_refs": [
+        "vocabulary:vocab-061-nachat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-nachinat-310e19d6",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу начинать.",
+      "normalized_text": "я хочу начинать",
+      "suggested_path": "content/audio/ru/ya-hochu-nachinat-310e19d6.mp3",
+      "source_refs": [
+        "vocabulary:vocab-061-nachinat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-reshat-7b01e411",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу решать.",
+      "normalized_text": "я хочу решать",
+      "suggested_path": "content/audio/ru/ya-hochu-reshat-7b01e411.mp3",
+      "source_refs": [
+        "vocabulary:vocab-061-reshat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-reshit-f5ae6760",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу решить.",
+      "normalized_text": "я хочу решить",
+      "suggested_path": "content/audio/ru/ya-hochu-reshit-f5ae6760.mp3",
+      "source_refs": [
+        "vocabulary:vocab-061-reshit"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-sdelat-b9a9726b",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу сделать.",
+      "normalized_text": "я хочу сделать",
+      "suggested_path": "content/audio/ru/ya-hochu-sdelat-b9a9726b.mp3",
+      "source_refs": [
+        "vocabulary:vocab-061-sdelat"
+      ],
+      "lesson_refs": [
+        61
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-brat-41a88d5c",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу брать.",
+      "normalized_text": "я хочу брать",
+      "suggested_path": "content/audio/ru/ya-hochu-brat-41a88d5c.mp3",
+      "source_refs": [
+        "vocabulary:vocab-063-brat"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-vzyat-b767cd52",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу взять.",
+      "normalized_text": "я хочу взять",
+      "suggested_path": "content/audio/ru/ya-hochu-vzyat-b767cd52.mp3",
+      "source_refs": [
+        "vocabulary:vocab-063-vzyat"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-prihodit-37d44f71",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу приходить.",
+      "normalized_text": "я хочу приходить",
+      "suggested_path": "content/audio/ru/ya-hochu-prihodit-37d44f71.mp3",
+      "source_refs": [
+        "vocabulary:vocab-063-prihodit"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-uhodit-79e30738",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу уходить.",
+      "normalized_text": "я хочу уходить",
+      "suggested_path": "content/audio/ru/ya-hochu-uhodit-79e30738.mp3",
+      "source_refs": [
+        "vocabulary:vocab-063-uhodit"
+      ],
+      "lesson_refs": [
+        63
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-pomogu-fce90c97",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я помогу.",
+      "normalized_text": "я помогу",
+      "suggested_path": "content/audio/ru/ya-pomogu-fce90c97.mp3",
+      "source_refs": [
+        "vocabulary:vocab-072-pomogu"
+      ],
+      "lesson_refs": [
+        72
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-povtorit-b52e5f8e",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу повторить.",
+      "normalized_text": "я хочу повторить",
+      "suggested_path": "content/audio/ru/ya-hochu-povtorit-b52e5f8e.mp3",
+      "source_refs": [
+        "vocabulary:vocab-076-povtorit"
+      ],
+      "lesson_refs": [
+        76
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-vyuchit-f231a191",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу выучить.",
+      "normalized_text": "я хочу выучить",
+      "suggested_path": "content/audio/ru/ya-hochu-vyuchit-f231a191.mp3",
+      "source_refs": [
+        "vocabulary:vocab-077-vyuchit"
+      ],
+      "lesson_refs": [
+        77
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-obyasnit-96e43669",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу объяснить.",
+      "normalized_text": "я хочу объяснить",
+      "suggested_path": "content/audio/ru/ya-hochu-obyasnit-96e43669.mp3",
+      "source_refs": [
+        "vocabulary:vocab-077-obyasnit"
+      ],
+      "lesson_refs": [
+        77
+      ],
+      "priority": 61
+    },
+    {
+      "id": "ru-audio-ya-hochu-poprobovat-1224fc92",
+      "language": "ru",
+      "kind": "example:vocabulary",
+      "text": "Я хочу попробовать.",
+      "normalized_text": "я хочу попробовать",
+      "suggested_path": "content/audio/ru/ya-hochu-poprobovat-1224fc92.mp3",
+      "source_refs": [
+        "vocabulary:vocab-077-poprobovat"
+      ],
+      "lesson_refs": [
+        77
+      ],
+      "priority": 61
     },
     {
       "id": "ru-audio-ona-chitaet-statyu-7edb12fc",

@@ -188,7 +188,7 @@ def main() -> int:
     parser.add_argument("--loudness", default="-19")
     parser.add_argument("--true-peak", default="-2")
     parser.add_argument("--lra", default="9")
-    parser.add_argument("--start-silence-ms", type=int, default=60)
+    parser.add_argument("--start-silence-ms", type=int, default=180)
     parser.add_argument("--end-silence-ms", type=int, default=350)
     parser.add_argument("--force", action="store_true", help="Regenerate existing files")
     parser.add_argument("--dry-run", action="store_true")
