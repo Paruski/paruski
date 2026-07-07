@@ -5,6 +5,38 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     const summary = learnerModel.summary();
     const calibration = learnerModel.calibration?.() || { rating: 900, uncertainty: 350, attempts: 0 };
     const targetCount = Math.max(6, Math.min(options.targetCount || summary.dailyTarget || 10, 16));
+    if (summary.examLesson && !options.forcePractice) {
+      return {
+        session_id: `session-exam-ready-${summary.examLesson}-${dayKey(new Date())}-${Date.now().toString(36)}`,
+        created_at: new Date().toISOString(),
+        estimated_minutes: 0,
+        tasks: [],
+        rationale: {
+          exam_ready: true,
+          exam_lesson: summary.examLesson,
+          reason: 'practice_evidence_sufficient'
+        }
+      };
+    }
+    const staticTasks = buildStaticPracticeTasks({ targetCount, calibration, summary });
+    if (staticTasks.length >= Math.min(targetCount, 6)) {
+      return {
+        session_id: `session-${dayKey(new Date())}-${Date.now().toString(36)}`,
+        created_at: new Date().toISOString(),
+        estimated_minutes: options.minutes || summary.sessionMinutes || 10,
+        tasks: staticTasks,
+        rationale: {
+          due: learnerModel.dueTargets().length,
+          weak: learnerModel.weakTargets().length,
+          unlocked: summary.unlockedCount,
+          study_lesson_max: learnerModel.studyLessonMax?.() || summary.lessonMax,
+          calibration,
+          source: 'audited_static_exercises',
+          anti_repetition: true
+        }
+      };
+    }
+
     const candidates = adaptiveOrder(interleaveTargets(rankTargets()), calibration).slice(0, targetCount);
     const tasks = [];
     const sessionState = {
@@ -19,7 +51,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     candidates.forEach((entry, index) => {
       const target = entry.target;
       const state = learnerModel.getTargetState(target.id);
-      if (!state.attempts || state.mastery < 0.35 || entry.reason === 'error') {
+      if (options.includeExplanations && (!state.attempts || state.mastery < 0.35 || entry.reason === 'error')) {
         tasks.push(makeExplainTask(target, entry.reason));
       }
       const type = chooseExerciseType(target, state, index, targetCount, calibration, sessionState);
@@ -42,6 +74,116 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     };
   }
 
+  function buildExamSession(lesson, options = {}, summary = learnerModel.summary()) {
+    const examCount = Math.max(20, Math.min(options.examCount || 20, 20));
+    const exercises = orderExamExercises(contentStore.state.exercises
+      .filter(exercise => Number(exercise.lesson) === Number(lesson))
+      .filter(exercise => exercise.unlock_exam)
+      .filter(exercise => isUsableStaticExercise(exercise)))
+      .slice(0, examCount)
+      .map(exercise => ({
+        ...exercise,
+        exam: true,
+        unlock_exam: true
+      }));
+    return {
+      session_id: `exam-${lesson}-${dayKey(new Date())}-${Date.now().toString(36)}`,
+      mode: 'exam',
+      exam_lesson: Number(lesson),
+      created_at: new Date().toISOString(),
+      estimated_minutes: options.minutes || Math.max(10, summary.sessionMinutes || 10),
+      tasks: exercises.map(exercise => ({
+        id: `task-exam-${exercise.id}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`,
+        kind: 'exercise',
+        exercise
+      })),
+      rationale: {
+        exam_lesson: Number(lesson),
+        required_correct: Math.ceil(examCount * 0.9),
+        reason: 'level_unlock_exam'
+      }
+    };
+  }
+
+  function buildStaticPracticeTasks({ targetCount, calibration, summary }) {
+    const candidates = staticPracticeCandidates({ calibration, summary });
+    const selected = selectDiverseExercises(candidates, targetCount, {
+      maxPerType: 3,
+      maxPerTemplate: 1,
+      maxPerTarget: 1,
+      preferDifficult: true
+    });
+    return selected.map(exercise => ({
+      id: `task-${exercise.id}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`,
+      kind: 'exercise',
+      exercise: attachExerciseContext(exercise)
+    }));
+  }
+
+  function staticPracticeCandidates({ calibration, summary }) {
+    const studyMax = Number(learnerModel.studyLessonMax?.() || summary.lessonMax || 1);
+    const seenExercises = learnerModel.seenTodayExerciseIds?.() || new Set();
+    const seenTargets = learnerModel.seenTodayTargetIds?.() || new Set();
+    const now = new Date();
+    const exercises = contentStore.state.exercises
+      .filter(exercise => Number(exercise.lesson || 0) <= studyMax)
+      .filter(exercise => !exercise.unlock_exam && !exercise.exam)
+      .filter(exercise => !seenExercises.has(exercise.id))
+      .filter(exercise => isUsableStaticExercise(exercise));
+    const authored = exercises.filter(isAuthoredExercise);
+    const singleIntent = authored.filter(exercise => exercise.design === 'single_intent');
+    return singleIntent.map((exercise, index) => ({
+      ...exercise,
+      _practiceScore: practiceExerciseScore(exercise, { calibration, seenTargets, studyMax, now, index })
+    })).sort((left, right) =>
+      right._practiceScore - left._practiceScore ||
+      String(left.id).localeCompare(String(right.id))
+    );
+  }
+
+  function targetCountFloor(summary) {
+    return Math.max(12, Math.min(32, Number(summary.dailyTarget || 10) * 2));
+  }
+
+  function practiceExerciseScore(exercise, { calibration, seenTargets, studyMax, now, index }) {
+    const targetIds = exercise.target_ids || [];
+    const states = targetIds.map(targetId => learnerModel.getTargetState(targetId));
+    const hasUnseen = states.some(state => !state.attempts);
+    const hasWeak = states.some(state => state.attempts && (state.mastery || 0) < 0.58);
+    const hasDue = states.some(state => !state.next_due_at || new Date(state.next_due_at) <= now);
+    const seenTodayPenalty = targetIds.some(targetId => seenTargets.has(targetId)) ? 42 : 0;
+    const frontierBonus = Number(exercise.lesson || 0) === Number(studyMax) ? 34 : 0;
+    const difficulty = Number(exercise.difficulty || 0);
+    const quality = Number(exercise.quality?.score || 0);
+    const productiveBonus = ['text-input', 'error-correction', 'transform'].includes(exercise.type) ? 28 : 0;
+    const comprehensionBonus = ['listen-choice', 'dictation'].includes(exercise.type) ? 20 : 0;
+    const inferenceBonus = exercise.challenge || exercise.quality?.requiresInference ? 30 : 0;
+    const transferBonus = exercise.quality?.requiresTransfer ? 25 : 0;
+    const generalizationBonus = exercise.quality?.requiresGeneralization ? 20 : 0;
+    const contrastiveBonus = exercise.quality?.contrastive ? 15 : 0;
+    const notImmediateBonus = exercise.quality?.notImmediatelyAfterExplanation ? 18 : 0;
+    const authoredBonus = exercise.curated || exercise.quality?.authoredAsWhole || String(exercise.source || '').includes('authored') ? 70 : 0;
+    const singleIntentBonus = exercise.design === 'single_intent' ? 90 : 0;
+    const noveltyBonus = hasUnseen ? 32 : 0;
+    const weakBonus = hasWeak ? 38 : 0;
+    const dueBonus = hasDue ? 26 : 0;
+    const calibrating = Number(calibration?.attempts || 0) < 18 || Number(calibration?.uncertainty || 0) > 150;
+    const challengeBonus = calibrating ? difficulty * 15 : difficulty * 10;
+    const dailyNoise = hashNoise(`${dayKey(new Date())}:${exercise.id}`) * 8;
+    return singleIntentBonus + authoredBonus + frontierBonus + challengeBonus + inferenceBonus + transferBonus + generalizationBonus + contrastiveBonus + notImmediateBonus + quality + productiveBonus + comprehensionBonus +
+      noveltyBonus + weakBonus + dueBonus + dailyNoise - seenTodayPenalty - index * 0.001;
+  }
+
+  function attachExerciseContext(exercise) {
+    const target = contentStore.getTarget(exercise.target_ids?.[0]);
+    return {
+      ...exercise,
+      target,
+      card: target ? contentStore.getCard(target) : null,
+      examples: target ? contentStore.getExamplesForTarget(target) : []
+    };
+  }
+
   function previewPlan(days = 14) {
     const targets = learnerModel.studyTargets?.() || learnerModel.unlockedTargets();
     const grouped = {};
@@ -59,7 +201,15 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
 
   function rankTargets() {
     const today = new Date();
-    return (learnerModel.studyTargets?.() || learnerModel.unlockedTargets())
+    const seenToday = learnerModel.seenTodayTargetIds?.() || new Set();
+    const allTargets = (learnerModel.studyTargets?.() || learnerModel.unlockedTargets());
+    const freshTargets = allTargets.filter(target => {
+      const state = learnerModel.getTargetState(target.id);
+      if (!seenToday.has(target.id)) return true;
+      return (state.wrong || 0) > (state.correct || 0);
+    });
+    const sourceTargets = freshTargets.length ? freshTargets : allTargets.filter(target => !seenToday.has(target.id));
+    return (sourceTargets.length ? sourceTargets : allTargets)
       .map((target, index) => {
         const state = learnerModel.getTargetState(target.id);
         const dueAt = state.next_due_at ? new Date(state.next_due_at) : null;
@@ -120,15 +270,14 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       hasErrorCorrection && needsGrammar ? 'error-correction' : '',
       hasTransform && needsGrammar ? 'transform' : '',
       target.kind === 'vocabulary' && needsProduction ? 'text-input' : '',
-      target.kind === 'vocabulary' || state.attempts ? 'production-prompt' : '',
       state.attempts >= 2 && hasAudio ? 'dictation' : '',
       canUseContextChoice(target) ? 'multiple-choice' : ''
     ].filter(Boolean);
     const plan = calibrating
-      ? ['cloze', 'listen-choice', 'text-input', 'error-correction', 'production-prompt', 'transform', 'multiple-choice']
-      : ['text-input', 'listen-choice', 'error-correction', 'cloze', 'production-prompt', 'transform', 'multiple-choice'];
+      ? ['cloze', 'listen-choice', 'text-input', 'error-correction', 'transform', 'multiple-choice']
+      : ['text-input', 'listen-choice', 'error-correction', 'cloze', 'transform', 'multiple-choice'];
     if (sessionState.productiveCount < Math.floor((index + 2) / 3)) {
-      const productive = ['text-input', 'error-correction', 'transform', 'production-prompt'].find(type => available.includes(type));
+      const productive = ['text-input', 'error-correction', 'transform'].find(type => available.includes(type));
       if (productive) return diversifyExerciseType(productive, { target, exactExample, hasAudio, needsListening, sessionState, available });
     }
     if (!sessionState.comprehensionCount && index >= Math.min(2, targetCount - 1)) {
@@ -145,6 +294,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     const exercises = contentStore.state.exercises
       .filter(exercise => (exercise.target_ids || []).includes(target.id))
       .filter(exercise => Number(exercise.lesson || target.lesson || 0) <= studyMax)
+      .filter(exercise => !exercise.unlock_exam)
       .filter(exercise => isUsableStaticExercise(exercise));
     if (!exercises.length) return null;
     const selected = exercises.find(exercise => exercise.type === preferredType) || null;
@@ -263,26 +413,15 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       }
     }
 
-    if (type === 'production-prompt') {
-      return {
-        ...base,
-        prompt: card?.translation
-          ? `Escribe una frase rusa nueva que incluya la idea "${card.translation}". No copies un modelo.`
-          : 'Escribe una frase rusa nueva que use el objetivo de forma natural. No copies un modelo.',
-        expected: target.text,
-        sample: ''
-      };
-    }
-
     return {
       ...base,
-      prompt: card?.translation ? `Produce en ruso, sin mirar opciones: ${card.translation}` : 'Produce de memoria una forma rusa natural para este objetivo.',
-      allow_contains: target.kind === 'vocabulary',
+      prompt: card?.translation ? `Escribe exactamente la forma rusa para: ${card.translation}` : 'Escribe exactamente la forma rusa trabajada.',
+      allow_contains: false,
       accepted: buildAcceptedForms(target)
     };
   }
 
-  return { buildSession, previewPlan, rankTargets, buildExercise };
+  return { buildSession, buildExamSession, previewPlan, rankTargets, buildExercise };
 }
 
 function adaptiveOrder(entries, calibration) {
@@ -312,6 +451,233 @@ function byDifficultyThenPriority(left, right) {
   return left.difficulty - right.difficulty || right.score - left.score;
 }
 
+function orderExamExercises(exercises) {
+  const ranked = exercises.filter(isAuthoredExercise).sort((left, right) =>
+    cognitiveDemandScore(right) - cognitiveDemandScore(left) ||
+    Number(right.difficulty || 0) - Number(left.difficulty || 0) ||
+    Number(right.quality?.score || 0) - Number(left.quality?.score || 0) ||
+    String(left.id).localeCompare(String(right.id)));
+  return selectDiverseExercises(ranked, exercises.length, {
+    maxPerType: 5,
+    maxPerTemplate: 2,
+    maxPerTarget: 2,
+    preferDifficult: true
+  });
+}
+
+function cognitiveDemandScore(exercise) {
+  const q = exercise.quality || {};
+  let score = 0;
+  if (q.requiresGeneralization) score += 40;
+  if (q.requiresTransfer) score += 40;
+  if (q.novelContext) score += 30;
+  if (q.notImmediatelyAfterExplanation) score += 25;
+  if (q.contrastive) score += 20;
+  if (q.combinesTargets) score += 15;
+  if (q.suitableForAdvancedLearner) score += 15;
+  const transferLevel = exercise.transfer_level;
+  if (transferLevel === 'far') score += 30;
+  else if (transferLevel === 'medium') score += 20;
+  else if (transferLevel === 'near') score += 10;
+  if (exercise.exposure_dependency === 'inference_before_explanation') score += 35;
+  else if (exercise.exposure_dependency === 'unseen_combination') score += 25;
+  else if (exercise.exposure_dependency === 'unseen_context') score += 15;
+  return score;
+}
+
+function selectDiverseExercises(exercises, count, options = {}) {
+  const selected = [];
+  const selectedIds = new Set();
+  const typeCounts = {};
+  const templateCounts = {};
+  const targetCounts = {};
+  const strictRounds = [
+    {
+      maxPerType: options.maxPerType || 3,
+      maxPerTemplate: options.maxPerTemplate || 1,
+      maxPerTarget: options.maxPerTarget || 1,
+      minDifficulty: options.preferDifficult ? 4 : 0
+    },
+    {
+      maxPerType: options.maxPerType || 3,
+      maxPerTemplate: options.maxPerTemplate || 1,
+      maxPerTarget: (options.maxPerTarget || 1) + 1,
+      minDifficulty: options.preferDifficult ? 3 : 0
+    },
+    {
+      maxPerType: Math.max(4, (options.maxPerType || 3) + 1),
+      maxPerTemplate: Math.max(2, (options.maxPerTemplate || 1) + 1),
+      maxPerTarget: Math.max(3, (options.maxPerTarget || 1) + 2),
+      minDifficulty: 0
+    }
+  ];
+
+  strictRounds.forEach(round => {
+    if (selected.length >= count) return;
+    interleaveCandidateTypes(exercises, round.minDifficulty).forEach(exercise => {
+      if (selected.length >= count || selectedIds.has(exercise.id)) return;
+      if (!fitsDiversityRound(exercise, round, { typeCounts, templateCounts, targetCounts })) return;
+      selected.push(exercise);
+      selectedIds.add(exercise.id);
+      incrementCount(typeCounts, exercise.type || 'unknown');
+      incrementCount(templateCounts, exerciseTemplateKey(exercise));
+      countableTargetIds(exercise).forEach(targetId => incrementCount(targetCounts, targetId));
+    });
+  });
+
+  if (selected.length < count) {
+    const fallbackMaxPerType = Math.max(4, (options.maxPerType || 3) + 1);
+    const fallbackMaxPerTemplate = Math.max(2, (options.maxPerTemplate || 1) + 1);
+    interleaveCandidateTypes(exercises, 0).forEach(exercise => {
+      if (selected.length >= count || selectedIds.has(exercise.id)) return;
+      if ((typeCounts[exercise.type || 'unknown'] || 0) >= fallbackMaxPerType) return;
+      if ((templateCounts[exerciseTemplateKey(exercise)] || 0) >= fallbackMaxPerTemplate) return;
+      selected.push(exercise);
+      selectedIds.add(exercise.id);
+      incrementCount(typeCounts, exercise.type || 'unknown');
+      incrementCount(templateCounts, exerciseTemplateKey(exercise));
+      countableTargetIds(exercise).forEach(targetId => incrementCount(targetCounts, targetId));
+    });
+  }
+
+  if (selected.length < count) {
+    interleaveCandidateTypes(exercises, 0).forEach(exercise => {
+      if (selected.length >= count || selectedIds.has(exercise.id)) return;
+      selected.push(exercise);
+      selectedIds.add(exercise.id);
+    });
+  }
+
+  const ordered = interleaveExerciseTypes(selected).slice(0, count);
+  return ensureExerciseTypeCoverage(ordered, exercises, ['multiple-choice', 'cloze'], count);
+}
+
+function fitsDiversityRound(exercise, round, counts) {
+  if (Number(exercise.difficulty || 0) < round.minDifficulty) return false;
+  if ((counts.typeCounts[exercise.type || 'unknown'] || 0) >= round.maxPerType) return false;
+  if ((counts.templateCounts[exerciseTemplateKey(exercise)] || 0) >= round.maxPerTemplate) return false;
+  const targets = countableTargetIds(exercise);
+  if (targets.some(targetId => (counts.targetCounts[targetId] || 0) >= round.maxPerTarget)) return false;
+  return true;
+}
+
+function countableTargetIds(exercise) {
+  if (isAuthoredExercise(exercise)) return [];
+  return (exercise.target_ids || []).filter(targetId => !String(targetId).startsWith('ru-grammar-'));
+}
+
+function isAuthoredExercise(exercise) {
+  return Boolean(exercise.curated || exercise.quality?.authoredAsWhole || String(exercise.source || '').includes('authored'));
+}
+
+function incrementCount(counts, key) {
+  counts[key] = (counts[key] || 0) + 1;
+}
+
+function interleaveExerciseTypes(exercises) {
+  return interleaveCandidateTypes(exercises, 0);
+}
+
+function ensureExerciseTypeCoverage(selected, exercises, desiredTypes, count) {
+  const result = [...selected];
+  const selectedIds = new Set(result.map(exercise => exercise.id));
+  desiredTypes.forEach(type => {
+    if (result.some(exercise => exercise.type === type)) return;
+    const candidate = interleaveCandidateTypes(exercises, 0).find(exercise =>
+      exercise.type === type &&
+      !selectedIds.has(exercise.id) &&
+      canAddCoverageCandidate(exercise, result)
+    );
+    if (!candidate) return;
+    const replaceIndex = redundantExerciseIndex(result);
+    if (replaceIndex >= 0 && result.length >= count) {
+      selectedIds.delete(result[replaceIndex].id);
+      result[replaceIndex] = candidate;
+      selectedIds.add(candidate.id);
+      return;
+    }
+    if (result.length < count) {
+      result.push(candidate);
+      selectedIds.add(candidate.id);
+    }
+  });
+  return result.slice(0, count);
+}
+
+function canAddCoverageCandidate(candidate, selected) {
+  const template = exerciseTemplateKey(candidate);
+  const sameTemplate = selected.filter(exercise => exerciseTemplateKey(exercise) === template).length;
+  return sameTemplate < 2;
+}
+
+function redundantExerciseIndex(exercises) {
+  const counts = exercises.reduce((acc, exercise) => {
+    acc[exercise.type] = (acc[exercise.type] || 0) + 1;
+    return acc;
+  }, {});
+  for (let index = exercises.length - 1; index >= 0; index -= 1) {
+    const exercise = exercises[index];
+    if (exercise.challenge) continue;
+    if ((counts[exercise.type] || 0) > 1 && ['text-input', 'error-correction', 'listen-choice'].includes(exercise.type)) return index;
+  }
+  return exercises.findIndex(exercise => !exercise.challenge);
+}
+
+function interleaveCandidateTypes(exercises, minDifficulty = 0) {
+  const priority = ['text-input', 'error-correction', 'token-build', 'choice-grid', 'cloze', 'multiple-choice', 'listen-choice', 'transform', 'dictation'];
+  const buckets = new Map(priority.map(type => [type, []]));
+  exercises
+    .filter(exercise => Number(exercise.difficulty || 0) >= minDifficulty)
+    .sort(byExercisePriority)
+    .forEach(exercise => {
+    if (!buckets.has(exercise.type)) buckets.set(exercise.type, []);
+    buckets.get(exercise.type).push(exercise);
+  });
+  const result = [];
+  while (result.length < exercises.length) {
+    let progressed = false;
+    priority.forEach(type => {
+      const next = buckets.get(type)?.shift();
+      if (next) {
+        result.push(next);
+        progressed = true;
+      }
+    });
+    if (!progressed) break;
+  }
+  return result;
+}
+
+function byExercisePriority(left, right) {
+  return Number(right._practiceScore || 0) - Number(left._practiceScore || 0) ||
+    Number(right.difficulty || 0) - Number(left.difficulty || 0) ||
+    Number(right.quality?.score || 0) - Number(left.quality?.score || 0) ||
+    String(left.id).localeCompare(String(right.id));
+}
+
+function exerciseTemplateKey(exercise) {
+  const targets = exercise.targets || {};
+  const primary = String(targets.primary || '').trim();
+  if (isAuthoredExercise(exercise)) {
+    const structures = Array.isArray(targets.structures) ? targets.structures : [];
+    const structure = structures.find(item => item && item !== 'audio_to_meaning') || structures[0] || exercise.processing || exercise.type || 'unknown';
+    return `${primary || exercise.type}:${structure}`;
+  }
+  const primaryBase = primary.includes(':') ? primary.split(':')[0] : primary.replace(/_[а-яёa-z0-9-]+$/iu, '');
+  const structures = Array.isArray(targets.structures) ? targets.structures : [];
+  const structure = structures.find(item => item && item !== 'audio_to_meaning') || structures[0] || exercise.processing || exercise.type || 'unknown';
+  return `${primaryBase || exercise.type}:${structure}`;
+}
+
+function hashNoise(value) {
+  let hash = 2166136261;
+  String(value || '').split('').forEach(ch => {
+    hash ^= ch.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  });
+  return ((hash >>> 0) % 1000) / 1000;
+}
+
 function byCalibrationPriority(left, right) {
   return reasonPriority(left.reason) - reasonPriority(right.reason) ||
     left.difficulty - right.difficulty ||
@@ -337,7 +703,6 @@ function diversifyExerciseType(selected, { target, exactExample, hasAudio, needs
     exactExample ? 'cloze' : '',
     target.kind === 'grammar' && transformSeedFor(target) ? 'transform' : '',
     target.kind === 'vocabulary' ? 'text-input' : '',
-    available.includes('production-prompt') ? 'production-prompt' : '',
     'multiple-choice'
   ].filter(Boolean).filter(type => type !== selected && !overTypeLimit(type) && (!available.length || available.includes(type)));
   if (overTypeLimit(selected)) return options[0] || selected;
@@ -350,7 +715,7 @@ function recordSessionType(sessionState, type, target) {
   sessionState.typeCounts[type] = (sessionState.typeCounts[type] || 0) + 1;
   sessionState.targetCounts[target.id] = (sessionState.targetCounts[target.id] || 0) + 1;
   if (type === 'multiple-choice') sessionState.recognitionCount += 1;
-  if (['text-input', 'production-prompt', 'transform', 'error-correction'].includes(type)) sessionState.productiveCount += 1;
+  if (['text-input', 'transform', 'error-correction'].includes(type)) sessionState.productiveCount += 1;
   if (['listen-choice', 'cloze'].includes(type)) sessionState.comprehensionCount += 1;
 }
 
@@ -386,6 +751,8 @@ function isCopyHostileTarget(target) {
 
 function isUsableStaticExercise(exercise) {
   if (hasRejectedPrompt(exercise.prompt)) return false;
+  if (exercise.type === 'production-prompt' || exercise.allow_contains) return false;
+  if (exercise.auto_correctable) return true;
   if (exercise.type === 'listen-choice' && isTranscriptionChoice(exercise)) return false;
   if (exercise.type === 'multiple-choice' || exercise.type === 'listen-choice') return true;
   if (exercise.type === 'dictation') {

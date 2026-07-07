@@ -27,7 +27,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
 
   function isTargetUnlocked(target) {
     if (!target) return false;
-    return Number(target.lesson) <= Number(progress.unlocked?.lessonMax || 5);
+    return Number(target.lesson) <= Number(progress.unlocked?.lessonMax || 1);
   }
 
   function unlockedTargets() {
@@ -35,10 +35,11 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   }
 
   function studyLessonMax() {
-    const unlockedMax = Number(progress.unlocked?.lessonMax || 5);
+    const unlockedMax = Math.max(1, Number(progress.unlocked?.lessonMax || 1));
+    const examLesson = lessonReadyForExam();
+    if (examLesson) return Math.min(unlockedMax, examLesson);
     const frontier = firstIncompleteLesson(unlockedMax);
-    const lookAhead = calibration().attempts >= 16 ? 1 : 0;
-    return Math.min(unlockedMax, Math.max(5, frontier + lookAhead));
+    return Math.min(unlockedMax, Math.max(1, frontier));
   }
 
   function studyTargets() {
@@ -47,7 +48,43 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   }
 
   function firstIncompleteLesson(maxLesson) {
-    return firstIncompleteLessonFor(contentStore, getTargetState, maxLesson);
+    return firstIncompleteLessonFor(contentStore, getTargetState, progress, maxLesson);
+  }
+
+  function lessonReadyForExam() {
+    const unlockedMax = Math.max(1, Number(progress.unlocked?.lessonMax || 1));
+    for (let lesson = 1; lesson <= unlockedMax; lesson += 1) {
+      if (lessonPracticeCovered(contentStore, getTargetState, progress, lesson) && !lessonExamPassed(progress, lesson)) return lesson;
+    }
+    return null;
+  }
+
+  function lessonExamStatus(lesson) {
+    const exam = progress.lessons?.[lesson]?.exam || {};
+    return {
+      lesson: Number(lesson),
+      passed: lessonExamPassed(progress, lesson),
+      attempts: exam.attempts || 0,
+      correct: exam.correct || 0,
+      wrong: exam.wrong || 0,
+      recent: exam.recent || [],
+      passed_at: exam.passed_at || null
+    };
+  }
+
+  function seenTodayTargetIds() {
+    const today = dayKey(new Date());
+    return new Set(eventLog.practiceEvents()
+      .filter(event => dayKey(event.timestamp) === today)
+      .flatMap(event => event.target_ids || []));
+  }
+
+  function seenTodayExerciseIds() {
+    const today = dayKey(new Date());
+    return new Set(eventLog.practiceEvents()
+      .filter(event => dayKey(event.timestamp) === today)
+      .map(event => event.exercise_id || event.item_id)
+      .filter(Boolean));
   }
 
   function calibration() {
@@ -63,14 +100,16 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     const targetIds = exercise.target_ids?.length ? exercise.target_ids : [];
     const timestamp = new Date().toISOString();
     const confidenceFactor = clamp(Number(confidence || 3) / 5, 0.2, 1);
+    const evidenceWeight = exerciseEvidenceWeight(exercise);
     targetIds.forEach(targetId => {
       const target = contentStore.getTarget(targetId);
       const current = getTargetState(targetId);
       const skill = exercise.skill || skillForExercise(exercise);
       const skillScore = current.skills[skill] ?? 0;
+      const gain = (0.16 + confidenceFactor * 0.08) * evidenceWeight;
       const nextSkillScore = correct
-        ? clamp(skillScore + (0.16 + confidenceFactor * 0.08) * (1 - skillScore))
-        : clamp(skillScore - 0.16);
+        ? clamp(skillScore + gain * (1 - skillScore))
+        : clamp(skillScore - 0.16 * evidenceWeight);
       const attempts = current.attempts + 1;
       const right = current.correct + (correct ? 1 : 0);
       const wrong = current.wrong + (correct ? 0 : 1);
@@ -167,7 +206,8 @@ export function createLearnerModel(storage, eventLog, contentStore) {
       unlockedCount: unlockedTargets().length,
       lockedCount: lockedTargets().length,
       lessonMax: studyLessonMax(),
-      unlockedLessonMax: progress.unlocked?.lessonMax || 5,
+      unlockedLessonMax: progress.unlocked?.lessonMax || 1,
+      examLesson: lessonReadyForExam(),
       calibration: calibration(),
       streak: streakDays(events)
     };
@@ -232,16 +272,21 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     const lesson = Number(exercise.lesson || contentStore.getTarget(exercise.target_ids?.[0])?.lesson || 0);
     if (!lesson) return;
     const current = progress.lessons[lesson] || { attempts: 0, correct: 0, status: 'unlocked' };
-    progress.lessons[lesson] = {
+    const next = {
       ...current,
       attempts: current.attempts + 1,
       correct: current.correct + (correct ? 1 : 0),
       updated_at: new Date().toISOString()
     };
+    if (exercise.unlock_exam || exercise.exam) {
+      next.exam = updateExamProgress(current.exam, exercise, correct);
+      if (next.exam.passed_at) next.status = 'exam_passed';
+    }
+    progress.lessons[lesson] = next;
   }
 
   function updateUnlocks() {
-    const currentMax = Math.max(5, Number(progress.unlocked?.lessonMax || 5));
+    const currentMax = Math.max(1, Number(progress.unlocked?.lessonMax || 1));
     const firstIncomplete = firstIncompleteLesson(currentMax);
     const nextLessonMax = firstIncomplete > currentMax ? Math.min(80, currentMax + 1) : currentMax;
     progress.unlocked.lessonMax = Math.max(currentMax, nextLessonMax);
@@ -255,6 +300,10 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     getProgress,
     getTargetState,
     calibration,
+    lessonReadyForExam,
+    lessonExamStatus,
+    seenTodayTargetIds,
+    seenTodayExerciseIds,
     studyLessonMax,
     studyTargets,
     isTargetUnlocked,
@@ -274,14 +323,18 @@ function lessonTargets(contentStore, lesson) {
   return contentStore.state.targets.filter(target => Number(target.lesson) === Number(lesson));
 }
 
-function firstIncompleteLessonFor(contentStore, getTargetState, maxLesson) {
-  for (let lesson = 1; lesson <= Number(maxLesson || 5); lesson += 1) {
-    if (!lessonIsCovered(contentStore, getTargetState, lesson)) return lesson;
+function firstIncompleteLessonFor(contentStore, getTargetState, progress, maxLesson) {
+  for (let lesson = 1; lesson <= Number(maxLesson || 1); lesson += 1) {
+    if (!lessonIsCovered(contentStore, getTargetState, progress, lesson)) return lesson;
   }
-  return Number(maxLesson || 5) + 1;
+  return Number(maxLesson || 1) + 1;
 }
 
-function lessonIsCovered(contentStore, getTargetState, lesson) {
+function lessonIsCovered(contentStore, getTargetState, progress, lesson) {
+  return lessonPracticeCovered(contentStore, getTargetState, progress, lesson) && lessonExamPassed(progress, lesson);
+}
+
+function lessonPracticeCovered(contentStore, getTargetState, progress, lesson) {
   const targets = lessonTargets(contentStore, lesson);
   if (!targets.length) return true;
   const states = targets.map(target => getTargetState(target.id));
@@ -300,12 +353,21 @@ function lessonIsCovered(contentStore, getTargetState, lesson) {
     (state.skills?.grammar_transfer || 0) >= 0.18 ||
     (state.skills?.listening || 0) >= 0.18
   ).length;
+  const lessonProgress = progress?.lessons?.[lesson] || {};
+  const lessonAttempts = Number(lessonProgress.attempts || 0);
+  const lessonCorrect = Number(lessonProgress.correct || 0);
+  const lessonAccuracy = lessonAttempts ? lessonCorrect / lessonAttempts : 0;
   const criticalBlocker = targets.some(target => {
     const state = getTargetState(target.id);
     const critical = target.kind === 'grammar' || Number(target.importance || 0) >= 0.72;
     return critical && (state.lapses || state.wrong || 0) >= 3 && (state.wrong || 0) >= (state.correct || 0);
   });
   if (criticalBlocker) return false;
+  const highSignalPass = lessonAttempts >= 8 &&
+    lessonAccuracy >= 0.875 &&
+    productiveEvidence >= 4 &&
+    wrong <= Math.max(1, Math.floor(lessonAttempts * 0.12));
+  if (highSignalPass) return true;
   const minimumEvidence = Math.min(10, Math.max(4, Math.ceil(targets.length * 0.08)));
   const fastPass = attempts >= minimumEvidence &&
     accuracy >= 0.86 &&
@@ -317,6 +379,49 @@ function lessonIsCovered(contentStore, getTargetState, lesson) {
     accuracy >= 0.72 &&
     productiveEvidence >= Math.min(5, Math.max(2, Math.ceil(targets.length * 0.05)));
   return fastPass || standardPass;
+}
+
+function lessonExamPassed(progress, lesson) {
+  return Boolean(progress.lessons?.[lesson]?.exam?.passed_at);
+}
+
+function updateExamProgress(currentExam = {}, exercise, correct) {
+  const timestamp = new Date().toISOString();
+  const event = {
+    exercise_id: exercise.id,
+    type: exercise.type,
+    difficulty: exercise.difficulty || null,
+    correct: Boolean(correct),
+    critical: !correct && isCriticalExamMiss(exercise),
+    at: timestamp
+  };
+  const recent = [...(currentExam.recent || []), event].slice(-20);
+  const recentCorrect = recent.filter(item => item.correct).length;
+  const recentCriticalWrong = recent.filter(item => item.critical).length;
+  const windowReady = recent.length >= 20;
+  const requiredCorrect = 18;
+  const passed = currentExam.passed_at || (windowReady && recentCorrect >= requiredCorrect && recentCriticalWrong === 0);
+  return {
+    ...currentExam,
+    attempts: (currentExam.attempts || 0) + 1,
+    correct: (currentExam.correct || 0) + (correct ? 1 : 0),
+    wrong: (currentExam.wrong || 0) + (correct ? 0 : 1),
+    recent,
+    recent_correct: recentCorrect,
+    recent_critical_wrong: recentCriticalWrong,
+    required_correct: requiredCorrect,
+    passed_at: passed === true ? timestamp : currentExam.passed_at || null,
+    updated_at: timestamp
+  };
+}
+
+function isCriticalExamMiss(exercise) {
+  const criticalErrors = exercise.diagnostics?.criticalErrors || [];
+  return criticalErrors.length > 0 ||
+    ['text-input', 'error-correction', 'transform'].includes(exercise.type) ||
+    Number(exercise.difficulty || 0) >= 5 ||
+    Boolean(exercise.quality?.requiresTransfer) ||
+    Boolean(exercise.quality?.requiresGeneralization);
 }
 
 function bestSkillMastery(state) {
@@ -401,18 +506,47 @@ function exerciseDifficultyRating(exercise) {
   }[exercise.type] || 70;
   const rawDifficulty = Number(exercise.difficulty || exercise.complexity || 0);
   const complexity = rawDifficulty > 1 ? (rawDifficulty - 1) / 4 : rawDifficulty;
-  return 820 + lesson * 18 + typeBonus + complexity * 160;
+  const q = exercise.quality || {};
+  let cognitiveBonus = 0;
+  if (q.requiresInference) cognitiveBonus += 30;
+  if (q.requiresGeneralization) cognitiveBonus += 35;
+  if (q.requiresTransfer) cognitiveBonus += 40;
+  if (q.contrastive) cognitiveBonus += 15;
+  if (q.novelContext) cognitiveBonus += 20;
+  if (q.notImmediatelyAfterExplanation) cognitiveBonus += 15;
+  if (exercise.transfer_level === 'far') cognitiveBonus += 35;
+  else if (exercise.transfer_level === 'medium') cognitiveBonus += 20;
+  else if (exercise.transfer_level === 'near') cognitiveBonus += 10;
+  return 820 + lesson * 18 + typeBonus + complexity * 160 + cognitiveBonus;
 }
 
 function skillForExercise(exercise) {
   if (exercise.type === 'dictation' || exercise.type === 'listen-choice') return 'listening';
-  if (exercise.type === 'multiple-choice') return 'recognition';
-  if (exercise.type === 'transform' || exercise.type === 'cloze' || exercise.type === 'error-correction') return 'grammar_transfer';
+  if (exercise.type === 'multiple-choice' || exercise.type === 'choice-grid') return 'recognition';
+  if (exercise.type === 'transform' || exercise.type === 'cloze' || exercise.type === 'error-correction' || exercise.type === 'token-build') return 'grammar_transfer';
   return 'production';
 }
 
+function exerciseEvidenceWeight(exercise) {
+  const q = exercise.quality || {};
+  let weight = 1;
+  if (exercise.unlock_exam || exercise.exam) weight *= 1.5;
+  if (q.requiresInference || q.requiresGeneralization) weight *= 1.2;
+  if (q.requiresTransfer) weight *= 1.15;
+  if (q.contrastive) weight *= 1.05;
+  if (q.combinesTargets && (exercise.target_ids || []).length >= 2) weight *= 1.1;
+  if (q.notImmediatelyAfterExplanation) weight *= 1.1;
+  const transferLevel = exercise.transfer_level;
+  if (transferLevel === 'far') weight *= 1.3;
+  else if (transferLevel === 'medium') weight *= 1.15;
+  else if (transferLevel === 'near') weight *= 1.05;
+  if (exercise.type === 'multiple-choice') weight *= 0.7;
+  if (exercise.processing === 'recognition' || q.isTrivialRecognition) weight *= 0.6;
+  return clamp(weight, 0.3, 3);
+}
+
 function nextInterval(previous, correct, confidenceFactor) {
-  if (!correct) return 0;
+  if (!correct) return 1;
   if (!previous) return confidenceFactor > 0.75 ? 2 : 1;
   return Math.min(60, Math.max(1, Math.round(previous * (1.7 + confidenceFactor))));
 }

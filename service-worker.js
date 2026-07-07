@@ -1,4 +1,4 @@
-const CACHE_NAME = 'paruski-v35';
+const CACHE_NAME = 'paruski-v40';
 const ASSETS = [
   './',
   './index.html',
@@ -21,6 +21,7 @@ const ASSETS = [
   './assets/core/storage.js',
   './assets/core/utils.js',
   './assets/features/calendar/index.js',
+  './assets/features/exams/index.js',
   './assets/features/guided-session/index.js',
   './assets/features/library/index.js',
   './assets/features/progress/index.js',
@@ -28,6 +29,7 @@ const ASSETS = [
   './assets/features/speaking-lab/index.js',
   './assets/features/sync/index.js',
   './assets/exercises/shared.js',
+  './assets/exercises/choice-grid/index.js',
   './assets/exercises/cloze/index.js',
   './assets/exercises/dictation/index.js',
   './assets/exercises/error-correction/index.js',
@@ -35,6 +37,7 @@ const ASSETS = [
   './assets/exercises/multiple-choice/index.js',
   './assets/exercises/production-prompt/index.js',
   './assets/exercises/text-input/index.js',
+  './assets/exercises/token-build/index.js',
   './assets/exercises/transform/index.js',
   './content/lessons.json',
   './content/vocabulary.json',
