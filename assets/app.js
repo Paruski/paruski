@@ -9,6 +9,7 @@ import { createStorage } from './core/storage.js';
 import { escapeHtml } from './core/utils.js';
 
 import { calendarFeature } from './features/calendar/index.js';
+import { examsFeature } from './features/exams/index.js';
 import { guidedSessionFeature } from './features/guided-session/index.js';
 import { libraryFeature } from './features/library/index.js';
 import { progressFeature } from './features/progress/index.js';
@@ -17,17 +18,20 @@ import { speakingLabFeature } from './features/speaking-lab/index.js';
 import { syncFeature } from './features/sync/index.js';
 
 import { clozeExercise } from './exercises/cloze/index.js';
+import { choiceGridExercise } from './exercises/choice-grid/index.js';
 import { dictationExercise } from './exercises/dictation/index.js';
 import { errorCorrectionExercise } from './exercises/error-correction/index.js';
 import { listenChoiceExercise } from './exercises/listen-choice/index.js';
 import { multipleChoiceExercise } from './exercises/multiple-choice/index.js';
 import { productionPromptExercise } from './exercises/production-prompt/index.js';
 import { textInputExercise } from './exercises/text-input/index.js';
+import { tokenBuildExercise } from './exercises/token-build/index.js';
 import { transformExercise } from './exercises/transform/index.js';
 
 const registry = createRegistry();
 [
   guidedSessionFeature,
+  examsFeature,
   libraryFeature,
   calendarFeature,
   progressFeature,
@@ -39,7 +43,9 @@ const registry = createRegistry();
 [
   textInputExercise,
   clozeExercise,
+  choiceGridExercise,
   multipleChoiceExercise,
+  tokenBuildExercise,
   dictationExercise,
   listenChoiceExercise,
   errorCorrectionExercise,

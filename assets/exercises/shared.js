@@ -27,7 +27,8 @@ export function makeTextInputExercise(exercise, options = {}) {
 export function makeChoiceExercise(exercise) {
   const wrap = document.createElement('div');
   wrap.className = 'exercise-renderer choice-list';
-  (exercise.choices || []).forEach((choice, index) => {
+  const choices = shuffledChoices(exercise);
+  choices.forEach((choice, index) => {
     const label = document.createElement('label');
     label.className = 'choice-option';
     const input = document.createElement('input');
@@ -48,6 +49,37 @@ export function makeChoiceExercise(exercise) {
     },
     focus: () => wrap.querySelector('input')?.focus()
   };
+}
+
+function shuffledChoices(exercise) {
+  const choices = [...(exercise.choices || [])];
+  if (choices.length < 2) return choices;
+  const seed = `${exercise.id || ''}:${Date.now()}:${Math.random()}`;
+  let state = hashSeed(seed);
+  for (let index = choices.length - 1; index > 0; index -= 1) {
+    state = nextRandomState(state);
+    const swapIndex = state % (index + 1);
+    [choices[index], choices[swapIndex]] = [choices[swapIndex], choices[index]];
+  }
+  if (choices[0]?.correct && choices.length > 1) {
+    state = nextRandomState(state);
+    const swapIndex = 1 + (state % (choices.length - 1));
+    [choices[0], choices[swapIndex]] = [choices[swapIndex], choices[0]];
+  }
+  return choices;
+}
+
+function hashSeed(value) {
+  let hash = 2166136261;
+  String(value || '').split('').forEach(ch => {
+    hash ^= ch.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  });
+  return hash >>> 0;
+}
+
+function nextRandomState(value) {
+  return (Math.imul(value || 1, 1664525) + 1013904223) >>> 0;
 }
 
 export function evaluateExact(answer, exercise) {

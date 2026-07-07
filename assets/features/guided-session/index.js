@@ -2,8 +2,8 @@ import { escapeHtml, formatDateTime } from '../../core/utils.js';
 
 export const guidedSessionFeature = {
   id: 'guided-session',
-  label: 'Sesión',
-  order: 1,
+  label: 'Ejercicios',
+  order: 2,
   navMode: 'primary',
   mount(container, context) {
     let session = context.scheduler.buildSession();
@@ -19,7 +19,7 @@ export const guidedSessionFeature = {
         </section>
       `;
       renderSide(container.querySelector('#guidedSide'), context, session, taskIndex);
-      if (!task) return renderDone(container.querySelector('#guidedMain'), context, () => {
+      if (!task) return renderDone(container.querySelector('#guidedMain'), context, session, () => {
         session = context.scheduler.buildSession();
         taskIndex = 0;
         startedAt = performance.now();
@@ -30,7 +30,7 @@ export const guidedSessionFeature = {
         startedAt = performance.now();
         render();
       });
-      else renderExercise(container.querySelector('#guidedMain'), task.exercise, context, startedAt, () => {
+      else renderExercise(container.querySelector('#guidedMain'), task.exercise, context, startedAt, session, () => {
         taskIndex += 1;
         startedAt = performance.now();
         render();
@@ -76,14 +76,15 @@ function renderExplain(node, task, context, onNext) {
   node.querySelector('#continueTask')?.addEventListener('click', onNext);
 }
 
-function renderExercise(node, exercise, context, startedAt, onNext) {
+function renderExercise(node, exercise, context, startedAt, session, onNext) {
   const handler = context.registry.getExercise(exercise.type);
   const widget = handler.render(exercise, context);
-  const audioText = exercise.tts_text || exercise.expected || '';
+  const audioText = exercise.tts_text || '';
   const showListen = audioText && !['dictation', 'listen-choice', 'multiple-choice'].includes(exercise.type) && context.audio.hasRecorded(audioText);
+  const isExam = session?.mode === 'exam' || exercise.unlock_exam || exercise.exam;
   node.innerHTML = `
     <article class="learning-card focus-card">
-      <p class="eyebrow">Recuperación activa</p>
+      <p class="eyebrow">${isExam ? `Examen de desbloqueo · clase ${String(exercise.lesson || '').padStart(2, '0')}` : 'Recuperación activa'}</p>
       <h2>${escapeHtml(exercise.prompt)}</h2>
       <p class="task-guidance">${escapeHtml(guidanceForExercise(exercise))}</p>
       <div class="tag-row">
@@ -272,27 +273,31 @@ function targetSnapshot(context, exercise) {
 
 function directionForExercise(exercise) {
   if (exercise.type === 'listen-choice' || exercise.type === 'dictation') return 'audio_to_russian';
-  if (exercise.type === 'production-prompt' || exercise.type === 'text-input') return 'spanish_or_prompt_to_russian';
-  if (exercise.type === 'multiple-choice') return 'recognition';
+  if (exercise.type === 'production-prompt' || exercise.type === 'text-input' || exercise.type === 'token-build') return 'spanish_or_prompt_to_russian';
+  if (exercise.type === 'multiple-choice' || exercise.type === 'choice-grid') return 'recognition';
   if (exercise.type === 'error-correction') return 'error_diagnosis';
   if (exercise.type === 'cloze' || exercise.type === 'transform') return 'russian_form_manipulation';
   return 'practice';
 }
 
-function renderDone(node, context, onRestart) {
+function renderDone(node, context, session, onRestart) {
   const summary = context.learner.summary();
+  const examLesson = session?.mode === 'exam' ? session.exam_lesson : summary.examLesson;
+  const examStatus = examLesson ? context.learner.lessonExamStatus(examLesson) : null;
+  const readyForExam = session?.mode !== 'exam' && Boolean(summary.examLesson);
   node.innerHTML = `
     <article class="learning-card focus-card">
       <p class="eyebrow">Sesión completada</p>
-      <h2>Sesión cerrada.</h2>
-      <p class="big-text">Has registrado ${summary.todayCount}/${summary.dailyTarget} actividades hoy. La siguiente ronda mezclará material nuevo, repaso vencido y objetivos fallados para que no tengas que escoger qué estudiar.</p>
+      <h2>${session?.mode === 'exam' ? (examStatus?.passed ? 'Examen superado.' : 'Examen no superado todavía.') : readyForExam ? `Toca examen de clase ${String(summary.examLesson).padStart(2, '0')}.` : 'Sesión cerrada.'}</h2>
+      <p class="big-text">${session?.mode === 'exam' ? `Clase ${examLesson}: necesitas 18/20 y cero fallos críticos. Resultado reciente: ${examStatus?.recent?.filter(item => item.correct).length || 0}/${examStatus?.recent?.length || 0}.` : readyForExam ? 'La evidencia de práctica ya es suficiente. No tiene sentido seguir rellenando hoy con variantes: pasa al examen para demostrar transferencia.' : `Has registrado ${summary.todayCount}/${summary.dailyTarget} actividades hoy. La siguiente ronda mezclará material nuevo y objetivos fallados; los repasos correctos quedan para días sucesivos.`}</p>
       <div class="guided-actions">
-        <button type="button" id="restartSession">Otra ronda</button>
+        ${readyForExam ? '<button type="button" id="openExams">Ir a exámenes</button>' : '<button type="button" id="restartSession">Otra ronda</button>'}
         <button type="button" class="secondary" id="openCalendar">Ver calendario</button>
       </div>
     </article>
   `;
   node.querySelector('#restartSession')?.addEventListener('click', onRestart);
+  node.querySelector('#openExams')?.addEventListener('click', () => context.showFeature('exams'));
   node.querySelector('#openCalendar')?.addEventListener('click', () => context.showFeature('calendar'));
 }
 
@@ -301,11 +306,12 @@ function renderSide(node, context, session, taskIndex) {
   const weak = context.learner.weakTargets(3);
   const nextPlan = context.scheduler.previewPlan(4);
   const task = session.tasks[taskIndex];
+  const examMode = session.mode === 'exam';
   node.innerHTML = `
     <article class="side-card">
-      <h3>Ahora</h3>
+      <h3>${examMode ? 'Examen' : 'Ahora'}</h3>
       <p>${escapeHtml(currentTaskLabel(task))}</p>
-      <p class="muted small">Sigue el panel principal: escuchar, responder, comprobar y pasar a la siguiente tarea.</p>
+      <p class="muted small">${examMode ? 'Para desbloquear la siguiente clase, responde sin ayuda y evita fallos críticos.' : 'Aquí no se muestra la respuesta antes de preguntar. Estudia en Clases; practica aquí por recuperación.'}</p>
     </article>
     <article class="side-card">
       <h3>Hoy</h3>
@@ -319,7 +325,7 @@ function renderSide(node, context, session, taskIndex) {
     <article class="side-card">
       <h3>Sesión</h3>
       <progress max="${session.tasks.length}" value="${Math.min(taskIndex, session.tasks.length)}"></progress>
-      <p class="muted small">${Math.min(taskIndex + 1, session.tasks.length)} de ${session.tasks.length} tareas · creada ${formatDateTime(session.created_at)}</p>
+      <p class="muted small">${examMode ? `Examen clase ${session.exam_lesson} · ` : ''}${Math.min(taskIndex + 1, session.tasks.length)} de ${session.tasks.length} tareas · creada ${formatDateTime(session.created_at)}</p>
     </article>
     <article class="side-card">
       <h3>Atención</h3>
@@ -344,8 +350,10 @@ function renderSide(node, context, session, taskIndex) {
 function labelForExercise(type) {
   return ({
     'text-input': 'escritura',
+    'choice-grid': 'decisiones',
     cloze: 'huecos',
     'multiple-choice': 'elección',
+    'token-build': 'construcción',
     dictation: 'dictado',
     'listen-choice': 'escucha',
     'error-correction': 'corrección',
@@ -366,8 +374,10 @@ function skillLabel(skill) {
 function guidanceForExercise(exercise) {
   return ({
     'text-input': 'Recupera la forma rusa de memoria. Si dudas, escribe una respuesta corta y comprueba.',
+    'choice-grid': 'Resuelve cada microdecisión por función. No busques una palabra aislada repetida.',
     cloze: 'Lee la frase y completa sólo la parte que falta.',
     'multiple-choice': 'No busques la opción por descarte superficial: lee las cuatro y elige la que cumple el objetivo.',
+    'token-build': 'Construye la frase con fichas. Hay distractores: no uses todo por inercia.',
     dictation: 'Escucha primero la frase completa; luego escríbela en ruso.',
     'listen-choice': 'Escucha antes de mirar demasiado las opciones y elige el significado o la interpretación más precisa.',
     'error-correction': 'Detecta el error, corrige la frase rusa y comprueba que no traduces literalmente desde el español.',

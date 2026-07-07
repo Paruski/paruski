@@ -17,8 +17,9 @@ const DEFAULT_PROGRESS = {
     sessionMinutes: 10
   },
   unlocked: {
-    lessonMax: 5,
-    level: 'ru-a0-seed'
+    lessonMax: 1,
+    level: 'ru-a0-seed',
+    policyVersion: 2
   },
   calibration: {
     rating: 900,
@@ -61,6 +62,7 @@ export function createStorage() {
 function loadProgress() {
   const stored = readJson(STORAGE_KEYS.progress, null);
   const now = new Date().toISOString();
+  const storedPolicyVersion = Number(stored?.unlocked?.policyVersion || 0);
   const progress = mergeProgress(DEFAULT_PROGRESS, stored || {});
   if (!progress.user?.id) {
     progress.user = { id: 'usuario-local', name: 'usuario-local', created_at: now };
@@ -68,6 +70,11 @@ function loadProgress() {
   if (!progress.user.created_at) progress.user.created_at = now;
   progress.settings = { ...DEFAULT_PROGRESS.settings, ...(progress.settings || {}) };
   progress.unlocked = { ...DEFAULT_PROGRESS.unlocked, ...(progress.unlocked || {}) };
+  if (stored && storedPolicyVersion < 2) {
+    progress.unlocked.lessonMax = 1;
+    progress.unlocked.level = 'ru-a0-seed';
+    progress.unlocked.policyVersion = 2;
+  }
   progress.calibration = { ...DEFAULT_PROGRESS.calibration, ...(progress.calibration || {}) };
   progress.targets = progress.targets || {};
   progress.competencies = progress.competencies || {};

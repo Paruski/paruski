@@ -143,6 +143,49 @@ dd {
   line-height: 1.2;
 }
 
+.choice-grid {
+  gap: 1rem;
+}
+
+.choice-grid-row {
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  display: grid;
+  gap: .55rem;
+  margin: 0;
+  padding: .85rem;
+}
+
+.choice-grid-row legend {
+  color: var(--muted);
+  padding: 0 .25rem;
+}
+
+.token-answer {
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  min-height: 3rem;
+  padding: .85rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.token-answer.empty {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.token-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.token-chip {
+  border-radius: 999px;
+  padding: .55rem .8rem;
+}
+
 .confidence-label {
   display: grid;
   gap: .35rem;

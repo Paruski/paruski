@@ -229,17 +229,26 @@ export function createContentStore() {
       const targetIds = Array.isArray(item.target_ids) && item.target_ids.length ? item.target_ids : matchTargets(item);
       return {
         id: item.id || `exercise-${hashString(JSON.stringify(item))}`,
-        source: 'static',
+        source: item.source || 'static',
         lesson: Number(item.lesson) || null,
+        lessonId: item.lessonId || null,
         level: levelForLesson(item.lesson).id,
         type,
         original_type: item.type || type,
         skill: normalizeSkill(item.skill),
         modality: item.modality || (type === 'dictation' ? 'audio' : 'text'),
+        direction: item.direction || item.targets?.direction || item.targets?.modality || 'mixed',
+        processing: item.processing || item.targets?.processing || '',
         prompt: item.prompt || '',
+        context: item.context || '',
         expected: item.expected || '',
+        expectedAnswer: item.expectedAnswer || item.expected || '',
         accepted: item.accepted || [],
+        acceptedAnswers: item.acceptedAnswers || item.accepted || [],
         choices: item.choices || null,
+        items: item.items || [],
+        tokens: item.tokens || [],
+        distractors: item.distractors || [],
         display: item.display || '',
         display_expected: item.display_expected || '',
         tts_text: item.tts_text || '',
@@ -247,9 +256,21 @@ export function createContentStore() {
         require_audio: Boolean(item.require_audio),
         allow_contains: Boolean(item.allow_contains),
         difficulty: Number(item.difficulty || item.complexity || 0),
+        importance: Number(item.importance || item.targets?.importance || item.weight || 0.2),
         tags: item.tags || [],
         target_ids: targetIds,
         targets: item.targets || {},
+        diagnostics: item.diagnostics || {},
+        feedback: item.feedback || {},
+        srs: item.srs || {},
+        quality: item.quality || {},
+        challenge: Boolean(item.challenge || item.quality?.requiresInference),
+        curated: Boolean(item.curated || item.quality?.authoredAsWhole || String(item.source || '').includes('authored')),
+        design: item.design || null,
+        exam_role: item.exam_role || null,
+        auto_correctable: Boolean(item.auto_correctable),
+        unlock_exam: Boolean(item.unlock_exam),
+        exam_challenge: Boolean(item.exam_challenge),
         weight: Number(item.weight || 0.2)
       };
     });
@@ -455,10 +476,13 @@ function stressFromMarked(value) {
 
 function mapExerciseType(type) {
   const value = String(type || '').trim();
-  if (['multiple_choice', 'mcq', 'eleccion', 'image_choice'].includes(value)) return 'multiple-choice';
+  if (['multiple-choice', 'multiple_choice', 'mcq', 'eleccion', 'image_choice'].includes(value)) return 'multiple-choice';
   if (['listen-choice', 'listen_choice', 'audio_mcq', 'audio-choice'].includes(value)) return 'listen-choice';
+  if (['choice-grid', 'choice_grid', 'decision-grid'].includes(value)) return 'choice-grid';
+  if (['token-build', 'token_build', 'sentence-builder'].includes(value)) return 'token-build';
   if (['huecos', 'cloze'].includes(value)) return 'cloze';
   if (['transformacion', 'transform'].includes(value)) return 'transform';
+  if (['error-correction', 'error_correction', 'correccion-error'].includes(value)) return 'error-correction';
   if (['audio_transcription', 'dictation'].includes(value)) return 'dictation';
   if (['production-prompt', 'production_prompt', 'respuesta-libre'].includes(value)) return 'production-prompt';
   return 'text-input';
@@ -466,6 +490,10 @@ function mapExerciseType(type) {
 
 function normalizeSkill(skill) {
   const value = String(skill || '').toLowerCase();
+  if (value.includes('grammar')) return 'grammar_transfer';
+  if (value.includes('listening')) return 'listening';
+  if (value.includes('recognition')) return 'recognition';
+  if (value.includes('production')) return 'production';
   if (value.includes('comprension')) return 'recognition';
   if (value.includes('pronunciacion')) return 'listening';
   if (value.includes('gramatica')) return 'grammar_transfer';

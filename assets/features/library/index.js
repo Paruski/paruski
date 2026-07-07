@@ -2,8 +2,8 @@ import { escapeHtml, normalizeText } from '../../core/utils.js';
 
 export const libraryFeature = {
   id: 'library',
-  label: 'Biblioteca',
-  order: 20,
+  label: 'Clases',
+  order: 1,
   navMode: 'secondary',
   mount(container, context) {
     let kind = 'all';
@@ -15,8 +15,8 @@ export const libraryFeature = {
         <section class="library-view">
           <div class="panel-head app-section-head">
             <div>
-              <p class="eyebrow">Consulta</p>
-              <h2>Biblioteca desbloqueada</h2>
+              <p class="eyebrow">Clases</p>
+              <h2>Material desbloqueado</h2>
             </div>
             <input id="librarySearch" type="search" placeholder="Buscar ruso, traducción, estructura o explicación" value="${escapeHtml(query)}" />
           </div>
