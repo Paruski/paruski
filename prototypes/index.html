@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3efe5">
+  <title>Paruski — tres direcciones</title>
+  <style>
+    :root{--ink:#171711;--paper:#f3efe5;--muted:#69665e;--line:#cfc8ba;--red:#c83b2f;--blue:#194b8f;--green:#176b50}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    a{color:inherit}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}.mast{padding:28px 0 18px;border-bottom:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;gap:24px}.brand{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}.mast a{font-size:.9rem;text-decoration:none;border-bottom:1px solid currentColor}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;padding:72px 0 56px}.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3.4rem,8vw,8rem);line-height:.87;letter-spacing:-.065em;margin:0}.hero p{font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.5;margin:0;align-self:end}.kicker{display:block;font-family:Arial,sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-bottom:64px}.card{min-height:470px;padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;position:relative;overflow:hidden}.card:before{content:"";position:absolute;inset:0 0 auto 0;height:8px;background:var(--accent)}.num{font-family:Georgia,serif;font-size:4.5rem;line-height:1;color:var(--accent);opacity:.9;margin-bottom:54px}.card h2{font-family:Georgia,serif;font-size:2rem;line-height:1;margin:0 0 14px}.card p{color:var(--muted);line-height:1.55;margin:0 0 20px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 28px}.tag{border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:.72rem}.open{margin-top:auto;display:inline-flex;justify-content:space-between;align-items:center;text-decoration:none;font-weight:800;border-top:1px solid var(--line);padding-top:16px}.open span{font-size:1.4rem}.lab{--accent:var(--red)}.coach{--accent:var(--green)}.atlas{--accent:var(--blue)}.principles{border-top:1px solid var(--line);padding:28px 0 60px;display:grid;grid-template-columns:1fr 2fr;gap:30px}.principles h2{font-family:Georgia,serif;font-size:2rem;margin:0}.principles ul{margin:0;padding-left:1.2rem;columns:2;column-gap:48px;line-height:1.7}.footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:16px}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;gap:24px;padding-top:48px}.grid{grid-template-columns:1fr}.card{min-height:390px}.num{margin-bottom:30px}.principles{grid-template-columns:1fr}.principles ul{columns:1}.footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <div class="brand">Paruski · prototipos públicos</div>
+      <a href="../">Abrir la aplicación actual</a>
+    </header>
+    <main>
+      <section class="hero">
+        <h1><span class="kicker">Tres maneras de aprender ruso</span>Elegir una dirección.</h1>
+        <p>Los tres prototipos trabajan el mismo objetivo —comprender, recuperar y transferir ruso— con lenguajes visuales y ritmos radicalmente distintos.</p>
+      </section>
+      <section class="grid" aria-label="Prototipos">
+        <article class="card lab">
+          <div class="num">I</div>
+          <h2>Laboratorio</h2>
+          <p>Una mesa de análisis densa y exigente: ejemplos, hipótesis, contraejemplos y contraste semántico. El alumno descubre antes de automatizar.</p>
+          <div class="tags"><span class="tag">inferencia</span><span class="tag">teclado</span><span class="tag">alto contraste</span></div>
+          <a class="open" href="lab/">Entrar en el laboratorio <span>→</span></a>
+        </article>
+        <article class="card coach">
+          <div class="num">II</div>
+          <h2>Entrenador</h2>
+          <p>Una sola tarea cada vez. Recuperación activa, pistas graduadas, reconstrucción inmediata y sensación de ritmo. Mínima distracción.</p>
+          <div class="tags"><span class="tag">recuerdo</span><span class="tag">móvil</span><span class="tag">ritmo</span></div>
+          <a class="open" href="coach/">Entrar en el entrenador <span>→</span></a>
+        </article>
+        <article class="card atlas">
+          <div class="num">III</div>
+          <h2>Atlas</h2>
+          <p>Un mapa explorable de habilidades, rutas y conexiones. El alumno navega por funciones comunicativas y ve cómo se relacionan.</p>
+          <div class="tags"><span class="tag">mapa</span><span class="tag">exploración</span><span class="tag">progreso</span></div>
+          <a class="open" href="atlas/">Entrar en el atlas <span>→</span></a>
+        </article>
+      </section>
+      <section class="principles">
+        <h2>Base común</h2>
+        <ul>
+          <li>Ruso como contenido exclusivo.</li>
+          <li>Comprensión, reconocimiento, recuperación y transferencia separados.</li>
+          <li>Ejercicios como banco reutilizable, no como lista lineal.</li>
+          <li>Progreso local de demostración, sin cuentas ni analítica.</li>
+          <li>Diseño estático compatible con GitHub Pages.</li>
+          <li>Vocabulario y situaciones de nivel inicial para esta maqueta.</li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer"><span>Paruski · ruso interactivo</span><span>Tres prototipos de interfaz</span></footer>
+  </div>
+</body>
+</html>
