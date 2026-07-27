@@ -15,6 +15,13 @@ __pycache__/
 venv/
 .env
 
+# Dependencias sólo de pruebas: jsdom se instala para `scripts/test_prototipo.mjs`
+# y no debe entrar en el repositorio, que la web no usa ni necesita.
+node_modules/
+package.json
+package-lock.json
+bun.lock
+
 # Exportaciones generadas
 exports/
 build/
