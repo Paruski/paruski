@@ -226,10 +226,12 @@ function runSession(root, config) {
     h('a', { class: 'btn ghost', href: backHref }, '← salir'),
     h('div', { class: 'bar accent' }, bar), counter);
 
-  clear(root).append(h('h1', {}, title),
+  clear(root).append(...[
+    h('h1', {}, title),
     isExam ? h('p', { class: 'notice small' },
       `Examen: no hay corrección hasta el final. Se aprueba con un ${pct(PASS_MARK)} de los pasos correctos.`) : null,
-    head, stage);
+    head, stage,
+  ].filter(Boolean));
 
   render();
 
@@ -269,7 +271,7 @@ function runSession(root, config) {
     const options = shuffle(step.options, hashString(step.id));
     options.forEach((option, i) => {
       const btn = h('button', {
-        class: 'option', type: 'button',
+        class: 'option', type: 'button', dataset: { option },
         onclick: () => choose(item, step, option, wrap),
       }, h('span', { class: 'key' }, String(i + 1)),
          h('span', { class: hasCyr(option) ? 'ru' : '' }, option));
@@ -287,12 +289,12 @@ function runSession(root, config) {
     wrap.dataset.done = '1';
     const result = gradeStep(step, option);
     [...wrap.children].forEach((btn) => {
-      const text = btn.textContent.slice(1);
-      const isAnswer = text.trim() === step.answer.trim();
-      const isChosen = text.trim() === option.trim();
+      const text = (btn.dataset.option || '').trim();
+      const isAnswer = text === step.answer.trim();
+      const isChosen = text === option.trim();
       if (isAnswer) btn.classList.add('correct');
       else if (isChosen) btn.classList.add('wrong');
-      const why = step.explain && step.explain[text.trim()];
+      const why = step.explain && step.explain[text];
       if (why && (isChosen || isAnswer)) btn.append(h('span', { class: 'why' }, why));
       btn.disabled = true;
     });
