@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f1115" />
+    <title>Paruski — ruso interactivo</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/app-shell.css" />
+    <link rel="stylesheet" href="assets/keyboard.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Paruski</p>
+        <h1>Sesión de ruso</h1>
+        <p class="muted">Aprende, practica y repasa con una ruta guiada hasta A1-A2 inicial.</p>
+      </div>
+    </header>
+
+    <nav id="appNav" class="tabs" aria-label="Secciones"></nav>
+    <p id="appStatus" class="app-status" hidden></p>
+
+    <main id="appRoot">
+      <section class="panel">
+        <h2>Cargando Paruski</h2>
+      </section>
+    </main>
+
+    <script src="assets/audio-bank.js"></script>
+    <script type="module" src="assets/app.js"></script>
+  </body>
+</html>

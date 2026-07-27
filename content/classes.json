@@ -1,0 +1,732 @@
+[
+  {
+    "lessonId": 1,
+    "title": "Esto es; quién/qué; familia y objetos",
+    "goal": "Aprender a identificar personas y objetos básicos en ruso usando «это», preguntar quién o qué es algo, y expresar posesión básica.",
+    "whyItMatters": "No puedes comunicarte sin poder nombrar lo que ves. Esta clase te da las primeras herramientas: señalar, preguntar, negar y decir que algo te pertenece.",
+    "spanishInterference": "En español dices «esto es» con el verbo «ser». En ruso usas прямо «это» sin verbo: «Это книга». También usas «tener» para posesión; el ruso no tiene un verbo «tener» en el sentido posesivo básico — usa la estructura «у + GEN + есть».",
+    "sections": [
+      {
+        "id": "intro",
+        "type": "explanation",
+        "title": "Señalar objetos: «это + N»",
+        "content": "Para decir «esto es un X» en ruso solo necesitas dos palabras:\n\n«Это» + sustantivo.\n\nNo usas ningún verbo. No dices «это есть». En ruso, «это» («esto») ya incluye la idea de «es».",
+        "examples": [
+          {
+            "ru": "Это вода.",
+            "es": "Esto es agua."
+          },
+          {
+            "ru": "Это кофе.",
+            "es": "Esto es café."
+          },
+          {
+            "ru": "Это хлеб.",
+            "es": "Esto es pan."
+          },
+          {
+            "ru": "Это молоко.",
+            "es": "Esto es leche."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Español vs Ruso",
+            "es": "«Esto es un libro» usa el verbo «ser». En ruso: «Это книга» — sin verbo.",
+            "ru": "Это книга."
+          },
+          {
+            "label": "Error típico",
+            "es": "NUNCA digas «Это есть книга». «Есть» solo se usa para posesión («у меня есть») o existencia enfática.",
+            "ru": "✗ Esto es книга → ✓ Это книга"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "reveal",
+            "question": "¿Cómo se dice «Esto es agua» en ruso?",
+            "answer": "Это вода.",
+            "explanation": "«Это» + «вода» (agua). Sin verbo."
+          },
+          {
+            "type": "choice",
+            "question": "Señalas un teléfono y dices…",
+            "options": [
+              "Это телефон.",
+              "Это есть телефон.",
+              "Телефон это."
+            ],
+            "correctIndex": 0,
+            "explanation": "«Это» va primero y no necesita «есть»."
+          }
+        ],
+        "heading": "Señalar objetos: «это + N»"
+      },
+      {
+        "id": "negation",
+        "type": "explanation",
+        "title": "Negar: «это не + N»",
+        "content": "Para negar, pones «не» delante del sustantivo:\n\n«Это не + N»\n\n«Не» se coloca justo antes de lo que se niega. En español sería «Esto no es un X».",
+        "examples": [
+          {
+            "ru": "Это не кофе, а чай.",
+            "es": "Esto no es café, sino té."
+          },
+          {
+            "ru": "Это не вода, а молоко.",
+            "es": "Esto no es agua, sino leche."
+          },
+          {
+            "ru": "Это не кот, а собака.",
+            "es": "Esto no es un gato, sino un perro."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Posición de «не»",
+            "es": "En español «no» va antes del verbo. En ruso no hay verbo: «не» va directamente antes del sustantivo.",
+            "ru": "✗ Это книга не. → ✓ Это не книга."
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "reveal",
+            "question": "Corrige: «Это не есть собака».",
+            "answer": "Это не собака.",
+            "explanation": "«Есть» sobra. La negación directa es «это не + N»."
+          },
+          {
+            "type": "choice",
+            "question": "¿Cómo se dice «Esto no es un gato»?",
+            "options": [
+              "Это не кот.",
+              "Это кот не.",
+              "Не это кот."
+            ],
+            "correctIndex": 0,
+            "explanation": "«Это не кот» — «не» delante del sustantivo."
+          }
+        ],
+        "heading": "Negar: «это не + N»"
+      },
+      {
+        "id": "questions",
+        "type": "explanation",
+        "title": "Preguntar: «кто это?» y «что это?»",
+        "content": "Para preguntar usas:\n\n«Кто это?» — «¿Quién es?» (para personas y animales)\n«Что это?» — «¿Qué es?» (para objetos)\n\nLa entonación sube al final, como en español.",
+        "examples": [
+          {
+            "ru": "— Кто это? — Это мама.",
+            "es": "— ¿Quién es? — Es mamá."
+          },
+          {
+            "ru": "— Кто это? — Это папа.",
+            "es": "— ¿Quién es? — Es papá."
+          },
+          {
+            "ru": "— Что это? — Это чай.",
+            "es": "— ¿Qué es? — Es té."
+          },
+          {
+            "ru": "— Кто это? — Это кот.",
+            "es": "— ¿Quién es? — Es un gato."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "кто vs что",
+            "es": "«Кто» para seres animados (personas, animales). «Что» para objetos e ideas. En español a veces dices «¿Qué es eso?» de una persona; en ruso solo «кто».",
+            "ru": "Кто это? (persona) vs Что это? (objeto)"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "Ves una foto de tu amigo: ¿preguntas con «кто» o «что»?",
+            "options": [
+              "Кто это?",
+              "Что это?"
+            ],
+            "correctIndex": 0,
+            "explanation": "Para personas usamos «кто», aunque en español a veces digas «qué»."
+          },
+          {
+            "type": "reveal",
+            "question": "Traduce: «¿Qué es esto?»",
+            "answer": "Что это?",
+            "explanation": "«Что» para objetos + «это»."
+          }
+        ],
+        "heading": "Preguntar: «кто это?» y «что это?»"
+      },
+      {
+        "id": "possession",
+        "type": "explanation",
+        "title": "Posesión básica: «у + GEN + есть»",
+        "content": "Para decir que alguien tiene algo, el ruso no usa un verbo «tener». Usa la estructura:\n\n«У» + pronombre en genitivo + «есть» + sustantivo.\n\nLiteralmente: «Junto a mí hay un teléfono».\n\nLos genitivos básicos:\n\n• я → меня («junto a mí»)\n• ты → тебя («junto a ti»)\n\n\nУ меня есть телефон. — Tengo un teléfono.\nУ тебя есть брат? — ¿Tienes un hermano?",
+        "examples": [
+          {
+            "ru": "У меня есть брат.",
+            "es": "Tengo un hermano. (lit. «Junto a mí hay hermano»)"
+          },
+          {
+            "ru": "У тебя есть сестра?",
+            "es": "¿Tienes hermana?"
+          },
+          {
+            "ru": "У меня есть кот и собака.",
+            "es": "Tengo un gato y un perro."
+          },
+          {
+            "ru": "У тебя есть хлеб?",
+            "es": "¿Tienes pan?"
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "«Tener» español vs ruso",
+            "es": "Español: «Yo tengo un teléfono» (verbo «tener» conjugado). Ruso: «У меня есть телефон» (sin verbo «tener», usa ubicación + posesión).",
+            "ru": "Я имею телефон → ✗ (literario/técnico, no coloquial)"
+          },
+          {
+            "label": "Error crítico",
+            "es": "Decir «Я имею телефон» para posesión básica es un calco del español. Los rusos lo entienden pero suena artificial o técnico.",
+            "ru": "У меня есть телефон → ✓ coloquial"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "¿Cómo se dice «Tengo un perro» correctamente en ruso coloquial?",
+            "options": [
+              "У меня есть собака.",
+              "Я имею собака.",
+              "Меня есть собака."
+            ],
+            "correctIndex": 0,
+            "explanation": "«У меня есть» + acusativo/genitivo. «Я имею» es calco del español y suena artificial."
+          },
+          {
+            "type": "reveal",
+            "question": "Tu amigo tiene un gato. ¿Cómo preguntas «¿Tienes un gato?»?",
+            "answer": "У тебя есть кот?",
+            "explanation": "«У тебя» (junto a ti) + «есть» + «кот»."
+          },
+          {
+            "type": "choice",
+            "question": "¿Qué significa literalmente «У меня есть телефон»?",
+            "options": [
+              "Tengo un teléfono",
+              "Yo tengo un teléfono",
+              "Junto a mí hay un teléfono"
+            ],
+            "correctIndex": 2,
+            "explanation": "«У» = junto a, «меня» = mí, «есть» = hay, «телефон» = teléfono. No hay verbo «tener»."
+          }
+        ],
+        "heading": "Posesión básica: «у + GEN + есть + N»"
+      },
+      {
+        "id": "connectors",
+        "type": "explanation",
+        "title": "Conectores: «и», «а», «но»",
+        "content": "«И» = y (simple adición).\n«А» = y / mientras que (contraste suave, dos ideas diferentes).\n«Но» = pero (oposición).\n\n«А» no existe en español: se usa para contrastar dos sujetos o situaciones distintas.",
+        "examples": [
+          {
+            "ru": "Это кот, а это собака.",
+            "es": "Esto es un gato, y esto (en cambio) es un perro."
+          },
+          {
+            "ru": "Это мама, а это папа.",
+            "es": "Esta es mamá, y este (en cambio) es papá."
+          },
+          {
+            "ru": "У меня есть кот и собака.",
+            "es": "Tengo un gato y un perro."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "«А» vs «и»",
+            "es": "«А» contrasta dos cosas diferentes. «И» simplemente suma. En español ambos se traducen a menudo como «y», pero no son intercambiables.",
+            "ru": "Это дом, а это квартира. (contraste) vs Это дом и сад. (suma)"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "Quieres decir «Esto es una casa, y esto un piso» (dos cosas distintas). ¿Usas «и» o «а»?",
+            "options": [
+              "а",
+              "и"
+            ],
+            "correctIndex": 0,
+            "explanation": "«А» contrasta dos elementos distintos. «И» sería para sumar características del mismo elemento."
+          }
+        ],
+        "heading": "Conectores: «и», «а», «но»"
+      }
+    ],
+    "guidedPracticeRefs": [
+      "manual-u01-practice-002",
+      "manual-u01-practice-001",
+      "grammar-l01-001",
+      "grammar-l01-007",
+      "mixed-l01-002",
+      "mixed-l01-004"
+    ],
+    "summary": "En esta clase has aprendido:\n1. Señalar objetos: «Это + N» (sin verbo).\n2. Negar: «Это не + N».\n3. Preguntar: «Кто это?» (personas) y «Что это?» (objetos).\n4. Posesión básica: «У + GEN + есть + N» (no «я имею»).\n5. Conectores: «и» (y), «а» (y sin embargo), «но» (pero).",
+    "errorsToWatch": [
+      "No añadir «есть» tras «это»",
+      "No usar «я имею» para posesión básica",
+      "No confundir «кто» y «что» para personas",
+      "No confundir «а» con «и»"
+    ],
+    "nextStep": "Practica estos patrones en la sección Ejercicios y, cuando te sientas seguro, haz el examen de vocabulario y gramática para desbloquear la lección 2.",
+    "examAvailable": true
+  },
+  {
+    "lessonId": 2,
+    "title": "Género, ciudad y ubicación",
+    "goal": "Distinguir el género de los sustantivos rusos, usar adverbios de ubicación y preguntar dónde está algo.",
+    "whyItMatters": "El género en ruso no es opcional: determina cómo terminan los adjetivos, pronombres y verbos en pasado. Sin género no puedes construir frases correctas.",
+    "spanishInterference": "En español el género suele coincidir con el sexo o terminar en -o/-a, pero en ruso hay terminaciones engañosas como «папа» (masculino) o «ночь» (femenino). Además, el ruso tiene un género neutro que no existe en español.",
+    "sections": [
+      {
+        "id": "gender",
+        "type": "explanation",
+        "title": "Género de los sustantivos",
+        "content": "En ruso hay tres géneros. Se reconocen por la terminación:\n\n• **Masculino**: termina en consonante dura o -й.\n  — дом (casa), брат (hermano), чай (té), музей (museo)\n\n• **Femenino**: termina en -а, -я o -ь.\n  — книга (libro), семья (familia), ночь (noche)\n\n• **Neutro**: termina en -о, -е.\n  — окно (ventana), море (mar)\n\nExcepciones: «папа» (papá) es masculino aunque termine en -а. «Дядя» (tío) también.",
+        "examples": [
+          {
+            "ru": "Это большой дом.",
+            "es": "Esta es una casa grande. (дом = masculino)"
+          },
+          {
+            "ru": "Это новая книга.",
+            "es": "Este es un libro nuevo. (книга = femenino)"
+          },
+          {
+            "ru": "Это маленькое окно.",
+            "es": "Esta es una ventana pequeña. (окно = neutro)"
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Género neutro",
+            "es": "En español no existe el neutro para objetos. En ruso, objetos inanimados pueden ser masculinos, femeninos o neutros según su terminación.",
+            "ru": "дом (m), книга (f), окно (n)"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "¿De qué género es «ночь» (noche)?",
+            "options": [
+              "Masculino",
+              "Femenino",
+              "Neutro"
+            ],
+            "correctIndex": 1,
+            "explanation": "«Ночь» termina en -ь y es femenino."
+          },
+          {
+            "type": "reveal",
+            "question": "«Папа» termina en -a pero es…",
+            "answer": "masculino (excepción)",
+            "explanation": "Aunque termina en -a, palabras de parentesco masculino como «папа», «дядя» son masculinas."
+          }
+        ]
+      },
+      {
+        "id": "location",
+        "type": "explanation",
+        "title": "Adverbios de ubicación",
+        "content": "Para preguntar y responder dónde está algo:\n\n«Где?» — ¿Dónde?\n«Здесь» — aquí\n«Там» — allí\n«Дома» — en casa\n«Справа» — a la derecha\n«Слева» — a la izquierda\n\nNo se usa preposición con estos adverbios. «Здесь» ya significa «aquí» sin necesidad de «en».",
+        "examples": [
+          {
+            "ru": "— Где книга? — Здесь.",
+            "es": "— ¿Dónde está el libro? — Aquí."
+          },
+          {
+            "ru": "— Где брат? — Он дома.",
+            "es": "— ¿Dónde está el hermano? — Está en casa."
+          },
+          {
+            "ru": "Кошка справа, а собака слева.",
+            "es": "La gata está a la derecha, y el perro a la izquierda."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Preposición innecesaria",
+            "es": "En español dices «en casa». En ruso, «дома» ya significa «en casa» sin preposición.",
+            "ru": "✗ В дома → ✓ Дома"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "¿Cómo preguntas «¿Dónde está el teléfono?»?",
+            "options": [
+              "Где телефон?",
+              "Что телефон?",
+              "Кто телефон?"
+            ],
+            "correctIndex": 0,
+            "explanation": "«Где» = dónde. «Что» = qué, «кто» = quién."
+          },
+          {
+            "type": "reveal",
+            "question": "Responde: «— Где кот? — Кот ___». (en casa)",
+            "answer": "дома",
+            "explanation": "«Дома» = en casa, sin preposición."
+          }
+        ]
+      }
+    ],
+    "guidedPracticeRefs": [
+      "grammar-l02-001",
+      "grammar-l02-002",
+      "grammar-l02-004",
+      "mixed-l02-005",
+      "mixed-l02-006"
+    ],
+    "summary": "En esta clase has aprendido:\n1. Género por terminación: consonante/‑й (m), ‑а/‑я/‑ь (f), ‑о/‑е (n).\n2. Excepciones: «папа», «дядя» son masculinos.\n3. Preguntar ubicación: «Где…?».\n4. Adverbios: «здесь», «там», «дома», «справа», «слева».",
+    "errorsToWatch": [
+      "Asignar género por significado en vez de terminación",
+      "Usar preposición con adverbios de ubicación"
+    ],
+    "nextStep": "Practica el género y la ubicación en Ejercicios. Después haz el examen para desbloquear la lección 3.",
+    "examAvailable": true
+  },
+  {
+    "lessonId": 3,
+    "title": "Pronombres personales y profesiones",
+    "goal": "Presentarse, decir a qué te dedicas y usar los pronombres personales correctamente, incluyendo el «вы» de cortesía.",
+    "whyItMatters": "Las presentaciones son el primer acto social en cualquier idioma. En ruso, además, la distinción entre «ты» y «вы» es obligatoria y transmite respeto o distancia.",
+    "spanishInterference": "En español dices «soy médico» con el verbo «ser». En ruso no usas verbo: «Я врач». Añadir «есть» es un error típico. También, el «usted» español se usa menos que el «вы» ruso.",
+    "sections": [
+      {
+        "id": "pronouns",
+        "type": "explanation",
+        "title": "Pronombres personales",
+        "content": "Los pronombres en ruso son:\n• Я — yo\n• Ты — tú (informal)\n• Он — él\n• Она — ella\n• Оно — ello (neutro, raro)\n• Мы — nosotros\n• Вы — vosotros / usted (formal y plural)\n• Они — ellos\n\n«Вы» se usa tanto para plural como para tratamiento formal (una persona). La cortesía rusa exige «вы» con desconocidos, superiores, personas mayores.",
+        "examples": [
+          {
+            "ru": "Я студент.",
+            "es": "Soy estudiante."
+          },
+          {
+            "ru": "Вы врач?",
+            "es": "¿Es usted médico?"
+          },
+          {
+            "ru": "Они дома.",
+            "es": "Ellos están en casa."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "ты vs вы",
+            "es": "En español «tú»/«usted» se usa según formalidad. En ruso es igual, pero «вы» se usa más ampliamente incluso en entornos laborales. Pasar a «ты» requiere permiso.",
+            "ru": "Вы (formal) vs ты (informal)"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "Conoces a tu jefe por primera vez. ¿Usas «ты» o «вы»?",
+            "options": [
+              "ты",
+              "вы"
+            ],
+            "correctIndex": 1,
+            "explanation": "Con superiores y desconocidos se usa «вы» hasta que te inviten a tutear."
+          },
+          {
+            "type": "reveal",
+            "question": "¿Cómo se dice «Nosotros estamos en casa»?",
+            "answer": "Мы дома.",
+            "explanation": "«Мы» = nosotros + «дома» = en casa."
+          }
+        ]
+      },
+      {
+        "id": "professions",
+        "type": "explanation",
+        "title": "Profesiones sin verbo",
+        "content": "Para decir «soy + profesión» en ruso:\n\n«Я» + profesión.\n\nSin verbo. Sin «есть». Sin «это».\n\n«Я врач.» — Soy médico.\n«Она учитель.» — Ella es profesora.\n«Вы инженер?» — ¿Es usted ingeniero?\n\nPara negar: «Я не врач.» (No soy médico).",
+        "examples": [
+          {
+            "ru": "Я студент.",
+            "es": "Soy estudiante."
+          },
+          {
+            "ru": "Она журналист.",
+            "es": "Ella es periodista."
+          },
+          {
+            "ru": "Мы не врачи, а учителя.",
+            "es": "No somos médicos, sino profesores."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Verbo omitido",
+            "es": "Español: «Soy estudiante» (verbo). Ruso: «Я студент» (sin verbo). Añadir «есть» o «это» suena a robot.",
+            "ru": "✗ Я есть студент → ✓ Я студент"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "¿Cómo se dice «Ella es periodista»?",
+            "options": [
+              "Она есть журналист.",
+              "Она журналист.",
+              "Она это журналист."
+            ],
+            "correctIndex": 1,
+            "explanation": "Sin verbo. Solo pronombre + profesión."
+          }
+        ]
+      }
+    ],
+    "guidedPracticeRefs": [
+      "grammar-l03-001",
+      "grammar-l03-002",
+      "grammar-l03-003",
+      "mixed-l03-004",
+      "mixed-l03-005"
+    ],
+    "summary": "En esta clase has aprendido:\n1. Pronombres: я, ты, он, она, оно, мы, вы, они.\n2. «Вы» de cortesía obligatorio con desconocidos y superiores.\n3. Profesiones sin verbo: «Я врач» (no «я есть врач»).\n4. Negación: «Я не врач».",
+    "errorsToWatch": [
+      "Añadir «есть» con profesiones",
+      "Usar «ты» en contexto formal",
+      "Olvidar que «вы» también significa «vosotros»"
+    ],
+    "nextStep": "Practica las presentaciones en Ejercicios. Luego haz el examen para desbloquear la lección 4.",
+    "examAvailable": true
+  },
+  {
+    "lessonId": 4,
+    "title": "Verbos de primera conjugación",
+    "goal": "Conjugar verbos regulares de la primera conjugación (-ать/-ять) en presente y describir acciones cotidianas.",
+    "whyItMatters": "Hasta ahora solo has nombrado cosas. Con los verbos empiezas a contar lo que haces, lo que ves y lo que quieres. Es el salto de señalar a narrar.",
+    "spanishInterference": "En español las terminaciones verbales cambian por persona (-o, -as, -a, -amos, -áis, -an). En ruso también, pero hay alternancias consonánticas que no existen en español (ск→щ, с→ш) y no se usan pronombres siempre.",
+    "sections": [
+      {
+        "id": "conjugation1",
+        "type": "explanation",
+        "title": "Primera conjugación (-ать, -ять)",
+        "content": "Los verbos de primera conjugación terminan en -ать o -ять. Se conjugan así:\n\nЧита́ть (leer):\n• Я чита́ю — leo\n• Ты чита́ешь — lees\n• Он/она чита́ет — lee\n• Мы чита́ем — leemos\n• Вы чита́ете — leéis / lee (usted)\n• Они чита́ют — leen\n\nPatrón: quita -ть, añade -ю, -ешь, -ет, -ем, -ете, -ют.",
+        "examples": [
+          {
+            "ru": "Я читаю книгу.",
+            "es": "Leo un libro."
+          },
+          {
+            "ru": "Ты говоришь по-русски?",
+            "es": "¿Hablas ruso?"
+          },
+          {
+            "ru": "Мы работаем здесь.",
+            "es": "Trabajamos aquí."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Pronombres opcionales",
+            "es": "En español la terminación ya indica persona: «leo». En ruso también: «читаю». Puedes omitir «я» sin perder significado, pero los rusos suelen incluirlo.",
+            "ru": "Читаю = Я читаю (ambas correctas)"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "¿Cuál es la forma correcta de «читать» para «nosotros»?",
+            "options": [
+              "читаем",
+              "читают",
+              "читаете"
+            ],
+            "correctIndex": 0,
+            "explanation": "Мы чита́ем: quita -ть, añade -ем."
+          },
+          {
+            "type": "reveal",
+            "question": "Conjuga «работать» (trabajar) para «ella».",
+            "answer": "работает",
+            "explanation": "Она работа́ет: -ать → -ет."
+          }
+        ]
+      },
+      {
+        "id": "alternations",
+        "type": "explanation",
+        "title": "Alternancias consonánticas",
+        "content": "Algunos verbos cambian la consonante final en la primera persona del singular (я):\n\n• ск → щ: иска́ть (buscar) → я ищу́\n• с → ш: писа́ть (escribir) → я пишу́\n• х → ш: паха́ть (arar, raro) → я пашу́\n\nEsto solo ocurre en «я». El resto de personas sigue el patrón normal.",
+        "examples": [
+          {
+            "ru": "Я ищу ключи.",
+            "es": "Busco las llaves."
+          },
+          {
+            "ru": "Я пишу письмо.",
+            "es": "Escribo una carta."
+          },
+          {
+            "ru": "Ты ищешь книгу?",
+            "es": "¿Buscas un libro?"
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Alternancia impredecible",
+            "es": "No hay regla para saber qué verbos alternan. Hay que aprenderlos de memoria: искать → ищу, но сказать → скажу.",
+            "ru": "искать → ищу; сказать → скажу"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "¿Cómo se dice «Yo busco» en ruso?",
+            "options": [
+              "Я ищу",
+              "Я искаю",
+              "Я иску"
+            ],
+            "correctIndex": 0,
+            "explanation": "иска́ть → alternancia ск→щ solo en «я»: ищу́."
+          }
+        ]
+      }
+    ],
+    "guidedPracticeRefs": [
+      "grammar-l04-001",
+      "grammar-l04-002",
+      "grammar-l04-003",
+      "mixed-l04-004",
+      "mixed-l04-005"
+    ],
+    "summary": "En esta clase has aprendido:\n1. Conjugación de -ать/-ять: чита́ть → чита́ю, чита́ешь, чита́ет, чита́ем, чита́ете, чита́ют.\n2. Alternancias en «я»: иска́ть → ищу́, писа́ть → пишу́.\n3. Los pronombres son opcionales pero comunes.\n4. Verbos típicos: читать, работать, говорить, искать, писать.",
+    "errorsToWatch": [
+      "Olvidar la alternancia en la forma de «я»",
+      "Usar terminación de otra conjugación",
+      "Confundir -ете (vosotros) con -ет (él/ella)"
+    ],
+    "nextStep": "Practica la conjugación en Ejercicios. Luego haz el examen para desbloquear la lección 5.",
+    "examAvailable": true
+  },
+  {
+    "lessonId": 5,
+    "title": "Objeto directo e играть в",
+    "goal": "Identificar y usar el acusativo femenino y la estructura «играть в + acusativo» para hablar de actividades.",
+    "whyItMatters": "El acusativo es el primer caso gramatical que cambia la forma de los sustantivos. Sin él no puedes decir correctamente qué ves, qué lees o a qué juegas.",
+    "spanishInterference": "En español el objeto directo no cambia la forma de la palabra («veo la casa»). En ruso sí: «Я вижу дом» (dom, mismo) pero «Я вижу книгУ» (cambio -а → -у).",
+    "sections": [
+      {
+        "id": "accusative",
+        "type": "explanation",
+        "title": "Acusativo femenino (-а → -у)",
+        "content": "En ruso, el objeto directo (acusativo) cambia la forma del sustantivo:\n\n• Femenino en -а → -у: кни́га → кни́гу\n• Femenino en -я → -ю: семья́ → семью́\n• Masculino y neutro: no cambian (igual que nominativo)\n\n\n«Я читаю книгу.» — Leo un libro.\n«Она видит кошку.» — Ella ve a la gata.\n«Мы любим музыку.» — Nos gusta la música.",
+        "examples": [
+          {
+            "ru": "Я вижу кошку.",
+            "es": "Veo a la gata. (кошка → кошку)"
+          },
+          {
+            "ru": "Он читает газету.",
+            "es": "Él lee el periódico. (газета → газету)"
+          },
+          {
+            "ru": "Ты ищешь ручку?",
+            "es": "¿Buscas un bolígrafo? (ручка → ручку)"
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "Cambio de forma",
+            "es": "Español: «Veo la casa» (casa no cambia). Ruso: «Я вижу дом» (дом no cambia, es masc.) pero «Я вижу квартирУ» (квартира → квартирУ, cambia).",
+            "ru": "дом (m) → дом; квартира (f) → квартирУ"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "«Кошка» (gato) es femenino. ¿Cómo se dice «Veo un gato»?",
+            "options": [
+              "Я вижу кошка.",
+              "Я вижу кошку.",
+              "Я вижу кошки."
+            ],
+            "correctIndex": 1,
+            "explanation": "Femenino -а → -у en acusativo: кошкУ."
+          },
+          {
+            "type": "reveal",
+            "question": "Transforma: «Это книга.» → «Я читаю ___ .»",
+            "answer": "книгу",
+            "explanation": "книга (f) → книгу (acusativo)."
+          }
+        ]
+      },
+      {
+        "id": "igrat",
+        "type": "explanation",
+        "title": "Играть в + acusativo",
+        "content": "Para decir «jugar a algo» se usa:\n\n«Игра́ть» + «в» + acusativo.\n\n«Я игра́ю в футбо́л.» — Juego al fútbol.\n«Он игра́ет в ша́хматы.» — Él juega al ajedrez.\n«Мы игра́ем в те́ннис.» — Jugamos al tenis.\n\nNunca omitas la «в». En español a veces omites la preposición («juego fútbol»), en ruso nunca.",
+        "examples": [
+          {
+            "ru": "Я играю в футбол.",
+            "es": "Juego al fútbol."
+          },
+          {
+            "ru": "Она играет на гитаре.",
+            "es": "Ella toca la guitarra. (Nota: «на» + preposicional para instrumentos)"
+          },
+          {
+            "ru": "Дети играют в парке.",
+            "es": "Los niños juegan en el parque."
+          }
+        ],
+        "contrasts": [
+          {
+            "label": "играть в vs играть на",
+            "es": "«Играть В» + acusativo = jugar a un deporte/juego. «Играть НА» + preposicional = tocar un instrumento. Son estructuras diferentes.",
+            "ru": "играть в футбол (deporte) vs играть на гитаре (instrumento)"
+          }
+        ],
+        "microChecks": [
+          {
+            "type": "choice",
+            "question": "¿Cómo se dice «Juego al tenis»?",
+            "options": [
+              "Я играю теннис.",
+              "Я играю в теннис.",
+              "Я играю на теннис."
+            ],
+            "correctIndex": 1,
+            "explanation": "«Играть в» + acusativo para deportes. La «в» es obligatoria."
+          }
+        ]
+      }
+    ],
+    "guidedPracticeRefs": [
+      "grammar-l05-001",
+      "grammar-l05-002",
+      "grammar-l05-003",
+      "mixed-l05-004",
+      "mixed-l05-005"
+    ],
+    "summary": "En esta clase has aprendido:\n1. Acusativo femenino: -а → -у, -я → -ю.\n2. Masculino y neutro no cambian en acusativo.\n3. «Играть в» + acusativo para deportes.\n4. «Играть на» + preposicional para instrumentos (sinónimo diferente).",
+    "errorsToWatch": [
+      "No cambiar -а por -у en femenino acusativo",
+      "Omitir «в» en «играть в»",
+      "Usar «играть на» para deportes"
+    ],
+    "nextStep": "Practica el acusativo y «играть в» en Ejercicios. Luego haz el examen para desbloquear la lección 6.",
+    "examAvailable": true
+  }
+]

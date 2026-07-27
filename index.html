@@ -3,33 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0f1115" />
-    <title>Paruski — ruso interactivo</title>
+    <meta name="theme-color" content="#12141a" />
+    <title>Paruski · ruso interactivo</title>
+    <meta name="description" content="Curso interactivo de ruso para hispanohablantes: lecciones, práctica exigente, exámenes obligatorios y repaso espaciado sobre competencias." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="stylesheet" href="assets/styles.css" />
-    <link rel="stylesheet" href="assets/app-shell.css" />
-    <link rel="stylesheet" href="assets/keyboard.css" />
+    <link rel="stylesheet" href="app/app.css" />
   </head>
   <body>
+    <a class="skip" href="#main">Ir al contenido</a>
+
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Paruski</p>
-        <h1>Sesión de ruso</h1>
-        <p class="muted">Aprende, practica y repasa con una ruta guiada hasta A1-A2 inicial.</p>
-      </div>
+      <a class="brand" href="#/">
+        <span class="brand-mark">Р</span>
+        <span class="brand-text"><b>Paruski</b><small>ruso para hispanohablantes</small></span>
+      </a>
+      <nav class="mainnav" aria-label="Secciones">
+        <a href="#/">Curso</a>
+        <a href="#/repaso">Repaso</a>
+        <a href="#/vocabulario">Vocabulario</a>
+        <a href="#/progreso">Progreso</a>
+      </nav>
+      <button id="themeToggle" class="ghost" type="button" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
     </header>
 
-    <nav id="appNav" class="tabs" aria-label="Secciones"></nav>
-    <p id="appStatus" class="app-status" hidden></p>
-
-    <main id="appRoot">
-      <section class="panel">
-        <h2>Cargando Paruski</h2>
-      </section>
+    <main id="main" class="main" tabindex="-1">
+      <p class="loading">Cargando el curso…</p>
     </main>
 
-    <script src="assets/audio-bank.js"></script>
-    <script type="module" src="assets/app.js"></script>
+    <footer class="footer">
+      <p>Prototipo funcional · unidades 001–011 · materiales en revisión editorial, sin validación de hablante nativo.</p>
+      <p><a href="legacy.html">Versión anterior</a> · <a href="https://github.com/Paruski/paruski">Repositorio</a></p>
+    </footer>
+
+    <script type="module" src="app/main.js"></script>
   </body>
 </html>

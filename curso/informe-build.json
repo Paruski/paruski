@@ -1,0 +1,94 @@
+{
+ "itemsIn": 715,
+ "itemsOut": 708,
+ "dropped": {
+  "opciones insuficientes": 6,
+  "tipo sin conversor: cloze/None": 1
+ },
+ "byType": {
+  "contextual_choice": 104,
+  "cloze": 43,
+  "diagnostic_repair": 90,
+  "translation_ru_es": 44,
+  "translation_es_ru": 44,
+  "transformation": 44,
+  "production": 44,
+  "semantic_contrast": 34,
+  "inductive_generalization": 12,
+  "backtranslation_critique": 30,
+  "reading_comprehension": 44,
+  "constrained_transfer": 98,
+  "information_gap_reconstruction": 22,
+  "exam": 55
+ },
+ "byUnit": {
+  "1": 65,
+  "2": 64,
+  "3": 64,
+  "4": 59,
+  "5": 71,
+  "6": 63,
+  "7": 62,
+  "8": 65,
+  "9": 66,
+  "10": 65,
+  "11": 64
+ },
+ "examByUnit": {
+  "1": 5,
+  "2": 5,
+  "3": 5,
+  "4": 4,
+  "5": 6,
+  "6": 5,
+  "7": 5,
+  "8": 5,
+  "9": 5,
+  "10": 5,
+  "11": 5
+ },
+ "stepKinds": {
+  "choice": 321,
+  "written": 708
+ },
+ "vocab": 254,
+ "vocabWithAudio": 157,
+ "skills": 42,
+ "dropLog": [
+  {
+   "id": "pb1v17-replacement-007",
+   "type": "contextual_choice",
+   "reason": "opciones insuficientes"
+  },
+  {
+   "id": "pb1v16-l003-contrast-explanation-09-2",
+   "type": "contextual_choice",
+   "reason": "opciones insuficientes"
+  },
+  {
+   "id": "pb1v16-l006-contrast-explanation-06-3",
+   "type": "contextual_choice",
+   "reason": "opciones insuficientes"
+  },
+  {
+   "id": "pb1v16-l006-semantic-contrast-10-5",
+   "type": "contextual_choice",
+   "reason": "opciones insuficientes"
+  },
+  {
+   "id": "pb1v16-l007-semantic-contrast-08-1",
+   "type": "contextual_choice",
+   "reason": "opciones insuficientes"
+  },
+  {
+   "id": "pb1v16-l007-semantic-contrast-10-5",
+   "type": "contextual_choice",
+   "reason": "opciones insuficientes"
+  },
+  {
+   "id": "pb2-l011-cl-02",
+   "type": "cloze",
+   "reason": "tipo sin conversor: cloze/None"
+  }
+ ]
+}

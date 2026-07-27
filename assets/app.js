@@ -10,6 +10,8 @@ import { escapeHtml } from './core/utils.js';
 
 import { calendarFeature } from './features/calendar/index.js';
 import { examsFeature } from './features/exams/index.js';
+import { curriculumFeature } from './features/curriculum/index.js';
+import { classesFeature } from './features/classes/index.js';
 import { guidedSessionFeature } from './features/guided-session/index.js';
 import { libraryFeature } from './features/library/index.js';
 import { progressFeature } from './features/progress/index.js';
@@ -30,8 +32,10 @@ import { transformExercise } from './exercises/transform/index.js';
 
 const registry = createRegistry();
 [
+  classesFeature,
   guidedSessionFeature,
   examsFeature,
+  curriculumFeature,
   libraryFeature,
   calendarFeature,
   progressFeature,

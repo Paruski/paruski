@@ -1,10 +1,10 @@
 {
-  "name": "Paruski — ruso interactivo",
+  "name": "Paruski · ruso interactivo",
   "short_name": "Paruski",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#111827",
-  "description": "Aplicación privada para aprender ruso y registrar progreso.",
+  "background_color": "#101318",
+  "theme_color": "#12141a",
+  "description": "Curso interactivo de ruso para hispanohablantes: lecciones, práctica, exámenes y repaso espaciado sobre competencias.",
   "icons": []
 }

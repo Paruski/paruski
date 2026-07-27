@@ -1,0 +1,5585 @@
+[
+  {
+    "id": "lesson_001",
+    "number": 1,
+    "title": "Esto es; quién/qué; familia y objetos",
+    "approxLevel": "A0",
+    "status": "complete",
+    "communicativeTheme": "Identidad",
+    "summary": "Esto es; quién/qué; familia y objetos",
+    "communicativeObjectives": [
+      "Preguntar quién es alguien"
+    ],
+    "grammarObjectives": [
+      "Это + N. Кто/что это? Negación con не."
+    ],
+    "activeVocabularyThemes": [
+      "familia",
+      "animales",
+      "bebidas",
+      "objetos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "это + N",
+      "кто это?",
+      "что это?",
+      "и/а/но"
+    ],
+    "recycledStructures": [],
+    "cases": [],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Confundir кто/что, añadir есть, usar иметь"
+    ],
+    "criticalTargets": [
+      {
+        "id": "это_+_N",
+        "description": "это + N"
+      },
+      {
+        "id": "кто_это?",
+        "description": "кто это?"
+      },
+      {
+        "id": "что_это?",
+        "description": "что это?"
+      }
+    ],
+    "expectedProduction": [
+      "Preguntar quién es alguien"
+    ],
+    "expectedComprehension": [
+      "Это + N. Кто/что это? Negación con не."
+    ],
+    "closingExam": {
+      "vocabulary": true,
+      "grammar": true,
+      "mixed": true,
+      "full": true
+    },
+    "unlockCriteria": "Dominar targets críticos de la lección 1 y pasar los exámenes",
+    "previousLessonLinks": [
+      "Lecciones 1-1"
+    ],
+    "implementationNotes": "331 ejercicios, 83 exámenes implementados"
+  },
+  {
+    "id": "lesson_002",
+    "number": 2,
+    "title": "Género, ciudad y ubicación",
+    "approxLevel": "A0",
+    "status": "complete",
+    "communicativeTheme": "Lugar",
+    "summary": "Género, ciudad y ubicación",
+    "communicativeObjectives": [
+      "Preguntar y responder dónde está algo"
+    ],
+    "grammarObjectives": [
+      "Género. Он/она/оно. Adverbios de ubicación."
+    ],
+    "activeVocabularyThemes": [
+      "ciudad",
+      "edificios",
+      "casa",
+      "direcciones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "он/она/оно",
+      "где?",
+      "здесь/там/дома",
+      "справа/слева"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 1-1"
+    ],
+    "cases": [],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Preposición con adverbios, género incorrecto"
+    ],
+    "criticalTargets": [
+      {
+        "id": "он/она/оно",
+        "description": "он/она/оно"
+      },
+      {
+        "id": "где?",
+        "description": "где?"
+      },
+      {
+        "id": "здесь/там/дома",
+        "description": "здесь/там/дома"
+      }
+    ],
+    "expectedProduction": [
+      "Preguntar y responder dónde está algo"
+    ],
+    "expectedComprehension": [
+      "Género. Он/она/оно. Adverbios de ubicación."
+    ],
+    "closingExam": {
+      "vocabulary": true,
+      "grammar": true,
+      "mixed": true,
+      "full": true
+    },
+    "unlockCriteria": "Dominar targets críticos de la lección 2 y pasar los exámenes",
+    "previousLessonLinks": [
+      "Lecciones 1-1"
+    ],
+    "implementationNotes": "390 ejercicios, 38 exámenes implementados"
+  },
+  {
+    "id": "lesson_003",
+    "number": 3,
+    "title": "Pronombres personales y profesiones",
+    "approxLevel": "A0",
+    "status": "complete",
+    "communicativeTheme": "Identidad social",
+    "summary": "Pronombres personales y profesiones",
+    "communicativeObjectives": [
+      "Presentarse"
+    ],
+    "grammarObjectives": [
+      "Pronombre + profesión sin cópula. Вы cortesía."
+    ],
+    "activeVocabularyThemes": [
+      "profesiones",
+      "cortesía",
+      "personas"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "pronombre + N (profesión)",
+      "не + N",
+      "вы cortesía"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 1-2"
+    ],
+    "cases": [],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Añadir есть con profesiones, ты en formal"
+    ],
+    "criticalTargets": [
+      {
+        "id": "pronombre_+_N_(profesión)",
+        "description": "pronombre + N (profesión)"
+      },
+      {
+        "id": "не_+_N",
+        "description": "не + N"
+      },
+      {
+        "id": "вы_cortesía",
+        "description": "вы cortesía"
+      }
+    ],
+    "expectedProduction": [
+      "Presentarse"
+    ],
+    "expectedComprehension": [
+      "Pronombre + profesión sin cópula. Вы cortesía."
+    ],
+    "closingExam": {
+      "vocabulary": true,
+      "grammar": true,
+      "mixed": true,
+      "full": true
+    },
+    "unlockCriteria": "Dominar targets críticos de la lección 3 y pasar los exámenes",
+    "previousLessonLinks": [
+      "Lecciones 1-2"
+    ],
+    "implementationNotes": "390 ejercicios, 38 exámenes implementados"
+  },
+  {
+    "id": "lesson_004",
+    "number": 4,
+    "title": "Verbos de primera conjugación",
+    "approxLevel": "A0",
+    "status": "complete",
+    "communicativeTheme": "Acción",
+    "summary": "Verbos de primera conjugación",
+    "communicativeObjectives": [
+      "Describir acciones cotidianas"
+    ],
+    "grammarObjectives": [
+      "1ª conjugación (-ать/-ять). Presente."
+    ],
+    "activeVocabularyThemes": [
+      "verbos acción",
+      "rutina",
+      "trabajo",
+      "hogar"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "1ª conj. (-ать/-ять) presente",
+      "alternancia ск→щ, с→ш"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 1-3"
+    ],
+    "cases": [],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Terminaciones de 1ª conj., alternancias"
+    ],
+    "criticalTargets": [
+      {
+        "id": "1ª_conj._(-ать/-ять)_presente",
+        "description": "1ª conj. (-ать/-ять) presente"
+      },
+      {
+        "id": "alternancia_ск→щ,_с→ш",
+        "description": "alternancia ск→щ, с→ш"
+      }
+    ],
+    "expectedProduction": [
+      "Describir acciones cotidianas"
+    ],
+    "expectedComprehension": [
+      "1ª conjugación (-ать/-ять). Presente."
+    ],
+    "closingExam": {
+      "vocabulary": true,
+      "grammar": true,
+      "mixed": true,
+      "full": true
+    },
+    "unlockCriteria": "Dominar targets críticos de la lección 4 y pasar los exámenes",
+    "previousLessonLinks": [
+      "Lecciones 1-3"
+    ],
+    "implementationNotes": "354 ejercicios, 38 exámenes implementados"
+  },
+  {
+    "id": "lesson_005",
+    "number": 5,
+    "title": "Objeto directo e играть в",
+    "approxLevel": "A0",
+    "status": "complete",
+    "communicativeTheme": "Actividad",
+    "summary": "Objeto directo e играть в",
+    "communicativeObjectives": [
+      "Preguntar qué hace alguien"
+    ],
+    "grammarObjectives": [
+      "Acusativo fem. (-а→-у). Играть в + acus."
+    ],
+    "activeVocabularyThemes": [
+      "deportes",
+      "juegos",
+      "ocio",
+      "compras"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "acusativo fem. (-а→-у)",
+      "играть в + juego",
+      "что + V?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 2-4"
+    ],
+    "cases": [],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Nominativo en objeto directo, omitir в en играть"
+    ],
+    "criticalTargets": [
+      {
+        "id": "acusativo_fem._(-а→-у)",
+        "description": "acusativo fem. (-а→-у)"
+      },
+      {
+        "id": "играть_в_+_juego",
+        "description": "играть в + juego"
+      },
+      {
+        "id": "что_+_V?",
+        "description": "что + V?"
+      }
+    ],
+    "expectedProduction": [
+      "Preguntar qué hace alguien"
+    ],
+    "expectedComprehension": [
+      "Acusativo fem. (-а→-у). Играть в + acus."
+    ],
+    "closingExam": {
+      "vocabulary": true,
+      "grammar": true,
+      "mixed": true,
+      "full": true
+    },
+    "unlockCriteria": "Dominar targets críticos de la lección 5 y pasar los exámenes",
+    "previousLessonLinks": [
+      "Lecciones 2-4"
+    ],
+    "implementationNotes": "346 ejercicios, 38 exámenes implementados"
+  },
+  {
+    "id": "lesson_006",
+    "number": 6,
+    "title": "Segunda conjugación y preguntas sintácticas",
+    "approxLevel": "A0-A1",
+    "status": "planned",
+    "communicativeTheme": "Gramática verbal",
+    "summary": "Segunda conjugación y preguntas sintácticas",
+    "communicativeObjectives": [
+      "Conjugar verbos de 2ª"
+    ],
+    "grammarObjectives": [
+      "2ª conjugación (-ить/-еть). Alternancias."
+    ],
+    "activeVocabularyThemes": [
+      "construcción",
+      "comunicación",
+      "percepción"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "2ª conj. presente",
+      "alternancias 2ª"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 3-5"
+    ],
+    "cases": [
+      "acusativo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Terminaciones 2ª conj."
+    ],
+    "criticalTargets": [
+      {
+        "id": "2ª_conj._presente",
+        "description": "2ª conj. presente"
+      },
+      {
+        "id": "alternancias_2ª",
+        "description": "alternancias 2ª"
+      }
+    ],
+    "expectedProduction": [
+      "Conjugar verbos de 2ª"
+    ],
+    "expectedComprehension": [
+      "2ª conjugación (-ить/-еть). Alternancias."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 3-5"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_007",
+    "number": 7,
+    "title": "Objeto animado y pronombres directos",
+    "approxLevel": "A0-A1",
+    "status": "planned",
+    "communicativeTheme": "Personas",
+    "summary": "Objeto animado y pronombres directos",
+    "communicativeObjectives": [
+      "Usar objeto directo animado"
+    ],
+    "grammarObjectives": [
+      "Acusativo animado. Pronombres objeto directo."
+    ],
+    "activeVocabularyThemes": [
+      "personas",
+      "percepción",
+      "comprensión"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "acusativo animado",
+      "pronombres objeto directo",
+      "кого?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 4-6"
+    ],
+    "cases": [
+      "acusativo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Nominativo en objeto animado, его posesivo/objeto"
+    ],
+    "criticalTargets": [
+      {
+        "id": "acusativo_animado",
+        "description": "acusativo animado"
+      },
+      {
+        "id": "pronombres_objeto_directo",
+        "description": "pronombres objeto directo"
+      },
+      {
+        "id": "кого?",
+        "description": "кого?"
+      }
+    ],
+    "expectedProduction": [
+      "Usar objeto directo animado"
+    ],
+    "expectedComprehension": [
+      "Acusativo animado. Pronombres objeto directo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 4-6"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_008",
+    "number": 8,
+    "title": "Preguntar, responder, llamar y recordar",
+    "approxLevel": "A0-A1",
+    "status": "planned",
+    "communicativeTheme": "Comunicación",
+    "summary": "Preguntar, responder, llamar y recordar",
+    "communicativeObjectives": [
+      "Preguntar y decir nombres"
+    ],
+    "grammarObjectives": [
+      "Спрашивать/отвечать/звать. Как тебя зовут."
+    ],
+    "activeVocabularyThemes": [
+      "comunicación",
+      "nombres",
+      "memoria"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "как тебя зовут?",
+      "звать",
+      "у + gen pronombre"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 5-7"
+    ],
+    "cases": [
+      "acusativo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Calco de llamar como звонить"
+    ],
+    "criticalTargets": [
+      {
+        "id": "как_тебя_зовут?",
+        "description": "как тебя зовут?"
+      },
+      {
+        "id": "звать",
+        "description": "звать"
+      },
+      {
+        "id": "у_+_gen_pronombre",
+        "description": "у + gen pronombre"
+      }
+    ],
+    "expectedProduction": [
+      "Preguntar y decir nombres"
+    ],
+    "expectedComprehension": [
+      "Спрашивать/отвечать/звать. Как тебя зовут."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 5-7"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_009",
+    "number": 9,
+    "title": "Plural de sustantivos",
+    "approxLevel": "A0-A1",
+    "status": "planned",
+    "communicativeTheme": "Cantidad",
+    "summary": "Plural de sustantivos",
+    "communicativeObjectives": [
+      "Formar plurales"
+    ],
+    "grammarObjectives": [
+      "Plural regular e irregular."
+    ],
+    "activeVocabularyThemes": [
+      "personas",
+      "objetos",
+      "medios"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "plural regular",
+      "plural irregular",
+      "pluralia tantum"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 6-8"
+    ],
+    "cases": [
+      "acusativo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Terminaciones de plural irregular"
+    ],
+    "criticalTargets": [
+      {
+        "id": "plural_regular",
+        "description": "plural regular"
+      },
+      {
+        "id": "plural_irregular",
+        "description": "plural irregular"
+      },
+      {
+        "id": "pluralia_tantum",
+        "description": "pluralia tantum"
+      }
+    ],
+    "expectedProduction": [
+      "Formar plurales"
+    ],
+    "expectedComprehension": [
+      "Plural regular e irregular."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 6-8"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_010",
+    "number": 10,
+    "title": "Adverbios de modo y grado",
+    "approxLevel": "A0-A1",
+    "status": "planned",
+    "communicativeTheme": "Cualidad",
+    "summary": "Adverbios de modo y grado",
+    "communicativeObjectives": [
+      "Describir cómo se hace algo"
+    ],
+    "grammarObjectives": [
+      "Adverbios de modo y grado. Predicativos impersonales."
+    ],
+    "activeVocabularyThemes": [
+      "cualidad",
+      "clima",
+      "sensación",
+      "velocidad"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "как + adverbio",
+      "очень/так + adv",
+      "predicativo impersonal"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 7-9"
+    ],
+    "cases": [
+      "acusativo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Adverbio vs adjetivo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "как_+_adverbio",
+        "description": "как + adverbio"
+      },
+      {
+        "id": "очень/так_+_adv",
+        "description": "очень/так + adv"
+      },
+      {
+        "id": "predicativo_impersonal",
+        "description": "predicativo impersonal"
+      }
+    ],
+    "expectedProduction": [
+      "Describir cómo se hace algo"
+    ],
+    "expectedComprehension": [
+      "Adverbios de modo y grado. Predicativos impersonales."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 7-9"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_011",
+    "number": 11,
+    "title": "Tener: у меня есть",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Posesión",
+    "summary": "Tener: у меня есть",
+    "communicativeObjectives": [
+      "Expresar posesión"
+    ],
+    "grammarObjectives": [
+      "У + gen + есть. Posesión."
+    ],
+    "activeVocabularyThemes": [
+      "posesión",
+      "familia",
+      "trabajo",
+      "tiempo"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "у + gen + есть",
+      "нет + gen"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 8-10"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar иметь en posesión"
+    ],
+    "criticalTargets": [
+      {
+        "id": "у_+_gen_+_есть",
+        "description": "у + gen + есть"
+      },
+      {
+        "id": "нет_+_gen",
+        "description": "нет + gen"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar posesión"
+    ],
+    "expectedComprehension": [
+      "У + gen + есть. Posesión."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 8-10"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_012",
+    "number": 12,
+    "title": "Posesión sin есть y negación",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Ausencia",
+    "summary": "Posesión sin есть y negación",
+    "communicativeObjectives": [
+      "Negar posesión"
+    ],
+    "grammarObjectives": [
+      "Нет + gen. Omisión de есть."
+    ],
+    "activeVocabularyThemes": [
+      "ausencia",
+      "necesidad",
+      "posesión"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "есть opcional",
+      "нет + gen"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 9-11"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar есть en negación, genitivo tras нет"
+    ],
+    "criticalTargets": [
+      {
+        "id": "есть_opcional",
+        "description": "есть opcional"
+      },
+      {
+        "id": "нет_+_gen",
+        "description": "нет + gen"
+      }
+    ],
+    "expectedProduction": [
+      "Negar posesión"
+    ],
+    "expectedComprehension": [
+      "Нет + gen. Omisión de есть."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 9-11"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_013",
+    "number": 13,
+    "title": "Adjetivos básicos",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Cualidad",
+    "summary": "Adjetivos básicos",
+    "communicativeObjectives": [
+      "Describir con adjetivos"
+    ],
+    "grammarObjectives": [
+      "Concordancia adjetivo-sustantivo."
+    ],
+    "activeVocabularyThemes": [
+      "cualidades",
+      "descripción",
+      "personalidad"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "concordancia adj.",
+      "terminaciones adj."
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 10-12"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "No concordar adjetivo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "concordancia_adj.",
+        "description": "concordancia adj."
+      },
+      {
+        "id": "terminaciones_adj.",
+        "description": "terminaciones adj."
+      }
+    ],
+    "expectedProduction": [
+      "Describir con adjetivos"
+    ],
+    "expectedComprehension": [
+      "Concordancia adjetivo-sustantivo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 10-12"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_014",
+    "number": 14,
+    "title": "Colores y descripción",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Descripción",
+    "summary": "Colores y descripción",
+    "communicativeObjectives": [
+      "Describir colores"
+    ],
+    "grammarObjectives": [
+      "Adjetivos de color. Concordancias especiales."
+    ],
+    "activeVocabularyThemes": [
+      "colores",
+      "ropa",
+      "objetos",
+      "apariencia"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "adjetivos de color",
+      "concordancia color"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 11-13"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Colores invariables (беж, хаки)"
+    ],
+    "criticalTargets": [
+      {
+        "id": "adjetivos_de_color",
+        "description": "adjetivos de color"
+      },
+      {
+        "id": "concordancia_color",
+        "description": "concordancia color"
+      }
+    ],
+    "expectedProduction": [
+      "Describir colores"
+    ],
+    "expectedComprehension": [
+      "Adjetivos de color. Concordancias especiales."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 11-13"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_015",
+    "number": 15,
+    "title": "Prepositivo de lugar",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Ubicación",
+    "summary": "Prepositivo de lugar",
+    "communicativeObjectives": [
+      "Ubicar en prepositivo"
+    ],
+    "grammarObjectives": [
+      "Prepositivo в/на. Terminaciones -е/-и."
+    ],
+    "activeVocabularyThemes": [
+      "ciudad",
+      "instituciones",
+      "lugares"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "в/на + prepositivo",
+      "prepositivo sing."
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 12-14"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar nominativo tras в/на"
+    ],
+    "criticalTargets": [
+      {
+        "id": "в/на_+_prepositivo",
+        "description": "в/на + prepositivo"
+      },
+      {
+        "id": "prepositivo_sing.",
+        "description": "prepositivo sing."
+      }
+    ],
+    "expectedProduction": [
+      "Ubicar en prepositivo"
+    ],
+    "expectedComprehension": [
+      "Prepositivo в/на. Terminaciones -е/-и."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 12-14"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_016",
+    "number": 16,
+    "title": "Preposiciones de lugar",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Espacio",
+    "summary": "Preposiciones de lugar",
+    "communicativeObjectives": [
+      "Describir posiciones"
+    ],
+    "grammarObjectives": [
+      "Рядом с, около, слева от, справа от, напротив."
+    ],
+    "activeVocabularyThemes": [
+      "espacio",
+      "posiciones",
+      "descripción urbana"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "рядом с",
+      "напротив + gen",
+      "слева/справа от"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 13-15"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Calco de preposiciones españolas"
+    ],
+    "criticalTargets": [
+      {
+        "id": "рядом_с",
+        "description": "рядом с"
+      },
+      {
+        "id": "напротив_+_gen",
+        "description": "напротив + gen"
+      },
+      {
+        "id": "слева/справа_от",
+        "description": "слева/справа от"
+      }
+    ],
+    "expectedProduction": [
+      "Describir posiciones"
+    ],
+    "expectedComprehension": [
+      "Рядом с, около, слева от, справа от, напротив."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 13-15"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_017",
+    "number": 17,
+    "title": "Pasado verbal",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Tiempo pasado",
+    "summary": "Pasado verbal",
+    "communicativeObjectives": [
+      "Narrar en pasado"
+    ],
+    "grammarObjectives": [
+      "Pasado en -л. Был/была/было/были."
+    ],
+    "activeVocabularyThemes": [
+      "pasado",
+      "narrativa",
+      "cambio de estado"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "pasado -л",
+      "был/была/было/были"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 14-16"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Olvidar género en pasado"
+    ],
+    "criticalTargets": [
+      {
+        "id": "pasado_-л",
+        "description": "pasado -л"
+      },
+      {
+        "id": "был/была/было/были",
+        "description": "был/была/было/были"
+      }
+    ],
+    "expectedProduction": [
+      "Narrar en pasado"
+    ],
+    "expectedComprehension": [
+      "Pasado en -л. Был/была/было/были."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 14-16"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_018",
+    "number": 18,
+    "title": "Tiempo, días, meses y estaciones",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Tiempo",
+    "summary": "Tiempo, días, meses y estaciones",
+    "communicativeObjectives": [
+      "Hablar del tiempo"
+    ],
+    "grammarObjectives": [
+      "Días, meses, estaciones. Было impersonal."
+    ],
+    "activeVocabularyThemes": [
+      "clima",
+      "calendario",
+      "días",
+      "meses"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "días, meses",
+      "времена года",
+      "было impersonal"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 15-17"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Género de meses"
+    ],
+    "criticalTargets": [
+      {
+        "id": "días,_meses",
+        "description": "días, meses"
+      },
+      {
+        "id": "времена_года",
+        "description": "времена года"
+      },
+      {
+        "id": "было_impersonal",
+        "description": "было impersonal"
+      }
+    ],
+    "expectedProduction": [
+      "Hablar del tiempo"
+    ],
+    "expectedComprehension": [
+      "Días, meses, estaciones. Было impersonal."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 15-17"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_019",
+    "number": 19,
+    "title": "Acusativo inanimado femenino e играть в",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Objeto",
+    "summary": "Acusativo inanimado femenino e играть в",
+    "communicativeObjectives": [
+      "Usar acusativo femenino"
+    ],
+    "grammarObjectives": [
+      "Acusativo fem. (-а→-у, -я→-ю), excepciones."
+    ],
+    "activeVocabularyThemes": [
+      "deportes",
+      "juegos",
+      "objetos fem."
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "acusativo fem. (-а→-у,-я→-ю)",
+      "играть в"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 16-18"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Olvidar cambio -а→-у en acusativo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "acusativo_fem._(-а→-у,-я→-ю)",
+        "description": "acusativo fem. (-а→-у,-я→-ю)"
+      },
+      {
+        "id": "играть_в",
+        "description": "играть в"
+      }
+    ],
+    "expectedProduction": [
+      "Usar acusativo femenino"
+    ],
+    "expectedComprehension": [
+      "Acusativo fem. (-а→-у, -я→-ю), excepciones."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 16-18"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_020",
+    "number": 20,
+    "title": "Acusativo animado y nombres de personas",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Personas",
+    "summary": "Acusativo animado y nombres de personas",
+    "communicativeObjectives": [
+      "Usar acusativo animado"
+    ],
+    "grammarObjectives": [
+      "Acusativo animado masc. (-а/-я). Кого?"
+    ],
+    "activeVocabularyThemes": [
+      "personas",
+      "nombres",
+      "relaciones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "acusativo animado masc.",
+      "кого?",
+      "nombres acusativo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 17-19"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo"
+    ],
+    "skills": [
+      "production",
+      "recognition"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "No animar acusativo masculino"
+    ],
+    "criticalTargets": [
+      {
+        "id": "acusativo_animado_masc.",
+        "description": "acusativo animado masc."
+      },
+      {
+        "id": "кого?",
+        "description": "кого?"
+      },
+      {
+        "id": "nombres_acusativo",
+        "description": "nombres acusativo"
+      }
+    ],
+    "expectedProduction": [
+      "Usar acusativo animado"
+    ],
+    "expectedComprehension": [
+      "Acusativo animado masc. (-а/-я). Кого?"
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 17-19"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_021",
+    "number": 21,
+    "title": "Любить",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Preferencia",
+    "summary": "Любить",
+    "communicativeObjectives": [
+      "Expresar gustos"
+    ],
+    "grammarObjectives": [
+      "Любить (б→бл). Любить + N/inf/когда."
+    ],
+    "activeVocabularyThemes": [
+      "gustos",
+      "aficiones",
+      "relaciones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "любить + O",
+      "любить + inf",
+      "любить + когда"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 18-20"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Alternancia б→бл en люблю"
+    ],
+    "criticalTargets": [
+      {
+        "id": "любить_+_O",
+        "description": "любить + O"
+      },
+      {
+        "id": "любить_+_inf",
+        "description": "любить + inf"
+      },
+      {
+        "id": "любить_+_когда",
+        "description": "любить + когда"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar gustos"
+    ],
+    "expectedComprehension": [
+      "Любить (б→бл). Любить + N/inf/когда."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 18-20"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_022",
+    "number": 22,
+    "title": "Días y futuro compuesto",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Futuro",
+    "summary": "Días y futuro compuesto",
+    "communicativeObjectives": [
+      "Expresar futuro"
+    ],
+    "grammarObjectives": [
+      "Буду + inf. В + día."
+    ],
+    "activeVocabularyThemes": [
+      "planes",
+      "semana",
+      "futuro"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "буду/будешь/будет + inf",
+      "в + día"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 19-21"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Conjugar también el infinitivo en futuro"
+    ],
+    "criticalTargets": [
+      {
+        "id": "буду/будешь/будет_+_inf",
+        "description": "буду/будешь/будет + inf"
+      },
+      {
+        "id": "в_+_día",
+        "description": "в + día"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar futuro"
+    ],
+    "expectedComprehension": [
+      "Буду + inf. В + día."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 19-21"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_023",
+    "number": 23,
+    "title": "Futuro de быть",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Futuro existencia",
+    "summary": "Futuro de быть",
+    "communicativeObjectives": [
+      "Expresar existencia futura"
+    ],
+    "grammarObjectives": [
+      "Будет/будут. У + gen + будет."
+    ],
+    "activeVocabularyThemes": [
+      "clima futuro",
+      "planes",
+      "existencia"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "будет/будут",
+      "у + gen + будет"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 20-22"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar presente donde va futuro"
+    ],
+    "criticalTargets": [
+      {
+        "id": "будет/будут",
+        "description": "будет/будут"
+      },
+      {
+        "id": "у_+_gen_+_будет",
+        "description": "у + gen + будет"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar existencia futura"
+    ],
+    "expectedComprehension": [
+      "Будет/будут. У + gen + будет."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 20-22"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_024",
+    "number": 24,
+    "title": "Números y hora",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Cantidad",
+    "summary": "Números y hora",
+    "communicativeObjectives": [
+      "Preguntar la hora"
+    ],
+    "grammarObjectives": [
+      "Числа 1-20. Час/часа/часов. Во сколько."
+    ],
+    "activeVocabularyThemes": [
+      "hora",
+      "números",
+      "tiempo"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "números 1-20",
+      "который час?",
+      "во сколько?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 21-23"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Declinación час tras números"
+    ],
+    "criticalTargets": [
+      {
+        "id": "números_1-20",
+        "description": "números 1-20"
+      },
+      {
+        "id": "который_час?",
+        "description": "который час?"
+      },
+      {
+        "id": "во_сколько?",
+        "description": "во сколько?"
+      }
+    ],
+    "expectedProduction": [
+      "Preguntar la hora"
+    ],
+    "expectedComprehension": [
+      "Числа 1-20. Час/часа/часов. Во сколько."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 21-23"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_025",
+    "number": 25,
+    "title": "Cientos, precios y стоить",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Compras",
+    "summary": "Cientos, precios y стоить",
+    "communicativeObjectives": [
+      "Preguntar precios"
+    ],
+    "grammarObjectives": [
+      "Сколько стоит/стоят. Стоить pasado/futuro."
+    ],
+    "activeVocabularyThemes": [
+      "compras",
+      "precios",
+      "dinero",
+      "descuentos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "сколько стоит/стоят",
+      "стоить pasado/futuro"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 22-24"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "No conjugar стоить"
+    ],
+    "criticalTargets": [
+      {
+        "id": "сколько_стоит/стоят",
+        "description": "сколько стоит/стоят"
+      },
+      {
+        "id": "стоить_pasado/futuro",
+        "description": "стоить pasado/futuro"
+      }
+    ],
+    "expectedProduction": [
+      "Preguntar precios"
+    ],
+    "expectedComprehension": [
+      "Сколько стоит/стоят. Стоить pasado/futuro."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 22-24"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_026",
+    "number": 26,
+    "title": "Пить, есть y comidas",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Alimentación",
+    "summary": "Пить, есть y comidas",
+    "communicativeObjectives": [
+      "Pedir comida"
+    ],
+    "grammarObjectives": [
+      "Есть (ем, ешь). Пить (пью, пьёшь). Comidas."
+    ],
+    "activeVocabularyThemes": [
+      "alimentos",
+      "bebidas",
+      "comidas",
+      "salud"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "есть (ем,ешь)",
+      "пить (пью,пьёшь)",
+      "comidas"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 23-25"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Conjug. irregular есть (comer)"
+    ],
+    "criticalTargets": [
+      {
+        "id": "есть_(ем,ешь)",
+        "description": "есть (ем,ешь)"
+      },
+      {
+        "id": "пить_(пью,пьёшь)",
+        "description": "пить (пью,пьёшь)"
+      },
+      {
+        "id": "comidas",
+        "description": "comidas"
+      }
+    ],
+    "expectedProduction": [
+      "Pedir comida"
+    ],
+    "expectedComprehension": [
+      "Есть (ем, ешь). Пить (пью, пьёшь). Comidas."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 23-25"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_027",
+    "number": 27,
+    "title": "Posesivos y чей",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Pertenencia",
+    "summary": "Posesivos y чей",
+    "communicativeObjectives": [
+      "Expresar pertenencia"
+    ],
+    "grammarObjectives": [
+      "Мой/твой/наш/ваш. Его/её/их. Чей?"
+    ],
+    "activeVocabularyThemes": [
+      "pertenencia",
+      "objetos personales"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "мой/твой/наш/ваш",
+      "его/её/их",
+      "чей?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 24-26"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "No concordar posesivo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "мой/твой/наш/ваш",
+        "description": "мой/твой/наш/ваш"
+      },
+      {
+        "id": "его/её/их",
+        "description": "его/её/их"
+      },
+      {
+        "id": "чей?",
+        "description": "чей?"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar pertenencia"
+    ],
+    "expectedComprehension": [
+      "Мой/твой/наш/ваш. Его/её/их. Чей?"
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 24-26"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_028",
+    "number": 28,
+    "title": "Prepositivo con о",
+    "approxLevel": "A1",
+    "status": "planned",
+    "communicativeTheme": "Tema",
+    "summary": "Prepositivo con о",
+    "communicativeObjectives": [
+      "Expresar tema"
+    ],
+    "grammarObjectives": [
+      "О/об + prepositivo. О ком, о чём."
+    ],
+    "activeVocabularyThemes": [
+      "comunicación",
+      "temas",
+      "lectura"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "о/об + prepositivo",
+      "о ком/о чём"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 25-27"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar acusativo tras о"
+    ],
+    "criticalTargets": [
+      {
+        "id": "о/об_+_prepositivo",
+        "description": "о/об + prepositivo"
+      },
+      {
+        "id": "о_ком/о_чём",
+        "description": "о ком/о чём"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar tema"
+    ],
+    "expectedComprehension": [
+      "О/об + prepositivo. О ком, о чём."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 25-27"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_029",
+    "number": 29,
+    "title": "Escuchar/oír, mirar/ver, parecer",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Percepción",
+    "summary": "Escuchar/oír, mirar/ver, parecer",
+    "communicativeObjectives": [
+      "Distinguir percepción acción/resultado"
+    ],
+    "grammarObjectives": [
+      "Слушать/слышать, смотреть/видеть, выглядеть."
+    ],
+    "activeVocabularyThemes": [
+      "percepción auditiva",
+      "visual",
+      "apariencia"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "слушать/слышать",
+      "смотреть/видеть",
+      "выглядеть"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 26-28"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Confundir par acción/resultado"
+    ],
+    "criticalTargets": [
+      {
+        "id": "слушать/слышать",
+        "description": "слушать/слышать"
+      },
+      {
+        "id": "смотреть/видеть",
+        "description": "смотреть/видеть"
+      },
+      {
+        "id": "выглядеть",
+        "description": "выглядеть"
+      }
+    ],
+    "expectedProduction": [
+      "Distinguir percepción acción/resultado"
+    ],
+    "expectedComprehension": [
+      "Слушать/слышать, смотреть/видеть, выглядеть."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 26-28"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_030",
+    "number": 30,
+    "title": "Платить, плакать y vivienda",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Transacciones",
+    "summary": "Платить, плакать y vivienda",
+    "communicativeObjectives": [
+      "Expresar pagos"
+    ],
+    "grammarObjectives": [
+      "Платить за + acus. Frequency adverbs."
+    ],
+    "activeVocabularyThemes": [
+      "vivienda",
+      "pagos",
+      "emociones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "платить за + acus.",
+      "adverbios frecuencia"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 27-29"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Omitir за en платить за"
+    ],
+    "criticalTargets": [
+      {
+        "id": "платить_за_+_acus.",
+        "description": "платить за + acus."
+      },
+      {
+        "id": "adverbios_frecuencia",
+        "description": "adverbios frecuencia"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar pagos"
+    ],
+    "expectedComprehension": [
+      "Платить за + acus. Frequency adverbs."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 27-29"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_031",
+    "number": 31,
+    "title": "Играть: juegos, música, papeles e instrumentos",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Ocio",
+    "summary": "Играть: juegos, música, papeles e instrumentos",
+    "communicativeObjectives": [
+      "Distinguir juegos e instrumentos"
+    ],
+    "grammarObjectives": [
+      "Играть в/на. Играть роль."
+    ],
+    "activeVocabularyThemes": [
+      "juegos",
+      "música",
+      "instrumentos",
+      "teatro"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "играть в/на",
+      "играть роль"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 28-30"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar на con juegos"
+    ],
+    "criticalTargets": [
+      {
+        "id": "играть_в/на",
+        "description": "играть в/на"
+      },
+      {
+        "id": "играть_роль",
+        "description": "играть роль"
+      }
+    ],
+    "expectedProduction": [
+      "Distinguir juegos e instrumentos"
+    ],
+    "expectedComprehension": [
+      "Играть в/на. Играть роль."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 28-30"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_032",
+    "number": 32,
+    "title": "Где? / Куда?",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Dirección",
+    "summary": "Где? / Куда?",
+    "communicativeObjectives": [
+      "Distinguir ubicación de dirección"
+    ],
+    "grammarObjectives": [
+      "Где vs куда. Дома/домой. Здесь/сюда."
+    ],
+    "activeVocabularyThemes": [
+      "movimiento",
+      "dirección",
+      "deíxis"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "где? / куда?",
+      "дома/домой",
+      "здесь/сюда",
+      "там/туда"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 29-31"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar дома para dirección"
+    ],
+    "criticalTargets": [
+      {
+        "id": "где?_/_куда?",
+        "description": "где? / куда?"
+      },
+      {
+        "id": "дома/домой",
+        "description": "дома/домой"
+      },
+      {
+        "id": "здесь/сюда",
+        "description": "здесь/сюда"
+      }
+    ],
+    "expectedProduction": [
+      "Distinguir ubicación de dirección"
+    ],
+    "expectedComprehension": [
+      "Где vs куда. Дома/домой. Здесь/сюда."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 29-31"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_033",
+    "number": 33,
+    "title": "Идти / ходить",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Movimiento",
+    "summary": "Идти / ходить",
+    "communicativeObjectives": [
+      "Elegir идти/ходить"
+    ],
+    "grammarObjectives": [
+      "Идти (irreg). Ходить. Contraste concreto/habitual."
+    ],
+    "activeVocabularyThemes": [
+      "movimiento a pie",
+      "clima",
+      "planes"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "идти (conj)",
+      "ходить (conj)",
+      "идти vs ходить"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 30-32"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar идти para hábitos"
+    ],
+    "criticalTargets": [
+      {
+        "id": "идти_(conj)",
+        "description": "идти (conj)"
+      },
+      {
+        "id": "ходить_(conj)",
+        "description": "ходить (conj)"
+      },
+      {
+        "id": "идти_vs_ходить",
+        "description": "идти vs ходить"
+      }
+    ],
+    "expectedProduction": [
+      "Elegir идти/ходить"
+    ],
+    "expectedComprehension": [
+      "Идти (irreg). Ходить. Contraste concreto/habitual."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 30-32"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_034",
+    "number": 34,
+    "title": "Быть где? / ходить куда?",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Contraste",
+    "summary": "Быть где? / ходить куда?",
+    "communicativeObjectives": [
+      "Distinguir haber estado de haber ido"
+    ],
+    "grammarObjectives": [
+      "Был где vs ходил куда."
+    ],
+    "activeVocabularyThemes": [
+      "experiencia",
+      "movimiento",
+      "ubicación"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "был где? / ходил куда?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 31-33"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar ходил como 'fui' vs 'estuve'"
+    ],
+    "criticalTargets": [
+      {
+        "id": "был_где?_/_ходил_куда?",
+        "description": "был где? / ходил куда?"
+      }
+    ],
+    "expectedProduction": [
+      "Distinguir haber estado de haber ido"
+    ],
+    "expectedComprehension": [
+      "Был где vs ходил куда."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 31-33"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_035",
+    "number": 35,
+    "title": "Ехать / ездить",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Transporte",
+    "summary": "Ехать / ездить",
+    "communicativeObjectives": [
+      "Usar ехать/ездить"
+    ],
+    "grammarObjectives": [
+      "Ехать (irreg). Ездить. Contraste con идти/ходить."
+    ],
+    "activeVocabularyThemes": [
+      "transporte",
+      "viajes",
+      "desplazamientos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "ехать (conj)",
+      "ездить (conj)",
+      "ехать vs ездить"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 32-34"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar ехать para hábitos"
+    ],
+    "criticalTargets": [
+      {
+        "id": "ехать_(conj)",
+        "description": "ехать (conj)"
+      },
+      {
+        "id": "ездить_(conj)",
+        "description": "ездить (conj)"
+      },
+      {
+        "id": "ехать_vs_ездить",
+        "description": "ехать vs ездить"
+      }
+    ],
+    "expectedProduction": [
+      "Usar ехать/ездить"
+    ],
+    "expectedComprehension": [
+      "Ехать (irreg). Ездить. Contraste con идти/ходить."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 32-34"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_036",
+    "number": 36,
+    "title": "Transporte y пешком",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Medios",
+    "summary": "Transporte y пешком",
+    "communicativeObjectives": [
+      "Expresar medio de transporte"
+    ],
+    "grammarObjectives": [
+      "На + transporte. На чём. Пешком."
+    ],
+    "activeVocabularyThemes": [
+      "transporte público",
+      "coche",
+      "a pie"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "на + transporte",
+      "на чём?",
+      "пешком"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 33-35"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar в con transporte"
+    ],
+    "criticalTargets": [
+      {
+        "id": "на_+_transporte",
+        "description": "на + transporte"
+      },
+      {
+        "id": "на_чём?",
+        "description": "на чём?"
+      },
+      {
+        "id": "пешком",
+        "description": "пешком"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar medio de transporte"
+    ],
+    "expectedComprehension": [
+      "На + transporte. На чём. Пешком."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 33-35"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_037",
+    "number": 37,
+    "title": "Уметь, мочь, можно y нельзя",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Capacidad",
+    "summary": "Уметь, мочь, можно y нельзя",
+    "communicativeObjectives": [
+      "Expresar capacidad y permiso"
+    ],
+    "grammarObjectives": [
+      "Уметь + inf. Мочь (могу). Можно/нельзя + inf."
+    ],
+    "activeVocabularyThemes": [
+      "capacidad",
+      "permiso",
+      "prohibición"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "уметь + inf",
+      "мочь (могу)",
+      "можно + inf",
+      "нельзя + inf"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 34-36"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Confundir уметь y мочь"
+    ],
+    "criticalTargets": [
+      {
+        "id": "уметь_+_inf",
+        "description": "уметь + inf"
+      },
+      {
+        "id": "мочь_(могу)",
+        "description": "мочь (могу)"
+      },
+      {
+        "id": "можно_+_inf",
+        "description": "можно + inf"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar capacidad y permiso"
+    ],
+    "expectedComprehension": [
+      "Уметь + inf. Мочь (могу). Можно/нельзя + inf."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 34-36"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_038",
+    "number": 38,
+    "title": "Causa y consecuencia",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Causalidad",
+    "summary": "Causa y consecuencia",
+    "communicativeObjectives": [
+      "Explicar causas"
+    ],
+    "grammarObjectives": [
+      "Почему, потому что, поэтому."
+    ],
+    "activeVocabularyThemes": [
+      "causa",
+      "consecuencia",
+      "explicación"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "почему?",
+      "потому что",
+      "поэтому"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 35-37"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Confundir потому что y поэтому"
+    ],
+    "criticalTargets": [
+      {
+        "id": "почему?",
+        "description": "почему?"
+      },
+      {
+        "id": "потому_что",
+        "description": "потому что"
+      },
+      {
+        "id": "поэтому",
+        "description": "поэтому"
+      }
+    ],
+    "expectedProduction": [
+      "Explicar causas"
+    ],
+    "expectedComprehension": [
+      "Почему, потому что, поэтому."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 35-37"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_039",
+    "number": 39,
+    "title": "Adjetivos y concordancia básica",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Descripción",
+    "summary": "Adjetivos y concordancia básica",
+    "communicativeObjectives": [
+      "Describir con precisión"
+    ],
+    "grammarObjectives": [
+      "Concordancia adj. reforzada. Adjetivos nuevos."
+    ],
+    "activeVocabularyThemes": [
+      "cualidades",
+      "descripción",
+      "situaciones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "concordancia adj. reforzada"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 36-38"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Posición del adjetivo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "concordancia_adj._reforzada",
+        "description": "concordancia adj. reforzada"
+      }
+    ],
+    "expectedProduction": [
+      "Describir con precisión"
+    ],
+    "expectedComprehension": [
+      "Concordancia adj. reforzada. Adjetivos nuevos."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 36-38"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_040",
+    "number": 40,
+    "title": "Comparación y superlativo",
+    "approxLevel": "A1-A2",
+    "status": "planned",
+    "communicativeTheme": "Comparación",
+    "summary": "Comparación y superlativo",
+    "communicativeObjectives": [
+      "Comparar"
+    ],
+    "grammarObjectives": [
+      "Самый + adj. Чем + nominativo."
+    ],
+    "activeVocabularyThemes": [
+      "comparación",
+      "superlativos",
+      "calidad"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "самый + adj",
+      "чем + caso"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 37-39"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar más literal (более)"
+    ],
+    "criticalTargets": [
+      {
+        "id": "самый_+_adj",
+        "description": "самый + adj"
+      },
+      {
+        "id": "чем_+_caso",
+        "description": "чем + caso"
+      }
+    ],
+    "expectedProduction": [
+      "Comparar"
+    ],
+    "expectedComprehension": [
+      "Самый + adj. Чем + nominativo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 37-39"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_041",
+    "number": 41,
+    "title": "Preguntar y describir cualidades",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Físico",
+    "summary": "Preguntar y describir cualidades",
+    "communicativeObjectives": [
+      "Describir físicamente"
+    ],
+    "grammarObjectives": [
+      "Какой? Похож на + acus."
+    ],
+    "activeVocabularyThemes": [
+      "apariencia física",
+      "edad",
+      "altura",
+      "pelos/ojos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "какой?",
+      "похож на + acus."
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 38-40"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Confundir какой con который"
+    ],
+    "criticalTargets": [
+      {
+        "id": "какой?",
+        "description": "какой?"
+      },
+      {
+        "id": "похож_на_+_acus.",
+        "description": "похож на + acus."
+      }
+    ],
+    "expectedProduction": [
+      "Describir físicamente"
+    ],
+    "expectedComprehension": [
+      "Какой? Похож на + acus."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 38-40"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_042",
+    "number": 42,
+    "title": "Pedir en un café",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Servicios",
+    "summary": "Pedir en un café",
+    "communicativeObjectives": [
+      "Hacer pedidos"
+    ],
+    "grammarObjectives": [
+      "Я буду + N. Мне + imperativo. Пожалуйста."
+    ],
+    "activeVocabularyThemes": [
+      "comida",
+      "restaurante",
+      "pedidos",
+      "sabores"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "я буду + N",
+      "мне + imperativo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 39-41"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Forma я буду para pedidos"
+    ],
+    "criticalTargets": [
+      {
+        "id": "я_буду_+_N",
+        "description": "я буду + N"
+      },
+      {
+        "id": "мне_+_imperativo",
+        "description": "мне + imperativo"
+      }
+    ],
+    "expectedProduction": [
+      "Hacer pedidos"
+    ],
+    "expectedComprehension": [
+      "Я буду + N. Мне + imperativo. Пожалуйста."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 39-41"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_043",
+    "number": 43,
+    "title": "Demostrativos y tal/cual",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Señalamiento",
+    "summary": "Demostrativos y tal/cual",
+    "communicativeObjectives": [
+      "Señalar objetos"
+    ],
+    "grammarObjectives": [
+      "Этот/эта/это/эти. Такой/такая/такое/такие."
+    ],
+    "activeVocabularyThemes": [
+      "señalamiento",
+      "identificación",
+      "comparación"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "этот/эта/это/эти",
+      "такой/такая/такое/такие"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 40-42"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Confundir это con этот"
+    ],
+    "criticalTargets": [
+      {
+        "id": "этот/эта/это/эти",
+        "description": "этот/эта/это/эти"
+      },
+      {
+        "id": "такой/такая/такое/такие",
+        "description": "такой/такая/такое/такие"
+      }
+    ],
+    "expectedProduction": [
+      "Señalar objetos"
+    ],
+    "expectedComprehension": [
+      "Этот/эта/это/эти. Такой/такая/такое/такие."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 40-42"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_044",
+    "number": 44,
+    "title": "Todo, día y noche",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Totalidad",
+    "summary": "Todo, día y noche",
+    "communicativeObjectives": [
+      "Expresar totalidad"
+    ],
+    "grammarObjectives": [
+      "Весь/вся/всё/все. Весь день, всю неделю."
+    ],
+    "activeVocabularyThemes": [
+      "totalidad",
+      "tiempo",
+      "duración"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "весь/вся/всё/все + tiempo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 41-43"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar всё para todo genérico"
+    ],
+    "criticalTargets": [
+      {
+        "id": "весь/вся/всё/все_+_tiempo",
+        "description": "весь/вся/всё/все + tiempo"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar totalidad"
+    ],
+    "expectedComprehension": [
+      "Весь/вся/всё/все. Весь день, всю неделю."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 41-43"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_045",
+    "number": 45,
+    "title": "Salud y síntomas",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Salud",
+    "summary": "Salud y síntomas",
+    "communicativeObjectives": [
+      "Expresar síntomas"
+    ],
+    "grammarObjectives": [
+      "У меня болит + N. Vocabulario médico."
+    ],
+    "activeVocabularyThemes": [
+      "salud",
+      "cuerpo",
+      "síntomas",
+      "medicina"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "у меня болит + N",
+      "vocab médico básico"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 42-44"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Partes del cuerpo: género inesperado"
+    ],
+    "criticalTargets": [
+      {
+        "id": "у_меня_болит_+_N",
+        "description": "у меня болит + N"
+      },
+      {
+        "id": "vocab_médico_básico",
+        "description": "vocab médico básico"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar síntomas"
+    ],
+    "expectedComprehension": [
+      "У меня болит + N. Vocabulario médico."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 42-44"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_046",
+    "number": 46,
+    "title": "Necesidad y obligación",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Obligación",
+    "summary": "Necesidad y obligación",
+    "communicativeObjectives": [
+      "Expresar obligación"
+    ],
+    "grammarObjectives": [
+      "Должен/должна/должны. Надо/нужно + inf."
+    ],
+    "activeVocabularyThemes": [
+      "obligación",
+      "deberes",
+      "necesidad",
+      "trabajo"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "должен (conc.)",
+      "надо/нужно + inf"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 43-45"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "No concordar должен"
+    ],
+    "criticalTargets": [
+      {
+        "id": "должен_(conc.)",
+        "description": "должен (conc.)"
+      },
+      {
+        "id": "надо/нужно_+_inf",
+        "description": "надо/нужно + inf"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar obligación"
+    ],
+    "expectedComprehension": [
+      "Должен/должна/должны. Надо/нужно + inf."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 43-45"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_047",
+    "number": 47,
+    "title": "Genitivo: ausencia y cantidad",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Genitivo I",
+    "summary": "Genitivo: ausencia y cantidad",
+    "communicativeObjectives": [
+      "Expresar ausencia y cantidad"
+    ],
+    "grammarObjectives": [
+      "Нет + gen. Много/мало + gen. Сколько + gen."
+    ],
+    "activeVocabularyThemes": [
+      "cantidad",
+      "ausencia",
+      "genitivo"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "нет + gen",
+      "много/мало + gen",
+      "сколько + gen"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 44-46"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar nominativo tras нет"
+    ],
+    "criticalTargets": [
+      {
+        "id": "нет_+_gen",
+        "description": "нет + gen"
+      },
+      {
+        "id": "много/мало_+_gen",
+        "description": "много/мало + gen"
+      },
+      {
+        "id": "сколько_+_gen",
+        "description": "сколько + gen"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar ausencia y cantidad"
+    ],
+    "expectedComprehension": [
+      "Нет + gen. Много/мало + gen. Сколько + gen."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 44-46"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_048",
+    "number": 48,
+    "title": "Genitivo de pertenencia",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Genitivo II",
+    "summary": "Genitivo de pertenencia",
+    "communicativeObjectives": [
+      "Expresar pertenencia"
+    ],
+    "grammarObjectives": [
+      "У + gen. Genitivo singular."
+    ],
+    "activeVocabularyThemes": [
+      "pertenencia",
+      "posesión",
+      "relaciones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "у + gen",
+      "genitivo singular"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 45-47"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Terminaciones de genitivo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "у_+_gen",
+        "description": "у + gen"
+      },
+      {
+        "id": "genitivo_singular",
+        "description": "genitivo singular"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar pertenencia"
+    ],
+    "expectedComprehension": [
+      "У + gen. Genitivo singular."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 45-47"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_049",
+    "number": 49,
+    "title": "Formas posesivas personales",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Posesivos",
+    "summary": "Formas posesivas personales",
+    "communicativeObjectives": [
+      "Usar posesivos personales"
+    ],
+    "grammarObjectives": [
+      "Posesivos -ин/-ов. Чей?"
+    ],
+    "activeVocabularyThemes": [
+      "familia",
+      "nombres",
+      "pertenencia personal"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "-ин posesivo",
+      "-ов posesivo",
+      "чей?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 46-48"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Formación posesivos con nombres extranjeros"
+    ],
+    "criticalTargets": [
+      {
+        "id": "-ин_posesivo",
+        "description": "-ин posesivo"
+      },
+      {
+        "id": "-ов_posesivo",
+        "description": "-ов posesivo"
+      },
+      {
+        "id": "чей?",
+        "description": "чей?"
+      }
+    ],
+    "expectedProduction": [
+      "Usar posesivos personales"
+    ],
+    "expectedComprehension": [
+      "Posesivos -ин/-ов. Чей?"
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 46-48"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_050",
+    "number": 50,
+    "title": "Acusativo animado masculino",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Personas II",
+    "summary": "Acusativo animado masculino",
+    "communicativeObjectives": [
+      "Usar acusativo animado masc."
+    ],
+    "grammarObjectives": [
+      "Acusativo animado masc. Verbos de percepción."
+    ],
+    "activeVocabularyThemes": [
+      "personas",
+      "animales",
+      "búsqueda",
+      "percepción"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "acusativo animado masc.",
+      "кого?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 47-49"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "No animar acusativo masc."
+    ],
+    "criticalTargets": [
+      {
+        "id": "acusativo_animado_masc.",
+        "description": "acusativo animado masc."
+      },
+      {
+        "id": "кого?",
+        "description": "кого?"
+      }
+    ],
+    "expectedProduction": [
+      "Usar acusativo animado masc."
+    ],
+    "expectedComprehension": [
+      "Acusativo animado masc. Verbos de percepción."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 47-49"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_051",
+    "number": 51,
+    "title": "Adjetivos en prepositivo",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Ubicación II",
+    "summary": "Adjetivos en prepositivo",
+    "communicativeObjectives": [
+      "Describir lugares con adjetivos"
+    ],
+    "grammarObjectives": [
+      "Adjetivos en prepositivo sing."
+    ],
+    "activeVocabularyThemes": [
+      "ciudad",
+      "instituciones",
+      "descripción urbana"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "adjetivo + prepositivo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 48-50"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Terminaciones adj. prepositivo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "adjetivo_+_prepositivo",
+        "description": "adjetivo + prepositivo"
+      }
+    ],
+    "expectedProduction": [
+      "Describir lugares con adjetivos"
+    ],
+    "expectedComprehension": [
+      "Adjetivos en prepositivo sing."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 48-50"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_052",
+    "number": 52,
+    "title": "Siguiente y pasado",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Tiempo relativo",
+    "summary": "Siguiente y pasado",
+    "communicativeObjectives": [
+      "Expresar tiempo relativo"
+    ],
+    "grammarObjectives": [
+      "Следующий/прошлый. На + prepos + tiempo."
+    ],
+    "activeVocabularyThemes": [
+      "tiempo relativo",
+      "planes",
+      "calendario"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "следующий/прошлый",
+      "на + prepos + tiempo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 49-51"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Preposición con tiempo relativo"
+    ],
+    "criticalTargets": [
+      {
+        "id": "следующий/прошлый",
+        "description": "следующий/прошлый"
+      },
+      {
+        "id": "на_+_prepos_+_tiempo",
+        "description": "на + prepos + tiempo"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar tiempo relativo"
+    ],
+    "expectedComprehension": [
+      "Следующий/прошлый. На + prepos + tiempo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 49-51"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_053",
+    "number": 53,
+    "title": "Origen: из y с",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Procedencia",
+    "summary": "Origen: из y с",
+    "communicativeObjectives": [
+      "Expresar procedencia"
+    ],
+    "grammarObjectives": [
+      "Из + gen. С + gen. Откуда?"
+    ],
+    "activeVocabularyThemes": [
+      "origen",
+      "procedencia",
+      "viaje",
+      "institución"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "из + gen",
+      "с + gen",
+      "откуда?"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 50-52"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Confundir из y с"
+    ],
+    "criticalTargets": [
+      {
+        "id": "из_+_gen",
+        "description": "из + gen"
+      },
+      {
+        "id": "с_+_gen",
+        "description": "с + gen"
+      },
+      {
+        "id": "откуда?",
+        "description": "откуда?"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar procedencia"
+    ],
+    "expectedComprehension": [
+      "Из + gen. С + gen. Откуда?"
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 50-52"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_054",
+    "number": 54,
+    "title": "Origen y citas",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Procedencia II",
+    "summary": "Origen y citas",
+    "communicativeObjectives": [
+      "Expresar origen concreto"
+    ],
+    "grammarObjectives": [
+      "Genitivo con у/из/с en contextos reales."
+    ],
+    "activeVocabularyThemes": [
+      "médico",
+      "trabajo",
+      "citas",
+      "origen social"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "из/с contextos específicos"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 51-53"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar из/с incorrecto"
+    ],
+    "criticalTargets": [
+      {
+        "id": "из/с_contextos_específicos",
+        "description": "из/с contextos específicos"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar origen concreto"
+    ],
+    "expectedComprehension": [
+      "Genitivo con у/из/с en contextos reales."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 51-53"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_055",
+    "number": 55,
+    "title": "Números 1-4 y bebidas",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Cantidad II",
+    "summary": "Números 1-4 y bebidas",
+    "communicativeObjectives": [
+      "Usar números 1-4"
+    ],
+    "grammarObjectives": [
+      "Один (conc.) + N. Два/три/четыре + gen sing."
+    ],
+    "activeVocabularyThemes": [
+      "cantidades",
+      "bebidas",
+      "compras"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "один (conc.)",
+      "два/три/четыре + gen sing"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 52-54"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar nominativo tras dos/tres/cuatro"
+    ],
+    "criticalTargets": [
+      {
+        "id": "один_(conc.)",
+        "description": "один (conc.)"
+      },
+      {
+        "id": "два/три/четыре_+_gen_sing",
+        "description": "два/три/четыре + gen sing"
+      }
+    ],
+    "expectedProduction": [
+      "Usar números 1-4"
+    ],
+    "expectedComprehension": [
+      "Один (conc.) + N. Два/три/четыре + gen sing."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 52-54"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_056",
+    "number": 56,
+    "title": "Mucho, poco y objetos",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Cantidad III",
+    "summary": "Mucho, poco y objetos",
+    "communicativeObjectives": [
+      "Expresar genitivo plural"
+    ],
+    "grammarObjectives": [
+      "Много/мало + gen pl. Genitivo plural."
+    ],
+    "activeVocabularyThemes": [
+      "cantidad",
+      "genitivo plural",
+      "objetos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "много/мало + gen pl",
+      "genitivo plural"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 53-55"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Terminaciones genitivo plural"
+    ],
+    "criticalTargets": [
+      {
+        "id": "много/мало_+_gen_pl",
+        "description": "много/мало + gen pl"
+      },
+      {
+        "id": "genitivo_plural",
+        "description": "genitivo plural"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar genitivo plural"
+    ],
+    "expectedComprehension": [
+      "Много/мало + gen pl. Genitivo plural."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 53-55"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_057",
+    "number": 57,
+    "title": "Horas y minutos",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Tiempo II",
+    "summary": "Horas y minutos",
+    "communicativeObjectives": [
+      "Decir hora precisa"
+    ],
+    "grammarObjectives": [
+      "Час/часа/часов. Минута/минуты/минут. Без + gen."
+    ],
+    "activeVocabularyThemes": [
+      "hora precisa",
+      "duración",
+      "tiempo"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "час/часа/часов",
+      "минута/минуты/минут",
+      "без + gen"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 54-56"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Declinación час tras números"
+    ],
+    "criticalTargets": [
+      {
+        "id": "час/часа/часов",
+        "description": "час/часа/часов"
+      },
+      {
+        "id": "минута/минуты/минут",
+        "description": "минута/минуты/минут"
+      },
+      {
+        "id": "без_+_gen",
+        "description": "без + gen"
+      }
+    ],
+    "expectedProduction": [
+      "Decir hora precisa"
+    ],
+    "expectedComprehension": [
+      "Час/часа/часов. Минута/минуты/минут. Без + gen."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 54-56"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_058",
+    "number": 58,
+    "title": "Días, semanas, meses y años",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Duración",
+    "summary": "Días, semanas, meses y años",
+    "communicativeObjectives": [
+      "Expresar duraciones"
+    ],
+    "grammarObjectives": [
+      "Genitivo plural de tiempo."
+    ],
+    "activeVocabularyThemes": [
+      "duración",
+      "calendario",
+      "tiempo transcurrido"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "genitivo plural de tiempo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 55-57"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Años: год vs лет"
+    ],
+    "criticalTargets": [
+      {
+        "id": "genitivo_plural_de_tiempo",
+        "description": "genitivo plural de tiempo"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar duraciones"
+    ],
+    "expectedComprehension": [
+      "Genitivo plural de tiempo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 55-57"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_059",
+    "number": 59,
+    "title": "No hay / no hubo",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Ausencia II",
+    "summary": "No hay / no hubo",
+    "communicativeObjectives": [
+      "Expresar ausencia temporal"
+    ],
+    "grammarObjectives": [
+      "Нет + gen (presente). Не было + gen (pasado)."
+    ],
+    "activeVocabularyThemes": [
+      "ausencia",
+      "existencia",
+      "clima"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "нет + gen",
+      "не было + gen"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 56-58"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar нет en pasado"
+    ],
+    "criticalTargets": [
+      {
+        "id": "нет_+_gen",
+        "description": "нет + gen"
+      },
+      {
+        "id": "не_было_+_gen",
+        "description": "не было + gen"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar ausencia temporal"
+    ],
+    "expectedComprehension": [
+      "Нет + gen (presente). Не было + gen (pasado)."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 56-58"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_060",
+    "number": 60,
+    "title": "Genitivo plural animado",
+    "approxLevel": "A2",
+    "status": "planned",
+    "communicativeTheme": "Personas III",
+    "summary": "Genitivo plural animado",
+    "communicativeObjectives": [
+      "Formar genitivo plural animado"
+    ],
+    "grammarObjectives": [
+      "Genitivo plural animado (-ов/-ей/-∅)."
+    ],
+    "activeVocabularyThemes": [
+      "personas",
+      "animales",
+      "grupos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "genitivo plural animado"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 57-59"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Terminaciones genitivo plural animado"
+    ],
+    "criticalTargets": [
+      {
+        "id": "genitivo_plural_animado",
+        "description": "genitivo plural animado"
+      }
+    ],
+    "expectedProduction": [
+      "Formar genitivo plural animado"
+    ],
+    "expectedComprehension": [
+      "Genitivo plural animado (-ов/-ей/-∅)."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 57-59"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_061",
+    "number": 61,
+    "title": "Aspecto verbal: mapa general",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto",
+    "summary": "Aspecto verbal: mapa general",
+    "communicativeObjectives": [
+      "Comprender el aspecto verbal"
+    ],
+    "grammarObjectives": [
+      "Mapa del aspecto: imperfectivo vs perfectivo."
+    ],
+    "activeVocabularyThemes": [
+      "aspecto verbal",
+      "verbos",
+      "contraste"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "aspecto imperfectivo",
+      "aspecto perfectivo",
+      "pares aspectuales"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 58-60"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "No entender concepto aspectual"
+    ],
+    "criticalTargets": [
+      {
+        "id": "aspecto_imperfectivo",
+        "description": "aspecto imperfectivo"
+      },
+      {
+        "id": "aspecto_perfectivo",
+        "description": "aspecto perfectivo"
+      },
+      {
+        "id": "pares_aspectuales",
+        "description": "pares aspectuales"
+      }
+    ],
+    "expectedProduction": [
+      "Comprender el aspecto verbal"
+    ],
+    "expectedComprehension": [
+      "Mapa del aspecto: imperfectivo vs perfectivo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 58-60"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_062",
+    "number": 62,
+    "title": "Imperfectivo: proceso y hábito",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto II",
+    "summary": "Imperfectivo: proceso y hábito",
+    "communicativeObjectives": [
+      "Usar imperfectivo"
+    ],
+    "grammarObjectives": [
+      "Imperfectivo: proceso, hábito, hecho general."
+    ],
+    "activeVocabularyThemes": [
+      "rutina",
+      "procesos",
+      "hábitos",
+      "descripciones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "imperfectivo presente/pasado/futuro compuesto"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 59-61"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar perfectivo para hábitos"
+    ],
+    "criticalTargets": [
+      {
+        "id": "imperfectivo_presente/pasado/f",
+        "description": "imperfectivo presente/pasado/futuro compuesto"
+      }
+    ],
+    "expectedProduction": [
+      "Usar imperfectivo"
+    ],
+    "expectedComprehension": [
+      "Imperfectivo: proceso, hábito, hecho general."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 59-61"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_063",
+    "number": 63,
+    "title": "Perfectivo: formación y futuro",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto III",
+    "summary": "Perfectivo: formación y futuro",
+    "communicativeObjectives": [
+      "Formar perfectivo"
+    ],
+    "grammarObjectives": [
+      "Prefijos perfectivizantes. Futuro perfectivo."
+    ],
+    "activeVocabularyThemes": [
+      "resultado",
+      "formación verbal",
+      "prefijos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "prefijos perfectivizantes",
+      "futuro perfectivo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 60-62"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Elegir prefijo correcto"
+    ],
+    "criticalTargets": [
+      {
+        "id": "prefijos_perfectivizantes",
+        "description": "prefijos perfectivizantes"
+      },
+      {
+        "id": "futuro_perfectivo",
+        "description": "futuro perfectivo"
+      }
+    ],
+    "expectedProduction": [
+      "Formar perfectivo"
+    ],
+    "expectedComprehension": [
+      "Prefijos perfectivizantes. Futuro perfectivo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 60-62"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_064",
+    "number": 64,
+    "title": "Perfectivo: cierre de proceso",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto IV",
+    "summary": "Perfectivo: cierre de proceso",
+    "communicativeObjectives": [
+      "Usar perfectivo de cierre"
+    ],
+    "grammarObjectives": [
+      "Perfectivo de cierre: закончить, ответить, etc."
+    ],
+    "activeVocabularyThemes": [
+      "finalización",
+      "resultado",
+      "acciones completas"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "perfectivo de cierre"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 61-63"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo para cierre"
+    ],
+    "criticalTargets": [
+      {
+        "id": "perfectivo_de_cierre",
+        "description": "perfectivo de cierre"
+      }
+    ],
+    "expectedProduction": [
+      "Usar perfectivo de cierre"
+    ],
+    "expectedComprehension": [
+      "Perfectivo de cierre: закончить, ответить, etc."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 61-63"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_065",
+    "number": 65,
+    "title": "Negación y aspecto",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto V",
+    "summary": "Negación y aspecto",
+    "communicativeObjectives": [
+      "Usar negación aspectual"
+    ],
+    "grammarObjectives": [
+      "Не + imperf vs не + perf."
+    ],
+    "activeVocabularyThemes": [
+      "negación",
+      "matiz aspectual"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "не + imperfectivo",
+      "не + perfectivo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 62-64"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar solo imperfectivo en negación"
+    ],
+    "criticalTargets": [
+      {
+        "id": "не_+_imperfectivo",
+        "description": "не + imperfectivo"
+      },
+      {
+        "id": "не_+_perfectivo",
+        "description": "не + perfectivo"
+      }
+    ],
+    "expectedProduction": [
+      "Usar negación aspectual"
+    ],
+    "expectedComprehension": [
+      "Не + imperf vs не + perf."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 62-64"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_066",
+    "number": 66,
+    "title": "Cuando termine...",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto VI",
+    "summary": "Cuando termine...",
+    "communicativeObjectives": [
+      "Usar subordinadas temporales"
+    ],
+    "grammarObjectives": [
+      "Когда/как только + perfectivo."
+    ],
+    "activeVocabularyThemes": [
+      "secuencia temporal",
+      "planes"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "когда + aspecto",
+      "как только + perfectivo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 63-65"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo en subordinadas temporales"
+    ],
+    "criticalTargets": [
+      {
+        "id": "когда_+_aspecto",
+        "description": "когда + aspecto"
+      },
+      {
+        "id": "как_только_+_perfectivo",
+        "description": "как только + perfectivo"
+      }
+    ],
+    "expectedProduction": [
+      "Usar subordinadas temporales"
+    ],
+    "expectedComprehension": [
+      "Когда/как только + perfectivo."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 63-65"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_067",
+    "number": 67,
+    "title": "Resultado cuantificable",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto VII",
+    "summary": "Resultado cuantificable",
+    "communicativeObjectives": [
+      "Expresar resultados cuantificables"
+    ],
+    "grammarObjectives": [
+      "Perfectivo + сколько/много/мало."
+    ],
+    "activeVocabularyThemes": [
+      "compras",
+      "escritura",
+      "lectura",
+      "preparación"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "perfectivo + cantidad"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 64-66"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo para resultados puntuales"
+    ],
+    "criticalTargets": [
+      {
+        "id": "perfectivo_+_cantidad",
+        "description": "perfectivo + cantidad"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar resultados cuantificables"
+    ],
+    "expectedComprehension": [
+      "Perfectivo + сколько/много/мало."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 64-66"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_068",
+    "number": 68,
+    "title": "Resultado visible",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto VIII",
+    "summary": "Resultado visible",
+    "communicativeObjectives": [
+      "Expresar resultados visibles"
+    ],
+    "grammarObjectives": [
+      "Найти, сломать, починить, построить, потерять."
+    ],
+    "activeVocabularyThemes": [
+      "objetos",
+      "estado",
+      "cambios visibles"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "perfectivo de resultado visible"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 65-67"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo para cambios de estado"
+    ],
+    "criticalTargets": [
+      {
+        "id": "perfectivo_de_resultado_visibl",
+        "description": "perfectivo de resultado visible"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar resultados visibles"
+    ],
+    "expectedComprehension": [
+      "Найти, сломать, починить, построить, потерять."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 65-67"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_069",
+    "number": 69,
+    "title": "Inicio y cambio de estado",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto IX",
+    "summary": "Inicio y cambio de estado",
+    "communicativeObjectives": [
+      "Expresar inicio y cambio"
+    ],
+    "grammarObjectives": [
+      "За- incoativo. Начать(ся). Cambio de estado."
+    ],
+    "activeVocabularyThemes": [
+      "inicio",
+      "emociones",
+      "salud",
+      "cambio"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "за- incoativo",
+      "начать + inf"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 66-68"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo para inicio"
+    ],
+    "criticalTargets": [
+      {
+        "id": "за-_incoativo",
+        "description": "за- incoativo"
+      },
+      {
+        "id": "начать_+_inf",
+        "description": "начать + inf"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar inicio y cambio"
+    ],
+    "expectedComprehension": [
+      "За- incoativo. Начать(ся). Cambio de estado."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 66-68"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_070",
+    "number": 70,
+    "title": "Obligaciones cumplidas",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto X",
+    "summary": "Obligaciones cumplidas",
+    "communicativeObjectives": [
+      "Expresar obligaciones cumplidas"
+    ],
+    "grammarObjectives": [
+      "Пообещать + inf. Perfectivo de cumplimiento."
+    ],
+    "activeVocabularyThemes": [
+      "obligaciones",
+      "promesas",
+      "planes cumplidos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "perfectivo de obligación cumplida"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 67-69"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo para obligaciones cumplidas"
+    ],
+    "criticalTargets": [
+      {
+        "id": "perfectivo_de_obligación_cumpl",
+        "description": "perfectivo de obligación cumplida"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar obligaciones cumplidas"
+    ],
+    "expectedComprehension": [
+      "Пообещать + inf. Perfectivo de cumplimiento."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 67-69"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_071",
+    "number": 71,
+    "title": "Repaso de contextos aspectuales",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XI",
+    "summary": "Repaso de contextos aspectuales",
+    "communicativeObjectives": [
+      "Elegir aspecto correcto"
+    ],
+    "grammarObjectives": [
+      "Contraste aspectual integrado."
+    ],
+    "activeVocabularyThemes": [
+      "repaso aspectual",
+      "integración"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "contraste aspectual completo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 68-70"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Todas las confusiones aspectuales"
+    ],
+    "criticalTargets": [
+      {
+        "id": "contraste_aspectual_completo",
+        "description": "contraste aspectual completo"
+      }
+    ],
+    "expectedProduction": [
+      "Elegir aspecto correcto"
+    ],
+    "expectedComprehension": [
+      "Contraste aspectual integrado."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 68-70"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_072",
+    "number": 72,
+    "title": "Perfectivo futuro para resolver",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XII",
+    "summary": "Perfectivo futuro para resolver",
+    "communicativeObjectives": [
+      "Prometer con futuro perfectivo"
+    ],
+    "grammarObjectives": [
+      "Futuro perfectivo para promesas."
+    ],
+    "activeVocabularyThemes": [
+      "promesas",
+      "respuestas",
+      "planes inmediatos"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "futuro perfectivo promesa"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 69-71"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar futuro compuesto para promesas"
+    ],
+    "criticalTargets": [
+      {
+        "id": "futuro_perfectivo_promesa",
+        "description": "futuro perfectivo promesa"
+      }
+    ],
+    "expectedProduction": [
+      "Prometer con futuro perfectivo"
+    ],
+    "expectedComprehension": [
+      "Futuro perfectivo para promesas."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 69-71"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_073",
+    "number": 73,
+    "title": "Planes e intención concreta",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XIII",
+    "summary": "Planes e intención concreta",
+    "communicativeObjectives": [
+      "Expresar intención completiva"
+    ],
+    "grammarObjectives": [
+      "Собираться/решить/хотеть + perf."
+    ],
+    "activeVocabularyThemes": [
+      "planes",
+      "intenciones",
+      "decisiones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "собираться + perf",
+      "решить + perf",
+      "хотеть + perf"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 70-72"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo con intención completiva"
+    ],
+    "criticalTargets": [
+      {
+        "id": "собираться_+_perf",
+        "description": "собираться + perf"
+      },
+      {
+        "id": "решить_+_perf",
+        "description": "решить + perf"
+      },
+      {
+        "id": "хотеть_+_perf",
+        "description": "хотеть + perf"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar intención completiva"
+    ],
+    "expectedComprehension": [
+      "Собираться/решить/хотеть + perf."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 70-72"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_074",
+    "number": 74,
+    "title": "Suposición y posibilidad",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XIV",
+    "summary": "Suposición y posibilidad",
+    "communicativeObjectives": [
+      "Expresar probabilidad"
+    ],
+    "grammarObjectives": [
+      "Наверное/может быть + aspecto. Смочь/успеть."
+    ],
+    "activeVocabularyThemes": [
+      "probabilidad",
+      "posibilidad",
+      "éxito"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "наверное + aspecto",
+      "смочь + perf",
+      "успеть + perf"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 71-73"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Aspecto incorrecto con modales posibilidad"
+    ],
+    "criticalTargets": [
+      {
+        "id": "наверное_+_aspecto",
+        "description": "наверное + aspecto"
+      },
+      {
+        "id": "смочь_+_perf",
+        "description": "смочь + perf"
+      },
+      {
+        "id": "успеть_+_perf",
+        "description": "успеть + perf"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar probabilidad"
+    ],
+    "expectedComprehension": [
+      "Наверное/может быть + aspecto. Смочь/успеть."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 71-73"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_075",
+    "number": 75,
+    "title": "Peticiones corteses",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XV",
+    "summary": "Peticiones corteses",
+    "communicativeObjectives": [
+      "Hacer peticiones corteses"
+    ],
+    "grammarObjectives": [
+      "Imperativo perfectivo (скажите, помогите)."
+    ],
+    "activeVocabularyThemes": [
+      "peticiones",
+      "cortesía",
+      "instrucciones"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "imperativo perfectivo",
+      "cortesía"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 72-74"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperativo imperfectivo para peticiones"
+    ],
+    "criticalTargets": [
+      {
+        "id": "imperativo_perfectivo",
+        "description": "imperativo perfectivo"
+      },
+      {
+        "id": "cortesía",
+        "description": "cortesía"
+      }
+    ],
+    "expectedProduction": [
+      "Hacer peticiones corteses"
+    ],
+    "expectedComprehension": [
+      "Imperativo perfectivo (скажите, помогите)."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 72-74"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_076",
+    "number": 76,
+    "title": "Repetición como evento",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XVI",
+    "summary": "Repetición como evento",
+    "communicativeObjectives": [
+      "Expresar repetición"
+    ],
+    "grammarObjectives": [
+      "Пере-/по- para repetición. Снова/опять."
+    ],
+    "activeVocabularyThemes": [
+      "repetición",
+      "recurrencia"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "пере- + V",
+      "по- + V",
+      "снова/опять"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 73-75"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar mismo aspecto toda repetición"
+    ],
+    "criticalTargets": [
+      {
+        "id": "пере-_+_V",
+        "description": "пере- + V"
+      },
+      {
+        "id": "по-_+_V",
+        "description": "по- + V"
+      },
+      {
+        "id": "снова/опять",
+        "description": "снова/опять"
+      }
+    ],
+    "expectedProduction": [
+      "Expresar repetición"
+    ],
+    "expectedComprehension": [
+      "Пере-/по- para repetición. Снова/опять."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 73-75"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_077",
+    "number": 77,
+    "title": "Infinitivo perfectivo con modales",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XVII",
+    "summary": "Infinitivo perfectivo con modales",
+    "communicativeObjectives": [
+      "Usar infinitivo perfectivo con modales"
+    ],
+    "grammarObjectives": [
+      "Надо/нужно/можно + perf."
+    ],
+    "activeVocabularyThemes": [
+      "obligación",
+      "permiso",
+      "necesidad completiva"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "modal + infinitivo perfectivo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 74-76"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar imperfectivo tras modales de completitud"
+    ],
+    "criticalTargets": [
+      {
+        "id": "modal_+_infinitivo_perfectivo",
+        "description": "modal + infinitivo perfectivo"
+      }
+    ],
+    "expectedProduction": [
+      "Usar infinitivo perfectivo con modales"
+    ],
+    "expectedComprehension": [
+      "Надо/нужно/можно + perf."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 74-76"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_078",
+    "number": 78,
+    "title": "Infinitivo imperfectivo con proceso",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XVIII",
+    "summary": "Infinitivo imperfectivo con proceso",
+    "communicativeObjectives": [
+      "Usar infinitivo imperfectivo con proceso"
+    ],
+    "grammarObjectives": [
+      "Надо/нужно/можно + imperf."
+    ],
+    "activeVocabularyThemes": [
+      "actividades en curso",
+      "duración",
+      "proceso"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "modal + infinitivo imperfectivo"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 75-77"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar perfectivo para procesos abiertos"
+    ],
+    "criticalTargets": [
+      {
+        "id": "modal_+_infinitivo_imperfectiv",
+        "description": "modal + infinitivo imperfectivo"
+      }
+    ],
+    "expectedProduction": [
+      "Usar infinitivo imperfectivo con proceso"
+    ],
+    "expectedComprehension": [
+      "Надо/нужно/можно + imperf."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 75-77"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_079",
+    "number": 79,
+    "title": "Хотеть: proceso o intención",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XIX",
+    "summary": "Хотеть: proceso o intención",
+    "communicativeObjectives": [
+      "Matizar deseo con aspecto"
+    ],
+    "grammarObjectives": [
+      "Хотеть + imperf vs хотеть + perf."
+    ],
+    "activeVocabularyThemes": [
+      "deseo",
+      "intención",
+      "proceso vs resultado"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "хотеть + imperf",
+      "хотеть + perf"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 76-78"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Usar solo imperfectivo tras хотеть"
+    ],
+    "criticalTargets": [
+      {
+        "id": "хотеть_+_imperf",
+        "description": "хотеть + imperf"
+      },
+      {
+        "id": "хотеть_+_perf",
+        "description": "хотеть + perf"
+      }
+    ],
+    "expectedProduction": [
+      "Matizar deseo con aspecto"
+    ],
+    "expectedComprehension": [
+      "Хотеть + imperf vs хотеть + perf."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 76-78"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  },
+  {
+    "id": "lesson_080",
+    "number": 80,
+    "title": "Resumen operativo del aspecto",
+    "approxLevel": "A2-B1",
+    "status": "planned",
+    "communicativeTheme": "Aspecto XX",
+    "summary": "Resumen operativo del aspecto",
+    "communicativeObjectives": [
+      "Integrar todos los aspectos"
+    ],
+    "grammarObjectives": [
+      "Síntesis aspectual completa."
+    ],
+    "activeVocabularyThemes": [
+      "síntesis",
+      "integración",
+      "transición B1"
+    ],
+    "passiveVocabularyThemes": [],
+    "newStructures": [
+      "síntesis aspectual completa"
+    ],
+    "recycledStructures": [
+      "contenido de lecciones 77-79"
+    ],
+    "cases": [
+      "acusativo",
+      "genitivo",
+      "prepositivo",
+      "dativo",
+      "instrumental"
+    ],
+    "skills": [
+      "production",
+      "recognition",
+      "comprehension",
+      "grammar_transfer",
+      "listening"
+    ],
+    "typicalErrorsForSpanishSpeakers": [
+      "Todos los errores aspectuales previos"
+    ],
+    "criticalTargets": [
+      {
+        "id": "síntesis_aspectual_completa",
+        "description": "síntesis aspectual completa"
+      }
+    ],
+    "expectedProduction": [
+      "Integrar todos los aspectos"
+    ],
+    "expectedComprehension": [
+      "Síntesis aspectual completa."
+    ],
+    "closingExam": {
+      "vocabulary": false,
+      "grammar": false,
+      "mixed": false,
+      "full": false
+    },
+    "unlockCriteria": "Pendiente de implementación",
+    "previousLessonLinks": [
+      "Lecciones 77-79"
+    ],
+    "implementationNotes": "Contenido planificado. Ningún ejercicio implementado todavía."
+  }
+]

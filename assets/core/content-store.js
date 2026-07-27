@@ -11,8 +11,11 @@ const LEVEL_BANDS = [
 const PATHS = {
   lessons: 'content/lessons.json',
   vocabulary: 'content/vocabulary.json',
+  manualVocabulary: 'content/manual-vocabulary.json',
   grammar: 'content/grammar.json',
+  manualGrammar: 'content/manual-grammar.json',
   exercises: 'content/exercises.json',
+
   materials: 'content/materials.json',
   aspect: 'content/materials-aspect.json',
   notes: 'content/learning-notes.json',
@@ -42,8 +45,11 @@ export function createContentStore() {
     const [
       lessons,
       vocabulary,
+      manualVocabulary,
       grammar,
+      manualGrammar,
       exercises,
+
       materials,
       aspect,
       notes,
@@ -53,8 +59,11 @@ export function createContentStore() {
     ] = await Promise.all([
       readJson(PATHS.lessons, []),
       readJson(PATHS.vocabulary, []),
+      readJson(PATHS.manualVocabulary, []),
       readJson(PATHS.grammar, []),
+      readJson(PATHS.manualGrammar, []),
       readJson(PATHS.exercises, []),
+
       readJson(PATHS.materials, { classes: [] }),
       readJson(PATHS.aspect, { classes: [] }),
       readJson(PATHS.notes, { notes: [] }),
@@ -72,8 +81,8 @@ export function createContentStore() {
     state.cards.forEach(card => state.cardMap.set(normalizeText(card.text), card));
     importMaterialClasses(materials.classes || [], 'materials');
     importMaterialClasses(aspect.classes || [], 'aspect');
-    importLegacyVocabulary(vocabulary);
-    importLegacyGrammar(grammar);
+    importLegacyVocabulary([...vocabulary, ...manualVocabulary]);
+    importLegacyGrammar([...grammar, ...manualGrammar]);
     connectNotes();
     state.cards = buildCards();
     state.exercises = normalizeExercises(exercises);
@@ -268,6 +277,9 @@ export function createContentStore() {
         curated: Boolean(item.curated || item.quality?.authoredAsWhole || String(item.source || '').includes('authored')),
         design: item.design || null,
         exam_role: item.exam_role || null,
+        exam_kind: item.exam_kind || null,
+        exam_question_type: item.exam_question_type || item.targets?.primary || type,
+        exam_format: item.exam_format || null,
         auto_correctable: Boolean(item.auto_correctable),
         unlock_exam: Boolean(item.unlock_exam),
         exam_challenge: Boolean(item.exam_challenge),

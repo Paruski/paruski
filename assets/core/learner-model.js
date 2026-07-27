@@ -1,5 +1,7 @@
 import { addDays, average, clamp, dayKey, startOfDay } from './utils.js';
 
+const REQUIRED_EXAM_KINDS = ['vocabulary', 'grammar', 'mixed'];
+
 export function createLearnerModel(storage, eventLog, contentStore) {
   let progress = storage.loadProgress();
 
@@ -54,20 +56,35 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   function lessonReadyForExam() {
     const unlockedMax = Math.max(1, Number(progress.unlocked?.lessonMax || 1));
     for (let lesson = 1; lesson <= unlockedMax; lesson += 1) {
-      if (lessonPracticeCovered(contentStore, getTargetState, progress, lesson) && !lessonExamPassed(progress, lesson)) return lesson;
+      const practiceCovered = lessonPracticeCovered(contentStore, getTargetState, progress, lesson);
+      if (!practiceCovered) continue;
+      const allPassed = lessonAllRequiredExamsPassed(progress, lesson);
+      if (allPassed) {
+        // Even if passed before, check for recent critical failures that may have degraded mastery
+        const lessonTargets = contentStore.state.targets.filter(t => Number(t.lesson) === lesson);
+        const hasRecentCriticalFailure = lessonTargets.some(target => {
+          const state = getTargetState(target.id);
+          return (state.critical_failures || 0) > 0 && (state.mastery || 0) < 0.58;
+        });
+        if (hasRecentCriticalFailure) return lesson; // needs repair
+      }
+      if (!allPassed) return lesson;
     }
     return null;
   }
 
-  function lessonExamStatus(lesson) {
-    const exam = progress.lessons?.[lesson]?.exam || {};
+  function lessonExamStatus(lesson, examKind = null) {
+    const exam = examProgressForLesson(progress, lesson, examKind);
     return {
       lesson: Number(lesson),
-      passed: lessonExamPassed(progress, lesson),
+      exam_kind: examKind,
+      passed: lessonExamPassed(progress, lesson, examKind),
       attempts: exam.attempts || 0,
       correct: exam.correct || 0,
       wrong: exam.wrong || 0,
       recent: exam.recent || [],
+      required_correct: exam.required_correct || null,
+      exam_total: exam.exam_total || null,
       passed_at: exam.passed_at || null
     };
   }
@@ -99,25 +116,125 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   function recordExerciseResult({ exercise, correct, confidence = 3, responseTime = null, errorType = null, optionUsed = 'responder' }) {
     const targetIds = exercise.target_ids?.length ? exercise.target_ids : [];
     const timestamp = new Date().toISOString();
-    const confidenceFactor = clamp(Number(confidence || 3) / 5, 0.2, 1);
-    const evidenceWeight = exerciseEvidenceWeight(exercise);
+    const isExam = Boolean(exercise.unlock_exam || exercise.exam);
+    const isAuthored = Boolean(exercise.curated || exercise.quality?.authoredAsWhole);
+    const isTransfer = Boolean(exercise.quality?.requiresTransfer || exercise.quality?.requiresGeneralization);
+    const isCriticalTarget = exercise.diagnostics?.criticalErrors?.length > 0;
+
+    // Evidence weight by exercise type (science-based)
+    const weightsByType = {
+      'multiple-choice': 0.4,
+      'choice-grid': 0.4,
+      'listen-choice': 0.5,
+      'cloze': 0.7,
+      'dictation': 0.7,
+      'text-input': 0.7,
+      'token-build': 0.75,
+      'error-correction': 0.85,
+      'transform': 0.9,
+      'production-prompt': 0.95
+    };
+    let baseWeight = weightsByType[exercise.type] || 0.6;
+    if (isTransfer) baseWeight = Math.min(1.0, baseWeight * 1.15);
+    if (isExam) baseWeight = Math.min(1.0, baseWeight * 1.2);
+    if (isAuthored) baseWeight = Math.min(1.0, baseWeight * 1.1);
+    if (exercise.processing === 'recognition') baseWeight *= 0.6;
+    const evidenceWeight = clamp(baseWeight, 0.2, 1.0);
+
+    // Confidence factor from response time + option used
+    let confidenceFactor = clamp(Number(confidence || 3) / 5, 0.2, 1);
+    if (optionUsed === 'no_se') confidenceFactor = 0.1;
+    if (optionUsed === 'resolver_luego') {
+      // Defer: no mastery change, just reschedule
+      targetIds.forEach(targetId => {
+        const target = contentStore.getTarget(targetId);
+        const current = getTargetState(targetId);
+        progress.targets[targetId] = {
+          ...current,
+          target_id: targetId,
+          lesson: target?.lesson || current.lesson || null,
+          level: target?.level || current.level || null,
+          deferred: (current.deferred || 0) + 1,
+          last_deferred_at: timestamp,
+          last_response_time_ms: responseTime,
+          last_option_used: 'resolver_luego',
+          next_due_at: addDays(new Date(), 1).toISOString()
+        };
+      });
+      recordCompetencyResult({ exercise, correct: false, confidenceFactor, responseTime, errorType, timestamp });
+      updateCalibrationForProgress(progress, exercise, false, confidenceFactor, timestamp);
+      save();
+      return;
+    }
+
+    const isFastResponse = responseTime !== null && responseTime < 7000;
+    const isSlowResponse = responseTime !== null && responseTime >= 18000;
+
     targetIds.forEach(targetId => {
       const target = contentStore.getTarget(targetId);
       const current = getTargetState(targetId);
       const skill = exercise.skill || skillForExercise(exercise);
       const skillScore = current.skills[skill] ?? 0;
-      const gain = (0.16 + confidenceFactor * 0.08) * evidenceWeight;
-      const nextSkillScore = correct
-        ? clamp(skillScore + gain * (1 - skillScore))
-        : clamp(skillScore - 0.16 * evidenceWeight);
+
+      // Base gain: 0.12 for correct, scaled by evidence weight and confidence
+      let gain = 0;
+      if (correct) {
+        gain = 0.12 * evidenceWeight * confidenceFactor;
+        if (isFastResponse) gain *= 1.3;
+        if (isSlowResponse) gain *= 0.6;
+        // Production > recognition
+        if (exercise.type === 'production-prompt' || exercise.type === 'transform' || exercise.type === 'error-correction') {
+          gain *= 1.2;
+        }
+      } else {
+        gain = -0.18 * evidenceWeight;
+        if (optionUsed === 'no_se') gain = -0.25;
+        if (isCriticalTarget) gain *= 1.5;
+      }
+
+      const nextSkillScore = clamp(skillScore + gain * (1 - Math.abs(skillScore)));
       const attempts = current.attempts + 1;
       const right = current.correct + (correct ? 1 : 0);
       const wrong = current.wrong + (correct ? 0 : 1);
       const lapses = (current.lapses || 0) + (correct ? 0 : 1);
-      const intervalDays = nextInterval(current.interval_days || 0, correct, confidenceFactor);
+      const criticalFailures = (current.critical_failures || 0) + (!correct && isCriticalTarget ? 1 : 0);
+
+      // Interval: use science-based spacing
+      let intervalDays = 1;
+      if (correct && attempts > 0) {
+        const prevInterval = current.interval_days || 0;
+        if (isFastResponse && confidenceFactor > 0.7) {
+          // Fast correct: multiply interval
+          intervalDays = Math.min(60, Math.max(1, Math.round(prevInterval * (1.4 + confidenceFactor * 0.6))));
+        } else if (correct) {
+          intervalDays = Math.min(30, Math.max(1, Math.round(prevInterval * (1.2 + confidenceFactor * 0.3))));
+        }
+      } else if (!correct) {
+        intervalDays = 1; // Review tomorrow
+        if (optionUsed === 'no_se') intervalDays = 0; // Same session
+      }
+
+      // Stability: approximate number of days before forgetting
+      const stability = correct
+        ? Math.min(60, Math.max(0.5, (intervalDays * 0.7 + (current.stability || 0) * 0.3)))
+        : Math.max(0.5, (current.stability || 1) * 0.3);
+
       const errors = { ...(current.error_types || {}) };
       if (!correct && errorType) errors[errorType] = (errors[errorType] || 0) + 1;
-      const skills = { ...current.skills, [skill]: Number(nextSkillScore.toFixed(3)) };
+      const skills = { ...current.skills, [skill]: Number(clamp(nextSkillScore).toFixed(3)) };
+
+      // History by skill
+      const historyBySkill = { ...(current.history_by_skill || {}) };
+      if (!historyBySkill[skill]) historyBySkill[skill] = { attempts: 0, correct: 0, wrong: 0, last_seen_at: null };
+      historyBySkill[skill] = {
+        attempts: historyBySkill[skill].attempts + 1,
+        correct: historyBySkill[skill].correct + (correct ? 1 : 0),
+        wrong: historyBySkill[skill].wrong + (correct ? 0 : 1),
+        last_seen_at: timestamp
+      };
+
+      const dueAt = intervalDays === 0 ? addDays(new Date(), 0) : addDays(new Date(), intervalDays);
+
       progress.targets[targetId] = {
         ...current,
         target_id: targetId,
@@ -125,16 +242,22 @@ export function createLearnerModel(storage, eventLog, contentStore) {
         level: target?.level || current.level || null,
         skills,
         mastery: Number(average(Object.values(skills)).toFixed(3)),
+        stability: Number(stability.toFixed(1)),
         attempts,
         correct: right,
         wrong,
         last_seen_at: timestamp,
-        next_due_at: addDays(new Date(), intervalDays).toISOString(),
+        last_correct_at: correct ? timestamp : current.last_correct_at || null,
+        last_result: correct,
+        last_skill_mode: skill,
+        next_due_at: dueAt.toISOString(),
         interval_days: intervalDays,
         error_types: errors,
+        history_by_skill: historyBySkill,
         last_response_time_ms: responseTime,
         last_option_used: optionUsed,
-        lapses
+        lapses,
+        critical_failures: criticalFailures
       };
     });
 
@@ -146,24 +269,7 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   }
 
   function deferExerciseResult({ exercise, responseTime = null }) {
-    const targetIds = exercise.target_ids?.length ? exercise.target_ids : [];
-    const timestamp = new Date().toISOString();
-    targetIds.forEach(targetId => {
-      const target = contentStore.getTarget(targetId);
-      const current = getTargetState(targetId);
-      progress.targets[targetId] = {
-        ...current,
-        target_id: targetId,
-        lesson: target?.lesson || current.lesson || null,
-        level: target?.level || current.level || null,
-        deferred: (current.deferred || 0) + 1,
-        last_deferred_at: timestamp,
-        last_response_time_ms: responseTime,
-        last_option_used: 'resolver_luego',
-        next_due_at: addDays(new Date(), 1).toISOString()
-      };
-    });
-    save();
+    recordExerciseResult({ exercise, correct: false, confidence: 1, responseTime, errorType: null, optionUsed: 'resolver_luego' });
   }
 
   function dueTargets(date = new Date()) {
@@ -193,6 +299,16 @@ export function createLearnerModel(storage, eventLog, contentStore) {
     const mastered = targetStates.filter(state => state.mastery >= 0.72).length;
     const competencyStates = Object.values(progress.competencies || {});
     const competencyMastered = competencyStates.filter(state => state.mastery >= 0.72).length;
+    const dueTargetsCount = studyTargets().filter(t => {
+      const st = getTargetState(t.id);
+      return st.attempts > 0 && st.next_due_at && new Date(st.next_due_at).getTime() <= Date.now();
+    }).length;
+    const nextReviewTarget = studyTargets().filter(t => {
+      const st = getTargetState(t.id);
+      return st.next_due_at && new Date(st.next_due_at).getTime() > Date.now();
+    }).sort((a, b) => {
+      return new Date(getTargetState(a.id).next_due_at) - new Date(getTargetState(b.id).next_due_at);
+    })[0] || null;
     return {
       events: events.length,
       correct,
@@ -209,7 +325,9 @@ export function createLearnerModel(storage, eventLog, contentStore) {
       unlockedLessonMax: progress.unlocked?.lessonMax || 1,
       examLesson: lessonReadyForExam(),
       calibration: calibration(),
-      streak: streakDays(events)
+      streak: streakDays(events),
+      dueTargets: dueTargetsCount,
+      nextReviewAt: nextReviewTarget ? getTargetState(nextReviewTarget.id).next_due_at : null
     };
   }
 
@@ -279,8 +397,9 @@ export function createLearnerModel(storage, eventLog, contentStore) {
       updated_at: new Date().toISOString()
     };
     if (exercise.unlock_exam || exercise.exam) {
-      next.exam = updateExamProgress(current.exam, exercise, correct);
-      if (next.exam.passed_at) next.status = 'exam_passed';
+      const examKey = examProgressKey(exercise.exam_kind);
+      next[examKey] = updateExamProgress(current[examKey], exercise, correct);
+      if (lessonAllRequiredExamsPassed({ ...progress, lessons: { ...progress.lessons, [lesson]: next } }, lesson)) next.status = 'exam_passed';
     }
     progress.lessons[lesson] = next;
   }
@@ -288,7 +407,31 @@ export function createLearnerModel(storage, eventLog, contentStore) {
   function updateUnlocks() {
     const currentMax = Math.max(1, Number(progress.unlocked?.lessonMax || 1));
     const firstIncomplete = firstIncompleteLesson(currentMax);
-    const nextLessonMax = firstIncomplete > currentMax ? Math.min(80, currentMax + 1) : currentMax;
+    // Also check if earlier lessons have critical failures that need re-lock
+    let criticalBlock = false;
+    for (let l = 1; l < firstIncomplete; l++) {
+      const key = `lesson_${String(l).padStart(3, '0')}`;
+      const lessonData = progress.lessons?.[key] || {};
+      if (lessonData.status !== 'exam_passed') continue;
+      const targets = contentStore.state.targets.filter(t => Number(t.lesson) === l);
+      const hasCriticalDegradation = targets.some(t => {
+        const st = getTargetState(t.id);
+        return (st.critical_failures || 0) > 0 && (st.mastery || 0) < 0.58;
+      });
+      if (hasCriticalDegradation) {
+        criticalBlock = true;
+        break;
+      }
+    }
+    let nextLessonMax;
+    if (criticalBlock) {
+      // Don't advance further, keep at current max
+      nextLessonMax = currentMax;
+    } else if (firstIncomplete > currentMax) {
+      nextLessonMax = Math.min(80, currentMax + 1);
+    } else {
+      nextLessonMax = currentMax;
+    }
     progress.unlocked.lessonMax = Math.max(currentMax, nextLessonMax);
     const lesson = progress.unlocked.lessonMax;
     progress.unlocked.level = contentStore.levelForLesson(lesson).id;
@@ -331,7 +474,11 @@ function firstIncompleteLessonFor(contentStore, getTargetState, progress, maxLes
 }
 
 function lessonIsCovered(contentStore, getTargetState, progress, lesson) {
-  return lessonPracticeCovered(contentStore, getTargetState, progress, lesson) && lessonExamPassed(progress, lesson);
+  return lessonPracticeCovered(contentStore, getTargetState, progress, lesson) && lessonAllRequiredExamsPassed(progress, lesson);
+}
+
+function lessonAllRequiredExamsPassed(progress, lesson) {
+  return REQUIRED_EXAM_KINDS.every(kind => lessonExamPassed(progress, lesson, kind));
 }
 
 function lessonPracticeCovered(contentStore, getTargetState, progress, lesson) {
@@ -381,28 +528,42 @@ function lessonPracticeCovered(contentStore, getTargetState, progress, lesson) {
   return fastPass || standardPass;
 }
 
-function lessonExamPassed(progress, lesson) {
-  return Boolean(progress.lessons?.[lesson]?.exam?.passed_at);
+function lessonExamPassed(progress, lesson, examKind = null) {
+  return Boolean(examProgressForLesson(progress, lesson, examKind).passed_at);
+}
+
+function examProgressForLesson(progress, lesson, examKind = null) {
+  const current = progress.lessons?.[lesson] || {};
+  return current[examProgressKey(examKind)] || {};
+}
+
+function examProgressKey(examKind = null) {
+  return examKind ? `exam_${examKind}` : 'exam';
 }
 
 function updateExamProgress(currentExam = {}, exercise, correct) {
   const timestamp = new Date().toISOString();
+  const examTotal = Math.max(1, Number(exercise.exam_total || currentExam.exam_total || 20));
+  const requiredCorrect = Math.max(1, Number(exercise.exam_required_correct || currentExam.required_correct || Math.ceil(examTotal * 0.9)));
   const event = {
     exercise_id: exercise.id,
     type: exercise.type,
+    exam_kind: exercise.exam_kind || null,
+    exam_question_type: exercise.exam_question_type || null,
     difficulty: exercise.difficulty || null,
     correct: Boolean(correct),
     critical: !correct && isCriticalExamMiss(exercise),
     at: timestamp
   };
-  const recent = [...(currentExam.recent || []), event].slice(-20);
+  const recent = [...(currentExam.recent || []), event].slice(-examTotal);
   const recentCorrect = recent.filter(item => item.correct).length;
   const recentCriticalWrong = recent.filter(item => item.critical).length;
-  const windowReady = recent.length >= 20;
-  const requiredCorrect = 18;
+  const windowReady = recent.length >= examTotal;
   const passed = currentExam.passed_at || (windowReady && recentCorrect >= requiredCorrect && recentCriticalWrong === 0);
   return {
     ...currentExam,
+    exam_kind: exercise.exam_kind || currentExam.exam_kind || null,
+    exam_total: examTotal,
     attempts: (currentExam.attempts || 0) + 1,
     correct: (currentExam.correct || 0) + (correct ? 1 : 0),
     wrong: (currentExam.wrong || 0) + (correct ? 0 : 1),
@@ -527,29 +688,9 @@ function skillForExercise(exercise) {
   return 'production';
 }
 
-function exerciseEvidenceWeight(exercise) {
-  const q = exercise.quality || {};
-  let weight = 1;
-  if (exercise.unlock_exam || exercise.exam) weight *= 1.5;
-  if (q.requiresInference || q.requiresGeneralization) weight *= 1.2;
-  if (q.requiresTransfer) weight *= 1.15;
-  if (q.contrastive) weight *= 1.05;
-  if (q.combinesTargets && (exercise.target_ids || []).length >= 2) weight *= 1.1;
-  if (q.notImmediatelyAfterExplanation) weight *= 1.1;
-  const transferLevel = exercise.transfer_level;
-  if (transferLevel === 'far') weight *= 1.3;
-  else if (transferLevel === 'medium') weight *= 1.15;
-  else if (transferLevel === 'near') weight *= 1.05;
-  if (exercise.type === 'multiple-choice') weight *= 0.7;
-  if (exercise.processing === 'recognition' || q.isTrivialRecognition) weight *= 0.6;
-  return clamp(weight, 0.3, 3);
-}
 
-function nextInterval(previous, correct, confidenceFactor) {
-  if (!correct) return 1;
-  if (!previous) return confidenceFactor > 0.75 ? 2 : 1;
-  return Math.min(60, Math.max(1, Math.round(previous * (1.7 + confidenceFactor))));
-}
+
+
 
 function streakDays(events) {
   const days = new Set(events.map(event => dayKey(event.timestamp)).filter(Boolean));

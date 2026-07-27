@@ -14,7 +14,9 @@ const DEFAULT_PROGRESS = {
   user: { id: 'usuario-local', name: 'usuario-local', created_at: null },
   settings: {
     dailyTarget: 8,
-    sessionMinutes: 10
+    sessionMinutes: 10,
+    practiceMode: 'all',
+    practiceVocabularyFormat: 'all'
   },
   unlocked: {
     lessonMax: 1,

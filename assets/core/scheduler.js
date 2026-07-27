@@ -3,7 +3,9 @@ import { dayKey, normalizeText } from './utils.js';
 export function createScheduler({ contentStore, learnerModel, audioService }) {
   function buildSession(options = {}) {
     const summary = learnerModel.summary();
-    const calibration = learnerModel.calibration?.() || { rating: 900, uncertainty: 350, attempts: 0 };
+    const calibration = learnerModel.calibration?.() || summary.calibration || null;
+    const practiceMode = options.practiceMode || 'all';
+    const practiceVocabularyFormat = options.practiceVocabularyFormat || 'all';
     const targetCount = Math.max(6, Math.min(options.targetCount || summary.dailyTarget || 10, 16));
     if (summary.examLesson && !options.forcePractice) {
       return {
@@ -11,6 +13,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
         created_at: new Date().toISOString(),
         estimated_minutes: 0,
         tasks: [],
+        examTimer: null,
         rationale: {
           exam_ready: true,
           exam_lesson: summary.examLesson,
@@ -18,77 +21,66 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
         }
       };
     }
-    const staticTasks = buildStaticPracticeTasks({ targetCount, calibration, summary });
-    if (staticTasks.length >= Math.min(targetCount, 6)) {
+    const staticTasks = buildStaticPracticeTasks({ targetCount, calibration, summary, practiceMode, practiceVocabularyFormat });
+    if (staticTasks.length >= Math.min(targetCount, 6) || (practiceMode !== 'all' && staticTasks.length > 0)) {
       return {
         session_id: `session-${dayKey(new Date())}-${Date.now().toString(36)}`,
         created_at: new Date().toISOString(),
         estimated_minutes: options.minutes || summary.sessionMinutes || 10,
         tasks: staticTasks,
+        examTimer: null,
         rationale: {
           due: learnerModel.dueTargets().length,
           weak: learnerModel.weakTargets().length,
           unlocked: summary.unlockedCount,
           study_lesson_max: learnerModel.studyLessonMax?.() || summary.lessonMax,
           calibration,
+          practice_mode: practiceMode,
+          practice_vocabulary_format: practiceVocabularyFormat,
           source: 'audited_static_exercises',
           anti_repetition: true
         }
       };
     }
 
-    const candidates = adaptiveOrder(interleaveTargets(rankTargets()), calibration).slice(0, targetCount);
-    const tasks = [];
-    const sessionState = {
-      recentTypes: [],
-      typeCounts: {},
-      targetCounts: {},
-      recognitionCount: 0,
-      productiveCount: 0,
-      comprehensionCount: 0
-    };
-
-    candidates.forEach((entry, index) => {
-      const target = entry.target;
-      const state = learnerModel.getTargetState(target.id);
-      if (options.includeExplanations && (!state.attempts || state.mastery < 0.35 || entry.reason === 'error')) {
-        tasks.push(makeExplainTask(target, entry.reason));
-      }
-      const type = chooseExerciseType(target, state, index, targetCount, calibration, sessionState);
-      recordSessionType(sessionState, type, target);
-      tasks.push(makeExerciseTask(target, type));
-    });
-
     return {
       session_id: `session-${dayKey(new Date())}-${Date.now().toString(36)}`,
       created_at: new Date().toISOString(),
       estimated_minutes: options.minutes || summary.sessionMinutes || 10,
-      tasks: tasks.slice(0, targetCount + 4),
+      tasks: [],
+      examTimer: null,
       rationale: {
-        due: learnerModel.dueTargets().length,
-        weak: learnerModel.weakTargets().length,
-        unlocked: summary.unlockedCount,
-        study_lesson_max: learnerModel.studyLessonMax?.() || summary.lessonMax,
-        calibration
+        practice_mode: practiceMode,
+        practice_vocabulary_format: practiceVocabularyFormat,
+        reason: 'manual_content_missing'
       }
     };
   }
 
   function buildExamSession(lesson, options = {}, summary = learnerModel.summary()) {
-    const examCount = Math.max(20, Math.min(options.examCount || 20, 20));
-    const exercises = orderExamExercises(contentStore.state.exercises
-      .filter(exercise => Number(exercise.lesson) === Number(lesson))
-      .filter(exercise => exercise.unlock_exam)
-      .filter(exercise => isUsableStaticExercise(exercise)))
-      .slice(0, examCount)
+    const requestedCount = Number(options.examCount || 15);
+    const examCount = Math.max(8, Math.min(requestedCount, 30));
+    const examKind = options.examKind || null;
+    const requiredCorrect = Math.ceil(examCount * 0.9);
+    const exercises = selectExamQuestions(examExercisesForLesson(lesson, examKind), examCount)
       .map(exercise => ({
         ...exercise,
         exam: true,
-        unlock_exam: true
+        unlock_exam: true,
+        exam_kind: examKind || exercise.exam_kind || null,
+        exam_total: examCount,
+        exam_required_correct: requiredCorrect
       }));
     return {
       session_id: `exam-${lesson}-${dayKey(new Date())}-${Date.now().toString(36)}`,
       mode: 'exam',
+      examTimer: {
+        startedAt: Date.now(),
+        timeLimitSeconds: examCount * 30,
+        remainingSeconds: examCount * 30,
+        scoredCount: examCount
+      },
+      exam_kind: examKind,
       exam_lesson: Number(lesson),
       created_at: new Date().toISOString(),
       estimated_minutes: options.minutes || Math.max(10, summary.sessionMinutes || 10),
@@ -99,14 +91,68 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       })),
       rationale: {
         exam_lesson: Number(lesson),
-        required_correct: Math.ceil(examCount * 0.9),
+        exam_kind: examKind,
+        required_correct: requiredCorrect,
         reason: 'level_unlock_exam'
       }
     };
   }
 
-  function buildStaticPracticeTasks({ targetCount, calibration, summary }) {
-    const candidates = staticPracticeCandidates({ calibration, summary });
+  function examExercisesForLesson(lesson, examKind = null) {
+    let pool = contentStore.state.exercises
+      .filter(exercise => Number(exercise.lesson) === Number(lesson))
+      .filter(exercise => isSelectableExercise(exercise))
+      .filter(exercise => exercise.unlock_exam)
+      .filter(exercise => !examKind || exercise.exam_kind === examKind)
+      .filter(exercise => isUsableStaticExercise(exercise));
+    // Vocabulary exams: also include vocab-drills (vocab puro de recuperacion mecanica)
+    // que no tienen unlock_exam=true porque no son examenes, pero son candidatos validos
+    // para seleccion en el examen de vocabulario.
+    if (examKind === 'vocabulary') {
+      const vocabDrills = contentStore.state.exercises
+        .filter(exercise => Number(exercise.lesson) === Number(lesson))
+        .filter(exercise => exercise.source === 'vocab-drill')
+        .filter(exercise => isUsableStaticExercise(exercise));
+      pool = [...pool, ...vocabDrills];
+    }
+    return orderExamExercises(pool);
+  }
+
+  function examExerciseCount(lesson, examKind = null) {
+    return examExercisesForLesson(lesson, examKind).length;
+  }
+
+  function selectExamQuestions(exercises, count) {
+    const selected = [];
+    const selectedIds = new Set();
+    const buckets = new Map();
+    shuffleForExam(exercises).forEach(exercise => {
+      const key = exercise.exam_question_type || exercise.targets?.primary || exercise.type || 'general';
+      buckets.set(key, [...(buckets.get(key) || []), exercise]);
+    });
+    while (selected.length < count && buckets.size) {
+      [...buckets.keys()].forEach(key => {
+        if (selected.length >= count) return;
+        const bucket = buckets.get(key) || [];
+        const next = bucket.shift();
+        if (next && !selectedIds.has(next.id)) {
+          selected.push(next);
+          selectedIds.add(next.id);
+        }
+        if (!bucket.length) buckets.delete(key);
+        else buckets.set(key, bucket);
+      });
+    }
+    shuffleForExam(exercises).forEach(exercise => {
+      if (selected.length >= count || selectedIds.has(exercise.id)) return;
+      selected.push(exercise);
+      selectedIds.add(exercise.id);
+    });
+    return selected.slice(0, count);
+  }
+
+  function buildStaticPracticeTasks({ targetCount, calibration, summary, practiceMode = 'all', practiceVocabularyFormat = 'all' }) {
+    const candidates = staticPracticeCandidates({ calibration, summary, practiceMode, practiceVocabularyFormat });
     const selected = selectDiverseExercises(candidates, targetCount, {
       maxPerType: 3,
       maxPerTemplate: 1,
@@ -120,19 +166,20 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
     }));
   }
 
-  function staticPracticeCandidates({ calibration, summary }) {
+  function staticPracticeCandidates({ calibration, summary, practiceMode = 'all', practiceVocabularyFormat = 'all' }) {
     const studyMax = Number(learnerModel.studyLessonMax?.() || summary.lessonMax || 1);
     const seenExercises = learnerModel.seenTodayExerciseIds?.() || new Set();
     const seenTargets = learnerModel.seenTodayTargetIds?.() || new Set();
     const now = new Date();
     const exercises = contentStore.state.exercises
+      .filter(exercise => isSelectableExercise(exercise))
       .filter(exercise => Number(exercise.lesson || 0) <= studyMax)
       .filter(exercise => !exercise.unlock_exam && !exercise.exam)
+      .filter(exercise => practiceMode === 'all' || (exercise.exam_kind || '') === practiceMode)
+      .filter(exercise => matchesVocabularyFormat(exercise, practiceVocabularyFormat))
       .filter(exercise => !seenExercises.has(exercise.id))
       .filter(exercise => isUsableStaticExercise(exercise));
-    const authored = exercises.filter(isAuthoredExercise);
-    const singleIntent = authored.filter(exercise => exercise.design === 'single_intent');
-    return singleIntent.map((exercise, index) => ({
+    return exercises.map((exercise, index) => ({
       ...exercise,
       _practiceScore: practiceExerciseScore(exercise, { calibration, seenTargets, studyMax, now, index })
     })).sort((left, right) =>
@@ -232,196 +279,7 @@ export function createScheduler({ contentStore, learnerModel, audioService }) {
       .sort((left, right) => right.score - left.score);
   }
 
-  function makeExplainTask(target, reason) {
-    const card = contentStore.getCard(target);
-    return {
-      id: `explain-${target.id}-${Date.now().toString(36)}`,
-      kind: 'explain',
-      reason,
-      target_ids: [target.id],
-      lesson: target.lesson,
-      target,
-      card
-    };
-  }
-
-  function makeExerciseTask(target, type) {
-    const exercise = staticExerciseFor(target, type) || buildExercise(target, type);
-    return {
-      id: `task-${target.id}-${type}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`,
-      kind: 'exercise',
-      exercise
-    };
-  }
-
-  function chooseExerciseType(target, state, index, targetCount, calibration, sessionState) {
-    const examples = contentStore.getExamplesForTarget(target);
-    const exactExample = examples.some(example => normalizeText(example).includes(target.normalized_text));
-    const hasAudio = audioService.hasRecorded(target.text) || examples.some(example => audioService.hasRecorded(example));
-    const hasErrorCorrection = Boolean(errorCorrectionSeedFor(target));
-    const hasTransform = Boolean(transformSeedFor(target));
-    const needsListening = (state.skills?.listening || 0) < 0.62;
-    const needsProduction = (state.skills?.production || 0) < 0.58;
-    const needsGrammar = (state.skills?.grammar_transfer || 0) < 0.58;
-    const calibrating = (calibration?.attempts || 0) < 18 || (calibration?.uncertainty || 0) > 150;
-    const available = [
-      hasAudio && needsListening ? 'listen-choice' : '',
-      exactExample ? 'cloze' : '',
-      hasErrorCorrection && needsGrammar ? 'error-correction' : '',
-      hasTransform && needsGrammar ? 'transform' : '',
-      target.kind === 'vocabulary' && needsProduction ? 'text-input' : '',
-      state.attempts >= 2 && hasAudio ? 'dictation' : '',
-      canUseContextChoice(target) ? 'multiple-choice' : ''
-    ].filter(Boolean);
-    const plan = calibrating
-      ? ['cloze', 'listen-choice', 'text-input', 'error-correction', 'transform', 'multiple-choice']
-      : ['text-input', 'listen-choice', 'error-correction', 'cloze', 'transform', 'multiple-choice'];
-    if (sessionState.productiveCount < Math.floor((index + 2) / 3)) {
-      const productive = ['text-input', 'error-correction', 'transform'].find(type => available.includes(type));
-      if (productive) return diversifyExerciseType(productive, { target, exactExample, hasAudio, needsListening, sessionState, available });
-    }
-    if (!sessionState.comprehensionCount && index >= Math.min(2, targetCount - 1)) {
-      const comprehension = ['listen-choice', 'cloze'].find(type => available.includes(type));
-      if (comprehension) return diversifyExerciseType(comprehension, { target, exactExample, hasAudio, needsListening, sessionState, available });
-    }
-    const planned = plan[index % plan.length];
-    const selected = available.includes(planned) ? planned : plan.find(type => available.includes(type)) || available[0] || 'text-input';
-    return diversifyExerciseType(selected, { target, exactExample, hasAudio, needsListening, sessionState, available });
-  }
-
-  function staticExerciseFor(target, preferredType) {
-    const studyMax = Number(learnerModel.studyLessonMax?.() || target.lesson || 5);
-    const exercises = contentStore.state.exercises
-      .filter(exercise => (exercise.target_ids || []).includes(target.id))
-      .filter(exercise => Number(exercise.lesson || target.lesson || 0) <= studyMax)
-      .filter(exercise => !exercise.unlock_exam)
-      .filter(exercise => isUsableStaticExercise(exercise));
-    if (!exercises.length) return null;
-    const selected = exercises.find(exercise => exercise.type === preferredType) || null;
-    if (!selected) return null;
-    return {
-      ...selected,
-      target,
-      card: contentStore.getCard(target),
-      examples: contentStore.getExamplesForTarget(target)
-    };
-  }
-
-  function buildExercise(target, type) {
-    const card = contentStore.getCard(target);
-    const examples = contentStore.getExamplesForTarget(target);
-    const exactExample = examples.find(example => normalizeText(example).includes(target.normalized_text));
-    const base = {
-      id: `generated-${target.id}-${type}`,
-      source: 'generated',
-      type,
-      lesson: target.lesson,
-      level: target.level,
-      skill: skillForType(type, target),
-      modality: type === 'dictation' || type === 'listen-choice' ? 'audio' : 'text',
-      prompt: '',
-      expected: target.text,
-      accepted: [],
-      target_ids: [target.id],
-      target,
-      card,
-      examples,
-      tts_text: target.text,
-      weight: target.importance || 0.5
-    };
-    enrichProtocolMetadata(base, target, type);
-
-    if (type === 'cloze' && exactExample) {
-      return {
-        ...base,
-        display: exactExample.replace(new RegExp(escapeRegExp(target.text), 'i'), '_____'),
-        prompt: 'Completa la frase rusa para conservar el significado del ejemplo.',
-        display_expected: target.text,
-        tts_text: exactExample
-      };
-    }
-
-    if (type === 'multiple-choice') {
-      const context = contextForTarget(target, card);
-      return {
-        ...base,
-        context,
-        prompt: target.kind === 'grammar'
-          ? `${context} Elige la frase rusa natural.`
-          : card?.translation ? `Quieres expresar "${card.translation}". Elige la opcion rusa natural.` : 'Elige la opcion rusa que encaja en el contexto.',
-        choices: target.kind === 'grammar'
-          ? contentStore.semanticChoicesForTarget(target)
-          : contentStore.choicesForTarget(target)
-      };
-    }
-
-    if (type === 'dictation') {
-      const ttsText = exactExample || target.text;
-      return {
-        ...base,
-        prompt: 'Escucha y escribe la frase rusa completa. Esto entrena percepcion, no cuenta por si solo como dominio.',
-        expected: ttsText,
-        tts_text: ttsText,
-        require_audio: false
-      };
-    }
-
-    if (type === 'listen-choice') {
-      const ttsText = exactExample || target.text;
-      const listening = listeningComprehensionForTarget(contentStore, target, card, ttsText);
-      return {
-        ...base,
-        prompt: listening.prompt,
-        context: listening.context,
-        expected: listening.expected,
-        tts_text: ttsText,
-        choices: listening.choices,
-        require_audio: false
-      };
-    }
-
-    if (type === 'error-correction') {
-      const seed = errorCorrectionSeedFor(target);
-      if (seed) {
-        return {
-          ...base,
-          prompt: seed.prompt,
-          context: seed.context,
-          display: seed.display,
-          expected: seed.expected,
-          accepted: [seed.expected],
-          display_expected: seed.expected,
-          feedback: seed.feedback,
-          diagnostics: seed.diagnostics
-        };
-      }
-      return buildExercise(target, 'text-input');
-    }
-
-    if (type === 'transform') {
-      const seed = transformSeedFor(target);
-      if (seed) {
-        return {
-          ...base,
-          prompt: 'Transforma la forma rusa: aplica el cambio gramatical, no traduzcas palabra por palabra.',
-          display: `${seed.left} → _____`,
-          expected: seed.right,
-          display_expected: `${seed.left} → ${seed.right}`,
-          accepted: [seed.right],
-          tts_text: seed.example || seed.right
-        };
-      }
-    }
-
-    return {
-      ...base,
-      prompt: card?.translation ? `Escribe exactamente la forma rusa para: ${card.translation}` : 'Escribe exactamente la forma rusa trabajada.',
-      allow_contains: false,
-      accepted: buildAcceptedForms(target)
-    };
-  }
-
-  return { buildSession, buildExamSession, previewPlan, rankTargets, buildExercise };
+  return { buildSession, buildExamSession, examExerciseCount, previewPlan, rankTargets };
 }
 
 function adaptiveOrder(entries, calibration) {
@@ -452,7 +310,8 @@ function byDifficultyThenPriority(left, right) {
 }
 
 function orderExamExercises(exercises) {
-  const ranked = exercises.filter(isAuthoredExercise).sort((left, right) =>
+  const ranked = [...exercises].sort((left, right) =>
+    Number(isAuthoredExercise(right)) - Number(isAuthoredExercise(left)) ||
     cognitiveDemandScore(right) - cognitiveDemandScore(left) ||
     Number(right.difficulty || 0) - Number(left.difficulty || 0) ||
     Number(right.quality?.score || 0) - Number(left.quality?.score || 0) ||
@@ -669,6 +528,53 @@ function exerciseTemplateKey(exercise) {
   return `${primaryBase || exercise.type}:${structure}`;
 }
 
+function isManualExercise(exercise) {
+  return String(exercise?.source || '').includes('manual-authored');
+}
+
+function matchesVocabularyFormat(exercise, practiceVocabularyFormat = 'all') {
+  if ((exercise.exam_kind || '') !== 'vocabulary') return true;
+  if (practiceVocabularyFormat === 'all') return true;
+  const format = vocabularyFormatForExercise(exercise);
+  return format === practiceVocabularyFormat;
+}
+
+function vocabularyFormatForExercise(exercise) {
+  const examFormat = String(exercise?.exam_format || '').trim().toLowerCase();
+  if (examFormat === 'test') return 'test';
+  if (examFormat === 'blank' || examFormat === 'open') return 'open';
+  if (exercise?.type === 'multiple-choice') return 'test';
+  if (exercise?.type === 'text-input') return 'open';
+  return 'all';
+}
+
+function isSelectableExercise(exercise) {
+  return isManualExercise(exercise) || isAutoVocabularyRecallExercise(exercise);
+}
+
+function isAutoVocabularyRecallExercise(exercise) {
+  if (!exercise || isManualExercise(exercise)) return false;
+  if (!String(exercise.source || '').includes('generated')) return false;
+  if (exercise.exam_kind && exercise.exam_kind !== 'vocabulary') return false;
+  if (exercise.modality && exercise.modality !== 'text') return false;
+  if (!['multiple-choice', 'text-input'].includes(exercise.type)) return false;
+  if (!['es_to_ru', 'ru_to_es'].includes(exercise.direction)) return false;
+  const targets = exercise.targets || {};
+  if ((targets.structures || []).length) return false;
+  if ((targets.lemmas || []).length !== 1) return false;
+  if ((exercise.target_ids || []).length !== 1) return false;
+  if (!singleWordAnswer(exercise.expected)) return false;
+  if (String(exercise.display || '').trim()) return false;
+  return true;
+}
+
+function singleWordAnswer(value) {
+  const text = String(value || '').trim();
+  if (!text) return false;
+  if (/[.!?,:;]/.test(text)) return false;
+  return text.split(/\s+/).length === 1;
+}
+
 function hashNoise(value) {
   let hash = 2166136261;
   String(value || '').split('').forEach(ch => {
@@ -676,6 +582,26 @@ function hashNoise(value) {
     hash = Math.imul(hash, 16777619);
   });
   return ((hash >>> 0) % 1000) / 1000;
+}
+
+function shuffleForExam(values) {
+  const output = [...values];
+  let state = hashExamSeed(`${dayKey(new Date())}:${Date.now()}:${Math.random()}`);
+  for (let index = output.length - 1; index > 0; index -= 1) {
+    state = (Math.imul(state || 1, 1664525) + 1013904223) >>> 0;
+    const swap = state % (index + 1);
+    [output[index], output[swap]] = [output[swap], output[index]];
+  }
+  return output;
+}
+
+function hashExamSeed(value) {
+  let hash = 2166136261;
+  String(value || '').split('').forEach(ch => {
+    hash ^= ch.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  });
+  return hash >>> 0;
 }
 
 function byCalibrationPriority(left, right) {

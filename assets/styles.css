@@ -189,3 +189,544 @@ th { color: var(--muted); font-weight: 600; }
   .top-actions { justify-content: flex-start; }
   .panel-head { align-items: flex-start; flex-direction: column; }
 }
+
+/* ── Currículo ────────────────────────── */
+
+.curriculum-view { width: 100%; }
+
+.curriculum-legend {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.curriculum-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.curriculum-card {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)), var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.curriculum-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+}
+
+.curriculum-card-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-2);
+  min-width: 2.8rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.curriculum-card-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.curriculum-card-title-group h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.curriculum-card-tags {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.curriculum-expand {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+}
+
+.curriculum-card-body {
+  border-top: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.curriculum-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.65rem;
+}
+
+.curriculum-meta-item {
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  padding: 0.75rem;
+  background: rgba(0,0,0,.12);
+}
+
+.curriculum-meta-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.curriculum-meta-value {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.curriculum-meta-list {
+  margin: 0;
+  padding: 0 0 0 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.curriculum-meta-list li {
+  margin-bottom: 0.2rem;
+}
+
+/* Status badges for curriculum */
+.status-complete { background: rgba(34,197,94,0.18); border-color: rgba(34,197,94,0.4); color: #bbf7d0; }
+.status-partial  { background: rgba(216,164,66,0.18); border-color: rgba(216,164,66,0.4); color: #f5dfaa; }
+.status-planned  { background: rgba(148,163,184,0.14); border-color: rgba(148,163,184,0.3); color: #cbd5e1; }
+.status-review   { background: rgba(239,68,68,0.16); border-color: rgba(239,68,68,0.35); color: #fecaca; }
+.exam-tag        { background: rgba(139,92,246,0.18); border-color: rgba(139,92,246,0.4); color: #ddd6fe; }
+.muted-tag       { background: rgba(148,163,184,0.1); border-color: rgba(148,163,184,0.2); color: #94a3b8; }
+.has-content-tag { background: rgba(47,125,87,0.25); border-color: rgba(47,125,87,0.5); color: #a7f3d0; }
+.locked-tag      { background: rgba(100,100,100,0.15); border-color: rgba(100,100,100,0.3); color: #a7a29a; }
+
+
+/* ── Currículo ────────────────────────── */
+
+.curriculum-view { width: 100%; }
+
+.curriculum-legend {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.curriculum-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.curriculum-card {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)), var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.curriculum-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+}
+
+.curriculum-card-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-2);
+  min-width: 2.8rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.curriculum-card-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.curriculum-card-title-group h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.curriculum-card-tags {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.curriculum-expand {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+}
+
+.curriculum-card-body {
+  border-top: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.curriculum-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.65rem;
+}
+
+.curriculum-meta-item {
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  padding: 0.75rem;
+  background: rgba(0,0,0,.12);
+}
+
+.curriculum-meta-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.curriculum-meta-value {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.curriculum-meta-list {
+  margin: 0;
+  padding: 0 0 0 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.curriculum-meta-list li {
+  margin-bottom: 0.2rem;
+}
+
+/* Status badges for curriculum */
+.status-complete { background: rgba(34,197,94,0.18); border-color: rgba(34,197,94,0.4); color: #bbf7d0; }
+.status-partial  { background: rgba(216,164,66,0.18); border-color: rgba(216,164,66,0.4); color: #f5dfaa; }
+.status-planned  { background: rgba(148,163,184,0.14); border-color: rgba(148,163,184,0.3); color: #cbd5e1; }
+.status-review   { background: rgba(239,68,68,0.16); border-color: rgba(239,68,68,0.35); color: #fecaca; }
+.exam-tag        { background: rgba(139,92,246,0.18); border-color: rgba(139,92,246,0.4); color: #ddd6fe; }
+.muted-tag       { background: rgba(148,163,184,0.1); border-color: rgba(148,163,184,0.2); color: #94a3b8; }
+.has-content-tag { background: rgba(47,125,87,0.25); border-color: rgba(47,125,87,0.5); color: #a7f3d0; }
+.locked-tag      { background: rgba(100,100,100,0.15); border-color: rgba(100,100,100,0.3); color: #a7a29a; }
+
+/* Plan recommendation cards */
+.plan-cards {
+  margin-top: 1.5rem;
+}
+
+.plan-cards h3 {
+  margin-bottom: 0.75rem;
+}
+
+.plan-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.plan-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.plan-card h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.plan-card p {
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Journeys map (progress view) */
+.journey-map {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.journey-station {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 52px;
+}
+
+.journey-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+  transition: transform 0.15s;
+}
+
+.journey-dot:hover {
+  transform: scale(1.1);
+}
+
+.journey-dot-complete {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.journey-dot-current {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: #000;
+  box-shadow: 0 0 0 3px rgba(216, 164, 66, 0.3);
+}
+
+.journey-dot-unlocked {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(47, 125, 87, 0.15);
+}
+
+.journey-dot-weak {
+  border-color: var(--danger);
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.journey-dot-locked {
+  opacity: 0.5;
+}
+
+.journey-dot-planned {
+  opacity: 0.35;
+}
+
+.journey-station-number {
+  font-size: 0.7rem;
+  letter-spacing: -0.02em;
+}
+
+.journey-station-label {
+  font-size: 0.6rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.journey-station-mastery {
+  font-size: 0.6rem;
+  color: var(--accent);
+}
+
+.journey-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  align-items: center;
+  color: var(--text);
+}
+
+.journey-legend .journey-dot {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.25rem;
+  flex-shrink: 0;
+}
+
+.journey-summary {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.recommendation-box {
+  padding: 0.5rem 0;
+}
+
+.recommendation-box .big-text {
+  margin-bottom: 1rem;
+}
+
+/* Progress bar inside classes feature */
+.progress-bar-container progress {
+  accent-color: var(--accent);
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* Class lesson components */
+.class-example {
+  background: var(--panel-2);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  margin: 0.4rem 0;
+}
+
+.class-example-ru {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.class-example-es {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.class-contrast {
+  background: rgba(216, 164, 66, 0.08);
+  border-left: 3px solid var(--accent-2);
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  margin: 0.4rem 0;
+}
+
+.class-contrast-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.class-contrast-es {
+  margin-top: 0.25rem;
+  color: var(--text);
+}
+
+.class-contrast-ru {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.class-micro-check {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+}
+
+.class-mc-question {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.class-mc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.class-mc-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.class-mc-option input[type="radio"] {
+  accent-color: var(--accent);
+}
+
+.class-mc-feedback {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.class-mc-answer {
+  color: var(--text);
+}
+
+.class-practice-list {
+  list-style: none;
+  padding: 0;
+}
+
+.class-practice-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.class-practice-list li:last-child {
+  border-bottom: none;
+}
+
+.class-practice-list .tag {
+  font-size: 0.7rem;
+  margin-left: 0.4rem;
+}
+
+.small {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.class-practice-prompt {
+  font-size: 0.9rem;
+  margin: 0.15rem 0;
+}
+
+.class-practice-source {
+  font-family: monospace;
+  font-size: 0.95rem;
+  padding: 0.25rem 0.4rem;
+  background: var(--panel-2);
+  border-radius: 0.3rem;
+  display: inline-block;
+  margin: 0.2rem 0;
+  color: var(--accent-2);
+}
+
+.tag-row button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

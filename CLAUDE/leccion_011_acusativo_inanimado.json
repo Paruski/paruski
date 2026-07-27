@@ -1,0 +1,1617 @@
+{
+  "lesson": {
+    "lessonId": "lesson_011",
+    "lessonNumber": 11,
+    "cefr": "A1.2",
+    "title": "Acusativo inanimado singular",
+    "objective": "Marcar el objeto directo inanimado en singular con видеть, любить, покупать e искать, distinguiendo masculino/neutro (sin cambio) de femenino en -а/-я (-у/-ю).",
+    "prerequisiteSkills": [
+      "zero_copula_identity"
+    ],
+    "newSkills": [
+      "accusative_inanimate_masc_neuter_zero",
+      "accusative_inanimate_fem_a_to_u",
+      "accusative_after_pokupat",
+      "accusative_after_lyubit"
+    ],
+    "sections": [
+      {
+        "id": "target",
+        "heading": "Idea central",
+        "type": "explanation",
+        "body": "El objeto directo (lo que ves, compras, buscas o te gusta) se marca en ruso con el caso acusativo. En singular: masculino y neutro inanimados NO cambian de forma; femenino en -а/-я cambia a -у/-ю."
+      },
+      {
+        "id": "spanish_interference",
+        "heading": "Interferencia español-ruso",
+        "type": "contrast",
+        "body": "En español el objeto directo no cambia de forma (salvo la 'a' personal, que no existe con objetos inanimados). Riesgo: dejar todo en nominativo (como en español) u over-generalizar el cambio a los masculinos, que no cambian."
+      },
+      {
+        "id": "examples",
+        "heading": "Modelos mínimos",
+        "type": "examples",
+        "examples": [
+          {
+            "task": "Ver un libro (femenino).",
+            "model": "Я вижу книгу."
+          },
+          {
+            "task": "Comprar pan (masculino).",
+            "model": "Я покупаю хлеб."
+          },
+          {
+            "task": "Buscar una carta (neutro).",
+            "model": "Я ищу письмо."
+          }
+        ]
+      },
+      {
+        "id": "errors",
+        "heading": "Errores que bloquean",
+        "type": "diagnostic",
+        "items": [
+          {
+            "wrong": "Я вижу книга.",
+            "right": "Я вижу книгу."
+          },
+          {
+            "wrong": "Я покупаю хлеба.",
+            "right": "Я покупаю хлеб."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "lemma": "видеть",
+      "stressMarked": "ви́деть",
+      "translation": "ver",
+      "partOfSpeech": "verb",
+      "introducedIn": "lesson_011",
+      "conjugation": {
+        "я": "вижу",
+        "ты": "видишь"
+      },
+      "exampleRu": "Я вижу книгу.",
+      "exampleEs": "Veo un libro.",
+      "id": "pb2-lex-l011-001",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    },
+    {
+      "lemma": "любить",
+      "stressMarked": "люби́ть",
+      "translation": "querer/gustar (algo)",
+      "partOfSpeech": "verb",
+      "introducedIn": "lesson_011",
+      "conjugation": {
+        "я": "люблю",
+        "ты": "любишь"
+      },
+      "exampleRu": "Я люблю музыку.",
+      "exampleEs": "Me gusta la música.",
+      "id": "pb2-lex-l011-002",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    },
+    {
+      "lemma": "покупать",
+      "stressMarked": "покупа́ть",
+      "translation": "comprar",
+      "partOfSpeech": "verb",
+      "introducedIn": "lesson_011",
+      "conjugation": {
+        "я": "покупаю",
+        "ты": "покупаешь"
+      },
+      "exampleRu": "Я покупаю билет.",
+      "exampleEs": "Compro un billete.",
+      "id": "pb2-lex-l011-003",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    },
+    {
+      "lemma": "искать",
+      "stressMarked": "иска́ть",
+      "translation": "buscar",
+      "partOfSpeech": "verb",
+      "introducedIn": "lesson_011",
+      "conjugation": {
+        "я": "ищу",
+        "ты": "ищешь"
+      },
+      "exampleRu": "Я ищу тетрадь.",
+      "exampleEs": "Busco un cuaderno.",
+      "id": "pb2-lex-l011-004",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    },
+    {
+      "lemma": "картина",
+      "stressMarked": "карти́на",
+      "translation": "cuadro/pintura",
+      "partOfSpeech": "noun",
+      "feature": "f",
+      "introducedIn": "lesson_011",
+      "exampleRu": "Я вижу картину.",
+      "exampleEs": "Veo un cuadro.",
+      "id": "pb2-lex-l011-005",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    },
+    {
+      "lemma": "суп",
+      "stressMarked": "суп",
+      "translation": "sopa",
+      "partOfSpeech": "noun",
+      "feature": "m",
+      "introducedIn": "lesson_011",
+      "exampleRu": "Я вижу суп.",
+      "exampleEs": "Veo una sopa.",
+      "id": "pb2-lex-l011-006",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    },
+    {
+      "lemma": "парк",
+      "stressMarked": "парк",
+      "translation": "parque",
+      "partOfSpeech": "noun",
+      "feature": "m",
+      "introducedIn": "lesson_011",
+      "exampleRu": "Я люблю парк.",
+      "exampleEs": "Me gusta el parque.",
+      "id": "pb2-lex-l011-007",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    },
+    {
+      "lemma": "музей",
+      "stressMarked": "музе́й",
+      "translation": "museo",
+      "partOfSpeech": "noun",
+      "feature": "m",
+      "introducedIn": "lesson_011",
+      "exampleRu": "Я вижу музей.",
+      "exampleEs": "Veo un museo.",
+      "id": "pb2-lex-l011-008",
+      "status": "active",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "nativeSpeakerReviewComplete": false
+    }
+  ],
+  "exercises": [
+    {
+      "id": "pb2-l011-cc-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: Entras en una cocina y señalas la comida que ves. Elige la formulación que identifica lo que ves sin cambiar la información.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я вижу хлеб.",
+        "Я вижу хлеба.",
+        "Я вижу хлебу."
+      ],
+      "expectedAnswer": "Я вижу хлеб.",
+      "acceptedAnswers": [
+        "Я вижу хлеб."
+      ],
+      "distractors": [
+        "Я вижу хлеба.",
+        "Я вижу хлебу."
+      ],
+      "distractorDiagnostics": {
+        "Я вижу хлеба.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica una desinencia de genitivo a un objeto directo inanimado masculino, que no cambia en acusativo",
+          "repair": "Я вижу хлеб."
+        },
+        "Я вижу хлебу.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica una desinencia de dativo; el masculino inanimado mantiene la forma de nominativo en acusativo",
+          "repair": "Я вижу хлеб."
+        }
+      },
+      "skillId": "accusative_inanimate_masc_neuter_zero",
+      "semanticScenario": "Alguien identifica comida visible en una cocina."
+    },
+    {
+      "id": "pb2-l011-cc-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: En una biblioteca señalas el libro que ves sobre la mesa. Elige la formulación correcta.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я вижу книгу.",
+        "Я вижу книга.",
+        "Я вижу книги."
+      ],
+      "expectedAnswer": "Я вижу книгу.",
+      "acceptedAnswers": [
+        "Я вижу книгу."
+      ],
+      "distractors": [
+        "Я вижу книга.",
+        "Я вижу книги."
+      ],
+      "distractorDiagnostics": {
+        "Я вижу книга.": {
+          "category": "nominative_for_accusative",
+          "whyItFails": "deja el sustantivo femenino en nominativo; tras видеть el objeto directo debe marcarse con -у",
+          "repair": "Я вижу книгу."
+        },
+        "Я вижу книги.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica una forma de genitivo/plural en vez de la desinencia de acusativo singular -у",
+          "repair": "Я вижу книгу."
+        }
+      },
+      "skillId": "accusative_inanimate_fem_a_to_u",
+      "semanticScenario": "Alguien identifica un libro visible en una biblioteca."
+    },
+    {
+      "id": "pb2-l011-cc-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: En un quiosco señalas el periódico que ves. Elige la formulación correcta.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я вижу газету.",
+        "Я вижу газета.",
+        "Я вижу газету."
+      ],
+      "expectedAnswer": "Я вижу газету.",
+      "acceptedAnswers": [
+        "Я вижу газету."
+      ],
+      "distractors": [
+        "Я вижу газета."
+      ],
+      "distractorDiagnostics": {
+        "Я вижу газета.": {
+          "category": "nominative_for_accusative",
+          "whyItFails": "deja el sustantivo femenino sin marcar como objeto directo",
+          "repair": "Я вижу газету."
+        }
+      },
+      "skillId": "accusative_inanimate_fem_a_to_u",
+      "semanticScenario": "Alguien identifica un periódico en un quiosco."
+    },
+    {
+      "id": "pb2-l011-cc-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: En un restaurante, el camarero pregunta qué ves en la mesa de al lado. Elige la opción que identifica la sopa sin cambiar la información.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я вижу суп.",
+        "Я вижу супа.",
+        "Я вижу супу."
+      ],
+      "expectedAnswer": "Я вижу суп.",
+      "acceptedAnswers": [
+        "Я вижу суп."
+      ],
+      "distractors": [
+        "Я вижу супа.",
+        "Я вижу супу."
+      ],
+      "distractorDiagnostics": {
+        "Я вижу супа.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica desinencia de genitivo a un masculino inanimado, que no cambia en acusativo",
+          "repair": "Я вижу суп."
+        },
+        "Я вижу супу.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica desinencia de dativo en vez de mantener la forma de nominativo",
+          "repair": "Я вижу суп."
+        }
+      },
+      "skillId": "accusative_inanimate_masc_neuter_zero",
+      "semanticScenario": "Alguien identifica una sopa en la mesa de al lado en un restaurante."
+    },
+    {
+      "id": "pb2-l011-cc-05",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: En un museo señalas el cuadro que ves. Elige la formulación correcta.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я вижу картину.",
+        "Я вижу картина.",
+        "Я вижу картины."
+      ],
+      "expectedAnswer": "Я вижу картину.",
+      "acceptedAnswers": [
+        "Я вижу картину."
+      ],
+      "distractors": [
+        "Я вижу картина.",
+        "Я вижу картины."
+      ],
+      "distractorDiagnostics": {
+        "Я вижу картина.": {
+          "category": "nominative_for_accusative",
+          "whyItFails": "no marca el objeto directo femenino con -у",
+          "repair": "Я вижу картину."
+        },
+        "Я вижу картины.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "usa una forma de genitivo/plural en vez de acusativo singular",
+          "repair": "Я вижу картину."
+        }
+      },
+      "skillId": "accusative_inanimate_fem_a_to_u",
+      "semanticScenario": "Alguien identifica un cuadro en un museo."
+    },
+    {
+      "id": "pb2-l011-cc-06",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: En una papelería, compras lo que necesitas. Elige la formulación que identifica la compra sin cambiar la información.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я покупаю билет.",
+        "Я покупаю билета.",
+        "Я покупаю билету."
+      ],
+      "expectedAnswer": "Я покупаю билет.",
+      "acceptedAnswers": [
+        "Я покупаю билет."
+      ],
+      "distractors": [
+        "Я покупаю билета.",
+        "Я покупаю билету."
+      ],
+      "distractorDiagnostics": {
+        "Я покупаю билета.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica desinencia de genitivo a un masculino inanimado que no cambia en acusativo",
+          "repair": "Я покупаю билет."
+        },
+        "Я покупаю билету.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica desinencia de dativo en vez de mantener la forma de nominativo",
+          "repair": "Я покупаю билет."
+        }
+      },
+      "skillId": "accusative_after_pokupat",
+      "semanticScenario": "Alguien compra un billete."
+    },
+    {
+      "id": "pb2-l011-cc-07",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: En una tienda, compras el coche de juguete que ves. Elige la formulación correcta.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я покупаю машину.",
+        "Я покупаю машина.",
+        "Я покупаю машины."
+      ],
+      "expectedAnswer": "Я покупаю машину.",
+      "acceptedAnswers": [
+        "Я покупаю машину."
+      ],
+      "distractors": [
+        "Я покупаю машина.",
+        "Я покупаю машины."
+      ],
+      "distractorDiagnostics": {
+        "Я покупаю машина.": {
+          "category": "nominative_for_accusative",
+          "whyItFails": "no marca el objeto femenino con -у tras покупать",
+          "repair": "Я покупаю машину."
+        },
+        "Я покупаю машины.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "usa una forma de genitivo/plural en vez de acusativo singular",
+          "repair": "Я покупаю машину."
+        }
+      },
+      "skillId": "accusative_after_pokupat",
+      "semanticScenario": "Alguien compra un coche."
+    },
+    {
+      "id": "pb2-l011-cc-08",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: Escribes una carta y luego la envías; anuncias lo que buscas para enviarla. Elige la formulación correcta.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я ищу письмо.",
+        "Я ищу письма.",
+        "Я ищу письму."
+      ],
+      "expectedAnswer": "Я ищу письмо.",
+      "acceptedAnswers": [
+        "Я ищу письмо."
+      ],
+      "distractors": [
+        "Я ищу письма.",
+        "Я ищу письму."
+      ],
+      "distractorDiagnostics": {
+        "Я ищу письма.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "cambia la desinencia neutra; los neutros inanimados no varían entre nominativo y acusativo",
+          "repair": "Я ищу письмо."
+        },
+        "Я ищу письму.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica una desinencia de dativo a un neutro que debe mantenerse igual que en nominativo",
+          "repair": "Я ищу письмо."
+        }
+      },
+      "skillId": "accusative_inanimate_masc_neuter_zero",
+      "semanticScenario": "Alguien busca una carta para enviarla."
+    },
+    {
+      "id": "pb2-l011-cc-09",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: En un parque, hablas de lo que te gusta hacer allí. Elige la formulación que expresa que te gusta el parque sin cambiar la información.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я люблю парк.",
+        "Я люблю парка.",
+        "Я люблю парку."
+      ],
+      "expectedAnswer": "Я люблю парк.",
+      "acceptedAnswers": [
+        "Я люблю парк."
+      ],
+      "distractors": [
+        "Я люблю парка.",
+        "Я люблю парку."
+      ],
+      "distractorDiagnostics": {
+        "Я люблю парка.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica desinencia de genitivo a un masculino inanimado",
+          "repair": "Я люблю парк."
+        },
+        "Я люблю парку.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "aplica desinencia de dativo en vez de mantener la forma de nominativo",
+          "repair": "Я люблю парк."
+        }
+      },
+      "skillId": "accusative_after_lyubit",
+      "semanticScenario": "Alguien expresa que le gusta un parque."
+    },
+    {
+      "id": "pb2-l011-cc-10",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "contextual_choice",
+      "phase": "practice",
+      "prompt": "Situación: Hablas de música y dices qué tipo prefieres. Elige la formulación correcta.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "options": [
+        "Я люблю музыку.",
+        "Я люблю музыка.",
+        "Я люблю музыки."
+      ],
+      "expectedAnswer": "Я люблю музыку.",
+      "acceptedAnswers": [
+        "Я люблю музыку."
+      ],
+      "distractors": [
+        "Я люблю музыка.",
+        "Я люблю музыки."
+      ],
+      "distractorDiagnostics": {
+        "Я люблю музыка.": {
+          "category": "nominative_for_accusative",
+          "whyItFails": "no marca el objeto femenino con -у tras любить",
+          "repair": "Я люблю музыку."
+        },
+        "Я люблю музыки.": {
+          "category": "wrong_case_ending",
+          "whyItFails": "usa una forma de genitivo en vez de acusativo singular",
+          "repair": "Я люблю музыку."
+        }
+      },
+      "skillId": "accusative_after_lyubit",
+      "semanticScenario": "Alguien expresa su gusto por la música."
+    },
+    {
+      "id": "pb2-l011-cl-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "cloze",
+      "phase": "practice",
+      "prompt": "Completa la desinencia de objeto directo: `Я вижу книг___.`",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу книг___.",
+      "expectedAnswer": "у",
+      "acceptedAnswers": [
+        "у"
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-cl-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "cloze",
+      "phase": "practice",
+      "prompt": "Completa: si el objeto directo es masculino inanimado, ¿qué desinencia añades? `Я вижу хлеб___.`",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу хлеб___.",
+      "expectedAnswer": "",
+      "acceptedAnswers": [
+        "",
+        "(nada)"
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-cl-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "cloze",
+      "phase": "practice",
+      "prompt": "Completa la desinencia: `Я покупаю машин___.`",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я покупаю машин___.",
+      "expectedAnswer": "у",
+      "acceptedAnswers": [
+        "у"
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-cl-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "cloze",
+      "phase": "practice",
+      "prompt": "Completa: `Я ищу письм___.` (neutro, objeto directo)",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я ищу письм___.",
+      "expectedAnswer": "о",
+      "acceptedAnswers": [
+        "о"
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-dr-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "En la situación «Alguien identifica un libro en una biblioteca.», diagnostica «Я вижу книга.», explica qué entendería el oyente y repara sin cambiar participantes ni intención.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу книга.",
+      "structuredExpected": {
+        "requiredCorrection": "Я вижу книгу.",
+        "requiredConcepts": [
+          "el objeto directo femenino en -а se marca con -у tras видеть"
+        ]
+      },
+      "referenceAnswer": "Я вижу книгу.",
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-dr-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "Diagnostica «Я вижу хлеба.» en la situación «Alguien identifica comida en una cocina.», explica el error y repara.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу хлеба.",
+      "structuredExpected": {
+        "requiredCorrection": "Я вижу хлеб.",
+        "requiredConcepts": [
+          "el masculino inanimado no cambia entre nominativo y acusativo"
+        ]
+      },
+      "referenceAnswer": "Я вижу хлеб.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-dr-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "Diagnostica «Я покупаю газета.» en la situación «Alguien compra un periódico en un quiosco.», explica el error y repara.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я покупаю газета.",
+      "structuredExpected": {
+        "requiredCorrection": "Я покупаю газету.",
+        "requiredConcepts": [
+          "el objeto femenino no puede quedarse en nominativo tras un verbo transitivo"
+        ]
+      },
+      "referenceAnswer": "Я покупаю газету.",
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-dr-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "Diagnostica «Я ищу письма.» en la situación «Alguien busca una carta para enviarla.», explica el error y repara.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я ищу письма.",
+      "structuredExpected": {
+        "requiredCorrection": "Я ищу письмо.",
+        "requiredConcepts": [
+          "el neutro inanimado no cambia entre nominativo y acusativo"
+        ]
+      },
+      "referenceAnswer": "Я ищу письмо.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-dr-05",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "Diagnostica «Я люблю картина.» en la situación «Alguien expresa que le gusta un cuadro en un museo.», explica el error y repara.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я люблю картина.",
+      "structuredExpected": {
+        "requiredCorrection": "Я люблю картину.",
+        "requiredConcepts": [
+          "el objeto femenino se marca con -у tras любить"
+        ]
+      },
+      "referenceAnswer": "Я люблю картину.",
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-dr-06",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "En este intercambio de aula, repara sólo el turno del alumno. Docente: «Formula en ruso: identificar lo que ves». Alumno: «Я вижу суп.» corregido a partir de «Я вижу супа.».",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Alumno: Я вижу супа.",
+      "structuredExpected": {
+        "requiredCorrection": "Я вижу суп.",
+        "requiredConcepts": [
+          "masculino inanimado sin cambio"
+        ]
+      },
+      "referenceAnswer": "Я вижу суп.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-dr-07",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "Diagnostica «Я покупаю билету.» en la situación «Alguien compra un billete.», explica el error y repara.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я покупаю билету.",
+      "structuredExpected": {
+        "requiredCorrection": "Я покупаю билет.",
+        "requiredConcepts": [
+          "desinencia de dativo aplicada por error a un masculino inanimado"
+        ]
+      },
+      "referenceAnswer": "Я покупаю билет.",
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-dr-08",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "Diagnostica «Я люблю музыка.» en la situación «Alguien expresa su gusto por la música.», explica el error y repara.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я люблю музыка.",
+      "structuredExpected": {
+        "requiredCorrection": "Я люблю музыку.",
+        "requiredConcepts": [
+          "objeto femenino sin marcar tras любить"
+        ]
+      },
+      "referenceAnswer": "Я люблю музыку.",
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-dr-09",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "diagnostic_repair",
+      "phase": "practice",
+      "prompt": "Diagnostica «Я вижу картины.» en la situación «Alguien identifica un cuadro en un museo.», explica el error y repara.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу картины.",
+      "structuredExpected": {
+        "requiredCorrection": "Я вижу картину.",
+        "requiredConcepts": [
+          "forma de genitivo/plural usada en vez del acusativo singular"
+        ]
+      },
+      "referenceAnswer": "Я вижу картину.",
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-tre-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_ru_es",
+      "phase": "practice",
+      "prompt": "Traduce al español natural: Я вижу газету.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу газету.",
+      "expectedAnswer": "Veo un periódico.",
+      "acceptedAnswers": [
+        "Veo un periódico.",
+        "Veo el periódico."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-tre-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_ru_es",
+      "phase": "practice",
+      "prompt": "Traduce al español natural: Я покупаю билет.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я покупаю билет.",
+      "expectedAnswer": "Compro un billete.",
+      "acceptedAnswers": [
+        "Compro un billete.",
+        "Compro una entrada."
+      ],
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-tre-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_ru_es",
+      "phase": "practice",
+      "prompt": "Traduce al español natural: Я ищу письмо.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я ищу письмо.",
+      "expectedAnswer": "Busco una carta.",
+      "acceptedAnswers": [
+        "Busco una carta.",
+        "Busco la carta."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-tre-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_ru_es",
+      "phase": "practice",
+      "prompt": "Traduce al español natural: Я люблю музыку.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я люблю музыку.",
+      "expectedAnswer": "Me gusta la música.",
+      "acceptedAnswers": [
+        "Me gusta la música.",
+        "Amo la música."
+      ],
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-ter-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_es_ru",
+      "phase": "practice",
+      "prompt": "Formula en ruso: Veo un libro sobre la mesa.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я вижу книгу.",
+      "acceptedAnswers": [
+        "Я вижу книгу."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-ter-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_es_ru",
+      "phase": "practice",
+      "prompt": "Formula en ruso: Compro un coche.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я покупаю машину.",
+      "acceptedAnswers": [
+        "Я покупаю машину."
+      ],
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-ter-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_es_ru",
+      "phase": "practice",
+      "prompt": "Formula en ruso: Busco el pan.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я ищу хлеб.",
+      "acceptedAnswers": [
+        "Я ищу хлеб."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ter-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "translation_es_ru",
+      "phase": "practice",
+      "prompt": "Formula en ruso: Me gusta el parque.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я люблю парк.",
+      "acceptedAnswers": [
+        "Я люблю парк."
+      ],
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-tr-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "transformation",
+      "phase": "practice",
+      "prompt": "Reescribe «Я вижу книга.» para conservar la intención «identificar un libro» y reparar únicamente el fenómeno relevante.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу книга.",
+      "expectedAnswer": "Я вижу книгу.",
+      "acceptedAnswers": [
+        "Я вижу книгу."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-tr-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "transformation",
+      "phase": "practice",
+      "prompt": "Reescribe «Я покупаю хлеба.» para conservar la intención «comprar pan» y reparar únicamente el fenómeno relevante.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я покупаю хлеба.",
+      "expectedAnswer": "Я покупаю хлеб.",
+      "acceptedAnswers": [
+        "Я покупаю хлеб."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-tr-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "transformation",
+      "phase": "practice",
+      "prompt": "Reescribe «Я вижу картина.» para conservar la intención «identificar un cuadro» y reparar únicamente el fenómeno relevante.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу картина.",
+      "expectedAnswer": "Я вижу картину.",
+      "acceptedAnswers": [
+        "Я вижу картину."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-tr-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "transformation",
+      "phase": "practice",
+      "prompt": "Reescribe «Я ищу письма.» para conservar la intención «buscar una carta» y reparar únicamente el fenómeno relevante.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я ищу письма.",
+      "expectedAnswer": "Я ищу письмо.",
+      "acceptedAnswers": [
+        "Я ищу письмо."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-pr-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "production",
+      "phase": "practice",
+      "prompt": "Sin modelo ruso: Estás en un museo y ves un cuadro que te gusta especialmente. Dilo.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я люблю картину.",
+      "acceptedAnswers": [
+        "Я люблю картину.",
+        "Я люблю картину."
+      ],
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-pr-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "production",
+      "phase": "practice",
+      "prompt": "Sin modelo ruso: Estás en una tienda y quieres comprar un billete de tren. Dilo.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я покупаю билет.",
+      "acceptedAnswers": [
+        "Я покупаю билет."
+      ],
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-pr-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "production",
+      "phase": "practice",
+      "prompt": "Sin modelo ruso: Buscas tu cuaderno por toda la casa. Dilo.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я ищу тетрадь.",
+      "acceptedAnswers": [
+        "Я ищу тетрадь."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-pr-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "production",
+      "phase": "practice",
+      "prompt": "Sin modelo ruso: Desde la ventana, identificas el parque que ves. Dilo.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я вижу парк.",
+      "acceptedAnswers": [
+        "Я вижу парк."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-sc-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "semantic_contrast",
+      "phase": "practice",
+      "prompt": "Compara «Я вижу книгу.» con «Я вижу книга.». Explica qué decisión cambia y cuál es gramaticalmente válida para identificar un libro como objeto directo.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "A: Я вижу книгу.\nB: Я вижу книга.",
+      "structuredExpected": {
+        "referenceAnswer": "Я вижу книгу. El objeto directo femenino en -а exige la desinencia -у tras видеть; dejarlo en nominativo no marca la función sintáctica."
+      },
+      "referenceAnswer": "Я вижу книгу.",
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-sc-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "semantic_contrast",
+      "phase": "practice",
+      "prompt": "Compara «Я вижу хлеб.» con «Я вижу хлеба.». Explica por qué el masculino inanimado no cambia mientras que la segunda forma es incorrecta aquí.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "A: Я вижу хлеб.\nB: Я вижу хлеба.",
+      "structuredExpected": {
+        "referenceAnswer": "Я вижу хлеб. Los masculinos inanimados mantienen la forma de nominativo en acusativo; -а marcaría genitivo, no corresponde aquí."
+      },
+      "referenceAnswer": "Я вижу хлеб.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-sc-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "semantic_contrast",
+      "phase": "practice",
+      "prompt": "Compara «Я ищу письмо.» con «Я ищу письма.». Explica cuál corresponde a buscar una única carta.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "A: Я ищу письмо.\nB: Я ищу письма.",
+      "structuredExpected": {
+        "referenceAnswer": "Я ищу письмо. Los neutros inanimados no cambian entre nominativo y acusativo singular; «письма» sugiere otra forma (plural o genitivo), no el singular buscado."
+      },
+      "referenceAnswer": "Я ищу письмо.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ig-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "inductive_generalization",
+      "phase": "practice",
+      "prompt": "Examina los datos: хлеб (m.) -> Я вижу хлеб. | билет (m.) -> Я вижу билет. | письмо (n.) -> Я вижу письмо. | книга (f.) -> Я вижу книгу. Formula una regla limitada, contrástala con esta regla rival —«Todos los sustantivos cambian de forma como objeto directo.»— y aplícala al elemento nuevo «суп».",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "rivalRule": "Todos los sustantivos cambian de forma como objeto directo.",
+        "requiredConcepts": [
+          "Masculinos y neutros inanimados no cambian; los femeninos en -а cambian a -у."
+        ],
+        "referenceAnswer": "Я вижу суп. Суп es masculino inanimado, así que no cambia de forma como objeto directo."
+      },
+      "referenceAnswer": "Я вижу суп.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ig-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "inductive_generalization",
+      "phase": "practice",
+      "prompt": "Examina los datos: книга -> книгу | газета -> газету | машина -> машину | музыка -> музыку Formula una regla limitada, contrástala con esta regla rival —«El femenino en -а cambia siempre a -и.»— y aplícala al elemento nuevo «картина».",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "rivalRule": "El femenino en -а cambia siempre a -и.",
+        "requiredConcepts": [
+          "El femenino en -а cambia a -у como objeto directo, no a -и."
+        ],
+        "referenceAnswer": "картину. El femenino en -а sustituye la -а final por -у, no por -и."
+      },
+      "referenceAnswer": "картину.",
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-bc-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "backtranslation_critique",
+      "phase": "practice",
+      "prompt": "Compara el original español «Veo un cuadro.» con la versión rusa «Я вижу картина.». Localiza la pérdida o deformación, corrige la versión y explica el fenómeno.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я вижу картина.",
+      "structuredExpected": {
+        "requiredCorrection": "Я вижу картину.",
+        "requiredConcepts": [
+          "el objeto directo femenino queda sin marcar; falta la desinencia -у"
+        ]
+      },
+      "referenceAnswer": "Я вижу картину.",
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-bc-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "backtranslation_critique",
+      "phase": "practice",
+      "prompt": "Compara el original español «Busco una carta.» con la versión rusa «Я ищу письма.». Localiza la pérdida o deformación, corrige la versión y explica el fenómeno.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Я ищу письма.",
+      "structuredExpected": {
+        "requiredCorrection": "Я ищу письмо.",
+        "requiredConcepts": [
+          "письма sugiere plural o genitivo; el neutro singular como objeto directo es письмо"
+        ]
+      },
+      "referenceAnswer": "Я ищу письмо.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-rc-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "reading_comprehension",
+      "phase": "practice",
+      "prompt": "Ana está en una biblioteca. Lee el texto ruso y responde en español: ¿qué ve Ana y qué opina de ello?",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Анна в библиотеке. Она видит книгу. Она любит эту книгу.",
+      "expectedAnswer": "Ana ve un libro y le gusta (lo ama).",
+      "acceptedAnswers": [
+        "Ana ve un libro y le gusta (lo ama)."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-rc-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "reading_comprehension",
+      "phase": "practice",
+      "prompt": "Iván está en una tienda. Lee el texto ruso y responde en español: ¿qué compra Iván y qué busca después?",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Иван в магазине. Он покупает хлеб. Потом он ищет молоко.",
+      "expectedAnswer": "Compra pan y después busca leche.",
+      "acceptedAnswers": [
+        "Compra pan y después busca leche."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-rc-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "reading_comprehension",
+      "phase": "practice",
+      "prompt": "Olga está en un museo. Lee el texto ruso y responde en español: ¿qué ve Olga y qué le gusta más?",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Ольга в музее. Она видит картину и видит фотографию. Она любит картину.",
+      "expectedAnswer": "Ve un cuadro y una fotografía; le gusta más el cuadro.",
+      "acceptedAnswers": [
+        "Ve un cuadro y una fotografía; le gusta más el cuadro."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-rc-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "reading_comprehension",
+      "phase": "practice",
+      "prompt": "Lee el texto ruso y responde en español: ¿qué busca el estudiante y dónde lo encuentra?",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Студент ищет тетрадь. Тетрадь тут, на столе.",
+      "expectedAnswer": "Busca un cuaderno; está aquí, en la mesa.",
+      "acceptedAnswers": [
+        "Busca un cuaderno; está aquí, en la mesa."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ct-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Estás en una cocina y ves pan sobre la mesa. Produce una intervención que lo identifique y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я вижу хлеб. El masculino inanimado no cambia de forma como objeto directo."
+      },
+      "referenceAnswer": "Я вижу хлеб.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ct-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Estás en una librería y quieres comprar el libro que ves. Produce una intervención y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я покупаю книгу. El femenino en -а se marca con -у como objeto directo."
+      },
+      "referenceAnswer": "Я покупаю книгу.",
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-ct-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Buscas tu bolsa por toda la habitación. Produce una intervención y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я ищу сумку. El femenino en -а se marca con -у como objeto directo."
+      },
+      "referenceAnswer": "Я ищу сумку.",
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-ct-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Te gusta especialmente el café que tomas cada mañana. Produce una intervención y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я люблю кофе. Кофе es indeclinable: no cambia de forma como objeto directo."
+      },
+      "referenceAnswer": "Я люблю кофе.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ct-05",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Estás en un museo y ves una fotografía interesante. Produce una intervención y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я вижу фотографию. El femenino en -я/-а se marca con la desinencia de acusativo como objeto directo."
+      },
+      "referenceAnswer": "Я вижу фотографию.",
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-ct-06",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Compras una entrada para el museo. Produce una intervención y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я покупаю билет. El masculino inanimado no cambia de forma como objeto directo."
+      },
+      "referenceAnswer": "Я покупаю билет.",
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-ct-07",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Buscas el teléfono que no encuentras. Produce una intervención y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я ищу телефон. El masculino inanimado no cambia de forma como objeto directo."
+      },
+      "referenceAnswer": "Я ищу телефон.",
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ct-08",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "constrained_transfer",
+      "phase": "practice",
+      "prompt": "Te gusta mucho la ciudad donde vives. Produce una intervención y explica brevemente por qué la estructura elegida es adecuada.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "structuredExpected": {
+        "referenceAnswer": "Я люблю город. El masculino inanimado no cambia de forma como objeto directo."
+      },
+      "referenceAnswer": "Я люблю город.",
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-ig5-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "information_gap_reconstruction",
+      "phase": "transfer",
+      "prompt": "Cada participante dispone de información distinta. Combina ambos datos en una sola intervención con dos afirmaciones.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Tarjeta A: Sabes que hay un cuadro en el museo.\nTarjeta B: Sabes que a Ana le gusta ese cuadro.",
+      "validResponseExamples": [
+        "В музее картина. Анна любит картину.",
+        "Анна любит картину. В музее картина."
+      ],
+      "structuredExpected": {
+        "referenceAnswer": "В музее картина. Анна любит картину.",
+        "requiredExchange": [
+          "aportación de A (existencia)",
+          "aportación de B (gusto de Ana)"
+        ]
+      },
+      "referenceAnswer": "В музее картина. Анна любит картину.",
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-ig5-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "information_gap_reconstruction",
+      "phase": "transfer",
+      "prompt": "Cada participante dispone de información distinta. Combina ambos datos en una sola intervención con dos afirmaciones.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "input": "Tarjeta A: Sabes que Iván busca un billete.\nTarjeta B: Sabes que el billete está aquí, en la mesa.",
+      "validResponseExamples": [
+        "Иван ищет билет. Билет тут, на столе.",
+        "Билет тут, на столе. Иван ищет билет."
+      ],
+      "structuredExpected": {
+        "referenceAnswer": "Иван ищет билет. Билет тут, на столе.",
+        "requiredExchange": [
+          "aportación de A (búsqueda)",
+          "aportación de B (ubicación)"
+        ]
+      },
+      "referenceAnswer": "Иван ищет билет. Билет тут, на столе.",
+      "skillId": "accusative_after_pokupat"
+    },
+    {
+      "id": "pb2-l011-ex-01",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "exam",
+      "phase": "exam",
+      "prompt": "Evaluación. Identifica un libro que ves sobre la mesa.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я вижу книгу.",
+      "acceptedAnswers": [
+        "Я вижу книгу."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    },
+    {
+      "id": "pb2-l011-ex-02",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "exam",
+      "phase": "exam",
+      "prompt": "Evaluación. Di que compras pan.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я покупаю хлеб.",
+      "acceptedAnswers": [
+        "Я покупаю хлеб."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ex-03",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "exam",
+      "phase": "exam",
+      "prompt": "Evaluación. Di que buscas tu cuaderno.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я ищу тетрадь.",
+      "acceptedAnswers": [
+        "Я ищу тетрадь."
+      ],
+      "skillId": "accusative_inanimate_masc_neuter_zero"
+    },
+    {
+      "id": "pb2-l011-ex-04",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "exam",
+      "phase": "exam",
+      "prompt": "Evaluación. Di que te gusta un cuadro que ves en el museo.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я люблю картину.",
+      "acceptedAnswers": [
+        "Я люблю картину.",
+        "Я люблю картину."
+      ],
+      "skillId": "accusative_after_lyubit"
+    },
+    {
+      "id": "pb2-l011-ex-05",
+      "lessonId": "lesson_011",
+      "lessonNumber": 11,
+      "type": "exam",
+      "phase": "exam",
+      "prompt": "Evaluación de transferencia. Un compañero escribe «Я вижу газета.» para identificar un periódico. Corrige únicamente ese error.",
+      "reviewStatus": "needs_review",
+      "approvedForRuntime": false,
+      "humanEditorialReviewComplete": false,
+      "nativeSpeakerReviewComplete": false,
+      "expectedAnswer": "Я вижу газету.",
+      "acceptedAnswers": [
+        "Я вижу газету."
+      ],
+      "skillId": "accusative_inanimate_fem_a_to_u"
+    }
+  ]
+}

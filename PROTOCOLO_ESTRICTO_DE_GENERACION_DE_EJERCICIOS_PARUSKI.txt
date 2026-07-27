@@ -1,0 +1,1046 @@
+# Protocolo estricto de generación de ejercicios para Paruski
+
+## 0. Principio rector
+
+Un ejercicio de Paruski sólo es aceptable si obliga al alumno a usar ruso de forma significativa.
+
+No basta con reconocer grafías, repetir una palabra recién vista, elegir una opción obvia o acertar por descarte. Cada ejercicio debe exigir al menos una de estas operaciones reales:
+
+* comprender significado;
+* recordar sin ver la respuesta;
+* aplicar una regla;
+* transformar una forma;
+* producir ruso;
+* detectar un error;
+* resolver una interferencia español-ruso;
+* comprender input auditivo o escrito;
+* transferir un target a un contexto nuevo.
+
+Regla central:
+
+> No se generan ejercicios para practicar pantallas. Se generan ejercicios para diagnosticar y entrenar targets lingüísticos.
+
+---
+
+# 1. Criterios de rechazo inmediato
+
+Un ejercicio queda prohibido si cumple cualquiera de estas condiciones.
+
+## 1.1. Rechazo por trivialidad
+
+Rechazar si:
+
+* la respuesta aparece literalmente en el enunciado;
+* la respuesta puede copiarse de una palabra recién presentada;
+* el alumno puede acertar sin entender ruso;
+* sólo exige reconocer una grafía;
+* sólo exige emparejar una palabra con su traducción recién mostrada;
+* todas las opciones salvo una son absurdas;
+* el ejercicio se resuelve por longitud, alfabeto, mayúsculas o pistas visuales;
+* el enunciado no contiene contexto suficiente para deducir la respuesta.
+
+Ejemplo prohibido:
+
+> Elige la frase rusa que aplica: Estructura que conviene reconocer en ejemplos y producir en frases propias.
+
+Motivo de rechazo:
+
+* no hay situación comunicativa;
+* no hay significado concreto;
+* no hay restricción gramatical operativa;
+* el alumno no sabe qué debe elegir;
+* sólo mide familiaridad superficial.
+
+## 1.2. Rechazo por enunciado metapedagógico vacío
+
+Prohibidos enunciados como:
+
+* “Elige la frase que aplica.”
+* “Reconoce esta estructura.”
+* “Selecciona el ejemplo correcto.”
+* “Estructura que conviene reconocer.”
+* “Frase de práctica.”
+* “Ejemplo de vocabulario.”
+* “Elige la opción adecuada” sin contexto.
+
+Todo enunciado debe incluir una tarea lingüística concreta.
+
+Aceptable:
+
+> Quieres decir “Tengo una hermana”. Elige la frase rusa correcta.
+
+Aceptable:
+
+> Corrige la frase rusa: Я имею сестра.
+
+Aceptable:
+
+> Completa la frase con la forma correcta de “nuevo”: Я вижу ___ студента.
+
+## 1.3. Rechazo por falta de targets
+
+Todo ejercicio debe declarar targets. Rechazar si no declara:
+
+* lemas;
+* estructuras;
+* regla principal;
+* habilidad;
+* modalidad;
+* dirección;
+* dificultad;
+* importancia;
+* tipo de error diagnosticable.
+
+Un ejercicio sin targets no puede alimentar el SRS y no debe existir.
+
+## 1.4. Rechazo por feedback inútil
+
+Rechazar si el feedback sólo dice:
+
+* “Incorrecto.”
+* “Respuesta correcta: X.”
+* “Inténtalo de nuevo.”
+* “Revisa la lección.”
+
+El feedback debe explicar el fallo lingüístico.
+
+Aceptable:
+
+> Has usado nominativo, pero aquí “студент” es objeto directo animado masculino. En ruso, el acusativo animado masculino coincide con el genitivo: студента.
+
+---
+
+# 2. Anatomía obligatoria de todo ejercicio
+
+Cada ejercicio debe tener estos campos mínimos.
+
+```json
+{
+  "id": "unique_exercise_id",
+  "lessonId": "lesson_001",
+  "type": "production | transformation | contextual_choice | error_correction | listening_comprehension | cloze | translation_ru_es | translation_es_ru | contrast | exam",
+  "prompt": "...",
+  "context": "...",
+  "input": "...",
+  "expectedAnswer": "...",
+  "acceptedAnswers": [],
+  "distractors": [],
+  "feedback": {
+    "correct": "...",
+    "incorrect": "...",
+    "errorSpecific": {}
+  },
+  "targets": {
+    "lemmas": [],
+    "structures": [],
+    "cases": [],
+    "morphology": [],
+    "syntax": [],
+    "skills": [],
+    "modality": "reading | writing | listening | speaking | mixed",
+    "direction": "ru_to_es | es_to_ru | ru_to_ru | audio_to_meaning | mixed",
+    "processing": "recognition | comprehension | production | transformation | diagnosis",
+    "difficulty": 1,
+    "importance": 1
+  },
+  "diagnostics": {
+    "possibleErrors": [],
+    "criticalErrors": []
+  },
+  "srs": {
+    "scheduleByTarget": true,
+    "countsAsEvidenceFor": [],
+    "doesNotCountAsMasteryFor": []
+  }
+}
+```
+
+---
+
+# 3. Jerarquía de valor pedagógico
+
+No todos los ejercicios valen lo mismo.
+
+## 3.1. Valor bajo
+
+Usar poco y sólo como apoyo inicial:
+
+* reconocimiento de palabra;
+* elección múltiple simple;
+* emparejar palabra-traducción;
+* identificar grafía;
+* repetir frase recién oída.
+
+Estos ejercicios nunca deben bastar para desbloquear una lección.
+
+## 3.2. Valor medio
+
+Útiles si tienen buen contexto:
+
+* elección contextual;
+* completar huecos;
+* traducción ruso → español;
+* comprensión lectora;
+* distinguir formas parecidas;
+* ordenar palabras.
+
+## 3.3. Valor alto
+
+Deben ser frecuentes:
+
+* traducción español → ruso;
+* transformación gramatical;
+* corrección de errores;
+* producción con restricciones;
+* listening de comprensión;
+* respuesta breve en ruso;
+* explicar o aplicar una distinción;
+* examen acumulativo con targets mezclados.
+
+## 3.4. Valor máximo
+
+Usar para desbloqueo y dominio:
+
+* producción nueva sin ver modelo inmediato;
+* transferencia de un target a contexto no visto;
+* corrección de errores típicos de hispanohablantes;
+* listening con inferencia semántica;
+* tarea acumulativa que mezcla vocabulario, caso, aspecto y sintaxis;
+* examen que obliga a elegir forma, significado y función.
+
+---
+
+# 4. Proceso obligatorio de generación
+
+Todo ejercicio debe generarse siguiendo este orden.
+
+## Paso 1 — Elegir target principal
+
+Antes del enunciado, elegir qué se quiere entrenar.
+
+Ejemplos:
+
+* `possession_u_menya_est`
+* `accusative_animate_masculine`
+* `verb_aspect_basic_contrast`
+* `motion_verbs_idti_hodit`
+* `genitive_after_negation`
+* `preposition_v_na_location`
+* `pronoun_ego_possessive_vs_object`
+
+Nunca crear un ejercicio sin target principal.
+
+## Paso 2 — Elegir subtargets
+
+Añadir subtargets concretos.
+
+Ejemplo:
+
+Target principal:
+
+* `possession_u_menya_est`
+
+Subtargets:
+
+* `u + genitive possessor`
+* `есть for existence`
+* `no literal tener`
+* `nominative possessed object`
+* `Spanish interference: yo tengo`
+
+## Paso 3 — Elegir operación cognitiva
+
+Cada ejercicio debe declarar qué operación exige:
+
+* reconocer;
+* comprender;
+* producir;
+* transformar;
+* corregir;
+* comparar;
+* inferir;
+* escuchar y entender;
+* aplicar a contexto nuevo.
+
+Regla:
+
+> En una sesión normal, la mayoría de ejercicios no deben ser de simple reconocimiento.
+
+## Paso 4 — Crear contexto real
+
+Todo ejercicio debe tener una situación, significado o restricción.
+
+Mal:
+
+> Elige la frase correcta.
+
+Bien:
+
+> Quieres decir que no tienes este libro, pero tu hermano sí. Escribe la frase en ruso.
+
+Bien:
+
+> Escuchas una frase. ¿Quién tiene el libro: el hablante, su hermana o nadie?
+
+Bien:
+
+> Cambia la frase para hablar de “mi hermana” en lugar de “yo”.
+
+## Paso 5 — Crear respuesta correcta
+
+La respuesta correcta debe estar justificada por el contexto.
+
+Debe ser:
+
+* lingüísticamente correcta;
+* natural para el nivel;
+* compatible con los targets;
+* no ambigua salvo que haya acceptedAnswers;
+* no deducible por pistas superficiales.
+
+## Paso 6 — Crear distractores inteligentes
+
+En ejercicios de elección, los distractores deben representar errores reales.
+
+Distractores malos:
+
+* cadenas absurdas;
+* palabras aleatorias;
+* opciones demasiado distintas;
+* opciones obviamente imposibles.
+
+Distractores buenos:
+
+* caso incorrecto;
+* aspecto incorrecto;
+* género incorrecto;
+* traducción literal del español;
+* preposición equivocada;
+* verbo de movimiento equivocado;
+* animacidad ignorada;
+* posesión mal construida;
+* orden de palabras antinatural;
+* confusión entre formas parecidas.
+
+Ejemplo para `у меня есть`:
+
+Correcta:
+
+> У меня есть брат.
+
+Distractores útiles:
+
+> Я имею брата.
+> У меня брат есть.
+> У я есть брат.
+> Мне есть брат.
+
+Cada distractor debe tener una razón diagnóstica.
+
+## Paso 7 — Crear feedback específico
+
+Cada ejercicio debe tener feedback para:
+
+* respuesta correcta;
+* respuesta incorrecta general;
+* errores concretos si se puede diagnosticar.
+
+Formato recomendado:
+
+1. Qué pasó.
+2. Qué regla aplica.
+3. Por qué la respuesta correcta es correcta.
+4. Por qué la respuesta del alumno es incorrecta.
+5. Cómo pensar la próxima vez.
+
+Ejemplo:
+
+> Has traducido “tengo” de forma literal. En ruso, la posesión básica se expresa con `у + genitivo + есть`: `У меня есть брат`. El objeto poseído va en nominativo: `брат`, no `брата`.
+
+## Paso 8 — Declarar evidencia SRS
+
+Cada ejercicio debe decir qué evidencia aporta.
+
+Ejemplo:
+
+```json
+"srs": {
+  "scheduleByTarget": true,
+  "countsAsEvidenceFor": [
+    "possession_u_menya_est:production",
+    "lemma_brat:active_use",
+    "case_genitive_pronoun_menya:controlled_use"
+  ],
+  "doesNotCountAsMasteryFor": [
+    "full_genitive_case_system",
+    "all_possession_structures"
+  ]
+}
+```
+
+Regla:
+
+> Un acierto en reconocimiento no debe contar como dominio de producción.
+
+---
+
+# 5. Tipos de ejercicios obligatorios
+
+Cada lección debe incluir variedad real. No se permite una lección compuesta sólo por elección múltiple.
+
+## 5.1. Traducción español → ruso
+
+Objetivo: producción activa.
+
+Ejemplo:
+
+> Traduce al ruso: “No tengo este libro.”
+
+Debe evaluar:
+
+* estructura;
+* caso;
+* negación;
+* léxico;
+* naturalidad.
+
+## 5.2. Traducción ruso → español
+
+Objetivo: comprensión precisa.
+
+Ejemplo:
+
+> Traduce al español: У моей сестры нет этой книги.
+
+Debe evitar traducciones literales raras y comprobar relaciones gramaticales.
+
+## 5.3. Completar huecos
+
+Objetivo: forma gramatical.
+
+Ejemplo:
+
+> Completa con la forma correcta de `новый`:
+> Я вижу ___ студента.
+
+La respuesta debe requerir caso/género/animacidad.
+
+## 5.4. Transformación
+
+Objetivo: manipulación gramatical.
+
+Ejemplo:
+
+> Cambia la frase al pasado:
+> У меня есть собака.
+
+Respuesta:
+
+> У меня была собака.
+
+## 5.5. Corrección de errores
+
+Objetivo: diagnóstico y reparación.
+
+Ejemplo:
+
+> Corrige la frase:
+> Я имею брат.
+
+Respuesta esperada:
+
+> У меня есть брат.
+
+Feedback:
+
+> Esta frase copia la estructura española “yo tengo”. En ruso básico se usa `у меня есть`.
+
+## 5.6. Elección contextual
+
+Objetivo: seleccionar forma según significado.
+
+Ejemplo:
+
+> Quieres decir “Veo a un estudiante nuevo”. ¿Cuál es correcta?
+
+Opciones:
+
+* Я вижу нового студента.
+* Я вижу новый студент.
+* Я вижу новый студента.
+* Я вижу нового студент.
+
+## 5.7. Listening de comprensión
+
+Objetivo: entender audio, no transcribir.
+
+Ejemplo:
+
+> Escucha la frase. ¿Quién tiene el libro?
+
+Opciones:
+
+* El hablante.
+* La hermana del hablante.
+* Nadie.
+* El profesor.
+
+## 5.8. Contraste mínimo
+
+Objetivo: distinguir formas próximas.
+
+Ejemplo:
+
+> ¿En qué frase `его` significa “a él” y no “su”?
+
+Opciones:
+
+* Я вижу его.
+* Это его дом.
+* Его сестра дома.
+* Его книга здесь.
+
+## 5.9. Construcción con restricciones
+
+Objetivo: producción controlada.
+
+Ejemplo:
+
+> Escribe una frase rusa que cumpla todo:
+>
+> * significa “Mi hermana no tiene perro”;
+> * usa `у`;
+> * usa genitivo tras negación;
+> * no uses una traducción literal de “tener”.
+
+## 5.10. Examen acumulativo
+
+Objetivo: desbloqueo.
+
+Debe mezclar:
+
+* producción;
+* comprensión;
+* listening;
+* transformación;
+* corrección;
+* contenidos antiguos;
+* targets críticos.
+
+---
+
+# 6. Política de variedad por sesión
+
+Una sesión no puede repetir mecánicamente el mismo molde.
+
+## 6.1. Límites
+
+En una ventana de 10 ejercicios:
+
+* máximo 3 ejercicios del mismo tipo;
+* máximo 3 ejercicios del mismo target principal;
+* máximo 4 ejercicios de reconocimiento;
+* mínimo 3 ejercicios de producción, transformación o corrección;
+* mínimo 1 ejercicio de repaso antiguo;
+* mínimo 1 ejercicio de comprensión;
+* si hay audio disponible, mínimo 1 listening de comprensión.
+
+## 6.2. Orden recomendado
+
+No bloquear por tema de forma mecánica.
+
+Malo:
+
+1. у меня есть
+2. у меня есть
+3. у меня есть
+4. у меня есть
+5. у меня есть
+
+Bueno:
+
+1. posesión;
+2. vocabulario reciclado;
+3. acusativo;
+4. listening;
+5. posesión en negación;
+6. corrección de error;
+7. traducción;
+8. contraste;
+9. repaso antiguo;
+10. mini-examen.
+
+## 6.3. Control antirrepetición
+
+El selector debe evitar:
+
+* mismo prompt template consecutivo;
+* mismo tipo tres veces seguidas;
+* mismo target demasiadas veces seguidas;
+* misma respuesta correcta cercana;
+* mismos distractores repetidos;
+* misma frase con cambios mínimos.
+
+---
+
+# 7. Protocolo específico para hispanohablantes
+
+Todo bloque de ejercicios debe incluir interferencias español-ruso.
+
+## 7.1. Interferencias prioritarias
+
+Generar ejercicios sobre:
+
+* traducir “tener” como `иметь` cuando no toca;
+* olvidar `у + genitivo`;
+* usar nominativo donde toca acusativo;
+* ignorar animacidad;
+* usar `быть` en presente donde no aparece;
+* confundir “ser”, “estar” y ausencia de cópula;
+* elegir mal `в/на`;
+* elegir mal `из/с`;
+* confundir aspecto perfectivo/imperfectivo;
+* confundir verbos de movimiento;
+* calcar orden español;
+* omitir concordancia de género;
+* no usar genitivo tras negación;
+* confundir `его` posesivo y objeto;
+* sobregeneralizar una traducción única.
+
+## 7.2. Feedback contrastivo
+
+El feedback debe explicar la diferencia con el español cuando sea útil.
+
+Ejemplo:
+
+> En español dices “tengo un hermano”. En ruso básico no se estructura como “yo tengo”, sino como “junto a mí hay”: `У меня есть брат`.
+
+---
+
+# 8. Criterios de dificultad
+
+Cada ejercicio debe etiquetarse con dificultad de 1 a 5.
+
+## Dificultad 1
+
+* reconocimiento inicial;
+* una regla;
+* opciones muy controladas;
+* sin interferencia fuerte.
+
+## Dificultad 2
+
+* comprensión contextual;
+* una transformación simple;
+* distractores plausibles.
+
+## Dificultad 3
+
+* producción breve;
+* caso o aspecto obligatorio;
+* interferencia español-ruso.
+
+## Dificultad 4
+
+* varios targets simultáneos;
+* producción sin modelo inmediato;
+* mezcla con contenido antiguo.
+
+## Dificultad 5
+
+* examen acumulativo;
+* listening con inferencia;
+* producción con restricciones;
+* corrección de error complejo;
+* transferencia a contexto nuevo.
+
+Regla:
+
+> Una lección no está dominada si el alumno sólo acierta ejercicios de dificultad 1 o 2.
+
+---
+
+# 9. Criterios de desbloqueo
+
+El desbloqueo no debe depender de repetir ejercicios fáciles hasta el cansancio.
+
+## 9.1. Evidencia mínima de dominio
+
+Para desbloquear una lección, el alumno debe demostrar:
+
+* comprensión de targets críticos;
+* producción de estructuras clave;
+* corrección de errores típicos;
+* aciertos en contextos variados;
+* rendimiento suficiente en examen de cierre;
+* ausencia de fallos repetidos en targets críticos.
+
+## 9.2. Vía rápida
+
+Si el alumno demuestra dominio pleno:
+
+* alta precisión;
+* respuestas rápidas;
+* producción correcta;
+* examen acumulativo superado;
+* ningún fallo crítico repetido;
+
+entonces debe desbloquear la siguiente lección sin exigir repasos artificiales.
+
+## 9.3. Bloqueo inteligente
+
+Si falla, no bloquear de forma genérica.
+
+El sistema debe decir:
+
+* qué target falla;
+* por qué bloquea;
+* qué practicar;
+* cuántas evidencias necesita para desbloquear.
+
+Ejemplo:
+
+> No puedes avanzar todavía porque has fallado 3 veces el acusativo animado en producción. Practica ese target en 4 ejercicios variados.
+
+---
+
+# 10. Validadores automáticos obligatorios
+
+Crear scripts que revisen ejercicios antes de aceptarlos.
+
+## 10.1. Validador de estructura
+
+Debe fallar si falta:
+
+* id;
+* type;
+* prompt;
+* expectedAnswer;
+* targets;
+* feedback;
+* difficulty;
+* importance;
+* modality;
+* direction.
+
+## 10.2. Validador de trivialidad
+
+Debe avisar o fallar si:
+
+* la respuesta correcta aparece literalmente en el prompt;
+* el prompt contiene frases prohibidas;
+* el prompt es demasiado corto y genérico;
+* todos los distractores son demasiado distintos;
+* no hay contexto;
+* no hay operación cognitiva declarada;
+* el ejercicio es de elección múltiple sin explicación de distractores.
+
+Frases prohibidas:
+
+* “Elige la frase rusa que aplica”
+* “Estructura que conviene reconocer”
+* “Selecciona el ejemplo”
+* “Reconoce la estructura”
+* “Frase de práctica”
+* “Ejemplo de uso”
+* “Elige la opción adecuada” sin contexto adicional.
+
+## 10.3. Validador de targets
+
+Debe fallar si:
+
+* un target referenciado no existe;
+* un lema no existe;
+* una estructura no existe;
+* un caso no pertenece al inventario;
+* una modalidad no pertenece al inventario;
+* un ejercicio de desbloqueo no incluye targets críticos.
+
+## 10.4. Validador de variedad
+
+Debe revisar cada lección y sesión generada.
+
+Debe avisar si:
+
+* hay demasiados ejercicios del mismo tipo;
+* no hay producción;
+* no hay comprensión;
+* no hay repaso;
+* no hay corrección de errores;
+* no hay feedback específico;
+* no hay ejercicios de dificultad media/alta;
+* los mismos prompts se repiten con cambios mínimos.
+
+## 10.5. Validador de feedback
+
+Debe fallar si:
+
+* el feedback incorrecto tiene menos de una explicación útil;
+* no menciona el target principal;
+* no explica la causa del error;
+* sólo muestra la respuesta correcta.
+
+---
+
+# 11. Rúbrica de puntuación de ejercicios
+
+Cada ejercicio recibe una puntuación de 0 a 20.
+
+## Criterios
+
+1. Comprensión requerida: 0–3
+2. Memoria requerida: 0–3
+3. Aplicación gramatical: 0–3
+4. Producción o transformación: 0–3
+5. Calidad de distractores o dificultad: 0–2
+6. Feedback específico: 0–2
+7. Targets claros: 0–2
+8. Valor para hispanohablantes: 0–2
+
+## Interpretación
+
+* 0–7: rechazado.
+* 8–11: sólo aceptable como apoyo, no para desbloqueo.
+* 12–15: ejercicio válido.
+* 16–20: ejercicio excelente.
+
+Regla:
+
+> Una lección no puede tener menos de 70% de ejercicios con puntuación 12 o superior.
+
+Regla:
+
+> Un examen de desbloqueo no puede tener ejercicios por debajo de 12.
+
+---
+
+# 12. Ejemplos de transformación de ejercicios malos
+
+## Ejemplo 1
+
+Malo:
+
+> Elige la frase rusa que aplica: Estructura que conviene reconocer en ejemplos y producir en frases propias.
+
+Bueno:
+
+> Quieres decir: “Tengo un hermano”. Elige la frase rusa correcta.
+
+Opciones:
+
+* У меня есть брат.
+* Я имею брат.
+* У я есть брат.
+* Мне есть брат.
+
+Targets:
+
+* `possession_u_menya_est`
+* `u_genitive_possessor`
+* `est_existence`
+* `spanish_interference_tener`
+
+Feedback:
+
+> En ruso básico, “tener” se expresa con `у + genitivo + есть`: `У меня есть брат`. No se traduce literalmente como “я имею” en este contexto.
+
+## Ejemplo 2
+
+Malo:
+
+> Reconoce la palabra его.
+
+Bueno:
+
+> ¿En qué frase `его` significa “a él” y no “su”?
+
+Opciones:
+
+* Я вижу его.
+* Его дом большой.
+* Его сестра дома.
+* Это его книга.
+
+Targets:
+
+* `pronoun_ego_object`
+* `pronoun_ego_possessive_contrast`
+* `accusative_personal_pronoun`
+
+Feedback:
+
+> En `Я вижу его`, `его` es objeto directo: “lo veo / lo veo a él”. En `его дом`, `его` funciona como posesivo: “su casa”.
+
+## Ejemplo 3
+
+Malo:
+
+> Escucha y repite la palabra.
+
+Bueno:
+
+> Escucha la frase. ¿Quién no tiene libro?
+
+Opciones:
+
+* El hablante.
+* La hermana del hablante.
+* El profesor.
+* Nadie.
+
+Targets:
+
+* `listening_comprehension`
+* `negated_possession`
+* `genitive_after_negation`
+* `lemma_kniga`
+
+Feedback:
+
+> La frase usa `нет`, que niega la existencia o posesión. Con `нет`, el objeto poseído aparece en genitivo.
+
+---
+
+# 13. Plantilla obligatoria para nuevos ejercicios manuales
+
+Al crear ejercicios manuales, usar esta plantilla:
+
+```json
+{
+  "id": "",
+  "lessonId": "",
+  "type": "",
+  "prompt": "",
+  "context": "",
+  "expectedAnswer": "",
+  "acceptedAnswers": [],
+  "distractors": [
+    {
+      "text": "",
+      "diagnosticReason": ""
+    }
+  ],
+  "feedback": {
+    "correct": "",
+    "incorrect": "",
+    "byErrorType": {
+      "literal_translation_from_spanish": "",
+      "wrong_case": "",
+      "wrong_aspect": "",
+      "wrong_gender": "",
+      "wrong_preposition": ""
+    }
+  },
+  "targets": {
+    "primary": "",
+    "secondary": [],
+    "lemmas": [],
+    "structures": [],
+    "cases": [],
+    "morphology": [],
+    "syntax": [],
+    "skills": [],
+    "modality": "",
+    "direction": "",
+    "processing": "",
+    "difficulty": 1,
+    "importance": 1
+  },
+  "quality": {
+    "requiresUnderstanding": true,
+    "requiresRecall": true,
+    "requiresApplication": true,
+    "isTrivialRecognition": false,
+    "answerGivenInPrompt": false,
+    "hasSpecificFeedback": true,
+    "hasPlausibleDistractors": true,
+    "suitableForUnlockExam": false
+  }
+}
+```
+
+---
+
+# 14. Política de automatización
+
+La automatización permitida no es la generación de ejercicios, sino la
+selección de ejercicios ya existentes.
+
+## 14.1. Regla principal
+
+El sistema puede:
+
+1. Seleccionar qué ejercicio mostrar.
+2. Barajar preguntas dentro de un banco ya escrito.
+3. Evitar repeticiones redundantes.
+4. Validar formato, conteos y consistencia técnica.
+
+El sistema no puede:
+
+1. Generar ejercicios de gramática.
+2. Generar ejercicios mixtos.
+3. Generar listenings.
+4. Generar exámenes.
+5. Generar nuevas variantes de una misma estructura sólo para inflar volumen.
+
+## 14.2. Única excepción admisible
+
+Se admite automatización para vocabulario puro de recuperación mecánica del
+tipo `cómo se dice X?`, siempre que:
+
+* la respuesta esperada sea una sola palabra o lema;
+* no se introduzca estructura gramatical nueva;
+* no se mezcle con ejercicios mixtos o gramaticales;
+* pueda marcarse claramente como banco mecánico de vocabulario.
+
+## 14.3. Estados posibles
+
+Todo ejercicio debe tener estado:
+
+* `draft`
+* `needs_review`
+* `approved`
+* `rejected`
+* `deprecated`
+
+Sólo `approved` debe aparecer al alumno.
+
+## 14.3. Razones de rechazo
+
+Guardar razón:
+
+* `trivial_recognition`
+* `answer_in_prompt`
+* `no_context`
+* `weak_feedback`
+* `missing_targets`
+* `bad_distractors`
+* `copyright_risk`
+* `too_repetitive`
+* `not_for_spanish_speakers`
+* `linguistic_uncertainty`
+
+---
+
+# 15. Regla final
+
+Cuando haya conflicto entre cantidad y calidad, gana calidad.
+
+Preferible:
+
+* 30 ejercicios excelentes;
+* variados;
+* con targets;
+* con feedback;
+* conectados al SRS;
+* revisables;
+
+que:
+
+* 300 ejercicios generados;
+* repetitivos;
+* triviales;
+* sin diagnóstico;
+* sin transferencia real.
+
+Paruski debe entrenar ruso profundo, no inflar contadores.

@@ -1,0 +1,493 @@
+{
+  "_nota": "Texto de lección redactado para el prototipo, con la estructura de la unidad 011 (idea central, interferencia español-ruso, modelos mínimos, errores que bloquean). Los ejercicios, el vocabulario y las competencias proceden del paquete corregido L001-L010 v1.9.3.",
+  "skills011": [
+    {
+      "skillId": "accusative_inanimate_masc_neuter_zero",
+      "domain": "morphology",
+      "linguisticPhenomenon": "el objeto directo inanimado masculino o neutro no cambia de forma",
+      "prerequisites": ["gender_inference", "subject_verb_agreement"],
+      "commonConfusions": ["accusative_overgeneralization"],
+      "unit": 11,
+      "kind": "atomicSkill"
+    },
+    {
+      "skillId": "accusative_inanimate_fem_a_to_u",
+      "domain": "morphology",
+      "linguisticPhenomenon": "el femenino en -а/-я pasa a -у/-ю cuando es objeto directo",
+      "prerequisites": ["gender_inference"],
+      "commonConfusions": ["accusative_overgeneralization"],
+      "unit": 11,
+      "kind": "atomicSkill"
+    },
+    {
+      "skillId": "accusative_after_pokupat",
+      "domain": "syntax",
+      "linguisticPhenomenon": "покупать e искать exigen objeto directo en acusativo",
+      "prerequisites": ["accusative_inanimate_fem_a_to_u"],
+      "commonConfusions": [],
+      "unit": 11,
+      "kind": "atomicSkill"
+    },
+    {
+      "skillId": "accusative_after_lyubit",
+      "domain": "syntax",
+      "linguisticPhenomenon": "любить y видеть exigen objeto directo en acusativo",
+      "prerequisites": ["accusative_inanimate_fem_a_to_u"],
+      "commonConfusions": [],
+      "unit": 11,
+      "kind": "atomicSkill"
+    }
+  ],
+  "lessons": [
+    {
+      "lessonId": "lesson_001",
+      "lessonNumber": 1,
+      "cefr": "A1.1",
+      "title": "Identificar y situar: это, тут y el alfabeto",
+      "objective": "Leer y escribir en cirílico sin homoglifos latinos, identificar un referente con «это» sin cópula y distinguir la identificación de la localización con «тут».",
+      "prerequisiteSkills": [],
+      "newSkills": ["alphabet_cyrillic", "stress_marking", "zero_copula_identity", "locative_zero_copula"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "El ruso no usa verbo copulativo en presente. Para decir qué es algo basta «это» + el nombre: Это чай. No hay equivalente de «es». La misma ausencia de cópula vale para situar algo: Чай тут. La diferencia entre las dos operaciones no está en el verbo (no hay verbo), sino en lo que se pone después: un nombre identifica, un adverbio de lugar localiza. A esto se añade una condición previa: la palabra rusa se escribe íntegramente en cirílico. Una «e» o una «o» latinas dentro de хлеб o море producen una palabra que no existe, aunque a la vista sea idéntica."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español obliga a un verbo: «esto es té». Al traducir, el hispanohablante busca dónde ponerlo y recurre a «есть», que en ruso moderno no funciona como cópula de identificación. Segundo riesgo: el español resuelve identidad y ubicación con el mismo verbo («está aquí», «es té»), de modo que las dos operaciones se confunden; en ruso son dos estructuras distintas y responden a dos preguntas distintas (¿qué es? / ¿dónde está?). Tercer riesgo, puramente gráfico: el teclado latino."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Identificar una bebida que el otro no reconoce.", "model": "Это чай." },
+            { "task": "Decir dónde está algo ya identificado.", "model": "Чай тут." },
+            { "task": "Encadenar identidad y ubicación.", "model": "Это вода. Вода тут." },
+            { "task": "Señalar algo que aparece ahora.", "model": "Вот хлеб." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Это есть чай.", "right": "Это чай." },
+            { "wrong": "Чай это тут.", "right": "Чай тут." },
+            { "wrong": "Это хлeб. (e latina)", "right": "Это хлеб." }
+          ]
+        },
+        {
+          "id": "stress",
+          "heading": "El acento, desde el principio",
+          "type": "explanation",
+          "body": "El ruso no marca el acento por escrito, pero el acento decide la pronunciación de las vocales átonas: en ма́ма la primera «а» es plena y la segunda se reduce. En el curso el acento aparece marcado (ма́ма, вода́, соба́ка) porque forma parte de la palabra que aprendes; al escribir tú, no se marca."
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_002",
+      "lessonNumber": 2,
+      "cefr": "A1.1",
+      "title": "Preguntar por la identidad: кто y что",
+      "objective": "Elegir кто o что según la animación del referente, responder con «это» y mantener entre pregunta y respuesta la misma variable abierta.",
+      "prerequisiteSkills": ["zero_copula_identity", "alphabet_cyrillic"],
+      "newSkills": ["kto_chto_animacy", "identity_answer_eto", "question_answer_alignment"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "El ruso separa dos interrogativos de identidad según la categoría del referente: кто para seres animados (personas y animales) y что para lo inanimado. Кто это? — Это ба́бушка. Что это? — Это кни́га. La respuesta reutiliza «это» y no repite el interrogativo. Nota que la animación es gramatical, no biológica: коша́к o соба́ка son animados y piden кто, aunque en español dijeras «qué es eso»."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español usa «¿qué es?» tanto para un objeto como, con frecuencia, para un animal, y reserva «¿quién?» para personas. Trasladar ese reparto al ruso produce «Что это? — Это кот», que trata al gato como cosa. El segundo problema es de alineación: si la pregunta abre la variable de identidad (кто/что), la respuesta debe cerrar esa variable y no otra. A «Кто это?» no se responde «Тут.», por correcta que sea la frase en sí."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Preguntar por una persona que no reconoces.", "model": "Кто это? — Это па́па." },
+            { "task": "Preguntar por un objeto.", "model": "Что это? — Это кни́га." },
+            { "task": "Preguntar por un animal.", "model": "Кто это? — Это соба́ка." },
+            { "task": "Identificar a alguien por su nombre.", "model": "Это Анна." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Что это? — Это ко́шка.", "right": "Кто это? — Это ко́шка." },
+            { "wrong": "Кто это? — Тут.", "right": "Кто это? — Это Анна." },
+            { "wrong": "Кто есть это?", "right": "Кто это?" }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_003",
+      "lessonNumber": 3,
+      "cefr": "A1.1",
+      "title": "Negar y enlazar: не, и, а, но",
+      "objective": "Negar una identificación con «не», corregirla con «не X, а Y» y distinguir el valor de и (suma), а (contraste de referentes) y но (restricción de lo esperable).",
+      "prerequisiteSkills": ["zero_copula_identity", "kto_chto_animacy"],
+      "newSkills": ["identity_negation_ne", "connector_i_addition", "connector_a_reference_contrast", "connector_no_restriction"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "«Не» niega el elemento que va inmediatamente detrás: Это не сок niega que el referente sea zumo. La corrección se hace con el par не X, а Y: Это не сок, а вода́. Los tres enlaces reparten así el trabajo: и suma dos datos del mismo tipo (Это мама, и это папа); а pone en contraste dos referentes o dos predicados en paralelo (Это чай, а это ко́фе); но restringe o rechaza una expectativa razonable (Это вода́, но не молоко́)."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español vuelca «pero» sobre casi todo lo adversativo y no distingue el contraste paralelo del contraste que niega una expectativa. En ruso ese reparto es obligatorio: а marca «en cambio», но marca «sin embargo». La corrección «no X, sino Y» del español coincide con не X, а Y, pero es frecuente que el aprendiz escriba «не X, но Y», que en ruso deja de corregir y pasa a restringir. Ojo también con la posición de не: colocado ante otro elemento, cambia lo que se niega."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Negar una identificación equivocada.", "model": "Это не сок." },
+            { "task": "Corregir aportando el dato correcto.", "model": "Это не сок, а вода́." },
+            { "task": "Sumar dos identificaciones.", "model": "Это ма́ма, и это па́па." },
+            { "task": "Contrastar dos referentes en paralelo.", "model": "Это чай, а это ко́фе." },
+            { "task": "Rechazar una expectativa.", "model": "Это молоко́, но не сыр." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Это не сок, но вода́.", "right": "Это не сок, а вода́." },
+            { "wrong": "Это чай и это ко́фе. (para contrastar)", "right": "Это чай, а это ко́фе." },
+            { "wrong": "Это нет сок.", "right": "Это не сок." }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_004",
+      "lessonNumber": 4,
+      "cefr": "A1.1",
+      "title": "Tener y no tener: у меня есть / у меня нет",
+      "objective": "Expresar posesión con у + pronombre en genitivo + есть, negar la existencia o la posesión con нет + genitivo, y no confundir la posesión con la identificación.",
+      "prerequisiteSkills": ["zero_copula_identity", "identity_negation_ne"],
+      "newSkills": ["possession_u_genitive_est", "genitive_possessor_pronouns", "absence_net_genitive", "possession_vs_identification"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "El ruso no dice «yo tengo», sino «junto a mí hay»: У меня́ есть брат. El poseedor va tras у en genitivo (я → меня́, ты → тебя́) y lo poseído queda en nominativo, porque es el sujeto de lo que hay. La negación no es simétrica: нет sustituye a есть y arrastra lo poseído al genitivo. У меня́ есть вре́мя frente a У меня́ нет вре́мени; У меня́ есть де́ньги frente a У меня́ нет де́нег. Esa alternancia nominativo/genitivo es el rasgo que hay que automatizar."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "«Tener» es un verbo transitivo en español y el objeto no cambia de forma: «tengo tiempo / no tengo tiempo». El aprendiz reproduce esa simetría y produce «У меня́ нет вре́мя». Segundo choque: negar la posesión no es negar la identidad. «Это не су́мка» dice que el objeto no es una bolsa; «У меня́ нет су́мки» dice que no dispongo de ella. Son dos operaciones distintas y el examen las contrasta."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Declarar lo que posees.", "model": "У меня́ есть брат." },
+            { "task": "Preguntar por la posesión ajena.", "model": "У тебя́ есть ключ?" },
+            { "task": "Negar disponibilidad.", "model": "У меня́ нет вре́мени." },
+            { "task": "Negar la posesión de un documento.", "model": "У меня́ нет па́спорта." },
+            { "task": "Distinguir posesión de identificación.", "model": "Это су́мка, но у меня́ нет су́мки." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "У меня́ нет вре́мя.", "right": "У меня́ нет вре́мени." },
+            { "wrong": "Я име́ю брат.", "right": "У меня́ есть брат." },
+            { "wrong": "У меня́ не есть де́ньги.", "right": "У меня́ нет де́нег." }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_005",
+      "lessonNumber": 5,
+      "cefr": "A1.1",
+      "title": "Género y concordancia: мой, моя́, моё, мои́",
+      "objective": "Inferir el género del sustantivo por su terminación y concordar con él el posesivo y el adjetivo en singular y plural.",
+      "prerequisiteSkills": ["zero_copula_identity", "alphabet_cyrillic"],
+      "newSkills": ["gender_inference", "possessive_gender_number_agreement", "adjective_gender_number_agreement", "plural_possessive"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "El género se lee en la terminación del nominativo singular: consonante → masculino (телефо́н), -а/-я → femenino (рабо́та), -о/-е → neutro (письмо́). Todo lo que acompaña al sustantivo se ajusta a ese género: мой телефо́н, моя́ рабо́та, моё письмо́, и en plural мои́ кни́ги, sin distinción de género. El adjetivo sigue el mismo mecanismo con sus propias terminaciones: но́вый телефо́н, но́вая рабо́та, но́вое сло́во, но́вые кни́ги. La concordancia no depende del género de la palabra española, sino del de la rusa."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español tiene género, y eso engaña: «mi trabajo» es masculino en español y рабо́та es femenino en ruso; «la carta» es femenino en español y письмо́ es neutro. Traducir el género en vez de leerlo en la palabra rusa es el error más productivo de esta unidad. Además el español no tiene neutro, de modo que моё suele desaparecer del repertorio del aprendiz. Y el posesivo español no distingue número del poseído en «mi/mis» del mismo modo: en ruso el plural мои́ es obligatorio y único para los tres géneros."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Presentar algo tuyo, masculino.", "model": "Это мой телефо́н." },
+            { "task": "Presentar algo tuyo, femenino.", "model": "Это моя́ рабо́та." },
+            { "task": "Presentar algo tuyo, neutro.", "model": "Это моё письмо́." },
+            { "task": "Plural, sin distinguir género.", "model": "Это мои́ но́вые кни́ги." },
+            { "task": "Calificar con adjetivo concordado.", "model": "Это большо́й дом." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Это мой рабо́та.", "right": "Это моя́ рабо́та." },
+            { "wrong": "Это моя́ письмо́.", "right": "Это моё письмо́." },
+            { "wrong": "Это мои́ но́вый кни́ги.", "right": "Это мои́ но́вые кни́ги." }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_006",
+      "lessonNumber": 6,
+      "cefr": "A1.1",
+      "title": "Referirse a alguien: он, она́ y el registro",
+      "objective": "Sustituir «это» por el pronombre personal cuando el referente ya está introducido, mantener la referencia en el cambio de turno y elegir entre ты y вы.",
+      "prerequisiteSkills": ["zero_copula_identity", "gender_inference"],
+      "newSkills": ["personal_pronoun_reference", "eto_vs_personal_pronoun", "formal_informal_register", "dialogue_turn_alignment"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "«Это» abre la referencia: identifica a alguien que aún no está en el discurso (Это Анна). Una vez introducido, se mantiene con он / она́ / они́: Она́ преподава́тель. Repetir «это» en la segunda frase suena a que se identifica de nuevo a otra persona. El pronombre concuerda con el género gramatical del sustantivo ruso, no con el sexo del referente ni con el género español. En paralelo, el trato: ты con familiares, amigos y niños; вы con desconocidos, superiores y en cualquier situación de servicio, y también como plural."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español omite el sujeto pronominal («es profesora»), así que el aprendiz tiende a dejar la frase rusa sin pronombre o a repetir «это». Y el sistema de tratamiento no coincide: el «tú» español avanza mucho más deprisa que ты, de modo que un ты dirigido a un desconocido adulto o a un empleado en Rusia resulta descortés. Здра́вствуйте y Приве́т no son intercambiables: uno acompaña a вы, el otro a ты, y mezclarlos rompe la coherencia del turno."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Introducir y luego mantener la referencia.", "model": "Это Анна. Она́ преподава́тель." },
+            { "task": "Referirse a un hombre ya introducido.", "model": "Это Ива́н. Он тут." },
+            { "task": "Saludar con trato formal.", "model": "Здра́вствуйте!" },
+            { "task": "Saludar con trato informal.", "model": "Приве́т!" },
+            { "task": "Agradecer.", "model": "Спаси́бо большо́е." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Это Анна. Это преподава́тель.", "right": "Это Анна. Она́ преподава́тель." },
+            { "wrong": "Здра́вствуйте! Как дела́, ты?", "right": "Здра́вствуйте! Как дела́?" },
+            { "wrong": "Это Ива́н. Она́ тут.", "right": "Это Ива́н. Он тут." }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_007",
+      "lessonNumber": 7,
+      "cefr": "A1.2",
+      "title": "Primeras acciones: жить, де́лать, знать",
+      "objective": "Conjugar en presente жить, де́лать y знать para я y ты, y distinguir el infinitivo de la forma personal concordada con el sujeto.",
+      "prerequisiteSkills": ["personal_pronoun_reference"],
+      "newSkills": ["subject_verb_agreement", "present_conjugation_zhit", "present_conjugation_delat_znat"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "El verbo ruso en presente lleva marca obligatoria de persona: я де́лаю / ты де́лаешь, я зна́ю / ты зна́ешь, я живу́ / ты живёшь. El infinitivo (де́лать, знать, жить) es la forma de diccionario y no puede aparecer como núcleo de una frase con sujeto. Жить altera la raíz (жив-) y desplaza el acento: живу́, живёшь; де́лать y знать siguen el patrón regular en -аю / -аешь."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español también marca la persona en el verbo, así que la dificultad no es el concepto sino el automatismo: bajo presión, el aprendiz recurre al infinitivo, que ha memorizado como «la palabra», y produce «Я жить в Испа́нии». Segundo punto: en ruso el pronombre sujeto se expresa normalmente en presente, al contrario que en español, donde se omite. Y el acento móvil de живу́/живёшь no tiene equivalente en español, así que hay que aprenderlo con la forma."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Decir dónde vives (bloque fijo por ahora).", "model": "Я живу́ в Испа́нии." },
+            { "task": "Preguntar por la actividad del otro.", "model": "Что ты де́лаешь?" },
+            { "task": "Afirmar conocimiento de un dato.", "model": "Я зна́ю отве́т." },
+            { "task": "Negar conocimiento.", "model": "Я не зна́ю." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Я жить в Испа́нии.", "right": "Я живу́ в Испа́нии." },
+            { "wrong": "Ты де́лаю?", "right": "Что ты де́лаешь?" },
+            { "wrong": "Я живёшь в Москве́.", "right": "Я живу́ в Москве́." }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_008",
+      "lessonNumber": 8,
+      "cefr": "A1.2",
+      "title": "Hablar, leer, escribir y el idioma con по-",
+      "objective": "Conjugar говори́ть, чита́ть y писа́ть en presente, elegir el verbo según el objeto y la finalidad, y expresar el idioma con по- + adverbio.",
+      "prerequisiteSkills": ["subject_verb_agreement"],
+      "newSkills": ["present_conjugation_govorit_chitat_pisat", "read_write_speak_contrast", "language_adverb_po", "lexical_verb_selection"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "Tres verbos con tres patrones: чита́ть es regular (чита́ю, чита́ешь); говори́ть pertenece al otro tipo (говорю́, говори́шь); писа́ть alterna la consonante de la raíz (пишу́, пи́шешь). El idioma en que se realiza la acción no se dice con un sustantivo, sino con un adverbio en по-: Я говорю́ по-ру́сски. Ese по-ру́сски responde a «¿de qué modo?», no a «¿qué cosa?», y por eso no puede ser objeto del verbo."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español dice «hablo ruso», con el idioma como objeto directo, y de ahí sale el error «Я говорю́ ру́сский». La estructura rusa es adverbial: se habla «a la manera rusa». La contrapartida es que по-ру́сски no vale cuando sí hay un objeto: se lee un texto (чита́ю текст), se escribe un mensaje (пишу́ сообще́ние). Además, el reparto leer/escribir/hablar se decide por el objeto y el propósito, no por la traducción más frecuente."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Declarar en qué idioma hablas.", "model": "Я говорю́ по-ру́сски." },
+            { "task": "Decir qué lees.", "model": "Я чита́ю текст." },
+            { "task": "Decir qué escribes.", "model": "Я пишу́ сообще́ние." },
+            { "task": "Preguntar al interlocutor.", "model": "Ты чита́ешь по-испа́нски?" }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Я говорю́ ру́сский.", "right": "Я говорю́ по-ру́сски." },
+            { "wrong": "Я писа́ю сообще́ние.", "right": "Я пишу́ сообще́ние." },
+            { "wrong": "Я чита́ю по-ру́сски текст. (para «leo un texto»)", "right": "Я чита́ю текст." }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_009",
+      "lessonNumber": 9,
+      "cefr": "A1.2",
+      "title": "Preguntar con precisión: где, как, когда́, почему́",
+      "objective": "Elegir el interrogativo según el dato que falta, formular preguntas totales por entonación y puntuación, y responder aportando exactamente la información pedida.",
+      "prerequisiteSkills": ["kto_chto_animacy", "subject_verb_agreement"],
+      "newSkills": ["wh_semantic_scope", "yes_no_question", "language_question_frame", "answer_question_compatibility"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "Cada interrogativo abre una variable distinta: где (lugar), куда́ (destino), отку́да (origen), когда́ (tiempo), как (modo), почему́ (causa), ско́лько (cantidad), како́й/кака́я/како́е (cualidad o clase, con concordancia). La pregunta total no necesita ninguna palabra añadida ni inversión: se marca con entonación y, por escrito, sólo con el signo final: Ты говори́шь по-ру́сски? Para el idioma hay un marco fijo: На како́м языке́ ты говори́шь?"
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "El español distingue «dónde» y «adónde» de forma inestable en el uso oral, y el ruso no lo perdona: где pregunta por la localización, куда́ por el destino. Además, el español abre la interrogación con «¿» y frecuentemente invierte el orden; en ruso no hay signo inicial ni inversión obligatoria, así que el aprendiz tiende a inventar marcas. Por último, una respuesta correcta pero que no cierra la variable abierta (responder el lugar cuando se preguntó la causa) cuenta como error de alineación, no como acierto parcial."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Preguntar por el lugar de residencia.", "model": "Где ты живёшь?" },
+            { "task": "Preguntar por el idioma.", "model": "На како́м языке́ ты говори́шь?" },
+            { "task": "Pregunta total, sólo con entonación.", "model": "Ты чита́ешь по-ру́сски?" },
+            { "task": "Preguntar por el estado general.", "model": "Как дела́?" }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Ты живёшь где?  (como pregunta neutra)", "right": "Где ты живёшь?" },
+            { "wrong": "Ли ты говори́шь по-ру́сски?", "right": "Ты говори́шь по-ру́сски?" },
+            { "wrong": "Почему́ ты тут? — Тут.", "right": "Почему́ ты тут? — Я тут, потому́ что тут рабо́та." }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson_010",
+      "lessonNumber": 10,
+      "cefr": "A1.2",
+      "title": "Integración: identidad, posesión, acción y pregunta",
+      "objective": "Sostener un intercambio breve en el que identificación, referencia, posesión, ausencia y acciones en presente convivan sin que ninguna estructura invada la función de otra.",
+      "prerequisiteSkills": ["zero_copula_identity", "possession_u_genitive_est", "subject_verb_agreement", "wh_semantic_scope"],
+      "newSkills": ["integrated_identity_reference", "integrated_possession", "integrated_present_actions", "integrated_question_scope"],
+      "sections": [
+        {
+          "id": "target",
+          "heading": "Idea central",
+          "type": "explanation",
+          "body": "Esta unidad no añade gramática nueva: comprueba que las nueve anteriores funcionan juntas y bajo presión. Un intercambio real exige encadenar sin fricción cuatro decisiones: quién es (это + nombre), cómo se le vuelve a mencionar (он/она́), de qué dispone o carece (у него́ есть / нет + genitivo) y qué hace (verbo concordado). Cada estructura conserva su función; el fallo típico en este nivel no es de forma aislada, sino de invasión: una posesión que se cuela donde tocaba una identificación, o un pronombre que cambia de referente a mitad de turno."
+        },
+        {
+          "id": "spanish_interference",
+          "heading": "Interferencia español-ruso",
+          "type": "contrast",
+          "body": "Al producir varias frases seguidas se pierde el control de la referencia mucho antes que el de la morfología. El español permite mantener el hilo con sujetos tácitos y con «es», mientras que el ruso obliga a marcar de nuevo pronombre y concordancia en cada turno. Bajo carga, reaparecen los tres calcos ya conocidos: «есть» como cópula, nominativo tras нет y el infinitivo en lugar de la forma personal."
+        },
+        {
+          "id": "examples",
+          "heading": "Modelos mínimos",
+          "type": "examples",
+          "examples": [
+            { "task": "Presentar y mantener el referente.", "model": "Это Анна. Она́ студе́нтка." },
+            { "task": "Encadenar posesión y restricción.", "model": "У меня́ есть вре́мя, но нет де́нег." },
+            { "task": "Contrastar dos sujetos y sus acciones.", "model": "Я чита́ю, а она́ пи́шет." },
+            { "task": "Preguntar y responder cerrando la variable.", "model": "Где ты живёшь? — Я живу́ в Москве́." }
+          ]
+        },
+        {
+          "id": "errors",
+          "heading": "Errores que bloquean",
+          "type": "diagnostic",
+          "items": [
+            { "wrong": "Это Анна. У неё есть студе́нтка.", "right": "Это Анна. Она́ студе́нтка." },
+            { "wrong": "У меня́ есть вре́мя, но нет де́ньги.", "right": "У меня́ есть вре́мя, но нет де́нег." },
+            { "wrong": "Я чита́ть, а она́ писа́ть.", "right": "Я чита́ю, а она́ пи́шет." }
+          ]
+        }
+      ]
+    }
+  ]
+}

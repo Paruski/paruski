@@ -1,0 +1,712 @@
+Estamos trabajando en el repo público `Paruski/paruski`, una web estática de aprendizaje de ruso publicada con GitHub Pages.
+
+He downgradeado Chromium y ya funciona el navegador. Sigamos con el trabajo.
+
+REGLA EDITORIAL VIGENTE
+
+El algoritmo automático sólo puede seleccionar ejercicios ya existentes para
+mostrar. No puede generar ejercicios de gramática, mixtos, listening ni
+exámenes. La única excepción admisible es vocabulario puro de recuperación
+mecánica del tipo "cómo se dice X?", con respuesta de una sola palabra o lema.
+Además, evita secuencias redundantes de la misma estructura visible si no
+aportan cambio real de dificultad, dirección o contraste.
+
+REGLAS GENERALES DEL PROYECTO
+
+Antes de editar, lee los archivos afectados. No modifiques a ciegas.
+
+Después de editar, verifica. Usa los scripts existentes del repo si los hay. Primero inspecciona `package.json`, estructura de carpetas, scripts de build/test/lint y documentación existente. No inventes comandos si el repo no los tiene.
+
+La web debe seguir funcionando gratis, como sitio estático, sin servidor obligatorio, sin backend obligatorio y sin secretos en navegador ni en repo.
+
+El repo es público. No introduzcas datos personales, intereses privados ni contexto asociable al usuario salvo progreso estrictamente relacionado con el aprendizaje de ruso que el usuario acepte guardar localmente.
+
+Antes de cualquier commit, revisa privacidad. No metas claves API, tokens, datos privados, audios con voces privadas sin licencia clara ni contenido externo con copyright dudoso.
+
+No afirmes que algo está implementado si sólo está diseñado, preparado o documentado.
+
+Haz commits por fases si haces commits. No hagas un único commit enorme que mezcle audio, SRS, currículo, UI y datos.
+
+OBJETIVO GENERAL
+
+Paruski debe convertirse en una plataforma seria, exigente y científicamente estructurada para aprender ruso de verdad, especialmente orientada a hispanohablantes con gran capacidad verbal: alumnos inteligentes, rápidos, con buena memoria lingüística y capacidad analítica, pero potencialmente perezosos, impacientes y propensos a aburrirse con ejercicios obvios.
+
+La web debe exigirles más de lo que harían por voluntad propia.
+
+No quiero una app de “repasa palabritas”. Quiero una herramienta que entrene comprensión, memoria, gramática, producción, escucha, transferencia y análisis de errores hasta convertir al alumno en un conocedor profundo del ruso.
+
+PRINCIPIO PEDAGÓGICO CENTRAL
+
+No repasamos ejercicios. Repasamos targets lingüísticos en contextos variados.
+
+Cada ejercicio debe ser una manifestación concreta de targets más profundos:
+
+* lema;
+* forma;
+* caso;
+* animacidad;
+* género;
+* número;
+* aspecto;
+* tiempo;
+* verbo de movimiento;
+* estructura sintáctica;
+* construcción comunicativa;
+* habilidad;
+* modalidad;
+* dirección;
+* tipo de procesamiento;
+* dificultad;
+* importancia;
+* interferencia español-ruso;
+* error esperado.
+
+El sistema no debe considerar que el alumno domina algo porque reconoció una palabra una vez. Un target sólo debe considerarse dominado cuando aparece correctamente en varias modalidades y contextos: reconocimiento, comprensión, producción, transformación, listening y corrección de errores.
+
+BASE CIENTÍFICA QUE DEBE GUIAR LAS DECISIONES
+
+Diseña la arquitectura, ejercicios y progresión usando principios bien respaldados por la ciencia del aprendizaje:
+
+1. Recuperación activa
+   El alumno debe recordar antes de ver la respuesta. Evita tareas que puedan resolverse por copia, eco, reconocimiento superficial o repetición inmediata.
+
+2. Repetición espaciada
+   El repaso debe programarse por target, no sólo por ejercicio. Los intervalos deben crecer con éxito real y reducirse mucho ante errores o lapsos.
+
+3. Testing effect
+   Los exámenes no son sólo evaluación: son parte del aprendizaje. Debe haber pruebas periódicas de desbloqueo y repasos acumulativos.
+
+4. Intercalado
+   Mezcla contenidos antiguos y nuevos. No hagas bloques mecánicos donde diez ejercicios seguidos tienen exactamente la misma regla y se resuelven por patrón inmediato.
+
+5. Dificultad deseable
+   El ejercicio debe ser exigente pero resoluble. Para alumnos verbalmente dotados, introduce contraste, abstracción, variación, interferencias y producción antes que repetición infantil.
+
+6. Producción activa
+   Reconocer no basta. Debe haber traducción español → ruso, construcción de frases, transformación, corrección de errores y respuesta a preguntas.
+
+7. Feedback formativo
+   No basta con “incorrecto”. El feedback debe explicar qué target falló, por qué la respuesta es incorrecta y cómo pensar correctamente.
+
+8. Mastery learning
+   No se desbloquea contenido nuevo sólo por pasar tiempo en la web. El alumno debe demostrar dominio suficiente de targets críticos.
+
+9. Transferencia
+   Un contenido no está aprendido si sólo se recuerda en el mismo contexto. Debe reaparecer en frases, listenings, temas y tareas diferentes.
+
+10. Metalingüística para superdotados verbales
+    Estos alumnos pueden beneficiarse de explicaciones explícitas, contraste entre sistemas, patrones, excepciones, trampas y análisis fino. No los trates como niños que necesitan repetir sin entender. Trátalos como personas capaces de razonar lingüísticamente, pero obliga a que ese razonamiento se convierta en producción correcta.
+
+FASE 0 — TERMINA LO QUE ESTUVIERAS HACIENDO
+
+Primero revisa el estado actual:
+
+* `git status`;
+* archivos modificados;
+* rama actual;
+* tareas pendientes;
+* scripts disponibles;
+* estructura actual de datos, ejercicios, progreso, audio y UI.
+
+Si había trabajo en curso, termínalo o deja claramente documentado qué estaba incompleto antes de introducir nuevas capas.
+
+FASE 1 — CORRECCIÓN PUNTUAL DE AUDIO
+
+Recorta ligerísimamente el final del audio correspondiente a “miñá tibjá yivó yijó”, porque después de esas cuatro palabras se oye un “jo” adicional que sobra.
+
+Requisitos:
+
+* no cortes antes de tiempo;
+* no dañes la inteligibilidad;
+* conserva formato y ruta esperada por la app;
+* verifica reproducción;
+* documenta el archivo exacto modificado.
+
+FASE 2 — UX: ELIMINAR CONFIANZA DESPLEGABLE
+
+Los niveles de confianza del menú desplegable son pesados para el alumno. Elimínalos de la interacción principal.
+
+Sustitúyelos por una UX simple:
+
+* botón “No sé”;
+* botón “Resolver luego” u “Omitir por ahora”;
+* feedback claro;
+* pocas decisiones manuales;
+* nada de menús innecesarios por ejercicio.
+
+Semántica:
+
+* “No sé” registra desconocimiento real y debe afectar al SRS como fallo explícito;
+* “Resolver luego” pospone temporalmente sin premiar ni castigar como fallo completo;
+* el sistema puede inferir confianza internamente mediante acierto/error, tiempo, pistas, historial y dificultad, pero no debe pedir al alumno que la declare constantemente.
+
+Actualiza el modelo de eventos de aprendizaje para registrar estas opciones.
+
+FASE 3 — MODELO DE DATOS PEDAGÓGICO
+
+Antes de crear volumen, crea o mejora una base de datos pedagógica seria.
+
+Debe haber separación clara entre:
+
+* currículo;
+* lecciones;
+* temas;
+* lemas;
+* formas;
+* estructuras;
+* reglas gramaticales;
+* habilidades;
+* ejercicios;
+* listenings;
+* targets;
+* errores;
+* eventos de aprendizaje;
+* progreso;
+* algoritmo SRS.
+
+Cada lema debe poder declarar, cuando aplique:
+
+* lema ruso;
+* traducciones principales;
+* traducciones secundarias;
+* parte de la oración;
+* género;
+* animacidad;
+* plural;
+* formas relevantes;
+* régimen/caso;
+* aspecto;
+* par aspectual;
+* tipo de verbo de movimiento;
+* ejemplos propios;
+* dificultad;
+* importancia;
+* lección de introducción;
+* lecciones de reciclaje;
+* errores típicos para hispanohablantes.
+
+Cada estructura gramatical debe declarar:
+
+* identificador;
+* nombre;
+* explicación breve;
+* prerrequisitos;
+* ejemplos correctos;
+* contraejemplos;
+* errores esperables;
+* casos implicados;
+* morfología;
+* sintaxis;
+* dificultad;
+* importancia;
+* lecciones donde se introduce;
+* lecciones donde se recicla;
+* ejercicios asociados.
+
+Cada ejercicio debe declarar targets multidimensionales:
+
+* vocabulario/lemas;
+* reglas gramaticales;
+* estructuras;
+* casos;
+* morfología;
+* sintaxis;
+* habilidades;
+* dirección;
+* modalidad;
+* dificultad;
+* importancia;
+* tipo de respuesta;
+* tipo de feedback;
+* errores que puede diagnosticar;
+* prerequisitos;
+* criterios de corrección.
+
+Cada evento de aprendizaje debe copiar los targets evaluados y registrar:
+
+* usuario/perfil local si existe;
+* timestamp;
+* ejercicio;
+* lección;
+* tema;
+* targets;
+* respuesta;
+* respuesta correcta;
+* acierto/error;
+* tipo de error;
+* tiempo de respuesta;
+* pistas usadas;
+* opción usada: responder / No sé / Resolver luego;
+* modalidad;
+* dirección;
+* dificultad;
+* importancia;
+* estado SRS anterior y nuevo.
+
+No dependas de que el ejercicio siga existiendo idéntico en el futuro para interpretar eventos antiguos. Copia los targets relevantes en el evento.
+
+FASE 4 — REPETICIÓN ESPACIADA BASADA EN CIENCIA
+
+Reemplaza cualquier lógica aleatoria o demasiado simple por un sistema determinista, explicable y razonable.
+
+No hace falta implementar FSRS completo si es demasiado grande, pero sí un modelo inspirado en principios modernos de memoria:
+
+* cada target tiene dificultad;
+* cada target tiene estabilidad o intervalo;
+* cada target tiene historial;
+* cada target tiene lapsos;
+* cada target tiene rendimiento por modalidad;
+* reconocimiento, comprensión y producción no valen lo mismo;
+* producción pesa más que reconocimiento;
+* listening con comprensión pesa más que transcripción mecánica;
+* errores graves reducen mucho el intervalo;
+* errores repetidos bloquean avance;
+* aciertos rápidos en producción aumentan más el intervalo;
+* aciertos lentos o con pistas aumentan poco;
+* targets importantes vuelven antes;
+* targets críticos bloquean desbloqueo si fallan;
+* “No sé” cuenta como fallo explícito;
+* “Resolver luego” pospone sin premiar;
+* el contenido reaparece en contextos nuevos, no sólo repitiendo la misma tarjeta.
+
+El algoritmo debe programar repasos por target y modalidad, no sólo por ejercicio.
+
+Ejemplo conceptual:
+
+* `lemma:его` reconocido correctamente no implica dominio;
+* `его` como posesivo, pronombre objeto, genitivo/acusativo y elemento dentro de frase deben poder tener historiales separados o subtargets;
+* si el alumno falla “я вижу его” pero acierta “его дом”, el sistema debe saber que el problema no es sólo el token `его`, sino su función.
+
+Documenta el algoritmo en un archivo tipo `docs/learning-architecture.md` o equivalente.
+
+FASE 5 — REDISEÑO DE EJERCICIOS: PROHIBIDO REPETIR COMO UN LORO
+
+Los ejercicios actuales son demasiado obvios en muchos casos. Deben dejar de premiar copia, eco, reconocimiento superficial o memoria inmediata sin comprensión.
+
+Rechaza o rediseña cualquier ejercicio que:
+
+* pueda resolverse copiando la palabra que acaba de aparecer;
+* pida repetir exactamente lo que se acaba de oír sin comprobar significado;
+* sólo exija reconocer grafías;
+* tenga distractores absurdos;
+* no tenga feedback útil;
+* no declare targets;
+* no fuerce integración;
+* no evalúe comprensión;
+* no active memoria real;
+* sólo mida si el alumno acaba de mirar una respuesta.
+
+Añade o mejora tipos de ejercicio como:
+
+1. Elección contextual
+   Elegir forma correcta según caso, género, animacidad, aspecto, tiempo o régimen.
+
+2. Transformación
+   Cambiar persona, número, tiempo, caso, aspecto, polaridad o punto de vista.
+
+3. Traducción español → ruso
+   Producción activa. Debe admitir variantes cuando sea razonable, pero evaluar targets.
+
+4. Traducción ruso → español
+   Comprensión precisa, evitando traducciones literales malas.
+
+5. Huecos inteligentes
+   Completar con forma declinada/conjugada correcta, no con palabra obvia.
+
+6. Corrección de errores
+   Mostrar una frase incorrecta típica de hispanohablante y pedir corrección.
+
+7. Construcción con restricciones
+   Crear una frase usando un caso, verbo, aspecto o estructura obligatoria.
+
+8. Listening de comprensión
+   Escuchar y responder sobre significado, intención, participantes, caso, tiempo o relación, no sólo transcribir.
+
+9. Pares difíciles
+   Contrastar идти/ходить, ехать/ездить, в/на, из/с, уже/ещё, тоже/также, знать/уметь, etc.
+
+10. Mini-retos
+    Varias condiciones simultáneas: “di que no tienes este libro, pero que tu hermana sí lo tiene”.
+
+11. Interferencia deliberada
+    Distractores que representen errores reales: traducción literal de español, caso erróneo, aspecto incorrecto, falso amigo, género equivocado.
+
+12. Producción acumulativa
+    El alumno debe usar material antiguo en una tarea nueva.
+
+Cada ejercicio debe ser más divertido, pero no más fácil. Diversión significa variedad, reto, contexto, progresión, feedback y sensación de avance. No significa trivialidad.
+
+FASE 6 — DISEÑO ESPECÍFICO PARA HISPANOHABLANTES
+
+Paruski no debe ser un curso genérico de ruso. Debe explotar los errores previsibles de hispanohablantes.
+
+Incluye targets y ejercicios específicos para:
+
+* ausencia de artículos;
+* género gramatical;
+* concordancia;
+* animado/inanimado;
+* nominativo vs acusativo;
+* acusativo animado con forma de genitivo;
+* genitivo tras negación y cantidad;
+* dativo experiencial;
+* instrumental;
+* preposicional;
+* preposiciones `в/на`, `из/с`, `к`, `у`, `о/об`;
+* posesión con `у меня есть`;
+* existencia con `есть`;
+* verbo `быть`, presente cero y pasado/futuro explícito;
+* aspecto verbal;
+* verbos de movimiento;
+* prefijos verbales;
+* orden de palabras;
+* pronombres personales y posesivos;
+* `ты/вы`;
+* traducción literal de “tener”, “ser”, “estar”, “hay”;
+* falsos amigos;
+* interferencias español-ruso;
+* errores por sobregeneralización.
+
+Crea feedback orientado al alumno hispanohablante. Ejemplo:
+
+* no digas sólo “caso incorrecto”;
+* explica que en español usamos preposición o posición, pero en ruso la función se marca morfológicamente;
+* explica por qué una traducción literal española falla.
+
+FASE 7 — CURRÍCULO: TEMAS, LECCIONES Y EXÁMENES
+
+La web no debe lanzar ejercicios aleatorios sin estructura. Debe haber currículo.
+
+Implementa o mejora:
+
+* temas de vocabulario;
+* temas de gramática;
+* lecciones ordenadas;
+* objetivos comunicativos;
+* prerequisitos;
+* repasos por tema;
+* exámenes periódicos;
+* pruebas de desbloqueo;
+* mezcla inteligente de contenido nuevo y antiguo;
+* rutas de repaso cuando el alumno falla.
+
+Usa CEFR y TORFL/TRKI como referencias externas de orientación, pero no los copies mecánicamente. El currículo interno debe ser más fino, basado en targets.
+
+Cada lección debe tener ficha pedagógica:
+
+* identificador;
+* título;
+* nivel aproximado;
+* objetivo comunicativo;
+* objetivos gramaticales;
+* vocabulario activo;
+* vocabulario pasivo;
+* chunks/expresiones;
+* estructuras nuevas;
+* estructuras recicladas;
+* casos trabajados;
+* habilidades;
+* listenings asociados;
+* producción mínima exigida;
+* comprensión mínima exigida;
+* errores esperables;
+* targets críticos;
+* criterios de desbloqueo;
+* examen de cierre.
+
+FASE 8 — 100 LECCIONES SIN RELLENO MEDIOCRE
+
+Rediseña la estructura curricular para poder escalar hacia unas 100 lecciones.
+
+Objetivo a largo plazo:
+
+* 100 lecciones;
+* unas 100 unidades léxicas por lección;
+* entre 5 y 20 estructuras gramaticales por lección, según dificultad;
+* progresión basada en cursos serios de ruso para extranjeros;
+* dificultad creciente;
+* reciclaje constante;
+* exámenes periódicos;
+* repetición espaciada integrada.
+
+Pero aplica criterio científico: no conviertas “100 unidades léxicas” en 100 lemas activos nuevos que el alumno deba producir inmediatamente si eso perjudica la retención.
+
+Clasifica el léxico por función:
+
+* vocabulario activo nuevo;
+* vocabulario pasivo nuevo;
+* vocabulario reciclado;
+* chunks;
+* formas flexionadas relevantes;
+* colocaciones;
+* palabras de listening;
+* palabras de examen.
+
+No rellenes 100 lecciones con contenido basura para aparentar volumen.
+
+Implementa ahora:
+
+* arquitectura completa para 100 lecciones;
+* mapa curricular amplio de 100 lecciones;
+* primeras lecciones desarrolladas con calidad muy alta;
+* validadores que permitan seguir añadiendo contenido;
+* documentación clara para ampliar sin rehacer la web.
+
+Prioridad: pocas lecciones excelentes antes que muchas lecciones mediocres.
+
+FASE 9 — ESTÁNDAR EDITORIAL DE CONTENIDOS
+
+La calidad del contenido es prioritaria.
+
+Crea un protocolo editorial dentro del repo, por ejemplo en `docs/content-quality.md`, que defina qué se acepta y qué se rechaza.
+
+Cada lección debe superar esta rúbrica:
+
+1. ¿Tiene objetivo comunicativo claro?
+2. ¿Tiene targets explícitos?
+3. ¿Incluye comprensión y producción?
+4. ¿Recicla contenido anterior?
+5. ¿Introduce contenido nuevo en cantidad razonable?
+6. ¿Tiene errores esperables?
+7. ¿Tiene feedback útil?
+8. ¿Tiene examen de desbloqueo?
+9. ¿Tiene listening o comprensión contextual?
+10. ¿Sirve a un hispanohablante real?
+11. ¿Tiene dificultad suficiente para un alumno verbalmente fuerte?
+12. ¿Evita ejercicios de loro?
+13. ¿Evita contenido con copyright?
+14. ¿Está conectado al SRS?
+15. ¿Está validado automáticamente?
+
+Cada ejercicio debe superar esta rúbrica:
+
+1. ¿Exige comprender?
+2. ¿Exige recordar?
+3. ¿Exige aplicar?
+4. ¿Tiene distractores plausibles?
+5. ¿Diagnostica errores?
+6. ¿Tiene feedback?
+7. ¿Declara targets?
+8. ¿No revela la respuesta en el enunciado?
+9. ¿No es sólo copia?
+10. ¿No es sólo reconocimiento gráfico?
+11. ¿Reaparece el target en otros contextos?
+12. ¿Aporta algo al dominio real del ruso?
+
+FASE 10 — VALIDADORES AUTOMÁTICOS
+
+Añade validadores automáticos para impedir contenido pedagógicamente débil.
+
+Como mínimo, crea scripts que detecten:
+
+* ejercicios sin targets;
+* targets inexistentes;
+* lemas referenciados pero no definidos;
+* estructuras referenciadas pero no definidas;
+* ejercicios sin feedback;
+* ejercicios sin tipo de error;
+* ejercicios sin modalidad;
+* ejercicios sin dirección;
+* ejercicios demasiado triviales;
+* respuesta contenida literalmente en el enunciado cuando eso invalida el ejercicio;
+* distractores vacíos o absurdos;
+* lecciones sin producción activa;
+* lecciones sin comprensión;
+* lecciones sin reciclaje;
+* targets críticos sin ejercicios suficientes;
+* ejercicios de listening sin audio asociado;
+* audio sin metadata;
+* contenido externo sin licencia documentada;
+* lecciones sin criterios de desbloqueo;
+* exámenes sin targets críticos;
+* vocabulario activo sin repasos posteriores.
+
+Integra estos validadores en los scripts disponibles si es razonable.
+
+FASE 11 — LISTENINGS LARGOS Y AUDIO DE CALIDAD
+
+Crea una arquitectura para listenings largos.
+
+Cada listening debe poder declarar:
+
+* texto ruso;
+* traducción o guía de comprensión;
+* vocabulario clave;
+* estructuras;
+* targets;
+* nivel;
+* duración;
+* velocidad;
+* hablante/fuente;
+* licencia;
+* audio;
+* preguntas de comprensión;
+* ejercicios posteriores;
+* errores esperables;
+* relación con lecciones.
+
+Quiero muchos listenings largos, pero no quiero audio robótico, confuso o inútil.
+
+El audio debe:
+
+* escucharse bien;
+* tener dicción clara;
+* no tener sonidos extraños;
+* no tener sílabas añadidas;
+* no cortar palabras;
+* ser pedagógicamente útil;
+* estar conectado a ejercicios;
+* estar licenciado correctamente.
+
+Si generas audio localmente:
+
+* deja scripts reproducibles;
+* genera desde la base de datos unificada;
+* no dependas de secretos;
+* no dependas de servicios de pago obligatorios;
+* documenta el proceso.
+
+Si incorporas listenings externos:
+
+* usa sólo materiales con licencia compatible;
+* documenta fuente;
+* documenta licencia;
+* respeta atribución;
+* no copies contenido protegido sin permiso.
+
+Si hay STT local o herramienta disponible:
+
+* úsala para comprobar audios;
+* detecta pronunciaciones raras, cortes, sonidos añadidos o dicción defectuosa;
+* documenta resultados.
+
+Si no puedes validar con STT, prepara el script o interfaz y documenta que no se ha ejecutado. No afirmes que está validado si no lo está.
+
+FASE 12 — CRITERIOS DE DESBLOQUEO Y DUREZA PEDAGÓGICA
+
+El alumno no debe desbloquear lecciones sucesivas si no demuestra competencia suficiente.
+
+Define criterios concretos de dominio, por ejemplo:
+
+* porcentaje mínimo de aciertos;
+* rendimiento mínimo en producción;
+* dominio de targets críticos;
+* ausencia de errores graves repetidos;
+* tiempo de respuesta razonable;
+* éxito en contextos variados;
+* éxito en examen de desbloqueo;
+* éxito en repasos acumulativos;
+* comprensión auditiva mínima;
+* capacidad de aplicar material antiguo en contexto nuevo.
+
+No basta con reconocer opciones. El desbloqueo debe exigir producción y transferencia.
+
+Si el alumno falla:
+
+* no lo castigues con UX hostil;
+* explícale qué falla;
+* genera ruta de reparación;
+* prioriza targets débiles;
+* vuelve a practicar en contextos variados;
+* bloquea avance si los fallos son críticos.
+
+FASE 13 — UI SENCILLA, MOTIVADORA Y EXIGENTE
+
+Rediseña la experiencia para que sea clara, agradable y dura.
+
+Principios:
+
+* pocas decisiones manuales;
+* feedback inmediato;
+* progreso visible;
+* repasos visibles;
+* errores recurrentes explicados;
+* retos variados;
+* dificultad creciente;
+* desbloqueos justificados;
+* nada de menús pesados;
+* nada de gamificación vacía;
+* nada de ejercicios triviales para inflar métricas.
+
+Para alumnos verbalmente muy capaces:
+
+* ofrece explicaciones gramaticales concisas pero profundas;
+* muestra patrones;
+* muestra contrastes;
+* muestra trampas;
+* permite ver por qué fallaron;
+* evita repetir diez veces una obviedad;
+* exige producción;
+* exige transferencia;
+* introduce mini-retos.
+
+La experiencia debe ser motivadora, pero no complaciente.
+
+FASE 14 — CONTENIDO INICIAL DE ALTA CALIDAD
+
+No intentes poblar todo con contenido generado mediocre.
+
+Crea una primera tanda de lecciones ejemplares, preferiblemente entre 5 y 10 si el tiempo lo permite, con calidad alta.
+
+Cada una debe incluir:
+
+* ficha pedagógica;
+* vocabulario activo;
+* vocabulario pasivo;
+* estructuras;
+* ejemplos propios;
+* ejercicios variados;
+* feedback;
+* listening o micro-listening;
+* examen de cierre;
+* targets críticos;
+* criterios de desbloqueo;
+* reciclaje de lecciones anteriores.
+
+Estas primeras lecciones deben servir como plantilla editorial para las siguientes.
+
+FASE 15 — DOCUMENTACIÓN FINAL Y VERIFICACIÓN
+
+Al terminar, entrega un resumen claro:
+
+1. Qué has cambiado.
+2. Qué archivos has modificado.
+3. Qué está implementado.
+4. Qué está sólo diseñado.
+5. Qué queda pendiente.
+6. Qué validaciones ejecutaste.
+7. Qué validaciones no pudiste ejecutar y por qué.
+8. Qué riesgos quedan.
+9. Qué contenido requiere revisión lingüística humana.
+10. Qué contenido requiere validación de audio.
+11. Qué cambios recomiendas para la siguiente fase.
+
+Ejecuta las verificaciones disponibles.
+
+Revisa privacidad antes de commit.
+
+No metas secretos.
+
+No afirmes implementación falsa.
+
+No confundas arquitectura preparada con contenido completo.
+
+ORDEN DE PRIORIDAD
+
+Si no puedes hacerlo todo en una sola pasada, prioriza así:
+
+1. No romper la web.
+2. Leer y entender la arquitectura actual.
+3. Terminar trabajo pendiente.
+4. Corregir audio puntual.
+5. Eliminar UX pesada de confianza.
+6. Crear modelo de datos pedagógico sólido.
+7. Implementar SRS por targets.
+8. Crear validadores automáticos.
+9. Rediseñar ejercicios para evitar repetición superficial.
+10. Crear mapa curricular de 100 lecciones.
+11. Implementar primeras lecciones excelentes.
+12. Preparar listenings largos y pipeline de audio.
+13. Mejorar UI motivadora y exigente.
+
+El objetivo no es aparentar volumen. El objetivo es que Paruski avance hacia una plataforma científicamente sólida, exigente y capaz de enseñar ruso en profundidad.
