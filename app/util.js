@@ -24,12 +24,14 @@ export function clear(node) {
   return node;
 }
 
-/** Normalización de respuesta, idéntica a la del build en Python. */
-export function norm(text) {
-  return (text || '')
+/** Normalización de respuesta, idéntica a la del build en Python.
+ *  En modo estricto se conserva la ё, porque hay ítems en los que esa letra
+ *  es justamente lo que se evalúa. */
+export function norm(text, strict = false) {
+  const folded = (text || '')
     .normalize('NFD').replace(/[̀́]/g, '').normalize('NFC')
-    .trim().toLowerCase()
-    .replace(/ё/g, 'е')
+    .trim().toLowerCase();
+  return (strict ? folded : folded.replace(/ё/g, 'е'))
     .replace(/[«»"“”„']/g, '')
     .replace(/[—–]/g, '-')
     .replace(/\s+/g, ' ')

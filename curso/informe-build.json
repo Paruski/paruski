@@ -1,7 +1,8 @@
 {
  "itemsIn": 715,
- "itemsOut": 708,
+ "itemsOut": 707,
  "dropped": {
+  "homoglifo sin forma correcta verificable": 1,
   "opciones insuficientes": 6,
   "tipo sin conversor: cloze/None": 1
  },
@@ -16,13 +17,13 @@
   "semantic_contrast": 34,
   "inductive_generalization": 12,
   "backtranslation_critique": 30,
-  "reading_comprehension": 44,
+  "reading_comprehension": 43,
   "constrained_transfer": 98,
   "information_gap_reconstruction": 22,
   "exam": 55
  },
  "byUnit": {
-  "1": 65,
+  "1": 64,
   "2": 64,
   "3": 64,
   "4": 59,
@@ -48,13 +49,18 @@
   "11": 5
  },
  "stepKinds": {
-  "choice": 321,
-  "written": 708
+  "choice": 364,
+  "written": 707
  },
  "vocab": 254,
  "vocabWithAudio": 157,
  "skills": 42,
  "dropLog": [
+  {
+   "id": "pb1v16-l001-reading-comprehension-06-2",
+   "type": "reading_comprehension",
+   "reason": "homoglifo sin forma correcta verificable"
+  },
   {
    "id": "pb1v17-replacement-007",
    "type": "contextual_choice",

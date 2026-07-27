@@ -21,16 +21,22 @@ export async function loadUnits(numbers) {
 }
 
 let audioIndex = null;
+
+/** Índice de locuciones: banco histórico + locuciones generadas para el curso. */
 export async function loadAudioIndex() {
   if (audioIndex) return audioIndex;
+  audioIndex = new Map();
   try {
-    const data = await getJSON('content/audio-index.json');
-    audioIndex = new Map();
-    for (const entry of data.entries || []) {
+    const bank = await getJSON('content/audio-index.json');
+    for (const entry of bank.entries || []) {
       audioIndex.set((entry.text || '').trim().toLowerCase(), entry.audio_path);
     }
-  } catch {
-    audioIndex = new Map();
-  }
+  } catch { /* el banco antiguo puede no existir */ }
+  try {
+    const curso = await getJSON('curso/audio.json');
+    for (const entry of curso.entries || []) {
+      audioIndex.set((entry.text || '').trim().toLowerCase(), entry.path);
+    }
+  } catch { /* todavía no se han generado locuciones nuevas */ }
   return audioIndex;
 }

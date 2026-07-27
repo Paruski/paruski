@@ -57,6 +57,46 @@ check('ningún ítem de examen aparece en la práctica',
   all.filter((i) => i.phase === 'exam').every((e) => !all.some((p) => p.phase !== 'exam' && p.id === e.id)));
 check('todo ítem declara competencia', all.every((i) => (i.skillIds || []).length));
 
+// pliega los homoglifos latinos, pero conserva la puntuación: «Что это?» y
+// «Что это.» son formas distintas y perfectamente visibles
+const fold = (t) => t.normalize('NFD').replace(/[\u0300\u0301]/g, '').normalize('NFC').toLowerCase()
+  .replace(/[aeopcyxkmtbh]/g, (c) => ({ a: 'а', e: 'е', o: 'о', p: 'р', c: 'с', y: 'у', x: 'х', k: 'к', m: 'м', t: 'т', b: 'в', h: 'н' }[c]))
+  .replace(/\s+/g, ' ').trim();
+
+const isStressStep = (s) => s.kind === 'choice' && s.options.every((o) => /vocal\)$/.test(o));
+
+check('ninguna elección ofrece dos opciones idénticas en pantalla',
+  all.every((i) => i.steps.every((s) => {
+    if (s.kind !== 'choice') return true;
+    const folded = s.options.map(fold);
+    return new Set(folded).size === folded.length;
+  })));
+
+check('ningún paso escrito exige teclear la marca de acento',
+  all.every((i) => i.steps.every((s) => s.kind !== 'written'
+    || (s.accepted || []).every((a) => !a.includes('\u0301')))));
+
+check('todo paso escrito declara qué se espera',
+  all.every((i) => i.steps.every((s) => s.kind !== 'written' || !!s.expects)));
+
+check('los pasos en ruso piden ruso y los de español, español',
+  all.every((i) => i.steps.every((s) => {
+    if (s.kind !== 'written') return true;
+    const model = (s.accepted || [])[0] || '';
+    return s.language === 'ru' ? /[Ѐ-ӿ]/.test(model) : !/[Ѐ-ӿ]/.test(model);
+  })));
+
+check('las preguntas conceptuales tienen al menos tres opciones',
+  all.every((i) => i.steps.every((s) => s.kind !== 'choice' || isStressStep(s)
+    || s.dimension !== 'comprension_explicita' || s.options.length >= 3)));
+
+const phenomena = new Set(curriculum.skills.map((s) => s.linguisticPhenomenon.toLowerCase()));
+check('los distractores conceptuales salen del propio material',
+  all.flatMap((i) => i.steps)
+    .filter((s) => s.kind === 'choice' && s.dimension === 'comprension_explicita' && !isStressStep(s))
+    .every((s) => s.options.some((o) => phenomena.has(o.toLowerCase())
+      || /^(la |un |después|todos|una)/i.test(o))));
+
 // -------------------------------------------------------------- corrección
 
 const written = { kind: 'written', mode: 'exact', accepted: ['Это чай.'], acceptedNorm: ['это чай'] };

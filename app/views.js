@@ -10,12 +10,23 @@ import { audioButton } from './audio.js';
 
 const CYR = /[Ѐ-ӿ]/;
 const hasCyr = (t) => CYR.test(t || '');
+const pad = (n) => String(n).padStart(3, '0');
 
-function unitProgress(unit, n) {
-  const state = store.unit(n);
-  const done = Object.entries(store.state.items)
-    .filter(([id, v]) => v.ok > 0 && id.includes(`l${String(n).padStart(3, '0')}`)).length;
-  return { state, done };
+/** Pinta en rojo la vocal tónica de una forma marcada editorialmente. */
+function stressed(text) {
+  const out = h('span', {});
+  const chars = [...(text || '')];
+  chars.forEach((ch, i) => {
+    if (ch === '́') return;
+    const isStressed = chars[i + 1] === '́';
+    out.append(isStressed ? h('span', { class: 'stress' }, ch) : ch);
+  });
+  return out;
+}
+
+function skillName(curriculum, id) {
+  const s = curriculum.skills.find((x) => x.skillId === id);
+  return s ? s.linguisticPhenomenon : id;
 }
 
 // ------------------------------------------------------------------- portada
@@ -24,171 +35,327 @@ export async function viewHome(root) {
   const curriculum = await loadCurriculum();
   const total = curriculum.units.length;
   const current = store.highestUnlocked(total);
+  const due = store.dueSkills().length;
+  const touched = Object.keys(store.state.skills).length;
 
   const hero = h('section', { class: 'hero' },
-    h('h1', {}, 'Curso de ruso, unidad a unidad'),
+    h('div', { class: 'hero-beam' }),
+    h('span', { class: 'cyr-ghost', 'aria-hidden': 'true' }, 'Я'),
+    h('p', { class: 'eyebrow' }, 'Ruso para hispanohablantes · A1'),
+    h('h1', {}, 'Once unidades. Ninguna ', h('span', {}, 'aprobada por casualidad'), '.'),
     h('p', { class: 'lede' },
-      'Cada unidad tiene lección, práctica y un examen obligatorio: hay que superarlo para abrir la siguiente. ',
-      'La práctica no repite ítems, sino que reactiva las competencias que los sostienen cuando toca repasarlas.'),
-    h('div', { class: 'row' },
-      h('a', { class: 'btn primary', href: `#/u/${current}` }, `Continuar en la unidad ${String(current).padStart(3, '0')}`),
-      h('a', { class: 'btn ghost', href: '#/repaso' }, `Repaso pendiente (${store.dueSkills().length})`)),
-  );
+      'Cada unidad se abre sólo cuando la anterior está superada. La práctica no repite ejercicios: '
+      + 'reactiva la competencia que hay debajo, en un contexto nuevo y por su dimensión más floja.'),
+    h('div', { class: 'row', style: 'margin-top:1.2rem' },
+      h('a', { class: 'btn primary', href: `#/u/${current}` }, `Continuar · unidad ${pad(current)}`),
+      due ? h('a', { class: 'btn', href: '#/repaso' }, `Repasar ${due} competencia${due === 1 ? '' : 's'}`)
+        : h('a', { class: 'btn ghost', href: '#/repaso' }, 'Sin repaso vencido')));
 
-  const grid = h('div', { class: 'units' });
+  const kpis = h('div', { class: 'kpis' },
+    kpi(pad(current), 'unidad abierta'),
+    kpi(`${touched}/${curriculum.skills.length}`, 'competencias en juego'),
+    kpi(String(due), 'vencidas hoy'),
+    kpi(String(store.state.events.length), 'respuestas registradas'));
+
+  const route = h('div', { class: 'route' });
   for (const u of curriculum.units) {
     const unlocked = store.isUnlocked(u.unit);
-    const { state } = unitProgress(u, u.unit);
-    const badge = state.exam.passed
-      ? h('span', { class: 'pill ok' }, `examen ${pct(state.exam.best)}`)
-      : unlocked ? h('span', { class: 'pill accent' }, 'abierta')
-        : h('span', { class: 'pill' }, 'bloqueada');
+    const state = store.unit(u.unit);
+    const strengths = (u.newSkills || []).map((id) => store.strength(id));
+    const avg = strengths.length ? strengths.reduce((a, b) => a + b, 0) / strengths.length : 0;
 
-    grid.append(h('a', {
-      class: `unit${unlocked ? '' : ' locked'}`,
-      href: unlocked ? `#/u/${u.unit}` : '#/',
-      'aria-disabled': !unlocked,
+    route.append(h('div', {
+      class: `stop${state.exam.passed ? ' passed' : unlocked ? ' open' : ' locked'}`,
     },
-      h('span', { class: 'n' }, `UNIDAD ${String(u.unit).padStart(3, '0')} · ${u.cefr}`),
-      h('h3', {}, u.title),
-      h('p', { class: 'obj' }, u.objective),
-      h('div', { class: 'meta' },
-        badge,
-        h('span', { class: 'pill' }, `${u.practiceCount} ejercicios`),
-        h('span', { class: 'pill' }, `${u.vocabCount} palabras`)),
-    ));
+      h('span', { class: 'disc' }, state.exam.passed ? '✓' : pad(u.unit)),
+      h('a', { class: 'stop-card', href: unlocked ? `#/u/${u.unit}` : '#/' },
+        h('div', { class: 'spread' },
+          h('h3', {}, u.title),
+          h('span', { class: 'pill' }, u.cefr)),
+        h('p', { class: 'obj' }, u.objective),
+        h('div', { class: 'meta' },
+          state.exam.passed ? h('span', { class: 'pill green' }, `examen ${pct(state.exam.best)}`)
+            : unlocked ? h('span', { class: 'pill red' }, 'abierta')
+              : h('span', { class: 'pill' }, 'bloqueada'),
+          h('span', { class: 'pill' }, `${u.practiceCount} ejercicios`),
+          h('span', { class: 'pill' }, `${u.vocabCount} palabras`),
+          avg > 0 ? h('span', { class: 'pill amber' }, `dominio ${pct(avg)}`) : null))));
   }
 
-  clear(root).append(hero, grid,
-    h('p', { class: 'notice small' },
-      'Materiales revisados editorialmente pero pendientes de validación por hablante nativo. ',
-      'El audio procede del banco de locuciones del repositorio; donde no existe grabación, se usa la voz del navegador.'));
+  clear(root).append(hero, kpis,
+    h('p', { class: 'eyebrow' }, 'La ruta'),
+    route,
+    h('p', { class: 'notice small', style: 'margin-top:2rem' },
+      'Materiales con revisión editorial hecha y validación de hablante nativo pendiente. '
+      + 'El audio sale del banco de locuciones del repositorio; donde aún no hay grabación, se usa la voz del navegador.'));
+}
+
+function kpi(value, label) {
+  return h('div', { class: 'kpi' }, h('b', {}, value), h('span', {}, label));
 }
 
 // ------------------------------------------------------------------- unidad
 
-export async function viewUnit(root, n) {
+export async function viewUnit(root, n, tab = 'leccion') {
   const [curriculum, data] = await Promise.all([loadCurriculum(), loadUnit(n)]);
   const unit = data.unit;
   const state = store.unit(n);
-  const unlocked = store.isUnlocked(n);
 
-  if (!unlocked) {
-    clear(root).append(h('div', { class: 'card' },
-      h('h1', {}, `Unidad ${String(n).padStart(3, '0')} bloqueada`),
-      h('p', {}, `Supera el examen de la unidad ${String(n - 1).padStart(3, '0')} con un ${pct(PASS_MARK)} para abrirla.`),
-      h('a', { class: 'btn primary', href: `#/u/${n - 1}/examen` }, 'Ir a ese examen')));
+  if (!store.isUnlocked(n)) {
+    clear(root).append(h('section', { class: 'card stack' },
+      h('p', { class: 'eyebrow' }, `Unidad ${pad(n)}`),
+      h('h1', {}, 'Todavía cerrada'),
+      h('p', { class: 'lede' }, `Se abre al superar el examen de la unidad ${pad(n - 1)} con un ${pct(PASS_MARK)}.`),
+      h('div', { class: 'row' },
+        h('a', { class: 'btn primary', href: `#/u/${n - 1}/examen` }, `Examen de la ${pad(n - 1)}`),
+        h('a', { class: 'btn ghost', href: `#/u/${n - 1}` }, 'Volver a esa unidad'))));
     return;
   }
 
-  const head = h('section', { class: 'stack' },
-    h('p', { class: 'muted small' }, `UNIDAD ${String(n).padStart(3, '0')} · ${unit.cefr}`),
+  const head = h('section', { class: 'unit-head' },
+    h('span', { class: 'n' }, pad(n)),
+    h('p', { class: 'eyebrow' }, `${unit.cefr} · ${unit.practiceCount} ejercicios · ${unit.examCount} de examen`),
     h('h1', {}, unit.title),
-    h('p', { class: 'lede muted' }, unit.objective),
-    h('div', { class: 'row' },
-      h('a', { class: 'btn primary', href: `#/u/${n}/practica` }, 'Practicar'),
+    h('p', { class: 'lede' }, unit.objective),
+    h('div', { class: 'row', style: 'margin-top:.8rem' },
+      h('a', { class: 'btn primary', href: `#/u/${n}/practica` }, 'Practicar ahora'),
       h('a', { class: 'btn', href: `#/u/${n}/examen` },
-        state.exam.passed ? `Repetir examen (${pct(state.exam.best)})` : 'Examen de la unidad'),
-      h('span', { class: 'pill' }, `${unit.practiceCount} ejercicios`),
-      h('span', { class: 'pill' }, `${unit.examCount} ítems de examen`)),
-  );
+        state.exam.passed ? `Repetir examen · mejor ${pct(state.exam.best)}` : 'Presentarse al examen')));
 
-  const lesson = h('section', { class: 'card stack' }, h('h2', {}, 'Lección'));
+  const panel = h('div', {});
+  const tabs = h('div', { class: 'tabs', role: 'tablist' });
+  const TABS = [
+    ['leccion', 'Lección'],
+    ['ejercicios', `Ejercicios (${data.items.filter((i) => i.phase !== 'exam').length})`],
+    ['vocabulario', `Vocabulario (${data.vocabulary.length})`],
+    ['competencias', 'Competencias'],
+  ];
+  for (const [id, label] of TABS) {
+    tabs.append(h('button', {
+      type: 'button', role: 'tab', 'aria-selected': id === tab,
+      onclick: () => { location.hash = `#/u/${n}/${id === 'leccion' ? '' : id}`; },
+    }, label));
+  }
+
+  if (tab === 'ejercicios') panel.append(exerciseIndex(curriculum, data, n));
+  else if (tab === 'vocabulario') panel.append(h('div', { class: 'vocab-list' }, ...data.vocabulary.map(vocabCard)));
+  else if (tab === 'competencias') panel.append(skillTable(curriculum, unit));
+  else panel.append(lessonArticle(unit, n, state));
+
+  clear(root).append(head, tabs, panel);
+}
+
+function lessonArticle(unit, n, state) {
+  const article = h('article', { class: 'lesson' });
   for (const section of unit.sections || []) {
-    const block = h('div', { class: `lesson-section ${section.type}` }, h('h3', {}, section.heading));
+    const block = h('section', { class: `lesson-section ${section.type}` }, h('h3', {}, section.heading));
     if (section.body) block.append(h('p', {}, section.body));
     for (const ex of section.examples || []) {
       block.append(h('div', { class: 'model' },
         h('span', { class: 'task' }, ex.task),
-        h('div', { class: 'row' },
-          h('span', { class: 'ru ru-big' }, ex.model),
-          audioButton(ex.model))));
+        h('span', { class: 'ru-lg' }, stressed(ex.model)),
+        audioButton(ex.model, '▶ oír')));
     }
     for (const it of section.items || []) {
       block.append(h('div', { class: 'wrongright' },
-        h('span', { class: 'ru w' }, it.wrong),
-        h('span', { class: 'ru r' }, it.right)));
+        h('span', { class: 'w' }, stressed(it.wrong)),
+        h('span', { class: 'r' }, stressed(it.right))));
     }
-    lesson.append(block);
+    article.append(block);
   }
-  lesson.append(h('button', {
-    class: 'primary', type: 'button',
-    onclick: (e) => { store.markLessonRead(n); e.target.textContent = 'Lección marcada como leída'; e.target.disabled = true; },
-  }, state.lesson ? 'Lección marcada como leída' : 'He leído la lección'));
+  article.append(h('div', { class: 'row' },
+    h('button', {
+      class: state.lesson ? 'ghost' : 'primary', type: 'button',
+      onclick: (e) => {
+        store.markLessonRead(n);
+        e.target.textContent = 'Lección leída ✓';
+        e.target.className = 'ghost';
+      },
+    }, state.lesson ? 'Lección leída ✓' : 'Marcar la lección como leída'),
+    h('a', { class: 'btn', href: `#/u/${n}/ejercicios` }, 'Ver los ejercicios')));
+  return article;
+}
 
-  const skills = h('section', { class: 'card' },
-    h('h2', {}, 'Competencias que se introducen'),
+function exerciseIndex(curriculum, data, n) {
+  const items = data.items.filter((i) => i.phase !== 'exam');
+  const types = [...new Set(items.map((i) => i.typeLabel))].sort();
+  const wrap = h('div', { class: 'stack' });
+  let activeType = '';
+  let activeState = '';
+
+  const filters = h('div', { class: 'ex-filters' });
+  const body = h('tbody', {});
+
+  const chip = (label, value, kind) => h('button', {
+    class: 'chip', type: 'button', 'aria-pressed': false,
+    onclick: (e) => {
+      const group = [...filters.querySelectorAll(`[data-kind="${kind}"]`)];
+      const on = e.currentTarget.getAttribute('aria-pressed') === 'true';
+      group.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      e.currentTarget.setAttribute('aria-pressed', String(!on));
+      if (kind === 'type') activeType = on ? '' : value;
+      else activeState = on ? '' : value;
+      paint();
+    },
+    dataset: { kind },
+  }, label);
+
+  filters.append(chip('Sin hacer', 'nuevo', 'state'), chip('Fallados', 'fallo', 'state'),
+    chip('Acertados', 'ok', 'state'));
+  for (const t of types) filters.append(chip(t, t, 'type'));
+
+  function statusOf(item) {
+    const seen = store.state.items[item.id];
+    if (!seen) return 'nuevo';
+    return seen.ok > 0 ? 'ok' : 'fallo';
+  }
+
+  function paint() {
+    clear(body).append(...items
+      .filter((i) => !activeType || i.typeLabel === activeType)
+      .filter((i) => !activeState || statusOf(i) === activeState)
+      .map((item) => {
+        const st = statusOf(item);
+        return h('tr', { class: 'ex-row' },
+          h('td', {},
+            h('div', {}, item.prompt.length > 120 ? `${item.prompt.slice(0, 120)}…` : item.prompt),
+            h('div', { class: 'sc' }, skillName(curriculum, item.skillId))),
+          h('td', {}, h('span', { class: 'pill' }, item.typeLabel)),
+          h('td', {}, h('span', {
+            class: `dot ${st === 'ok' ? 'ok' : st === 'fallo' ? 'bad' : ''}`,
+            title: st === 'ok' ? 'acertado' : st === 'fallo' ? 'fallado' : 'sin hacer',
+          })),
+          h('td', {}, h('a', { class: 'btn icon-btn', href: `#/u/${n}/ej/${item.id}` }, 'Hacer →')));
+      }));
+    if (!body.children.length) {
+      body.append(h('tr', {}, h('td', { colspan: '4', class: 'muted' }, 'Nada que mostrar con este filtro.')));
+    }
+  }
+
+  wrap.append(
+    h('p', { class: 'muted small' },
+      'Todos los ejercicios de la unidad, uno a uno. Los de examen no aparecen aquí: sólo se ven en el examen.'),
+    filters,
     h('table', {},
-      h('thead', {}, h('tr', {}, h('th', {}, 'Competencia'), h('th', {}, 'Estado'), h('th', {}, 'Próximo repaso'))),
-      h('tbody', {}, ...(unit.newSkills || []).map((id) => {
-        const meta = curriculum.skills.find((s) => s.skillId === id);
-        const st = store.state.skills[id];
-        return h('tr', {},
-          h('td', {}, meta ? meta.linguisticPhenomenon : id),
-          h('td', {}, st ? pct(store.strength(id)) : 'sin practicar'),
-          h('td', {}, st && st.seen ? relTime(st.due) : '—'));
-      }))));
+      h('thead', {}, h('tr', {}, h('th', {}, 'Ejercicio'), h('th', {}, 'Tipo'), h('th', {}, 'Estado'), h('th', {}, ''))),
+      body));
+  paint();
+  return wrap;
+}
 
-  const vocab = h('section', { class: 'card' },
-    h('h2', {}, `Vocabulario de la unidad (${data.vocabulary.length})`),
-    h('div', { class: 'vocab-list' }, ...data.vocabulary.map(vocabCard)));
+function skillTable(curriculum, unit) {
+  return h('div', { class: 'skillcards' }, ...(unit.newSkills || []).map((id) => {
+    const st = store.state.skills[id];
+    return h('div', { class: 'skillcard' },
+      radar(st),
+      h('div', {},
+        h('h4', {}, skillName(curriculum, id)),
+        h('div', { class: 'muted small' }, id),
+        h('div', { class: 'row', style: 'margin-top:.5rem' },
+          h('span', { class: 'pill' }, st ? `dominio ${pct(store.strength(id))}` : 'sin practicar'),
+          st && st.seen ? h('span', { class: 'pill amber' }, `repaso ${relTime(st.due)}`) : null)));
+  }));
+}
 
-  clear(root).append(head, lesson, skills, vocab);
+/** Radar de las seis dimensiones de una competencia. */
+function radar(skill) {
+  const size = 120;
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = size / 2 - 12;
+  const dims = DIMENSIONS.map(([id]) => (skill && skill.dims[id] ? skill.dims[id].s : 0));
+  const point = (i, value) => {
+    const angle = (Math.PI * 2 * i) / dims.length - Math.PI / 2;
+    return [cx + Math.cos(angle) * r * value, cy + Math.sin(angle) * r * value];
+  };
+  const poly = (values) => values.map((v, i) => point(i, v).join(',')).join(' ');
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+  svg.setAttribute('class', 'radar');
+  svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label', DIMENSIONS.map(([, l], i) => `${l}: ${pct(dims[i])}`).join('; '));
+  for (const ring of [0.33, 0.66, 1]) {
+    const g = document.createElementNS(ns, 'polygon');
+    g.setAttribute('class', 'grid');
+    g.setAttribute('points', poly(dims.map(() => ring)));
+    svg.append(g);
+  }
+  const value = document.createElementNS(ns, 'polygon');
+  value.setAttribute('class', 'value');
+  value.setAttribute('points', poly(dims.map((d) => Math.max(d, 0.02))));
+  svg.append(value);
+  return svg;
 }
 
 function vocabCard(v) {
   return h('div', { class: 'vocab' },
-    h('div', {},
-      h('div', { class: 'l' }, v.stressed || v.lemma),
-      v.exampleRu ? h('div', { class: 'small muted ru' }, v.exampleRu) : null),
-    h('div', {},
-      h('div', { class: 't' }, v.translation),
-      audioButton(v.lemma, '▶')));
+    h('div', { class: 'l' }, stressed(v.stressed || v.lemma)),
+    h('div', { class: 't' }, v.translation),
+    v.exampleRu ? h('div', { class: 'ex' }, v.exampleRu) : null,
+    h('div', { class: 'foot' },
+      h('span', { class: 'pill' }, v.pos || '—'),
+      audioButton(v.lemma, '▶ oír')));
 }
 
 // ------------------------------------------------------------------ sesiones
 
-export async function viewPractice(root, n) {
+async function poolFor(n) {
   const curriculum = await loadCurriculum();
   const unlocked = curriculum.units.filter((u) => store.isUnlocked(u.unit)).map((u) => u.unit);
   const datasets = await Promise.all(unlocked.map(loadUnit));
-  const pool = datasets.flatMap((d) => d.items);
-  const unitItems = (datasets.find((d) => d.unit.unit === n) || { items: [] }).items;
+  return { curriculum, datasets, pool: datasets.flatMap((d) => d.items) };
+}
 
-  const items = buildPracticeSession(unitItems, pool.filter((i) => i.unit !== n));
-  if (!items.length) {
-    clear(root).append(h('div', { class: 'card' }, h('p', {}, 'No hay ejercicios disponibles en esta unidad.')));
+export async function viewPractice(root, n) {
+  const { datasets, pool } = await poolFor(n);
+  const dataset = datasets.find((d) => d.unit.unit === n);
+  if (!dataset) {
+    clear(root).append(h('div', { class: 'card' },
+      h('h2', {}, 'Unidad bloqueada'),
+      h('p', { class: 'muted' }, 'Supera el examen de la unidad anterior para practicar ésta.'),
+      h('a', { class: 'btn primary', href: '#/' }, 'Volver a la ruta')));
+    return;
+  }
+  const items = buildPracticeSession(dataset.items, pool.filter((i) => i.unit !== n));
+  runSession(root, { items, mode: 'practica', title: `Práctica · unidad ${pad(n)}`, backHref: `#/u/${n}` });
+}
+
+/** Un único ejercicio, lanzado desde el índice de la unidad. */
+export async function viewSingle(root, n, id) {
+  const data = await loadUnit(n);
+  const item = data.items.find((i) => i.id === id);
+  if (!item) {
+    clear(root).append(h('div', { class: 'card' }, h('p', {}, 'Ese ejercicio no existe.'),
+      h('a', { class: 'btn primary', href: `#/u/${n}/ejercicios` }, 'Volver al índice')));
     return;
   }
   runSession(root, {
-    items, mode: 'practica',
-    title: `Práctica · unidad ${String(n).padStart(3, '0')}`,
-    backHref: `#/u/${n}`,
+    items: [item], mode: 'practica',
+    title: `${item.typeLabel} · unidad ${pad(n)}`,
+    backHref: `#/u/${n}/ejercicios`,
   });
 }
 
 export async function viewReview(root) {
-  const curriculum = await loadCurriculum();
-  const unlocked = curriculum.units.filter((u) => store.isUnlocked(u.unit)).map((u) => u.unit);
-  const datasets = await Promise.all(unlocked.map(loadUnit));
-  const pool = datasets.flatMap((d) => d.items);
+  const { pool } = await poolFor(1);
   const items = buildReviewSession(pool);
-
   if (!items.length) {
     const next = Object.entries(store.state.skills)
       .filter(([, s]) => s.seen > 0)
       .sort((a, b) => a[1].due - b[1].due)[0];
-    clear(root).append(h('div', { class: 'card stack' },
-      h('h1', {}, 'Nada vencido por ahora'),
-      h('p', { class: 'muted' }, next
-        ? `La próxima competencia vence ${relTime(next[1].due)}. El repaso se programa sobre competencias, no sobre ejercicios sueltos.`
-        : 'Practica alguna unidad para que empiece a programarse el repaso.'),
-      h('a', { class: 'btn primary', href: '#/' }, 'Volver al curso')));
+    clear(root).append(h('section', { class: 'card stack' },
+      h('p', { class: 'eyebrow' }, 'Repaso'),
+      h('h1', {}, 'Nada vencido'),
+      h('p', { class: 'lede' }, next
+        ? `La próxima competencia vence ${relTime(next[1].due)}. Adelantar el repaso no lo hace más sólido.`
+        : 'Practica una unidad para que el sistema empiece a programar repasos.'),
+      h('a', { class: 'btn primary', href: '#/' }, 'Volver a la ruta')));
     return;
   }
   runSession(root, {
     items, mode: 'repaso',
-    title: `Repaso · ${items.length} competencias vencidas`,
+    title: `Repaso · ${items.length} competencia${items.length === 1 ? '' : 's'}`,
     backHref: '#/',
   });
 }
@@ -200,11 +367,7 @@ export async function viewExam(root, n) {
     clear(root).append(h('div', { class: 'card' }, h('p', {}, 'Esta unidad todavía no tiene examen.')));
     return;
   }
-  runSession(root, {
-    items, mode: 'examen', unit: n,
-    title: `Examen · unidad ${String(n).padStart(3, '0')}`,
-    backHref: `#/u/${n}`,
-  });
+  runSession(root, { items, mode: 'examen', unit: n, title: `Examen · unidad ${pad(n)}`, backHref: `#/u/${n}` });
 }
 
 // -------------------------------------------------------------- motor de sesión
@@ -218,30 +381,37 @@ function runSession(root, config) {
   let itemResults = [];
   const sessionResults = [];
   const examAnswers = [];
+  const marks = items.map(() => '');
 
-  const bar = h('i', { style: 'width:0%' });
-  const counter = h('span', { class: 'muted small' });
+  document.body.classList.add('focus-mode');
+
+  const segments = h('div', { class: 'segments' }, ...items.map(() => h('i', {})));
+  const counter = h('span', { class: 'pill' });
+  const top = h('div', { class: 'session-top' },
+    h('a', { class: 'btn ghost', href: backHref }, '← salir'), segments, counter);
   const stage = h('div', {});
-  const head = h('div', { class: 'session-head' },
-    h('a', { class: 'btn ghost', href: backHref }, '← salir'),
-    h('div', { class: 'bar accent' }, bar), counter);
 
-  clear(root).append(...[
-    h('h1', {}, title),
-    isExam ? h('p', { class: 'notice small' },
-      `Examen: no hay corrección hasta el final. Se aprueba con un ${pct(PASS_MARK)} de los pasos correctos.`) : null,
-    head, stage,
-  ].filter(Boolean));
+  clear(root).append(h('section', { class: 'session' },
+    ...[h('p', { class: 'eyebrow' }, title),
+      isExam ? h('p', { class: 'notice small' },
+        `Sin corrección hasta el final. Se aprueba con ${pct(PASS_MARK)} de pasos correctos. `
+        + 'No se exigen mayúsculas, punto final ni marcas de acento.') : null,
+      top, stage].filter(Boolean)));
 
   render();
 
-  function render() {
-    const item = items[index];
+  function paintSegments() {
+    [...segments.children].forEach((el, i) => {
+      el.className = i === index ? 'now' : marks[i];
+    });
     counter.textContent = `${index + 1} / ${items.length}`;
-    bar.style.width = `${(index / items.length) * 100}%`;
-    clear(stage).append(renderItem(item));
-    const field = stage.querySelector('.answer-field, .option');
-    if (field) field.focus();
+  }
+
+  function render() {
+    paintSegments();
+    clear(stage).append(renderItem(items[index]));
+    const first = stage.querySelector('.answer-field, .option');
+    if (first) first.focus({ preventScroll: true });
   }
 
   function renderItem(item) {
@@ -249,18 +419,19 @@ function runSession(root, config) {
     const box = h('div', { class: 'item' });
 
     box.append(h('div', { class: 'kicker' },
-      h('span', { class: 'pill accent' }, item.typeLabel),
-      h('span', { class: 'pill' }, `u${String(item.unit).padStart(3, '0')}`),
-      item.reason ? h('span', { class: 'pill warn' }, 'repaso programado') : null,
-      item.steps.length > 1 ? h('span', { class: 'pill' }, `paso ${stepIndex + 1} de ${item.steps.length}`) : null));
+      h('span', { class: 'pill solid' }, item.typeLabel),
+      h('span', { class: 'pill' }, `u${pad(item.unit)}`),
+      item.reason ? h('span', { class: 'pill amber' }, 'repaso programado') : null,
+      item.steps.length > 1 ? h('span', { class: 'pill' }, `paso ${stepIndex + 1}/${item.steps.length}`) : null));
 
     box.append(h('p', { class: 'prompt' }, item.prompt));
     if (item.input) {
-      const given = h('div', { class: 'given' }, item.input);
-      if (hasCyr(item.input)) given.append(h('div', { class: 'row' }, audioButton(item.input)));
-      box.append(given);
+      box.append(h('div', { class: 'given' },
+        item.input,
+        hasCyr(item.input) ? h('div', { class: 'row' }, audioButton(item.input, '▶ oír')) : null));
     }
     if (step.prompt) box.append(h('p', { class: 'steplabel' }, step.prompt));
+    if (step.expects) box.append(h('p', { class: 'expects' }, step.expects));
 
     box.append(step.kind === 'choice' ? renderChoice(item, step) : renderWritten(item, step));
     return box;
@@ -270,16 +441,16 @@ function runSession(root, config) {
     const wrap = h('div', { class: 'options' });
     const options = shuffle(step.options, hashString(step.id));
     options.forEach((option, i) => {
-      const btn = h('button', {
+      wrap.append(h('button', {
         class: 'option', type: 'button', dataset: { option },
         onclick: () => choose(item, step, option, wrap),
-      }, h('span', { class: 'key' }, String(i + 1)),
-         h('span', { class: hasCyr(option) ? 'ru' : '' }, option));
-      wrap.append(btn);
+      },
+        h('span', { class: 'key' }, String(i + 1)),
+        h('span', { class: `txt${hasCyr(option) ? ' ru' : ''}` }, hasCyr(option) ? stressed(option) : option)));
     });
     wrap.addEventListener('keydown', (e) => {
-      const n = Number(e.key);
-      if (n >= 1 && n <= options.length) wrap.children[n - 1].click();
+      const k = Number(e.key);
+      if (k >= 1 && k <= options.length) wrap.children[k - 1].click();
     });
     return wrap;
   }
@@ -300,7 +471,7 @@ function runSession(root, config) {
     });
     if (isExam) {
       examAnswers.push({ item, step, value: option, result });
-      wrap.after(nextButton(item, step, result));
+      wrap.after(nextButton(item, step));
       return;
     }
     finishStep(item, step, result, wrap, { assisted: false });
@@ -310,26 +481,26 @@ function runSession(root, config) {
     const isRu = step.language !== 'es';
     const field = h('textarea', {
       class: `answer-field${isRu ? '' : ' es'}`, rows: isRu ? 2 : 3, spellcheck: 'false',
-      placeholder: isRu ? 'Escribe en ruso (puedes teclear en latín: privet → привет)' : 'Escribe en español',
+      placeholder: isRu ? 'Escribe en ruso — puedes teclear en latín: privet → привет' : 'Escribe en español',
       'aria-label': 'Tu respuesta',
     });
-    const wrap = h('div', { class: 'stack' }, field);
-
+    const wrap = h('div', {}, field);
+    const send = h('button', { class: 'primary', type: 'button', onclick: () => check() }, 'Comprobar');
+    const tools = h('div', { class: 'field-tools' },
+      send,
+      h('span', { class: 'muted small' }, isRu ? 'Enter comprueba · Mayús+Enter salta de línea' : 'Ctrl + Enter comprueba'));
+    wrap.append(tools);
     if (isRu) {
       field.addEventListener('blur', () => {
         if (field.value && !hasCyr(field.value)) field.value = transliterate(field.value);
       });
       wrap.append(cyrillicKeyboard(field));
     }
-    const send = h('button', { class: 'primary', type: 'button', onclick: () => check() }, 'Comprobar');
-    wrap.append(h('div', { class: 'row' }, send,
-      h('span', { class: 'muted small' }, 'Ctrl + Enter para enviar')));
 
     field.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey || step.language !== 'es')) {
-        e.preventDefault();
-        check();
-      }
+      if (e.key !== 'Enter') return;
+      if (e.shiftKey) return;
+      if (isRu || e.ctrlKey || e.metaKey) { e.preventDefault(); check(); }
     });
 
     function check() {
@@ -340,17 +511,15 @@ function runSession(root, config) {
 
       if (isExam) {
         wrap.dataset.done = '1';
-        field.disabled = true;
-        send.disabled = true;
+        field.disabled = true; send.disabled = true;
         examAnswers.push({ item, step, value, result });
-        wrap.append(nextButton(item, step, result));
+        wrap.append(nextButton(item, step));
         return;
       }
-
       if (result.status !== 'correcto' && attempts === 0) {
         attempts = 1;
         field.classList.add('wrong');
-        wrap.append(h('div', { class: 'verdict bad' },
+        tools.after(h('div', { class: 'verdict bad' },
           h('h4', {}, result.status === 'errata' ? 'Casi' : 'Todavía no'),
           h('p', { class: 'small' }, result.detail || 'Revisa la forma y vuelve a intentarlo.'),
           hint(step)));
@@ -358,8 +527,7 @@ function runSession(root, config) {
         return;
       }
       wrap.dataset.done = '1';
-      field.disabled = true;
-      send.disabled = true;
+      field.disabled = true; send.disabled = true;
       field.classList.add(result.status === 'correcto' ? 'correct' : 'wrong');
       finishStep(item, step, result, wrap, { assisted: attempts > 0 });
     }
@@ -367,13 +535,15 @@ function runSession(root, config) {
   }
 
   function hint(step) {
-    const model = (step.accepted && step.accepted[0]) || '';
     if (step.mode === 'tokens') {
-      return h('p', { class: 'small muted' }, `Pista: la respuesta debe mencionar ${(step.requiredTokens || []).length} datos.`);
+      return h('p', { class: 'small muted' },
+        `Pista: la respuesta tiene que mencionar ${(step.requiredTokens || []).length} datos.`);
     }
     if (step.mode === 'fragments') {
-      return h('p', { class: 'small muted' }, `Pista: hacen falta ${(step.requiredFragments || []).length} frases.`);
+      return h('p', { class: 'small muted' },
+        `Pista: hacen falta ${(step.requiredFragments || []).length} frases.`);
     }
+    const model = (step.accepted && step.accepted[0]) || '';
     const skeleton = model.split(/\s+/).map((w) => `${w[0]}${'·'.repeat(Math.max(w.length - 1, 0))}`).join(' ');
     return h('p', { class: 'small muted' }, 'Pista: ', h('span', { class: 'ru' }, skeleton));
   }
@@ -386,42 +556,51 @@ function runSession(root, config) {
 
     if (!ok) {
       const model = step.kind === 'choice' ? step.answer : (step.accepted || [])[0];
-      if (model) verdict.append(h('p', {}, 'Respuesta esperada: ',
-        h('span', { class: hasCyr(model) ? 'ref ru' : 'ref' }, model)));
+      if (model) {
+        verdict.append(h('p', {}, 'Respuesta esperada: ',
+          h('span', { class: hasCyr(model) ? 'ref' : '' }, hasCyr(model) ? stressed(model) : model)));
+      }
       if (result.detail) verdict.append(h('p', { class: 'small muted' }, result.detail));
     }
-    const isLastStep = stepIndex >= item.steps.length - 1;
-    if (isLastStep && item.notes && item.notes.length) {
-      verdict.append(h('p', { class: 'small muted' }, 'Lo que decide esta tarea:'),
-        h('ul', { class: 'small muted' }, ...item.notes.map((note) => h('li', {}, note))));
-    }
-    if (isLastStep && item.reference && hasCyr(item.reference)) {
-      verdict.append(h('div', { class: 'row' },
-        h('span', { class: 'ru' }, item.reference), audioButton(item.reference)));
-    }
-    wrap.append(verdict, nextButton(item, step, result));
-  }
 
-  function nextButton(item, step) {
     const isLastStep = stepIndex >= item.steps.length - 1;
-    const isLastItem = index >= items.length - 1;
-    const label = !isLastStep ? 'Siguiente paso' : isLastItem ? 'Terminar' : 'Siguiente ejercicio';
-    const btn = h('button', { class: 'primary', type: 'button', onclick: advance }, label);
-    setTimeout(() => btn.focus(), 30);
-    document.addEventListener('keydown', onEnter);
-    function onEnter(e) {
-      if (e.key === 'Enter' && document.activeElement === btn) return;
-      if (e.key === 'Enter' && !e.shiftKey && !['TEXTAREA', 'INPUT'].includes(document.activeElement.tagName)) {
-        e.preventDefault();
-        advance();
+    if (isLastStep) {
+      if (item.notes && item.notes.length) {
+        verdict.append(h('p', { class: 'small muted', style: 'margin-top:.6rem' }, 'Lo que decide esta tarea:'),
+          h('ul', { class: 'small muted' }, ...item.notes.map((note) => h('li', {}, note))));
+      }
+      if (item.reference && hasCyr(item.reference)) {
+        verdict.append(h('div', { class: 'row' },
+          h('span', { class: 'ref' }, stressed(item.reference)), audioButton(item.reference, '▶ oír')));
       }
     }
+    wrap.append(verdict, nextButton(item, step));
+  }
+
+  function nextButton(item) {
+    const isLastStep = stepIndex >= item.steps.length - 1;
+    const isLastItem = index >= items.length - 1;
+    const label = !isLastStep ? 'Siguiente paso →' : isLastItem ? 'Terminar' : 'Siguiente ejercicio →';
+    const btn = h('button', { class: 'primary', type: 'button', onclick: advance }, label);
+    setTimeout(() => btn.focus({ preventScroll: true }), 40);
+    document.addEventListener('keydown', onKey);
+
+    function onKey(e) {
+      if (e.key !== 'Enter') return;
+      const tag = document.activeElement && document.activeElement.tagName;
+      if (tag === 'TEXTAREA' || tag === 'INPUT') return;
+      e.preventDefault();
+      advance();
+    }
     function advance() {
-      document.removeEventListener('keydown', onEnter);
+      document.removeEventListener('keydown', onKey);
       if (!isLastStep) { stepIndex += 1; attempts = 0; render(); return; }
       if (!isExam) {
         store.recordItem(item, itemResults);
         sessionResults.push({ item, results: itemResults });
+        marks[index] = itemResults.every((r) => r.status === 'correcto') ? 'done' : 'miss';
+      } else {
+        marks[index] = 'done';
       }
       itemResults = [];
       attempts = 0;
@@ -434,7 +613,8 @@ function runSession(root, config) {
   }
 
   function finishSession() {
-    bar.style.width = '100%';
+    paintSegments();
+    document.body.classList.remove('focus-mode');
     if (isExam) return finishExam();
 
     const total = sessionResults.reduce((acc, r) => acc + r.results.length, 0);
@@ -449,9 +629,11 @@ function runSession(root, config) {
       }
     }
     clear(stage).append(h('div', { class: 'card stack' },
-      h('h2', {}, 'Sesión terminada'),
-      h('p', {}, `${ok} de ${total} pasos correctos (${pct(total ? ok / total : 0)}).`),
-      h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Competencia'), h('th', { class: 'num' }, 'Acierto'), h('th', {}, 'Próximo repaso'))),
+      h('p', { class: 'eyebrow' }, 'Sesión terminada'),
+      h('h2', {}, `${ok} de ${total} pasos correctos`),
+      h('div', { class: 'bar' }, h('i', { style: `width:${total ? (ok / total) * 100 : 0}%` })),
+      h('table', {},
+        h('thead', {}, h('tr', {}, h('th', {}, 'Competencia'), h('th', { class: 'num' }, 'Acierto'), h('th', {}, 'Vuelve'))),
         h('tbody', {}, ...[...skills.entries()].map(([id, v]) => h('tr', {},
           h('td', {}, id),
           h('td', { class: 'num' }, pct(v.ok / v.n)),
@@ -466,7 +648,6 @@ function runSession(root, config) {
     const ok = examAnswers.filter((a) => a.result.status === 'correcto').length;
     const score = total ? ok / total : 0;
 
-    // el examen sí alimenta el modelo, con el peso alto que le da el esquema
     const byItem = new Map();
     for (const a of examAnswers) {
       const list = byItem.get(a.item) || [];
@@ -476,25 +657,27 @@ function runSession(root, config) {
     for (const [item, results] of byItem) store.recordItem(item, results);
     const examState = store.recordExam(unit, score, { ok, total });
 
-    const detail = h('table', {},
-      h('thead', {}, h('tr', {}, h('th', {}, 'Ítem'), h('th', {}, 'Tu respuesta'), h('th', {}, 'Esperado'), h('th', {}, ''))),
-      h('tbody', {}, ...examAnswers.map((a) => h('tr', {},
-        h('td', { class: 'small' }, a.item.prompt.slice(0, 90)),
-        h('td', { class: hasCyr(a.value) ? 'ru small' : 'small' }, a.value),
-        h('td', { class: 'ru small' }, a.step.kind === 'choice' ? a.step.answer : (a.step.accepted || [])[0] || '—'),
-        h('td', {}, a.result.status === 'correcto' ? '✓' : '✗')))));
-
     clear(stage).append(h('div', { class: 'card stack' },
-      h('h2', {}, examState.passed ? 'Examen superado' : 'Examen no superado'),
-      h('p', {}, `${ok} de ${total} correctos · ${pct(score)} (mínimo ${pct(PASS_MARK)}).`),
-      h('p', { class: 'muted small' }, examState.passed
-        ? `La unidad ${String(unit + 1).padStart(3, '0')} queda desbloqueada.`
-        : 'Repasa la unidad y vuelve a intentarlo: los fallos ya están en la cola de repaso.'),
+      h('p', { class: 'eyebrow' }, examState.passed ? 'Examen superado' : 'Examen no superado'),
+      h('h2', {}, `${pct(score)} · ${ok} de ${total}`),
+      h('div', { class: 'bar red' }, h('i', { style: `width:${score * 100}%` })),
+      h('p', { class: 'muted' }, examState.passed
+        ? `Queda abierta la unidad ${pad(unit + 1)}.`
+        : `Hace falta un ${pct(PASS_MARK)}. Lo fallado ya está en la cola de repaso.`),
       h('div', { class: 'row' },
-        h('a', { class: 'btn primary', href: examState.passed ? `#/u/${unit + 1}` : `#/u/${unit}/practica` },
-          examState.passed ? 'Ir a la siguiente unidad' : 'Practicar lo fallado'),
+        h('a', {
+          class: 'btn primary',
+          href: examState.passed ? `#/u/${unit + 1}` : `#/u/${unit}/practica`,
+        }, examState.passed ? 'Siguiente unidad →' : 'Practicar lo fallado'),
         h('a', { class: 'btn ghost', href: `#/u/${unit}` }, 'Volver a la unidad')),
-      h('h3', {}, 'Detalle'), detail));
+      h('h3', { style: 'margin-top:1rem' }, 'Detalle'),
+      h('table', {},
+        h('thead', {}, h('tr', {}, h('th', {}, 'Tarea'), h('th', {}, 'Tu respuesta'), h('th', {}, 'Esperado'), h('th', {}, ''))),
+        h('tbody', {}, ...examAnswers.map((a) => h('tr', {},
+          h('td', { class: 'small' }, a.item.prompt.length > 80 ? `${a.item.prompt.slice(0, 80)}…` : a.item.prompt),
+          h('td', { class: hasCyr(a.value) ? 'ru small' : 'small' }, a.value),
+          h('td', { class: 'ru small' }, a.step.kind === 'choice' ? a.step.answer : (a.step.accepted || [])[0] || '—'),
+          h('td', {}, a.result.status === 'correcto' ? '✓' : '✗')))))));
   }
 }
 
@@ -512,31 +695,43 @@ function hashString(text) {
 export async function viewVocabulary(root) {
   const curriculum = await loadCurriculum();
   const datasets = await Promise.all(curriculum.units.map((u) => loadUnit(u.unit)));
-  const all = datasets.flatMap((d) => d.vocabulary.map((v) => ({ ...v })));
+  const all = datasets.flatMap((d) => d.vocabulary);
 
   const list = h('div', { class: 'vocab-list' });
   const search = h('input', {
-    class: 'answer-field es', placeholder: 'Buscar en ruso o en español…', type: 'search',
-    oninput: () => paint(search.value),
+    class: 'search', type: 'search', placeholder: 'Buscar en ruso o en español…',
+    oninput: () => paint(),
   });
-  const filter = h('select', { class: 'answer-field es', onchange: () => paint(search.value) },
-    h('option', { value: '' }, 'Todas las unidades'),
-    ...curriculum.units.map((u) => h('option', { value: String(u.unit) }, `Unidad ${String(u.unit).padStart(3, '0')}`)));
+  const chips = h('div', { class: 'ex-filters' });
+  let unitFilter = '';
+  chips.append(h('button', {
+    class: 'chip', type: 'button', 'aria-pressed': true,
+    onclick: (e) => { unitFilter = ''; mark(e.currentTarget); paint(); },
+  }, 'Todas'));
+  for (const u of curriculum.units) {
+    chips.append(h('button', {
+      class: 'chip', type: 'button', 'aria-pressed': false,
+      onclick: (e) => { unitFilter = String(u.unit); mark(e.currentTarget); paint(); },
+    }, pad(u.unit)));
+  }
+  function mark(active) {
+    [...chips.children].forEach((c) => c.setAttribute('aria-pressed', String(c === active)));
+  }
 
-  function paint(query = '') {
-    const q = query.trim().toLowerCase();
-    const unit = filter.value;
+  function paint() {
+    const q = search.value.trim().toLowerCase();
     clear(list).append(...all
-      .filter((v) => (!unit || String(v.unit) === unit))
+      .filter((v) => !unitFilter || String(v.unit) === unitFilter)
       .filter((v) => !q || `${v.lemma} ${v.translation}`.toLowerCase().includes(q))
       .map(vocabCard));
   }
 
   clear(root).append(
-    h('h1', {}, 'Vocabulario'),
-    h('p', { class: 'muted' }, `${all.length} entradas de las unidades 001–011, con ejemplo y locución cuando existe grabación.`),
-    h('div', { class: 'row' }, search, filter),
-    h('div', { class: 'card flat' }, list));
+    h('p', { class: 'eyebrow' }, 'Léxico'),
+    h('h1', {}, 'Vocabulario del curso'),
+    h('p', { class: 'lede' }, `${all.length} entradas de las once unidades, con la vocal tónica marcada en rojo.`),
+    h('div', { class: 'row', style: 'margin:1rem 0' }, search),
+    chips, list);
   paint();
 }
 
@@ -545,64 +740,56 @@ export async function viewVocabulary(root) {
 export async function viewProgress(root) {
   const curriculum = await loadCurriculum();
   const total = curriculum.units.length;
-  const skills = curriculum.skills;
-  const practised = skills.filter((s) => store.state.skills[s.skillId]);
   const due = store.dueSkills();
-  const events = store.state.events;
+  const practised = curriculum.skills.filter((s) => store.state.skills[s.skillId]);
 
-  const stats = h('div', { class: 'grid2' },
-    stat(String(store.highestUnlocked(total)), 'unidad más avanzada'),
-    stat(String(practised.length), `competencias tocadas de ${skills.length}`),
-    stat(String(due.length), 'competencias vencidas'),
-    stat(String(events.length), 'respuestas registradas'));
-
-  const unitRows = curriculum.units.map((u) => {
+  const heat = h('div', { class: 'heat' }, ...curriculum.units.map((u) => {
     const st = store.unit(u.unit);
-    return h('tr', {},
-      h('td', {}, `${String(u.unit).padStart(3, '0')} · ${u.title}`),
-      h('td', {}, st.lesson ? 'leída' : '—'),
-      h('td', { class: 'num' }, st.exam.attempts ? pct(st.exam.best) : '—'),
-      h('td', {}, st.exam.passed ? h('span', { class: 'pill ok' }, 'superado')
-        : store.isUnlocked(u.unit) ? h('span', { class: 'pill accent' }, 'abierta')
-          : h('span', { class: 'pill' }, 'bloqueada')));
-  });
+    const bg = st.exam.passed ? 'var(--green)' : store.isUnlocked(u.unit) ? 'var(--red)' : 'var(--paper-3)';
+    return h('i', {
+      style: `background:${bg};color:${st.exam.passed || store.isUnlocked(u.unit) ? '#fff' : 'inherit'}`,
+      title: `Unidad ${pad(u.unit)} · ${st.exam.passed ? `superada ${pct(st.exam.best)}` : store.isUnlocked(u.unit) ? 'abierta' : 'bloqueada'}`,
+    }, pad(u.unit).slice(1));
+  }));
 
-  const skillRows = skills
-    .filter((s) => store.state.skills[s.skillId])
+  const cards = practised
     .sort((a, b) => store.strength(a.skillId) - store.strength(b.skillId))
     .map((s) => {
       const st = store.state.skills[s.skillId];
-      return h('tr', {},
-        h('td', {}, h('div', {}, s.linguisticPhenomenon), h('div', { class: 'small muted' }, s.skillId)),
-        h('td', {}, h('div', { class: 'dims' }, ...DIMENSIONS.map(([dim, label]) => {
-          const d = st.dims[dim] || { s: 0, n: 0 };
-          const level = d.n === 0 ? 0 : d.s > 0.75 ? 3 : d.s > 0.4 ? 2 : 1;
-          return h('i', { title: `${label}: ${d.n ? pct(d.s) : 'sin medir'}`, dataset: { v: String(level) } });
-        }))),
-        h('td', { class: 'num' }, pct(store.strength(s.skillId))),
-        h('td', {}, relTime(st.due)),
-        h('td', { class: 'num' }, String(st.lapses || 0)));
+      return h('div', { class: 'skillcard' },
+        radar(st),
+        h('div', {},
+          h('h4', {}, s.linguisticPhenomenon),
+          h('div', { class: 'muted small' }, `unidad ${pad(s.unit)} · ${st.lapses || 0} recaídas · vuelve ${relTime(st.due)}`),
+          h('div', { class: 'dimlist' }, ...DIMENSIONS.map(([id, label]) => {
+            const d = st.dims[id] || { s: 0, n: 0 };
+            return h('div', { class: 'dimline' },
+              h('span', {}, label),
+              h('span', { class: 'bar' }, h('i', { style: `width:${(d.n ? d.s : 0) * 100}%` })),
+              h('span', {}, d.n ? pct(d.s) : '—'));
+          }))));
     });
 
   clear(root).append(
-    h('h1', {}, 'Progreso'),
-    stats,
-    h('section', { class: 'card' },
-      h('h2', {}, 'Unidades'),
-      h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Unidad'), h('th', {}, 'Lección'), h('th', { class: 'num' }, 'Mejor examen'), h('th', {}, 'Estado'))),
-        h('tbody', {}, ...unitRows))),
-    h('section', { class: 'card' },
-      h('h2', {}, 'Competencias'),
-      h('p', { class: 'small muted' },
-        'Cada barra es una dimensión: ', DIMENSIONS.map(([, l]) => l).join(' · '), '. ',
-        'El repaso se programa por competencia, atacando su dimensión más débil.'),
-      skillRows.length
-        ? h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Competencia'), h('th', {}, 'Dimensiones'), h('th', { class: 'num' }, 'Fuerza'), h('th', {}, 'Próximo repaso'), h('th', { class: 'num' }, 'Recaídas'))),
-          h('tbody', {}, ...skillRows))
-        : h('p', { class: 'muted' }, 'Todavía no hay datos: practica una unidad.')),
-    h('section', { class: 'card' },
-      h('h2', {}, 'Datos'),
-      h('p', { class: 'small muted' }, 'El progreso se guarda sólo en este navegador.'),
+    h('p', { class: 'eyebrow' }, 'Progreso'),
+    h('h1', {}, 'Qué sabes, y hasta cuándo'),
+    h('div', { class: 'kpis' },
+      kpi(pad(store.highestUnlocked(total)), 'unidad abierta'),
+      kpi(`${practised.length}/${curriculum.skills.length}`, 'competencias tocadas'),
+      kpi(String(due.length), 'vencidas hoy'),
+      kpi(String(store.state.events.length), 'respuestas')),
+    h('section', { class: 'stack' }, h('p', { class: 'eyebrow' }, 'Unidades'), heat),
+    h('hr', { class: 'rule' }),
+    h('p', { class: 'eyebrow' }, 'Competencias, dimensión a dimensión'),
+    h('p', { class: 'muted small' },
+      'Una elección múltiple sólo acredita reconocimiento. Producir sin pista acredita recuperación, '
+      + 'y si han pasado siete días o más, también retención diferida.'),
+    cards.length ? h('div', { class: 'skillcards' }, ...cards)
+      : h('p', { class: 'muted' }, 'Todavía no hay datos: practica una unidad.'),
+    h('hr', { class: 'rule' }),
+    h('section', { class: 'stack' },
+      h('p', { class: 'eyebrow' }, 'Datos'),
+      h('p', { class: 'muted small' }, 'El progreso vive sólo en este navegador.'),
       h('div', { class: 'row' },
         h('button', {
           class: 'ghost', type: 'button',
@@ -622,8 +809,4 @@ export async function viewProgress(root) {
             }
           },
         }, 'Borrar progreso'))));
-}
-
-function stat(value, label) {
-  return h('div', { class: 'stat' }, h('b', {}, value), h('span', {}, label));
 }

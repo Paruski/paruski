@@ -48,7 +48,7 @@ def strip_stress(text: str) -> str:
     return unicodedata.normalize("NFC", text)
 
 
-def norm_answer(text: str) -> str:
+def norm_answer(text: str, strict: bool = False) -> str:
     """Normalización de respuesta para comparación determinista.
 
     - sin acento editorial, sin espacios redundantes
@@ -57,7 +57,8 @@ def norm_answer(text: str) -> str:
     - comillas y guiones unificados; punto final opcional
     """
     text = strip_stress(text or "").strip().lower()
-    text = text.replace("ё", "е")
+    if not strict:
+        text = text.replace("ё", "е")
     text = re.sub(r"[«»\"“”„']", "", text)
     text = text.replace("—", "-").replace("–", "-")
     text = re.sub(r"\s+", " ", text)
@@ -107,6 +108,84 @@ def as_statement(claim: str) -> str:
 def clean_concept(concept: str) -> str:
     concept = concept.strip().rstrip(".")
     return concept[0].upper() + concept[1:] if concept else concept
+
+
+HOMOGLYPHS = {
+    "a": "а", "e": "е", "o": "о", "p": "р", "c": "с", "y": "у", "x": "х", "k": "к",
+    "m": "м", "t": "т", "b": "в", "h": "н", "A": "А", "B": "В", "E": "Е", "K": "К",
+    "M": "М", "H": "Н", "O": "О", "P": "Р", "C": "С", "T": "Т", "X": "Х", "Y": "У",
+}
+
+VOWELS = "аеёиоуыэюя"
+ORDINALS = ["1.ª", "2.ª", "3.ª", "4.ª", "5.ª", "6.ª", "7.ª", "8.ª"]
+
+
+def fold_homoglyphs(text: str) -> str:
+    return "".join(HOMOGLYPHS.get(ch, ch) for ch in (text or ""))
+
+
+def visually_same(a: str, b: str) -> bool:
+    """Dos formas que sólo se diferencian en un homoglifo latino son
+    indistinguibles en pantalla: no se pueden ofrecer como opciones."""
+    return norm_answer(fold_homoglyphs(a)) == norm_answer(fold_homoglyphs(b))
+
+
+def has_homoglyph(text: str) -> bool:
+    for word in re.findall(r"[\wЀ-ӿ]+", text or "", re.UNICODE):
+        if CYR.search(word) and re.search(r"[a-zA-Z]", word):
+            return True
+    return False
+
+
+def stressed_word(text: str) -> str | None:
+    for word in re.findall(r"[Ѐ-ӿ\u0301]+", text or ""):
+        if "\u0301" in word:
+            return word
+    return None
+
+
+def stress_choice(word_marked: str):
+    """De «соба́ка» saca la pregunta «¿en qué vocal cae el acento?»."""
+    plain, marked_index, index = "", -1, -1
+    for ch in word_marked:
+        if ch == "\u0301":
+            marked_index = index
+            continue
+        plain += ch
+        index += 1
+    vowels = [(i, ch) for i, ch in enumerate(plain) if ch.lower() in VOWELS]
+    if marked_index < 0 or len(vowels) < 2:
+        return None
+    options, answer = [], None
+    for n, (i, ch) in enumerate(vowels):
+        label = f"{ch} ({ORDINALS[n]} vocal)"
+        options.append(label)
+        if i == marked_index:
+            answer = label
+    if not answer:
+        return None
+    return {"plain": plain, "options": options, "answer": answer}
+
+
+def strip_marks(text: str) -> str:
+    """Quita la marca de acento: nunca se pide teclear diacríticos combinantes."""
+    return strip_stress(text or "")
+
+
+def answer_contract(accepted: list[str], language: str, mode: str) -> str:
+    sample = accepted[0] if accepted else ""
+    if mode == "fragments":
+        return "Se espera: dos frases en ruso, en cualquier orden."
+    if mode == "tokens":
+        return "Se espera: una respuesta en español que recoja todos los datos pedidos."
+    if language != "ru":
+        return "Se espera: una respuesta breve en español."
+    count = len([x for x in sentences(sample) if x])
+    if count > 1:
+        return f"Se espera: {count} frases en ruso."
+    if len(sample.split()) <= 2:
+        return "Se espera: sólo la palabra o forma pedida, en ruso."
+    return "Se espera: una sola frase en ruso."
 
 
 def load_zip_json(name: str):
@@ -194,6 +273,7 @@ class Builder:
         self.skills: dict[str, dict] = {}
         self.kernels: dict[str, dict] = {}
         self.concept_pool: list[tuple[str, str]] = []  # (skillId, concepto)
+        self.stress_lexicon: dict[str, str] = {}  # forma llana -> forma con acento
         self.dropped: Counter = Counter()
         self.drop_log: list[dict] = []
 
@@ -201,15 +281,17 @@ class Builder:
 
     def step_choice(self, sid, prompt, options, correct, explain=None, dimension="reconocimiento_escrito"):
         opts = []
-        seen = set()
         for opt in options:
-            key = norm_answer(opt)
-            if not opt or key in seen:
+            if not opt or not opt.strip():
                 continue
-            seen.add(key)
-            opts.append(opt)
-        if norm_answer(correct) not in {norm_answer(o) for o in opts}:
-            opts.insert(0, correct)
+            # se descartan las opciones que en pantalla son indistinguibles de otra
+            if any(visually_same(opt, kept) for kept in opts):
+                continue
+            opts.append(opt.strip())
+        if not any(o == correct.strip() for o in opts):
+            if any(visually_same(correct, o) for o in opts):
+                return None      # la respuesta no se puede distinguir de un distractor
+            opts.insert(0, correct.strip())
         if len(opts) < 2:
             return None
         return {
@@ -223,19 +305,26 @@ class Builder:
         }
 
     def step_written(self, sid, prompt, accepted, *, language="ru", dimension="recuperacion_escrita",
-                     placeholder=None, hint=None, required_tokens=None, mode="exact"):
-        accepted = [a for a in accepted if a and a.strip()]
+                     placeholder=None, hint=None, required_tokens=None, mode="exact", strict=False):
+        # en ruso nunca se pide teclear la marca de acento: se muestra, pero no se exige;
+        # en español la tilde es ortografía y se conserva
+        accepted = [(strip_marks(a) if language == "ru" else a) for a in accepted if a and a.strip()]
+        accepted = [a for a in dict.fromkeys(accepted) if a.strip()]
         if not accepted:
             return None
+        # si la distinción ё/е es justamente lo que se evalúa, la comparación es estricta
+        strict = strict or any("ё" in a for a in accepted)
         return {
             "id": sid,
             "kind": "written",
             "prompt": prompt,
             "language": language,
             "accepted": accepted,
-            "acceptedNorm": sorted({norm_answer(a) for a in accepted}),
+            "acceptedNorm": sorted({norm_answer(a, strict=strict) for a in accepted}),
+            "strict": strict,
             "requiredTokens": required_tokens or [],
             "mode": mode,
+            "expects": answer_contract(accepted, language, mode),
             "placeholder": placeholder,
             "hint": hint,
             "dimension": dimension,
@@ -251,57 +340,67 @@ class Builder:
             "kind": "written",
             "prompt": prompt,
             "language": "ru",
-            "accepted": [" ".join(parts)],
+            "accepted": [strip_marks(" ".join(parts))],
             "acceptedNorm": [norm_answer(" ".join(parts))],
             "requiredFragments": [norm_answer(p) for p in parts],
             "referenceParts": parts,
             "mode": "fragments",
+            "expects": f"Se espera: {len(parts)} frases en ruso, en cualquier orden.",
             "dimension": dimension,
         }
 
     # -- distractores conceptuales ---------------------------------------
 
-    def concept_options(self, item, correct_concept, count=3):
+    def skill_phenomenon(self, skill_id):
+        skill = self.skills.get(skill_id or "")
+        return clean_concept(skill["linguisticPhenomenon"]) if skill and skill.get("linguisticPhenomenon") else None
+
+    def concept_options(self, item, correct_concept, count=3, allow_claims=True):
+        """Distractores conceptuales creíbles.
+
+        Sólo se admiten tres fuentes: las afirmaciones que el propio material
+        declara falsas, el fenómeno de las competencias con las que ésta se
+        confunde, y el de las competencias vecinas (misma unidad o prerrequisito).
+        Si no hay al menos dos, no se plantea la pregunta: vale más un paso menos
+        que una opción absurda que se descarta sola.
+        """
         wrong: list[str] = []
         se = item.get("structuredExpected") or {}
-        for claim in se.get("forbiddenClaims", []) or []:
-            wrong.append(as_statement(claim))
-        if se.get("rivalRule"):
-            wrong.append(clean_concept(se["rivalRule"]))
-        if se.get("claimToRefute"):
-            wrong.append(clean_concept(se["claimToRefute"]))
+        if allow_claims:
+            for claim in se.get("forbiddenClaims", []) or []:
+                wrong.append(as_statement(claim))
+            if se.get("rivalRule"):
+                wrong.append(clean_concept(se["rivalRule"]))
+            if se.get("claimToRefute"):
+                wrong.append(clean_concept(se["claimToRefute"]))
 
         skill = self.skills.get(item.get("skillId") or "")
         if skill:
-            for conf in skill.get("commonConfusions", []) or []:
-                for other in self.skills.values():
-                    if other["skillId"] == skill["skillId"]:
-                        continue
-                    if conf in (other.get("commonConfusions") or []):
-                        wrong.append(clean_concept(
-                            f"Aquí lo que se pone en juego es {other['linguisticPhenomenon']}"))
-        # relleno estable: conceptos de otras competencias del mismo dominio
-        if len(wrong) < count and skill:
-            for other_sid, concept in self.concept_pool:
-                if other_sid == skill["skillId"]:
+            confusions = set(skill.get("commonConfusions") or [])
+            neighbours = []
+            for other in self.skills.values():
+                if other["skillId"] == skill["skillId"]:
                     continue
-                if other_sid in (skill.get("prerequisites") or []):
-                    continue
-                if concept.lower() == correct_concept.lower():
-                    continue
-                wrong.append(concept)
-                if len(wrong) >= count + 2:
-                    break
+                shares_confusion = confusions & set(other.get("commonConfusions") or [])
+                same_unit = other.get("unit") == skill.get("unit")
+                is_prereq = other["skillId"] in (skill.get("prerequisites") or [])
+                if shares_confusion:
+                    neighbours.insert(0, other)      # el confundible va primero
+                elif same_unit or is_prereq:
+                    neighbours.append(other)
+            for other in neighbours:
+                if other.get("linguisticPhenomenon"):
+                    wrong.append(clean_concept(other["linguisticPhenomenon"]))
 
-        out, seen = [], {correct_concept.lower()}
+        out, seen = [], {norm_answer(correct_concept)}
         for w in wrong:
-            if not w or w.lower() in seen:
+            if not w or norm_answer(w) in seen:
                 continue
-            seen.add(w.lower())
+            seen.add(norm_answer(w))
             out.append(w)
             if len(out) >= count:
                 break
-        return out
+        return out if len(out) >= 2 else []
 
     # -- conversores por tipo --------------------------------------------
 
@@ -328,6 +427,78 @@ class Builder:
         }
         sid = item["id"]
 
+        # --- acento léxico: se señala, no se teclea -----------------------
+        expected_is_spanish = bool(item.get("expectedAnswer")) and not has_cyr(item.get("expectedAnswer"))
+        marked = None if expected_is_spanish else (
+            stressed_word(item.get("expectedAnswer") or "") or stressed_word(se.get("referenceAnswer") or ""))
+        if (not marked or not stress_choice(marked)) and item.get("skillId") == "stress_marking" and not expected_is_spanish:
+            haystack = " ".join(filter(None, [item.get("semanticScenario"), item.get("prompt"),
+                                              item.get("input"), se.get("referenceAnswer")]))
+            for plain, stressed in self.stress_lexicon.items():
+                if plain in strip_marks(haystack):
+                    marked = stressed
+                    break
+        if marked and item["type"] != "exam":
+            picker = stress_choice(marked)
+            if picker:
+                base["prompt"] = f"Acento léxico de «{picker['plain']}»: decide dónde cae y escríbela."
+                base["typeLabel"] = "Acento léxico"
+                base["input"] = None
+                base["steps"].append(self.step_choice(
+                    sid + "/a", f"¿En qué vocal cae el acento de «{picker['plain']}»?",
+                    picker["options"], picker["answer"], dimension="comprension_explicita"))
+                target = strip_marks(item.get("expectedAnswer") or se.get("referenceAnswer") or "")
+                if not has_cyr(target):
+                    target = picker["plain"]
+                label = ("Escribe ahora la forma completa, sin marcar el acento."
+                         if len(target.split()) > 1 else "Escribe la palabra, sin marcar el acento.")
+                base["steps"].append(self.step_written(sid + "/b", label, [target], strict=True))
+                base["steps"] = [x for x in base["steps"] if x]
+                if base["steps"]:
+                    return base
+        if marked and item["type"] == "exam":
+            picker = stress_choice(marked)
+            target = strip_marks(item.get("expectedAnswer") or "")
+            if picker:
+                base["prompt"] = f"Evaluación. Acento y uso de «{picker['plain']}»."
+                base["steps"].append(self.step_choice(
+                    sid + "/a", f"¿En qué vocal cae el acento de «{picker['plain']}»?",
+                    picker["options"], picker["answer"], dimension="comprension_explicita"))
+                rest = [x for x in sentences(target) if len(x.split()) > 1]
+                if rest:
+                    base["steps"].append(self.step_written(
+                        sid + "/b", "Escribe la frase que la usa, sin marcar el acento.",
+                        [" ".join(rest)], strict=True))
+                base["steps"] = [x for x in base["steps"] if x]
+                if base["steps"]:
+                    return base
+
+        # --- homoglifos latinos: en pantalla son indistinguibles ----------
+        # No se puede pedir «elige la correcta» entre dos formas idénticas a la
+        # vista. La destreza real es producir la palabra en cirílico, así que se
+        # convierte en tarea de escritura.
+        defective = se.get("originalOrDefectiveForm") or item.get("input") or ""
+        target_answer = (item.get("expectedAnswer") or se.get("requiredCorrection")
+                         or se.get("referenceRussian") or se.get("referenceAnswer") or "")
+        if has_homoglyph(defective) or has_homoglyph(" ".join(item.get("distractors") or [])):
+            if has_cyr(target_answer) and not has_homoglyph(target_answer):
+                clean = [x for x in sentences(target_answer) if has_cyr(x)]
+                base["typeLabel"] = "Escritura cirílica"
+                base["prompt"] = (
+                    "En el texto dado se ha colado una letra latina disfrazada de cirílica: "
+                    "en pantalla se ven iguales, pero la palabra no existe. "
+                    "Reescríbelo entero en cirílico.")
+                lines = [x.strip() for x in re.split(r"\n|^[AB]:\s*", defective or "", flags=re.M) if x.strip()]
+                broken = next((x for x in lines if has_homoglyph(x)), defective)
+                base["input"] = re.sub(r"^[AB]:\s*", "", broken or "").strip()
+                base["steps"].append(self.step_written(
+                    sid + "/a", "Reescribe la forma correcta.", [" ".join(clean) or target_answer],
+                    strict=True))
+                base["steps"] = [x for x in base["steps"] if x]
+                if base["steps"]:
+                    return base
+            return self.drop(item, "homoglifo sin forma correcta verificable")
+
         # --- ítems cerrados ya corregibles -------------------------------
         if mode in ("exact", "closed_variants", "semiopen", "structured_response"):
             answer = item.get("expectedAnswer") or se.get("referenceAnswer")
@@ -350,13 +521,13 @@ class Builder:
                     base["steps"].append(self.step_written(
                         sid + "/b", "Escríbela ahora tú, sin elegir.", accepted,
                         hint="Reproduce la forma completa."))
-            elif kind == "diagnostic_repair" and se.get("requiredConcepts"):
-                diag = clean_concept(se["requiredConcepts"][0])
+            elif kind == "diagnostic_repair" and (self.skill_phenomenon(item.get("skillId")) or se.get("requiredConcepts")):
+                diag = self.skill_phenomenon(item.get("skillId")) or clean_concept(se["requiredConcepts"][0])
                 defective = se.get("originalOrDefectiveForm") or item.get("input")
                 cstep = self.step_choice(
                     sid + "/a",
                     f"¿Qué fenómeno falla en «{defective}»?" if defective else "¿Qué fenómeno falla aquí?",
-                    [diag] + self.concept_options(item, diag), diag,
+                    [diag] + self.concept_options(item, diag, allow_claims=False), diag,
                     dimension="comprension_explicita")
                 if cstep:
                     base["steps"].append(cstep)
@@ -364,10 +535,16 @@ class Builder:
                     sid + "/b", "Escribe la intervención reparada.", accepted))
             else:
                 language = "ru" if has_cyr(answer) else "es"
+                if language == "es":
+                    extra = []
+                    for variant in accepted:
+                        if re.search(r"\s+o\s+", variant) and len(variant.split()) <= 5:
+                            extra += [x.strip(" .") for x in re.split(r"\s+o\s+", variant)]
+                    accepted = list(dict.fromkeys(accepted + [x for x in extra if x]))
                 tokens = [] if language == "ru" else content_tokens(answer)
                 # con respuestas muy breves no hay palabras de contenido suficientes:
                 # en ese caso se compara la forma completa, sin acentos ni puntuación
-                grading = "exact" if language == "ru" or len(tokens) < 2 else "tokens"
+                grading = "exact" if language == "ru" or len(tokens) < 3 else "tokens"
                 tokens = tokens if grading == "tokens" else []
                 step = self.step_written(
                     sid + "/a", item["prompt"], accepted, language=language,
@@ -386,10 +563,10 @@ class Builder:
                 return self.drop(item, "reparación no verificable")
             defective = se.get("originalOrDefectiveForm") or item.get("input")
             concepts = [clean_concept(c) for c in se.get("requiredConcepts", [])]
-            diag = concepts[0] if concepts else None
+            diag = self.skill_phenomenon(item.get("skillId")) or (concepts[0] if concepts else None)
             base["prompt"] = item["prompt"]
             if diag:
-                options = self.concept_options(item, diag)
+                options = self.concept_options(item, diag, allow_claims=False)
                 step = self.step_choice(
                     sid + "/a",
                     f"¿Qué fenómeno falla en «{defective}»?" if defective else "¿Qué fenómeno falla aquí?",
@@ -434,6 +611,12 @@ class Builder:
                 return self.drop(item, "contraste sin formas comparadas")
             if norm_answer(preferred) not in {norm_answer(f) for f in forms}:
                 forms = [preferred] + forms
+            # la consigna original explicaba ya cuál era la buena («sólo la primera…»);
+            # aquí se sustituye por una consigna neutra y las formas se barajan en pantalla
+            base["prompt"] = ("Dos formas compiten en esta situación: "
+                              f"{item.get('semanticScenario') or 'decide cuál corresponde'}. "
+                              "Elige la que la resuelve y explica qué la distingue.")
+            base["input"] = None
             other = [f for f in forms if norm_answer(f) != norm_answer(preferred)]
             step = self.step_choice(
                 sid + "/a", "¿Cuál de las dos formas corresponde a esta situación?",
@@ -442,8 +625,10 @@ class Builder:
                 return self.drop(item, "opciones insuficientes")
             base["steps"].append(step)
             concepts = [clean_concept(c) for c in se.get("requiredConcepts", [])]
+            phenomenon = self.skill_phenomenon(item.get("skillId"))
+            concepts = [phenomenon] + concepts if phenomenon else concepts
             if concepts:
-                options = self.concept_options(item, concepts[0])
+                options = self.concept_options(item, concepts[0], allow_claims=False)
                 cstep = self.step_choice(
                     sid + "/b", "¿Qué distingue a la forma elegida?",
                     [concepts[0]] + options, concepts[0], dimension="comprension_explicita")
@@ -511,8 +696,10 @@ class Builder:
                 return self.drop(item, "sin respuesta")
             base["steps"].append(step)
             concepts = [clean_concept(c) for c in se.get("requiredConcepts", [])]
+            phenomenon = self.skill_phenomenon(item.get("skillId"))
+            concepts = [phenomenon] + concepts if phenomenon else concepts
             if concepts:
-                options = self.concept_options(item, concepts[0])
+                options = self.concept_options(item, concepts[0], allow_claims=False)
                 cstep = self.step_choice(
                     sid + "/b", "¿Qué decisión lingüística resuelve esta situación?",
                     [concepts[0]] + options, concepts[0], dimension="comprension_explicita")
@@ -577,6 +764,9 @@ def main() -> int:
                       for sid, sk in skills.items() if sk.get("linguisticPhenomenon")]
 
     b.kernels = {k["id"]: k for k in kernels_raw}
+    for v in vocab_raw:
+        if v.get("stressMarked") and "\u0301" in v["stressMarked"]:
+            b.stress_lexicon[strip_marks(v["stressMarked"])] = v["stressMarked"]
 
     # mapa ejercicio -> competencia, a partir de skills.exerciseIds
     ex_skill = {}

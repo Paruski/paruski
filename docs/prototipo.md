@@ -12,6 +12,7 @@ desde la raíz del repositorio.
 | Contenido de ejecución | `curso/curriculum.json`, `curso/unidades/unidad-0NN.json` |
 | Texto de lección redactado (U001–U010) | `curso/fuentes/lecciones-001-010.json` |
 | Generador de contenido | `scripts/build_prototipo.py` |
+| Generador de locuciones | `scripts/generar_audio.py` |
 | Pruebas | `scripts/test_prototipo.mjs` |
 | Web anterior | `legacy.html` (los antiguos `assets/` y `content/` siguen en su sitio) |
 
@@ -36,6 +37,29 @@ por máquina. En el prototipo **todo ítem se corrige solo**, y para no perder l
 exigencia cognitiva se reconvierten en tareas de varios pasos apoyadas en los
 campos estructurados que el propio material ya traía:
 
+### Ítems que no se podían resolver
+
+Tres familias de ejercicios del material de origen eran irresolubles o ambiguas
+en pantalla, y se han rehecho:
+
+- **Homoglifos latinos.** Pedir «elige entre `Это хлеб.` y `Это хлeб.`» es
+  imposible: en pantalla las dos formas son idénticas. Ahora son tareas de
+  escritura: se muestra la forma contaminada y hay que reescribirla en cirílico.
+- **Acento léxico.** Se pedía teclear `вода́`, con un diacrítico combinante que
+  nadie escribe, y el corrector lo ignoraba de todos modos. Ahora se señala la
+  vocal tónica entre las vocales de la palabra y después se escribe la forma sin
+  marcarla. Ningún paso exige ya teclear diacríticos.
+- **Consignas que se delataban.** Las de contraste decían «explica por qué sólo la
+  primera es coherente» antes de preguntar cuál era la buena. Se sustituyen por
+  una consigna neutra con la situación, y las opciones se barajan.
+
+Además, cada paso escrito declara qué se espera («una sola frase en ruso», «dos
+frases, en cualquier orden», «una respuesta breve en español»), y los distractores
+conceptuales sólo pueden salir del propio material: afirmaciones que el paquete
+declara falsas, la regla rival, o el fenómeno de las competencias con las que ésa
+se confunde. Si no hay al menos dos distractores creíbles, la pregunta no se
+plantea.
+
 | Tipo original | Se convierte en |
 | --- | --- |
 | Diagnóstico y reparación | Elegir el fenómeno que falla + escribir la intervención reparada |
@@ -46,10 +70,8 @@ campos estructurados que el propio material ya traía:
 | Contraejemplo | Escribir el contraejemplo + explicar qué invalida |
 | Vacío de información | Escribir el intercambio completo; se exige cerrar las dos lagunas |
 
-Los distractores conceptuales no se inventan: salen de `forbiddenClaims`,
-`rivalRule`, `claimToRefute` y de los conjuntos de confusión declarados entre
-competencias. Lo que no admite comprobación determinista no se publica: de 715
-ítems de partida se publican 708 (`informe-build.json` recoge los 7 descartes).
+Lo que no admite comprobación determinista no se publica: de 715 ítems de partida
+se publican 707 (`curso/informe-build.json` recoge los descartes con su motivo).
 
 Criterios de corrección, en `app/grader.js`:
 
@@ -59,6 +81,17 @@ Criterios de corrección, en `app/grader.js`:
 - **español**: cobertura de palabras de contenido con coincidencia por lema
   aproximado; con respuestas muy cortas, comparación completa sin acentos.
 - **intercambios**: se exige la presencia de cada frase requerida, en cualquier orden.
+
+## Navegación
+
+- **Ruta**: las once unidades como estaciones; las cerradas no se abren.
+- **Unidad**: pestañas de lección, ejercicios, vocabulario y competencias.
+- **Ejercicios**: índice completo de la unidad, filtrable por tipo y por estado
+  (sin hacer / fallados / acertados), y cada uno se puede lanzar suelto.
+- **Sesión**: modo concentrado, con barra de segmentos, atajos de teclado
+  (1–9 para elegir, Enter para comprobar y avanzar) y teclado cirílico integrado
+  con transliteración automática (`privet` → `привет`).
+- **Progreso**: radar de las seis dimensiones por competencia y mapa de unidades.
 
 ## Modelo del alumno y repaso
 
@@ -87,13 +120,34 @@ abre la unidad siguiente. Los ítems de examen nunca aparecen en la práctica.
 
 ## Audio
 
-Se usa el banco estático del repositorio (`content/audio/ru`, 1253 locuciones
-XTTS-v2): cubre 157 de las 254 entradas de vocabulario. Para lo no grabado se
-recurre a la voz del navegador, señalada como provisional en la interfaz.
+El curso necesita 941 locuciones distintas (palabras, ejemplos, enunciados,
+respuestas modelo). El banco existente cubre 197; faltan 744.
 
-Pendiente: generar las locuciones que faltan con el mismo modelo y la misma
-configuración del banco (`scripts/generate_xtts_audio.py`). No se ha podido hacer
-aquí porque el entorno de trabajo no tiene GPU ni acceso al modelo XTTS-v2.
+`scripts/generar_audio.py` hace el inventario y la síntesis:
+
+```bash
+python3 scripts/generar_audio.py --lista                       # qué falta
+python3 scripts/generar_audio.py --engine silero --solo palabras
+python3 scripts/generar_audio.py --engine xtts --speaker-wav voz.wav --solo frases
+```
+
+Motores disponibles:
+
+- **silero** (v4_ru): ligero, y sobre todo acepta marcar el acento con `+` delante
+  de la vocal tónica. Para un curso de idiomas eso pesa más que medio punto de
+  naturalidad: garantiza que la palabra se oye con el acento que enseña la ficha.
+  El script traduce automáticamente `соба́ка` → `соб+ака`.
+- **xtts** (Coqui XTTS-v2): el motor del banco actual, así que es la opción para
+  que las frases nuevas suenen igual que las 1253 ya grabadas. Necesita 6 s de voz
+  de referencia y no controla el acento.
+- **f5** (F5-TTS): mejor prosodia en frases largas; requiere checkpoint con ruso.
+
+Recomendación: `silero` para el vocabulario suelto y `xtts` para frases y
+microdiálogos, en dos pasadas con `--solo`.
+
+La salida va a `content/audio/curso/` y el índice a `curso/audio.json`, que la web
+lee junto al banco antiguo sin tocarlo. Mientras falte una locución, el botón de
+escucha usa la voz del navegador y lo dice en el propio botón.
 
 ## Pruebas
 
@@ -102,15 +156,16 @@ npm install jsdom          # sólo para las pruebas
 node scripts/test_prototipo.mjs
 ```
 
-Comprueba integridad del contenido, los criterios de corrección, la construcción
-de sesiones, el efecto de acertar y fallar sobre la programación del repaso, el
-desbloqueo por examen y que las 1029 respuestas modelo del curso se autocorrijan
-como correctas.
+41 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles,
+contrato de respuesta en todos los pasos escritos, criterios de corrección,
+construcción de sesiones, efecto de acertar y fallar sobre la programación del
+repaso, desbloqueo por examen, y que las 1029 respuestas modelo del curso se
+autocorrijan como correctas.
 
 ## Límites conocidos
 
 - Materiales con revisión editorial hecha, pero **sin validación de hablante
   nativo**; así se declaran en la propia web.
-- La dimensión auditiva no se evalúa todavía: no hay locución validada.
+- La dimensión auditiva no se evalúa todavía: faltan 744 locuciones.
 - El progreso se guarda en `localStorage`, sin sincronización entre dispositivos.
 - Quedan 89 unidades por desarrollar.

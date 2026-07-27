@@ -13,7 +13,8 @@ Documentación del prototipo: [`docs/prototipo.md`](docs/prototipo.md).
 
 ```bash
 python3 scripts/build_prototipo.py   # regenera curso/ desde los materiales corregidos
-node scripts/test_prototipo.mjs      # pruebas (requiere jsdom)
+node scripts/test_prototipo.mjs      # 41 comprobaciones (requiere jsdom)
+python3 scripts/generar_audio.py --lista   # locuciones que faltan
 ```
 
 ## Estructura

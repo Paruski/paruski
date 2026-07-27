@@ -28,13 +28,15 @@ export function gradeStep(step, value) {
   const given = (value || '').trim();
   if (!given) return { status: 'incorrecto', detail: 'No hay respuesta.' };
 
+  const strict = !!step.strict;
+
   if (step.kind === 'choice') {
-    return norm(given) === norm(step.answer)
+    return norm(given, strict) === norm(step.answer, strict)
       ? { status: 'correcto' }
       : { status: 'incorrecto' };
   }
 
-  const g = norm(given);
+  const g = norm(given, strict);
 
   if (step.mode === 'fragments') {
     const missing = (step.requiredFragments || []).filter((f) => !g.includes(f));

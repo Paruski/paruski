@@ -40,9 +40,12 @@ export function audioButton(text, label = '▶ escuchar') {
     class: 'audio-btn', type: 'button', title: 'Escuchar en ruso',
     onclick: async () => {
       const { source } = await play(text);
-      btn.textContent = source === 'banco' ? '▶ escuchar'
+      btn.textContent = source === 'banco' ? label
         : source === 'sintesis' ? '▶ voz del navegador'
         : 'sin audio';
+      btn.title = source === 'banco' ? 'Locución grabada'
+        : source === 'sintesis' ? 'Provisional: voz del navegador, aún sin locución grabada'
+        : 'No hay audio disponible';
     },
   }, label);
   return btn;
