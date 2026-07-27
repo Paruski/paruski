@@ -41,8 +41,10 @@
     --line: #d6cbb8;
     --red: #d5261e;
     --red-soft: #b81d16;
-    --green: #1f8a55;
-    --amber: #a5701a;
+    /* sobre el papel claro, el verde y el ámbar de antes daban 3,7:1 y 3,6:1, y
+       marcan estado en píldoras de .68rem: texto pequeño, que pide 4,5:1 */
+    --green: #17784a;
+    --amber: #8f5f13;
     --blue: #2d5bd0;
     --shadow: 0 14px 34px rgba(23, 21, 15, .10);
   }
