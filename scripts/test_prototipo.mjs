@@ -72,6 +72,15 @@ check('ninguna elección ofrece dos opciones idénticas en pantalla',
     return new Set(folded).size === folded.length;
   })));
 
+// la opción que no lleva la mayúscula que llevan las demás se ve distinta antes
+// de leerse, y eso basta para delatarla
+check('ninguna opción destaca por su mayúscula inicial',
+  all.every((i) => i.steps.every((s) => {
+    if (s.kind !== 'choice') return true;
+    const ru = s.options.map((o) => o.trim()).filter((o) => /^[а-яА-ЯёЁ]/.test(o));
+    return new Set(ru.map((o) => o[0] === o[0].toUpperCase())).size <= 1;
+  })));
+
 check('ningún paso escrito exige teclear la marca de acento',
   all.every((i) => i.steps.every((s) => s.kind !== 'written'
     || (s.accepted || []).every((a) => !a.includes('\u0301')))));

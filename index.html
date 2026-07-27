@@ -27,7 +27,14 @@
         <a href="#/vocabulario">Vocabulario</a>
         <a href="#/progreso">Progreso</a>
       </nav>
-      <button id="themeToggle" class="ghost icon-btn" type="button" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
+      <!-- El símbolo va dibujado y no escrito: Jost no trae el glifo ◐ y el
+           navegador lo sustituía por una barra fina que no se reconoce. -->
+      <button id="themeToggle" class="ghost icon-btn" type="button" title="Cambiar tema" aria-label="Cambiar tema">
+        <svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true" focusable="false">
+          <circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <path d="M10 1.8a8.2 8.2 0 0 1 0 16.4Z" fill="currentColor" />
+        </svg>
+      </button>
     </header>
 
     <main id="main" class="main" tabindex="-1">

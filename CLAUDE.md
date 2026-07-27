@@ -21,7 +21,7 @@ recoge qué ítems se descartaron y por qué.
 
 ```bash
 python3 scripts/build_prototipo.py         # regenera curso/ desde los materiales de CLAUDE/
-node scripts/test_prototipo.mjs            # 41 comprobaciones (necesita: npm install jsdom)
+node scripts/test_prototipo.mjs            # 42 comprobaciones (necesita: npm install jsdom)
 python3 scripts/generar_audio.py --lista   # inventario de locuciones pendientes
 python3 -m http.server 8000                # servir la web (file:// no funciona)
 ```

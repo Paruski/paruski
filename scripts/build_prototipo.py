@@ -130,6 +130,19 @@ def visually_same(a: str, b: str) -> bool:
     return norm_answer(fold_homoglyphs(a)) == norm_answer(fold_homoglyphs(b))
 
 
+def unify_initial_case(options: list[str]) -> dict[str, str]:
+    """Devuelve cómo reescribir cada opción para que ninguna destaque por su
+    mayúscula inicial. El material trae distractores en minúscula («чай тут.»)
+    junto a opciones que sí la llevan («Это чай.»): la diferencia señala la
+    opción rara antes de leerla. Se mira sólo el ruso, porque las opciones en
+    español son metaenunciados que siempre empiezan por mayúscula y arrastrarían
+    a mayúscula palabras rusas sueltas que no son frase."""
+    ru = [o.strip() for o in options if o and o.strip() and CYR.match(o.strip()[:1])]
+    if not any(o[:1].isupper() for o in ru):
+        return {}
+    return {o: o[:1].upper() + o[1:] for o in ru if o[:1].islower()}
+
+
 def has_homoglyph(text: str) -> bool:
     for word in re.findall(r"[\wЀ-ӿ]+", text or "", re.UNICODE):
         if CYR.search(word) and re.search(r"[a-zA-Z]", word):
@@ -280,6 +293,12 @@ class Builder:
     # -- pasos ------------------------------------------------------------
 
     def step_choice(self, sid, prompt, options, correct, explain=None, dimension="reconocimiento_escrito"):
+        # la mayúscula inicial se unifica antes de comparar y de guardar, para que
+        # la clave de `explain` siga coincidiendo con el texto de su opción
+        recase = unify_initial_case(list(options) + [correct])
+        options = [recase.get((o or "").strip(), o) for o in options]
+        correct = recase.get(correct.strip(), correct)
+        explain = {recase.get(k.strip(), k): v for k, v in (explain or {}).items()}
         opts = []
         for opt in options:
             if not opt or not opt.strip():

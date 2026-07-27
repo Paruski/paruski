@@ -156,7 +156,8 @@ npm install jsdom          # sólo para las pruebas
 node scripts/test_prototipo.mjs
 ```
 
-41 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles,
+42 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles
+o que se delaten por la mayúscula inicial,
 contrato de respuesta en todos los pasos escritos, criterios de corrección,
 construcción de sesiones, efecto de acertar y fallar sobre la programación del
 repaso, desbloqueo por examen, y que las 1029 respuestas modelo del curso se

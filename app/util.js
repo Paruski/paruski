@@ -3,6 +3,10 @@
 export function h(tag, attrs = {}, ...children) {
   const el = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs || {})) {
+    // Un estado ARIA se escribe siempre como texto: aria-selected="" no es
+    // verdadero para el CSS ni para el lector de pantalla, y omitir el atributo
+    // no es lo mismo que declararlo falso.
+    if (k.startsWith('aria-') && typeof v === 'boolean') { el.setAttribute(k, String(v)); continue; }
     if (v === null || v === undefined || v === false) continue;
     if (k === 'class') el.className = v;
     else if (k === 'html') el.innerHTML = v;

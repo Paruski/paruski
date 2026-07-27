@@ -93,8 +93,12 @@
     backdrop-filter: blur(12px) saturate(1.2);
     border-bottom: 1px solid var(--line);
   }
-  body.focus-mode .topbar { opacity: .35; transition: opacity .2s; }
-  body.focus-mode .topbar:hover { opacity: 1; }
+  /* En sesión la barra se aparta, pero se atenúa sólo su contenido: bajar la
+     opacidad de la barra entera transparenta también su fondo, y el texto que
+     pasa por debajo al desplazar se mezcla con el de la barra. */
+  body.focus-mode .topbar { background: var(--paper); }
+  body.focus-mode .topbar > * { opacity: .35; transition: opacity .2s; }
+  body.focus-mode .topbar:hover > * { opacity: 1; }
   body.focus-mode .footer { display: none; }
 
   .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
@@ -118,7 +122,15 @@
   .mainnav a:hover { color: var(--ink); }
   .mainnav a.active { color: var(--ink); border-color: var(--red); }
 
-  .main { max-width: var(--page); margin: 0 auto; padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem) 6rem; }
+  /* `clip` y no `hidden`: recorta la banda diagonal del héroe, que se sale a
+     propósito, sin crear un contenedor de desplazamiento que rompería las
+     posiciones pegajosas de dentro. Sin esto la banda ensancha el documento, y
+     en un móvil eso no da barra horizontal: el navegador encoge la página
+     entera para que quepa, y todo se ve diminuto. */
+  .main {
+    max-width: var(--page); margin: 0 auto; overflow: clip;
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem) 6rem;
+  }
   .main:focus { outline: none; }
   .footer {
     max-width: var(--page); margin: 0 auto; color: var(--ink-soft); font-size: .78rem;
@@ -143,7 +155,9 @@
   .ghost { color: var(--ink-soft); border-color: transparent; }
   .ghost:hover { color: var(--ink); border-color: var(--line); }
   button[disabled] { opacity: .4; cursor: not-allowed; }
-  .icon-btn { padding: .3rem .5rem; font-size: .95rem; }
+  /* Sin nowrap, «Hacer →» parte la flecha a una segunda línea en la columna
+     estrecha del índice de ejercicios. */
+  .icon-btn { padding: .3rem .5rem; font-size: .95rem; white-space: nowrap; }
 
   .pill {
     display: inline-flex; align-items: center; gap: .3rem;
@@ -428,7 +442,17 @@
   }
 
   @media (max-width: 720px) {
-    .brand-text small { display: none; }
+    /* Junto a la marca no caben los cuatro destinos: se apilaban en cuatro
+       líneas que se comían media pantalla. Bajan a una fila propia, entera y en
+       una sola línea, para que ningún destino aparezca cortado. */
+    .topbar { flex-wrap: wrap; gap: .25rem .5rem; padding-inline: .9rem; }
+    #themeToggle { order: 2; margin-left: auto; }
+    .mainnav {
+      order: 3; width: 100%; margin-left: 0; flex-wrap: nowrap;
+      justify-content: space-between; overflow-x: auto; scrollbar-width: none;
+    }
+    .mainnav::-webkit-scrollbar { display: none; }
+    .mainnav a { padding: .35rem .3rem; font-size: .76rem; letter-spacing: .06em; }
     .route { margin-left: 1.2rem; padding-left: 1.8rem; }
     .stop .disc { left: -2.9rem; width: 2.2rem; height: 2.2rem; font-size: .68rem; }
     .item .prompt { font-size: 1.12rem; }
