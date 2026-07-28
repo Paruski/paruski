@@ -85,6 +85,17 @@ check('ningún paso escrito exige teclear la marca de acento',
   all.every((i) => i.steps.every((s) => s.kind !== 'written'
     || (s.accepted || []).every((a) => !a.includes('\u0301')))));
 
+// el material trae ítems cuya respuesta es sólo la vocal tónica; si eso llega al
+// paso que pide escribir la palabra, la consigna y lo aceptado se contradicen y
+// nadie puede acertar
+check('lo que se acepta en acento léxico es la palabra que nombra la consigna',
+  all.filter((i) => i.typeLabel === 'Acento léxico').every((i) => {
+    const palabra = (i.prompt.match(/«([^»]+)»/) || [])[1];
+    if (!palabra) return false;
+    return i.steps.filter((s) => s.kind === 'written')
+      .every((s) => (s.accepted || []).some((a) => a.toLowerCase().includes(palabra.toLowerCase())));
+  }));
+
 check('todo paso escrito declara qué se espera',
   all.every((i) => i.steps.every((s) => s.kind !== 'written' || !!s.expects)));
 
@@ -145,6 +156,12 @@ const touched = Object.keys(store.state.skills);
 check('la sesión alimenta el modelo de competencias', touched.length > 0, `${touched.length}`);
 check('acertar programa el repaso en el futuro',
   touched.every((id) => store.state.skills[id].due > Date.now()));
+
+// una sesión trae varios ítems de la misma competencia: si cada acierto subiera
+// un escalón, una sola tanda la mandaría al intervalo máximo y no volvería nunca
+check('una sola sesión no sube más de un escalón de intervalo',
+  touched.every((id) => store.state.skills[id].step <= 0),
+  touched.map((id) => `${id}:${store.state.skills[id].step}`).slice(0, 3).join(' '));
 
 // un fallo devuelve la competencia a la cola inmediata
 const failItem = units[0].items.find((i) => i.phase !== 'exam');

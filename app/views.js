@@ -117,10 +117,18 @@ export async function viewUnit(root, n, tab = 'leccion') {
     h('p', { class: 'eyebrow' }, `${unit.cefr} · ${unit.practiceCount} ejercicios · ${unit.examCount} de examen`),
     h('h1', {}, unit.title),
     h('p', { class: 'lede' }, unit.objective),
+    // el examen no se esconde, pero tampoco compite con la práctica antes de que
+    // haya habido práctica: la ruta es lección, tandas y examen
     h('div', { class: 'row', style: 'margin-top:.8rem' },
-      h('a', { class: 'btn primary', href: `#/u/${n}/practica` }, 'Practicar ahora'),
-      h('a', { class: 'btn', href: `#/u/${n}/examen` },
-        state.exam.passed ? `Repetir examen · mejor ${pct(state.exam.best)}` : 'Presentarse al examen')));
+      h('a', { class: 'btn primary', href: `#/u/${n}/practica` },
+        state.practiced ? 'Seguir practicando' : 'Empezar a practicar'),
+      h('a', { class: `btn${state.practiced || state.exam.passed ? '' : ' ghost'}`, href: `#/u/${n}/examen` },
+        state.exam.passed ? `Repetir examen · mejor ${pct(state.exam.best)}` : 'Presentarse al examen')),
+    h('p', { class: 'muted small' }, state.exam.passed
+      ? `Superada con un ${pct(state.exam.best)}. La unidad ${pad(n + 1)} está abierta.`
+      : state.practiced
+        ? `Llevas ${state.practiced} tanda${state.practiced === 1 ? '' : 's'} de práctica. El examen se aprueba con un ${pct(PASS_MARK)} y abre la unidad siguiente.`
+        : `Lee la lección y haz al menos una tanda: el examen no corrige hasta el final y se aprueba con un ${pct(PASS_MARK)}.`));
 
   const panel = h('div', {});
   const tabs = h('div', { class: 'tabs', role: 'tablist' });
@@ -318,7 +326,10 @@ export async function viewPractice(root, n) {
     return;
   }
   const items = buildPracticeSession(dataset.items, pool.filter((i) => i.unit !== n));
-  runSession(root, { items, mode: 'practica', title: `Práctica · unidad ${pad(n)}`, backHref: `#/u/${n}` });
+  runSession(root, {
+    items, mode: 'practica', unit: n,
+    title: `Práctica · unidad ${pad(n)}`, backHref: `#/u/${n}`,
+  });
 }
 
 /** Un único ejercicio, lanzado desde el índice de la unidad. */
@@ -612,10 +623,16 @@ function runSession(root, config) {
     return btn;
   }
 
-  function finishSession() {
+  async function finishSession() {
     paintSegments();
     document.body.classList.remove('focus-mode');
     if (isExam) return finishExam();
+
+    // el resumen es para el alumno: las competencias van con su nombre, no con
+    // el identificador interno del material
+    const curriculum = await loadCurriculum();
+    if (unit && mode === 'practica') store.notePracticed(unit);
+    const unitState = unit ? store.unit(unit) : null;
 
     const total = sessionResults.reduce((acc, r) => acc + r.results.length, 0);
     const ok = sessionResults.reduce((acc, r) => acc + r.results.filter((x) => x.status === 'correcto').length, 0);
@@ -635,12 +652,19 @@ function runSession(root, config) {
       h('table', {},
         h('thead', {}, h('tr', {}, h('th', {}, 'Competencia'), h('th', { class: 'num' }, 'Acierto'), h('th', {}, 'Vuelve'))),
         h('tbody', {}, ...[...skills.entries()].map(([id, v]) => h('tr', {},
-          h('td', {}, id),
+          h('td', {}, skillName(curriculum, id)),
           h('td', { class: 'num' }, pct(v.ok / v.n)),
           h('td', {}, relTime((store.state.skills[id] || {}).due)))))),
-      h('div', { class: 'row' },
-        h('a', { class: 'btn primary', href: backHref }, 'Volver'),
-        h('a', { class: 'btn', href: '#/progreso' }, 'Ver progreso'))));
+      // al terminar hay que saber qué toca ahora, no sólo qué acaba de pasar
+      unitState
+        ? h('div', { class: 'row' },
+          h('a', { class: 'btn primary', href: `#/u/${unit}/practica` }, 'Otra tanda'),
+          h('a', { class: 'btn', href: `#/u/${unit}/examen` },
+            unitState.exam.passed ? 'Repetir el examen' : `Presentarse al examen · ${pct(PASS_MARK)} para aprobar`),
+          h('a', { class: 'btn ghost', href: backHref }, 'Volver a la unidad'))
+        : h('div', { class: 'row' },
+          h('a', { class: 'btn primary', href: backHref }, 'Volver'),
+          h('a', { class: 'btn', href: '#/progreso' }, 'Ver progreso'))));
   }
 
   function finishExam() {
@@ -660,7 +684,7 @@ function runSession(root, config) {
     clear(stage).append(h('div', { class: 'card stack' },
       h('p', { class: 'eyebrow' }, examState.passed ? 'Examen superado' : 'Examen no superado'),
       h('h2', {}, `${pct(score)} · ${ok} de ${total}`),
-      h('div', { class: 'bar red' }, h('i', { style: `width:${score * 100}%` })),
+      h('div', { class: examState.passed ? 'bar' : 'bar red' }, h('i', { style: `width:${score * 100}%` })),
       h('p', { class: 'muted' }, examState.passed
         ? `Queda abierta la unidad ${pad(unit + 1)}.`
         : `Hace falta un ${pct(PASS_MARK)}. Lo fallado ya está en la cola de repaso.`),

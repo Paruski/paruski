@@ -1,0 +1,6736 @@
+{
+ "version": 1,
+ "note": "Locuciones generadas para el curso; complementan content/audio-index.json.",
+ "entries": [
+  {
+   "text": "Анна в библиотеке. Она видит книгу. Она любит эту книгу.",
+   "path": "content/audio/curso/anna-v-biblioteke-ona-vidit-knigu-ona-lyubit-etu-f1b89b19.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Анна здесь, а Иван там.",
+   "path": "content/audio/curso/anna-zdes-a-ivan-tam-8172b371.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Анна пишет адрес.",
+   "path": "content/audio/curso/anna-pishet-adres-d851ae58.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Анна пишет ответ. Иван читает ответ. Преподаватель говорит: «Ответ правильный».",
+   "path": "content/audio/curso/anna-pishet-otvet-ivan-chitaet-otvet-prepodavate-b223cac1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Анна пишет сообщение, а Иван читает письмо.",
+   "path": "content/audio/curso/anna-pishet-soobschenie-a-ivan-chitaet-pismo-4c41b3f5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Анна пишет сообщение. Иван читает сообщение. Иван говорит: «Ошибка здесь».",
+   "path": "content/audio/curso/anna-pishet-soobschenie-ivan-chitaet-soobschenie-d17891bc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Анна — студентка. Она учится в Москве. Иван — студент. Он живёт в Испании, работает и учится в университете онлайн.",
+   "path": "content/audio/curso/anna-studentka-ona-uchitsya-v-moskve-ivan-studen-1bf63896.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Бабушка тут.",
+   "path": "content/audio/curso/babushka-tut-d955d980.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "В музее картина. Анна любит картину.",
+   "path": "content/audio/curso/v-muzee-kartina-anna-lyubit-kartinu-8b2637fe.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Вечером Иван читает.",
+   "path": "content/audio/curso/vecherom-ivan-chitaet-2f50f9be.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Вот бабушка.",
+   "path": "content/audio/curso/vot-babushka-73f56941.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Вот вода.",
+   "path": "content/audio/curso/vot-voda-74b37c38.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Вот мама.",
+   "path": "content/audio/curso/vot-mama-fc1b0bf2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Вот сестра.",
+   "path": "content/audio/curso/vot-sestra-be41c9f7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Вот хлеб.",
+   "path": "content/audio/curso/vot-hleb-95646101.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Вот чай.",
+   "path": "content/audio/curso/vot-chay-47aa06c9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Вот...",
+   "path": "content/audio/curso/vot-67be1e9b.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Всё нормально.",
+   "path": "content/audio/curso/vsyo-normalno-6ad7b3a4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Всё хорошо.",
+   "path": "content/audio/curso/vsyo-horosho-f11609c7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Вчера я был дома.",
+   "path": "content/audio/curso/vchera-ya-byl-doma-7f6955e2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Вы здесь?",
+   "path": "content/audio/curso/vy-zdes-128c1301.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Где мама?",
+   "path": "content/audio/curso/gde-mama-93cd0aae.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Где ты живёшь?",
+   "path": "content/audio/curso/gde-ty-zhivyosh-06adbcd5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Где ты живёшь? — В России.",
+   "path": "content/audio/curso/gde-ty-zhivyosh-v-rossii-375107c3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Где ты живёшь? — Я живу в Москве.",
+   "path": "content/audio/curso/gde-ty-zhivyosh-ya-zhivu-v-moskve-b065b325.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Где ты читаешь?",
+   "path": "content/audio/curso/gde-ty-chitaesh-0542f3e8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Где ты читаешь? — Утром.",
+   "path": "content/audio/curso/gde-ty-chitaesh-utrom-786a9a33.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Где ты...?",
+   "path": "content/audio/curso/gde-ty-556251ce.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Да, это чай.",
+   "path": "content/audio/curso/da-eto-chay-27c4a75f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "До свидания!",
+   "path": "content/audio/curso/do-svidaniya-664d6272.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "До свидания! есть.",
+   "path": "content/audio/curso/do-svidaniya-est-fcdc9620.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "До свидания, Анна!",
+   "path": "content/audio/curso/do-svidaniya-anna-a55924be.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Дочь тут. Хлеб, рыба и мясо тут. Сын там.",
+   "path": "content/audio/curso/doch-tut-hleb-ryba-i-myaso-tut-syn-tam-40e7a5a7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Есть Здравствуйте!",
+   "path": "content/audio/curso/est-zdravstvuyte-8cad1f09.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Есть Ты живёшь в Москве?",
+   "path": "content/audio/curso/est-ty-zhivyosh-v-moskve-ec3b1060.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Есть Ты пишешь?",
+   "path": "content/audio/curso/est-ty-pishesh-8756d239.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Есть Что это? — Это дом.",
+   "path": "content/audio/curso/est-chto-eto-eto-dom-2bbd7b8b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Есть Что это? — Это магазин.",
+   "path": "content/audio/curso/est-chto-eto-eto-magazin-37e45993.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Есть Это мои новые книги.",
+   "path": "content/audio/curso/est-eto-moi-novye-knigi-22551634.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Есть Это мой брат. Он живёт в Испании.",
+   "path": "content/audio/curso/est-eto-moy-brat-on-zhivyot-v-ispanii-992cc4de.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Есть мужчина.",
+   "path": "content/audio/curso/est-muzhchina-f9987e97.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Завтра я работаю.",
+   "path": "content/audio/curso/zavtra-ya-rabotayu-ccf3829e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Здесь нельзя.",
+   "path": "content/audio/curso/zdes-nelzya-d9797ac1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Здравствуйте!",
+   "path": "content/audio/curso/zdravstvuyte-92d6a4ec.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Здравствуйте! Как дела?",
+   "path": "content/audio/curso/zdravstvuyte-kak-dela-64690192.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Здравствуйте! есть.",
+   "path": "content/audio/curso/zdravstvuyte-est-c1af36f1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Здравствуйте, Анна!",
+   "path": "content/audio/curso/zdravstvuyte-anna-dbc82121.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Иван в магазине. Он покупает хлеб. Потом он ищет молоко.",
+   "path": "content/audio/curso/ivan-v-magazine-on-pokupaet-hleb-potom-on-ischet-f927762e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Иван живёт в Москве. Он делает задание.",
+   "path": "content/audio/curso/ivan-zhivyot-v-moskve-on-delaet-zadanie-fa7cd1f3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Иван ищет билет. Билет тут, на столе.",
+   "path": "content/audio/curso/ivan-ischet-bilet-bilet-tut-na-stole-188d589d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Извините, не знаю.",
+   "path": "content/audio/curso/izvinite-ne-znayu-1ddf1495.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Извините, я не знаю.",
+   "path": "content/audio/curso/izvinite-ya-ne-znayu-97377b96.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Как дела?",
+   "path": "content/audio/curso/kak-dela-1a15be13.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Как ты говоришь?",
+   "path": "content/audio/curso/kak-ty-govorish-9619a493.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Как ты говоришь? есть.",
+   "path": "content/audio/curso/kak-ty-govorish-est-cc2a7197.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Как ты говоришь? — По-испански.",
+   "path": "content/audio/curso/kak-ty-govorish-po-ispanski-776134b7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Какая книга?",
+   "path": "content/audio/curso/kakaya-kniga-83f91588.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Какое слово?",
+   "path": "content/audio/curso/kakoe-slovo-5a611547.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Какой язык?",
+   "path": "content/audio/curso/kakoy-yazyk-45ab3a21.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Клиент просит чай.",
+   "path": "content/audio/curso/klient-prosit-chay-7d57933e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Клиент тут. — Это чай и хлеб? — Да. Кофе — нет.",
+   "path": "content/audio/curso/klient-tut-eto-chay-i-hleb-da-kofe-net-9a14cad2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Книги здесь. Они новые.",
+   "path": "content/audio/curso/knigi-zdes-oni-novye-34a62eb1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Когда мама?",
+   "path": "content/audio/curso/kogda-mama-f5e8cec4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Когда ты живёшь?",
+   "path": "content/audio/curso/kogda-ty-zhivyosh-2477539c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Когда ты живёшь? — В России.",
+   "path": "content/audio/curso/kogda-ty-zhivyosh-v-rossii-d720b31e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Когда ты читаешь есть.",
+   "path": "content/audio/curso/kogda-ty-chitaesh-est-f620bf9d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Когда ты читаешь.",
+   "path": "content/audio/curso/kogda-ty-chitaesh-87a2659e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Когда ты читаешь. — Утром.",
+   "path": "content/audio/curso/kogda-ty-chitaesh-utrom-2f8d5f7a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Когда ты читаешь?",
+   "path": "content/audio/curso/kogda-ty-chitaesh-adacfcb5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Когда ты читаешь? — Утром",
+   "path": "content/audio/curso/kogda-ty-chitaesh-utrom-2a7bba73.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Когда ты читаешь? — Утром есть.",
+   "path": "content/audio/curso/kogda-ty-chitaesh-utrom-est-56338874.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Когда ты читаешь? — Утром.",
+   "path": "content/audio/curso/kogda-ty-chitaesh-utrom-52102dc1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Когда ты...?",
+   "path": "content/audio/curso/kogda-ty-7630d980.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Конечно, я готов.",
+   "path": "content/audio/curso/konechno-ya-gotov-9c8a94f1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Кто ты пишешь?",
+   "path": "content/audio/curso/kto-ty-pishesh-c225096f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Кто это. — Это мама.",
+   "path": "content/audio/curso/kto-eto-eto-mama-bfbc3869.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Кто это? Что это?",
+   "path": "content/audio/curso/kto-eto-chto-eto-85bd565d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? Это не папа.",
+   "path": "content/audio/curso/kto-eto-eto-ne-papa-018f0a4b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Кто это? — Есть дедушка.",
+   "path": "content/audio/curso/kto-eto-est-dedushka-aa5dc670.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это Анна.",
+   "path": "content/audio/curso/kto-eto-eto-anna-d92274ec.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это бабушка.",
+   "path": "content/audio/curso/kto-eto-eto-babushka-17b70ab1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это газета.",
+   "path": "content/audio/curso/kto-eto-eto-gazeta-fd9c9514.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Кто это? — Это дедушка",
+   "path": "content/audio/curso/kto-eto-eto-dedushka-8580209d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это дедушка.",
+   "path": "content/audio/curso/kto-eto-eto-dedushka-266f4bc4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это кошка.",
+   "path": "content/audio/curso/kto-eto-eto-koshka-ea46c6e9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Кто это? — Это мама есть.",
+   "path": "content/audio/curso/kto-eto-eto-mama-est-55643469.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Кто это? — Это мама.",
+   "path": "content/audio/curso/kto-eto-eto-mama-411bd53c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Кто это? — Это моя подруга",
+   "path": "content/audio/curso/kto-eto-eto-moya-podruga-b68117b8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Кто это? — Это моя подруга.",
+   "path": "content/audio/curso/kto-eto-eto-moya-podruga-71e3544b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Кто это? — Это папа.",
+   "path": "content/audio/curso/kto-eto-eto-papa-39c83325.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это собака.",
+   "path": "content/audio/curso/kto-eto-eto-sobaka-31bc9441.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это собака. Собака тут.",
+   "path": "content/audio/curso/kto-eto-eto-sobaka-sobaka-tut-4536b965.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Кто это? — Это...",
+   "path": "content/audio/curso/kto-eto-eto-53602da2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Кто/Что + это?",
+   "path": "content/audio/curso/kto-chto-eto-00ecdfbe.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Куда ты идёшь?",
+   "path": "content/audio/curso/kuda-ty-idyosh-44035d9d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Мама есть тут.",
+   "path": "content/audio/curso/mama-est-tut-0b0c7e18.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Мама тут",
+   "path": "content/audio/curso/mama-tut-8b843eee.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Мама тут.",
+   "path": "content/audio/curso/mama-tut-e232d4d0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Можно?",
+   "path": "content/audio/curso/mozhno-017142b4.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Мы в кафе.",
+   "path": "content/audio/curso/my-v-kafe-cc02683f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Мы готовы.",
+   "path": "content/audio/curso/my-gotovy-d4091bd1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Мы здесь",
+   "path": "content/audio/curso/my-zdes-669a589f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Мы здесь, а они там есть.",
+   "path": "content/audio/curso/my-zdes-a-oni-tam-est-8ebf9351.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Мы здесь, а они там.",
+   "path": "content/audio/curso/my-zdes-a-oni-tam-5130af0e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Мы здесь.",
+   "path": "content/audio/curso/my-zdes-b15ef944.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "На каком языке ты говоришь есть.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-est-906286bf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "На каком языке ты говоришь.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-348437c0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "На каком языке ты говоришь. — По-испански.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-po-ispanski-c36d6275.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "На каком языке ты говоришь?",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-97764a6d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "На каком языке ты говоришь? — По-испански есть.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-po-ispanski-est-e6c4c220.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "На каком языке ты говоришь? — По-испански.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-po-ispanski-5972b2f2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "На каком языке...?",
+   "path": "content/audio/curso/na-kakom-yazyke-7aec1352.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "На сайте есть текст. Анна читает текст. Иван пишет сообщение.",
+   "path": "content/audio/curso/na-sayte-est-tekst-anna-chitaet-tekst-ivan-pishe-b033bea5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "На столе альбом. Сегодня повторение. Завтра экзамен. Анна уже готова, Иван ещё не готов.",
+   "path": "content/audio/curso/na-stole-albom-segodnya-povtorenie-zavtra-ekzame-42509fa3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Нет, это не моя мама, а моя сестра.",
+   "path": "content/audio/curso/net-eto-ne-moya-mama-a-moya-sestra-02571e78.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Нет, это не чай.",
+   "path": "content/audio/curso/net-eto-ne-chay-5c473077.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Ночью я дома.",
+   "path": "content/audio/curso/nochyu-ya-doma-ccc1838f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ольга в музее. Она видит картину и видит фотографию. Она любит картину.",
+   "path": "content/audio/curso/olga-v-muzee-ona-vidit-kartinu-i-vidit-fotografi-527eaf97.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Он говорит по-английски.",
+   "path": "content/audio/curso/on-govorit-po-angliyski-360cff45.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Он здесь есть.",
+   "path": "content/audio/curso/on-zdes-est-1f5f4754.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Он здесь.",
+   "path": "content/audio/curso/on-zdes-a1956cb2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Он здесь. Что это?",
+   "path": "content/audio/curso/on-zdes-chto-eto-a200041d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Он там.",
+   "path": "content/audio/curso/on-tam-ebf50f6b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Он читает быстро.",
+   "path": "content/audio/curso/on-chitaet-bystro-42ebe41b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Она говорит медленно.",
+   "path": "content/audio/curso/ona-govorit-medlenno-da5cd9ba.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Она говорит по-русски, а я читаю по-испански.",
+   "path": "content/audio/curso/ona-govorit-po-russki-a-ya-chitayu-po-ispanski-1643b8f7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Она говорит по-русски?",
+   "path": "content/audio/curso/ona-govorit-po-russki-f253803a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Она говорить по-русски, а я читаю по-испански.",
+   "path": "content/audio/curso/ona-govorit-po-russki-a-ya-chitayu-po-ispanski-f88d62ad.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Она готова.",
+   "path": "content/audio/curso/ona-gotova-b4366aca.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Она живёт в России.",
+   "path": "content/audio/curso/ona-zhivyot-v-rossii-b330df63.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Она здесь",
+   "path": "content/audio/curso/ona-zdes-3480396d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Она здесь есть.",
+   "path": "content/audio/curso/ona-zdes-est-77abe221.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Она здесь.",
+   "path": "content/audio/curso/ona-zdes-19411d63.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Она пишет по-русски.",
+   "path": "content/audio/curso/ona-pishet-po-russki-3b2f797d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Она пишет сообщение.",
+   "path": "content/audio/curso/ona-pishet-soobschenie-c3f3832d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Она рядом с Анной.",
+   "path": "content/audio/curso/ona-ryadom-s-annoy-7048a023.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Она студентка.",
+   "path": "content/audio/curso/ona-studentka-ccba00af.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Она там.",
+   "path": "content/audio/curso/ona-tam-e1fcf1b6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Они здесь, а мы там.",
+   "path": "content/audio/curso/oni-zdes-a-my-tam-03f16a5e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Они знают.",
+   "path": "content/audio/curso/oni-znayut-6359e42d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Они там",
+   "path": "content/audio/curso/oni-tam-c5bd5726.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Они там.",
+   "path": "content/audio/curso/oni-tam-2ac5311a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Откуда ты?",
+   "path": "content/audio/curso/otkuda-ty-b1567cd1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Папа тут.",
+   "path": "content/audio/curso/papa-tut-74080058.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Повтори, пожалуйста.",
+   "path": "content/audio/curso/povtori-pozhaluysta-6f6150ff.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6,
+    10
+   ]
+  },
+  {
+   "text": "Пока!",
+   "path": "content/audio/curso/poka-4fad1a56.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Почему ты здесь?",
+   "path": "content/audio/curso/pochemu-ty-zdes-8435fa41.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Почему ты тут? — Я тут, потому что тут работа.",
+   "path": "content/audio/curso/pochemu-ty-tut-ya-tut-potomu-chto-tut-rabota-8ad8f595.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Преподаватель говорит по-русски и по-английски. Студенты понимают и пишут. Потом они читают текст на сайте.",
+   "path": "content/audio/curso/prepodavatel-govorit-po-russki-i-po-angliyski-st-5fa5528f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Преподаватель здесь.",
+   "path": "content/audio/curso/prepodavatel-zdes-7a88842f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Преподаватель: «Здравствуйте!» Анна: «Здравствуйте!» Друг: «Привет!»",
+   "path": "content/audio/curso/prepodavatel-zdravstvuyte-anna-zdravstvuyte-drug-51b8fa78.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Преподаватель: «Здравствуйте!» Потом друг: «Привет!»",
+   "path": "content/audio/curso/prepodavatel-zdravstvuyte-potom-drug-privet-21953f9c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Привет!",
+   "path": "content/audio/curso/privet-b2b11afc.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Привет! Как дела?",
+   "path": "content/audio/curso/privet-kak-dela-d7587978.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Привет, Иван!",
+   "path": "content/audio/curso/privet-ivan-d8fb6d97.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Привет.",
+   "path": "content/audio/curso/privet-878ff1b1.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Сегодня урок и работа. У Анны есть работа. У Ивана нет работы, но есть время.",
+   "path": "content/audio/curso/segodnya-urok-i-rabota-u-anny-est-rabota-u-ivana-36d3b67a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Сегодня я здесь.",
+   "path": "content/audio/curso/segodnya-ya-zdes-86d12f22.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Сестра тут.",
+   "path": "content/audio/curso/sestra-tut-d070c20e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Скажи ещё раз.",
+   "path": "content/audio/curso/skazhi-eschyo-raz-eb19f6e4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Скажи снова.",
+   "path": "content/audio/curso/skazhi-snova-fd9b8df4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Сколько книг?",
+   "path": "content/audio/curso/skolko-knig-9580f4ed.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Сначала читаю, потом пишу.",
+   "path": "content/audio/curso/snachala-chitayu-potom-pishu-90c672c7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Спасибо большое",
+   "path": "content/audio/curso/spasibo-bolshoe-5752f5bc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Спасибо большое!",
+   "path": "content/audio/curso/spasibo-bolshoe-02b83517.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Спасибо большое.",
+   "path": "content/audio/curso/spasibo-bolshoe-d7a6b239.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Студент ищет тетрадь. Тетрадь тут, на столе.",
+   "path": "content/audio/curso/student-ischet-tetrad-tetrad-tut-na-stole-41203d42.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Ты говорить по-испански?",
+   "path": "content/audio/curso/ty-govorit-po-ispanski-7a93ee96.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты говоришь по-испански есть.",
+   "path": "content/audio/curso/ty-govorish-po-ispanski-est-c9475bc3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты говоришь по-испански?",
+   "path": "content/audio/curso/ty-govorish-po-ispanski-6f829ebf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты говоришь по-русски?",
+   "path": "content/audio/curso/ty-govorish-po-russki-b55ec654.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8,
+    9
+   ]
+  },
+  {
+   "text": "Ты есть билет?",
+   "path": "content/audio/curso/ty-est-bilet-750cae95.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Ты живу в Москве и знаю ответ.",
+   "path": "content/audio/curso/ty-zhivu-v-moskve-i-znayu-otvet-2b2a74b2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты живёшь в Москве есть.",
+   "path": "content/audio/curso/ty-zhivyosh-v-moskve-est-028b9b7c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Ты живёшь в Москве?",
+   "path": "content/audio/curso/ty-zhivyosh-v-moskve-83437cf1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Ты живёшь в России и делаешь ответ?",
+   "path": "content/audio/curso/ty-zhivyosh-v-rossii-i-delaesh-otvet-4d49a703.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты живёшь в России и знаешь ответ есть.",
+   "path": "content/audio/curso/ty-zhivyosh-v-rossii-i-znaesh-otvet-est-3491bbf5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты живёшь в России и знаешь ответ?",
+   "path": "content/audio/curso/ty-zhivyosh-v-rossii-i-znaesh-otvet-e85abf46.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты жить в Москве?",
+   "path": "content/audio/curso/ty-zhit-v-moskve-2feb425e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Ты жить в России и знаешь ответ?",
+   "path": "content/audio/curso/ty-zhit-v-rossii-i-znaesh-otvet-15cfa920.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты здесь?",
+   "path": "content/audio/curso/ty-zdes-1575f708.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Ты знаешь ответ?",
+   "path": "content/audio/curso/ty-znaesh-otvet-a2c349af.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Ты знаю ответ.",
+   "path": "content/audio/curso/ty-znayu-otvet-93e1b69d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Ты нет паспорта.",
+   "path": "content/audio/curso/ty-net-pasporta-f56b231e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Ты писать письмо?",
+   "path": "content/audio/curso/ty-pisat-pismo-b5c46398.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты пишешь есть.",
+   "path": "content/audio/curso/ty-pishesh-est-9dbb1611.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты пишешь письмо?",
+   "path": "content/audio/curso/ty-pishesh-pismo-c2b5cb2b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты пишешь сообщение.",
+   "path": "content/audio/curso/ty-pishesh-soobschenie-00e8f2d0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Ты пишешь сообщение?",
+   "path": "content/audio/curso/ty-pishesh-soobschenie-1102e11c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Ты пишешь текст?",
+   "path": "content/audio/curso/ty-pishesh-tekst-0c5e8fa2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты пишешь.",
+   "path": "content/audio/curso/ty-pishesh-77e561f0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты пишешь?",
+   "path": "content/audio/curso/ty-pishesh-efaa10e3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты пишу сообщение.",
+   "path": "content/audio/curso/ty-pishu-soobschenie-163d3944.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты читаешь журнал?",
+   "path": "content/audio/curso/ty-chitaesh-zhurnal-ccc6674c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты читаешь книгу?",
+   "path": "content/audio/curso/ty-chitaesh-knigu-19497bfb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты читаешь письмо?",
+   "path": "content/audio/curso/ty-chitaesh-pismo-cc78208d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты читаешь по-испански?",
+   "path": "content/audio/curso/ty-chitaesh-po-ispanski-76a2e1b9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты читаешь по-русски?",
+   "path": "content/audio/curso/ty-chitaesh-po-russki-5bd30b57.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты читаешь текст есть.",
+   "path": "content/audio/curso/ty-chitaesh-tekst-est-844dca5f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты читаешь текст?",
+   "path": "content/audio/curso/ty-chitaesh-tekst-7ac6f4d8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты читаешь.",
+   "path": "content/audio/curso/ty-chitaesh-143102f4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты читаешь?",
+   "path": "content/audio/curso/ty-chitaesh-3096e7c9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты читать журнал?",
+   "path": "content/audio/curso/ty-chitat-zhurnal-5ac0a4df.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Ты читать текст?",
+   "path": "content/audio/curso/ty-chitat-tekst-b0973ed2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Ты читаю, а моя сестра пишет.",
+   "path": "content/audio/curso/ty-chitayu-a-moya-sestra-pishet-452ab298.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У Анны есть вопрос. У Ивана есть ответ.",
+   "path": "content/audio/curso/u-anny-est-vopros-u-ivana-est-otvet-997905fa.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У Анны есть фильм, а у Ивана есть музыка. Компьютер тут.",
+   "path": "content/audio/curso/u-anny-est-film-a-u-ivana-est-muzyka-kompyuter-t-7a6b92f3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть брат",
+   "path": "content/audio/curso/u-menya-est-brat-ebfcbb70.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть брат.",
+   "path": "content/audio/curso/u-menya-est-brat-59b79b37.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть времени.",
+   "path": "content/audio/curso/u-menya-est-vremeni-87db1955.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У меня есть время, но нет денег.",
+   "path": "content/audio/curso/u-menya-est-vremya-no-net-deneg-530ca8aa.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У меня есть время.",
+   "path": "content/audio/curso/u-menya-est-vremya-5f707c3a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть ключ. Это мой ключ.",
+   "path": "content/audio/curso/u-menya-est-klyuch-eto-moy-klyuch-763cb89d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У меня есть книга.",
+   "path": "content/audio/curso/u-menya-est-kniga-55451acb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть книга. Это моя книга",
+   "path": "content/audio/curso/u-menya-est-kniga-eto-moya-kniga-352113a7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У меня есть книга. Это моя книга есть.",
+   "path": "content/audio/curso/u-menya-est-kniga-eto-moya-kniga-est-682e30c6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У меня есть книга. Это моя книга, а это мои тетради.",
+   "path": "content/audio/curso/u-menya-est-kniga-eto-moya-kniga-a-eto-moi-tetra-152deff4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У меня есть книга. Это моя книга.",
+   "path": "content/audio/curso/u-menya-est-kniga-eto-moya-kniga-94003e54.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5,
+    10
+   ]
+  },
+  {
+   "text": "У меня есть книга. Это моя новая книга.",
+   "path": "content/audio/curso/u-menya-est-kniga-eto-moya-novaya-kniga-8f8eb5b1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У меня есть книгу.",
+   "path": "content/audio/curso/u-menya-est-knigu-02b30154.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть паспорт и билет.",
+   "path": "content/audio/curso/u-menya-est-pasport-i-bilet-88a8cbfc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть паспорт, но нет билета есть.",
+   "path": "content/audio/curso/u-menya-est-pasport-no-net-bileta-est-acdc4ebf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У меня есть паспорт, но нет билета.",
+   "path": "content/audio/curso/u-menya-est-pasport-no-net-bileta-746f79f6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4,
+    10
+   ]
+  },
+  {
+   "text": "У меня есть паспорт.",
+   "path": "content/audio/curso/u-menya-est-pasport-749e912b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть письмо.",
+   "path": "content/audio/curso/u-menya-est-pismo-9352ee36.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У меня есть письмо. Это моё письмо.",
+   "path": "content/audio/curso/u-menya-est-pismo-eto-moyo-pismo-e3d388a3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У меня есть...",
+   "path": "content/audio/curso/u-menya-est-7cea99eb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня есть..., но...",
+   "path": "content/audio/curso/u-menya-est-no-767157ce.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У меня не времени.",
+   "path": "content/audio/curso/u-menya-ne-vremeni-d9ff4555.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У меня не денег.",
+   "path": "content/audio/curso/u-menya-ne-deneg-17ee50c8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня нет денег",
+   "path": "content/audio/curso/u-menya-net-deneg-1dc04617.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня нет денег.",
+   "path": "content/audio/curso/u-menya-net-deneg-f0dff0f0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4,
+    5
+   ]
+  },
+  {
+   "text": "У меня нет паспорта.",
+   "path": "content/audio/curso/u-menya-net-pasporta-7b986571.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У меня нет письмо.",
+   "path": "content/audio/curso/u-menya-net-pismo-b81db169.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У меня нет...",
+   "path": "content/audio/curso/u-menya-net-4e0b16e7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя есть билет?",
+   "path": "content/audio/curso/u-tebya-est-bilet-8f1594b2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя есть ключ?",
+   "path": "content/audio/curso/u-tebya-est-klyuch-64419f05.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя есть книга?",
+   "path": "content/audio/curso/u-tebya-est-kniga-5c220f0d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя есть паспорта.",
+   "path": "content/audio/curso/u-tebya-est-pasporta-7a98a223.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя есть тетрадь?",
+   "path": "content/audio/curso/u-tebya-est-tetrad-bdc28d19.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У тебя есть...?",
+   "path": "content/audio/curso/u-tebya-est-e94f0e10.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя не паспорта.",
+   "path": "content/audio/curso/u-tebya-ne-pasporta-601f958b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя нет билет?",
+   "path": "content/audio/curso/u-tebya-net-bilet-1d7ffa13.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя нет паспорта.",
+   "path": "content/audio/curso/u-tebya-net-pasporta-2f270b7f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У тебя нет...",
+   "path": "content/audio/curso/u-tebya-net-dda37b51.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У ты есть билет?",
+   "path": "content/audio/curso/u-ty-est-bilet-b0c8647a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У ты есть тетрадь?",
+   "path": "content/audio/curso/u-ty-est-tetrad-e6d28ddd.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "У я есть брат.",
+   "path": "content/audio/curso/u-ya-est-brat-cd76bf4c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У я есть время.",
+   "path": "content/audio/curso/u-ya-est-vremya-8df9a897.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "У я есть паспорт, но не билета.",
+   "path": "content/audio/curso/u-ya-est-pasport-no-ne-bileta-dacddad4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "У я есть письмо.",
+   "path": "content/audio/curso/u-ya-est-pismo-2bf8aa7e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Утром Анна пишет.",
+   "path": "content/audio/curso/utrom-anna-pishet-339803b4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Утром Анна пишет. Днём она работает. Вечером она читает.",
+   "path": "content/audio/curso/utrom-anna-pishet-dnyom-ona-rabotaet-vecherom-on-264bf05b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Чай тут.",
+   "path": "content/audio/curso/chay-tut-e7f2255d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Что ты делаешь?",
+   "path": "content/audio/curso/chto-ty-delaesh-c6eea8e6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Что ты пишешь?",
+   "path": "content/audio/curso/chto-ty-pishesh-b7992763.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Что это.",
+   "path": "content/audio/curso/chto-eto-5c29b632.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Что это? есть.",
+   "path": "content/audio/curso/chto-eto-est-06374e4c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Что это? — Есть дом.",
+   "path": "content/audio/curso/chto-eto-est-dom-f7d2a4dd.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Что это? — Есть магазин.",
+   "path": "content/audio/curso/chto-eto-est-magazin-2e8464a0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это газета",
+   "path": "content/audio/curso/chto-eto-eto-gazeta-844ecec7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это газета.",
+   "path": "content/audio/curso/chto-eto-eto-gazeta-6ab9bfe0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это дом есть.",
+   "path": "content/audio/curso/chto-eto-eto-dom-est-2efa3e9d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Что это? — Это дом.",
+   "path": "content/audio/curso/chto-eto-eto-dom-6d3f9e64.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Что это? — Это журнал есть.",
+   "path": "content/audio/curso/chto-eto-eto-zhurnal-est-fb954270.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это журнал.",
+   "path": "content/audio/curso/chto-eto-eto-zhurnal-348eb8db.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это книга.",
+   "path": "content/audio/curso/chto-eto-eto-kniga-df8b8fbe.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Что это? — Это кошка.",
+   "path": "content/audio/curso/chto-eto-eto-koshka-3a748449.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это магазин",
+   "path": "content/audio/curso/chto-eto-eto-magazin-4d6f11a0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это магазин есть.",
+   "path": "content/audio/curso/chto-eto-eto-magazin-est-e73987de.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это магазин.",
+   "path": "content/audio/curso/chto-eto-eto-magazin-44d08ae2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это мама.",
+   "path": "content/audio/curso/chto-eto-eto-mama-2e0af444.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Что это? — Это моя подруга.",
+   "path": "content/audio/curso/chto-eto-eto-moya-podruga-8365149f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Что это? — Это собака.",
+   "path": "content/audio/curso/chto-eto-eto-sobaka-f5ba0a28.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это + имя",
+   "path": "content/audio/curso/eto-imya-f7563839.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это Анна.",
+   "path": "content/audio/curso/eto-anna-d4f3cd61.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Это Анна. Анна тут.",
+   "path": "content/audio/curso/eto-anna-anna-tut-33c4fb29.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это Анна. Он там.",
+   "path": "content/audio/curso/eto-anna-on-tam-13343e67.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это Анна. Она здесь",
+   "path": "content/audio/curso/eto-anna-ona-zdes-3e427baf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это Анна. Она здесь.",
+   "path": "content/audio/curso/eto-anna-ona-zdes-16581a35.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Это Анна. Она здесь. Здравствуйте, Мария Ивановна!",
+   "path": "content/audio/curso/eto-anna-ona-zdes-zdravstvuyte-mariya-ivanovna-f4a4128d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это Анна. Она здесь. Это Иван. Он там.",
+   "path": "content/audio/curso/eto-anna-ona-zdes-eto-ivan-on-tam-53f4e0cc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это Анна. Она преподаватель.",
+   "path": "content/audio/curso/eto-anna-ona-prepodavatel-ecb5f234.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это Анна. Она студентка.",
+   "path": "content/audio/curso/eto-anna-ona-studentka-391b8cc4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это Анна. Она там есть.",
+   "path": "content/audio/curso/eto-anna-ona-tam-est-caa8c853.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это Анна. Она там.",
+   "path": "content/audio/curso/eto-anna-ona-tam-7d9f438e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это Анна. Это здесь.",
+   "path": "content/audio/curso/eto-anna-eto-zdes-11a3aad6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это Анна. Это там.",
+   "path": "content/audio/curso/eto-anna-eto-tam-47e86f3b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это Иван.",
+   "path": "content/audio/curso/eto-ivan-8881ccbb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Это Иван. Иван тут.",
+   "path": "content/audio/curso/eto-ivan-ivan-tut-f73365bf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Это Иван. Он говорит по-русски, а я — по-испански.",
+   "path": "content/audio/curso/eto-ivan-on-govorit-po-russki-a-ya-po-ispanski-4c9904e3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Это Иван. Он тут.",
+   "path": "content/audio/curso/eto-ivan-on-tut-121875eb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это Ольга. Она здесь.",
+   "path": "content/audio/curso/eto-olga-ona-zdes-7923758a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это бабушка. Это дедушка. Бабушка тут. Дедушка тут.",
+   "path": "content/audio/curso/eto-babushka-eto-dedushka-babushka-tut-dedushka--005b3339.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это билет, а паспорт.",
+   "path": "content/audio/curso/eto-bilet-a-pasport-51a08c3f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это билет.",
+   "path": "content/audio/curso/eto-bilet-ee88fd99.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это большой город.",
+   "path": "content/audio/curso/eto-bolshoy-gorod-17cfeb85.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это большой дом.",
+   "path": "content/audio/curso/eto-bolshoy-dom-82532a10.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это важно.",
+   "path": "content/audio/curso/eto-vazhno-b7034096.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это вода. Вода тут.",
+   "path": "content/audio/curso/eto-voda-voda-tut-3ed089c7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это вопрос.",
+   "path": "content/audio/curso/eto-vopros-91245f09.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это газета, но не книга.",
+   "path": "content/audio/curso/eto-gazeta-no-ne-kniga-ca324955.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это газета.",
+   "path": "content/audio/curso/eto-gazeta-fb4b3c12.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это город, а это улица",
+   "path": "content/audio/curso/eto-gorod-a-eto-ulitsa-8b7f4f6f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это город, а это улица.",
+   "path": "content/audio/curso/eto-gorod-a-eto-ulitsa-eb04b542.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это город, и это улица.",
+   "path": "content/audio/curso/eto-gorod-i-eto-ulitsa-d1ae63f9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это деньги.",
+   "path": "content/audio/curso/eto-dengi-27c1c045.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это друг.",
+   "path": "content/audio/curso/eto-drug-9d5e19e9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это есть бабушка.",
+   "path": "content/audio/curso/eto-est-babushka-d743eb0b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это есть вода. Вода тут.",
+   "path": "content/audio/curso/eto-est-voda-voda-tut-25e15e80.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это есть книга.",
+   "path": "content/audio/curso/eto-est-kniga-c1520e9b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это есть кофе.",
+   "path": "content/audio/curso/eto-est-kofe-6f346ff3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это есть мама.",
+   "path": "content/audio/curso/eto-est-mama-0fbb8863.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это есть папа.",
+   "path": "content/audio/curso/eto-est-papa-f2757986.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это есть сестра.",
+   "path": "content/audio/curso/eto-est-sestra-eed2ef0d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это есть чай.",
+   "path": "content/audio/curso/eto-est-chay-0530ec08.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это есть школа.",
+   "path": "content/audio/curso/eto-est-shkola-f3c3d9a4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это журнал.",
+   "path": "content/audio/curso/eto-zhurnal-ab473752.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Это задание.",
+   "path": "content/audio/curso/eto-zadanie-068defdb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это идея.",
+   "path": "content/audio/curso/eto-ideya-2e0d9634.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это испанский язык.",
+   "path": "content/audio/curso/eto-ispanskiy-yazyk-36000fe5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это карта.",
+   "path": "content/audio/curso/eto-karta-3656c7ce.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это ключ, а это билет",
+   "path": "content/audio/curso/eto-klyuch-a-eto-bilet-ade0a4ea.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это ключ, а это билет есть.",
+   "path": "content/audio/curso/eto-klyuch-a-eto-bilet-est-305b63a1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это ключ, а это билет.",
+   "path": "content/audio/curso/eto-klyuch-a-eto-bilet-e4a9d040.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это ключ, а это билет. Ключ у Анны.",
+   "path": "content/audio/curso/eto-klyuch-a-eto-bilet-klyuch-u-anny-78255ef9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это ключ, и это билет.",
+   "path": "content/audio/curso/eto-klyuch-i-eto-bilet-64a785dc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это ключ, но это билет.",
+   "path": "content/audio/curso/eto-klyuch-no-eto-bilet-3bb2ef7a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это ключ.",
+   "path": "content/audio/curso/eto-klyuch-576d5c34.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это книга, и не газета.",
+   "path": "content/audio/curso/eto-kniga-i-ne-gazeta-f378bbf4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это книга, но не газета",
+   "path": "content/audio/curso/eto-kniga-no-ne-gazeta-422029a5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это книга, но не газета.",
+   "path": "content/audio/curso/eto-kniga-no-ne-gazeta-cadccf71.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это книга.",
+   "path": "content/audio/curso/eto-kniga-2125060e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Это книга. Книга тут. Стул тут, а стол там.",
+   "path": "content/audio/curso/eto-kniga-kniga-tut-stul-tut-a-stol-tam-a0553ef2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это комната.",
+   "path": "content/audio/curso/eto-komnata-b48592dc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это компьютер.",
+   "path": "content/audio/curso/eto-kompyuter-6e837a06.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это кофе",
+   "path": "content/audio/curso/eto-kofe-b263509a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это кофе. Кофе здесь. Чай там.",
+   "path": "content/audio/curso/eto-kofe-kofe-zdes-chay-tam-fd8f94dd.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это кофе. Кофе тут.",
+   "path": "content/audio/curso/eto-kofe-kofe-tut-8980d761.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Это легко.",
+   "path": "content/audio/curso/eto-legko-d6989f91.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это маленький дом.",
+   "path": "content/audio/curso/eto-malenkiy-dom-f0d91038.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мама и папа.",
+   "path": "content/audio/curso/eto-mama-i-papa-fa90ca45.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это мама, а это папа.",
+   "path": "content/audio/curso/eto-mama-a-eto-papa-4b5a3b9e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это мама, а это папа. Мама здесь, папа там.",
+   "path": "content/audio/curso/eto-mama-a-eto-papa-mama-zdes-papa-tam-8ee4c200.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это мама, и это папа.",
+   "path": "content/audio/curso/eto-mama-i-eto-papa-4a54a45f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это машина.",
+   "path": "content/audio/curso/eto-mashina-e170922a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это мои карточки.",
+   "path": "content/audio/curso/eto-moi-kartochki-ada4d6df.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мои книги",
+   "path": "content/audio/curso/eto-moi-knigi-3feade2d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мои книги.",
+   "path": "content/audio/curso/eto-moi-knigi-cf125c74.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мои новые книги",
+   "path": "content/audio/curso/eto-moi-novye-knigi-05febe16.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это мои новые книги есть.",
+   "path": "content/audio/curso/eto-moi-novye-knigi-est-60ce2348.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это мои новые книги.",
+   "path": "content/audio/curso/eto-moi-novye-knigi-bb5a664b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Это мои новый книги.",
+   "path": "content/audio/curso/eto-moi-novyy-knigi-caa3e29e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это мои тетради.",
+   "path": "content/audio/curso/eto-moi-tetradi-ead4e940.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой брат.",
+   "path": "content/audio/curso/eto-moy-brat-0868f96d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой брат. Он живёт в Испании есть.",
+   "path": "content/audio/curso/eto-moy-brat-on-zhivyot-v-ispanii-est-d99980a5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это мой брат. Он живёт в Испании.",
+   "path": "content/audio/curso/eto-moy-brat-on-zhivyot-v-ispanii-b76dd84d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это мой брат. Он здесь.",
+   "path": "content/audio/curso/eto-moy-brat-on-zdes-14bd0e35.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это мой брат. Он там.",
+   "path": "content/audio/curso/eto-moy-brat-on-tam-ec70f493.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это мой брат. Это живёт в Испании.",
+   "path": "content/audio/curso/eto-moy-brat-eto-zhivyot-v-ispanii-c457627a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это мой ключ",
+   "path": "content/audio/curso/eto-moy-klyuch-439b85d9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой ключ есть.",
+   "path": "content/audio/curso/eto-moy-klyuch-est-baf85886.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой ключ, а это твой билет.",
+   "path": "content/audio/curso/eto-moy-klyuch-a-eto-tvoy-bilet-20a58eaf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой ключ, и это твой билет.",
+   "path": "content/audio/curso/eto-moy-klyuch-i-eto-tvoy-bilet-ddcc9326.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой ключ.",
+   "path": "content/audio/curso/eto-moy-klyuch-10531762.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой книги.",
+   "path": "content/audio/curso/eto-moy-knigi-b208f7f4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой новая телефон.",
+   "path": "content/audio/curso/eto-moy-novaya-telefon-739fba5f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой новые книги.",
+   "path": "content/audio/curso/eto-moy-novye-knigi-93c0abaa.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это мой новый телефон есть.",
+   "path": "content/audio/curso/eto-moy-novyy-telefon-est-0d5ce74e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой новый телефон.",
+   "path": "content/audio/curso/eto-moy-novyy-telefon-ebd929b0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой сестра.",
+   "path": "content/audio/curso/eto-moy-sestra-5b22a2a4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой сестра. Она здесь.",
+   "path": "content/audio/curso/eto-moy-sestra-ona-zdes-9f523208.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это мой сумка.",
+   "path": "content/audio/curso/eto-moy-sumka-e800c24f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой телефон, а это мои тетради.",
+   "path": "content/audio/curso/eto-moy-telefon-a-eto-moi-tetradi-cd9c4d87.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мой телефон.",
+   "path": "content/audio/curso/eto-moy-telefon-917f64ec.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это молоко, но не сыр.",
+   "path": "content/audio/curso/eto-moloko-no-ne-syr-67d915fe.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это моя брат.",
+   "path": "content/audio/curso/eto-moya-brat-2f4625f2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это моя брат. Он там.",
+   "path": "content/audio/curso/eto-moya-brat-on-tam-b87f0ad2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это моя книга есть.",
+   "path": "content/audio/curso/eto-moya-kniga-est-a22a9db0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя книга.",
+   "path": "content/audio/curso/eto-moya-kniga-9923f3cf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя маленькая книга. Книга хорошая. Рядом большая фотография. А это плохой пример.",
+   "path": "content/audio/curso/eto-moya-malenkaya-kniga-kniga-horoshaya-ryadom--b817cde5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя новая тетрадь.",
+   "path": "content/audio/curso/eto-moya-novaya-tetrad-31cb4775.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя новая тетрадь. А это мои старые книги.",
+   "path": "content/audio/curso/eto-moya-novaya-tetrad-a-eto-moi-starye-knigi-6e1a5090.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя новая фотография.",
+   "path": "content/audio/curso/eto-moya-novaya-fotografiya-e11d3088.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя новые тетрадь.",
+   "path": "content/audio/curso/eto-moya-novye-tetrad-805e1025.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя новый тетрадь.",
+   "path": "content/audio/curso/eto-moya-novyy-tetrad-2e963e61.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя письмо.",
+   "path": "content/audio/curso/eto-moya-pismo-aaa4ee5b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя работа.",
+   "path": "content/audio/curso/eto-moya-rabota-1ab86feb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя сестра",
+   "path": "content/audio/curso/eto-moya-sestra-c5db52c5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя сестра.",
+   "path": "content/audio/curso/eto-moya-sestra-a7975276.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя сестра. Она говорит по-русски",
+   "path": "content/audio/curso/eto-moya-sestra-ona-govorit-po-russki-22337b4f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это моя сестра. Она говорит по-русски.",
+   "path": "content/audio/curso/eto-moya-sestra-ona-govorit-po-russki-1d191438.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это моя сестра. Она здесь есть.",
+   "path": "content/audio/curso/eto-moya-sestra-ona-zdes-est-07e634fb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это моя сестра. Она здесь.",
+   "path": "content/audio/curso/eto-moya-sestra-ona-zdes-76124410.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это моя сестра. Это говорит по-русски.",
+   "path": "content/audio/curso/eto-moya-sestra-eto-govorit-po-russki-39639472.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это моя слово.",
+   "path": "content/audio/curso/eto-moya-slovo-4158ca54.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это моя сумка есть.",
+   "path": "content/audio/curso/eto-moya-sumka-est-24582e85.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя сумка.",
+   "path": "content/audio/curso/eto-moya-sumka-c7b961d2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моя...",
+   "path": "content/audio/curso/eto-moya-b4baa487.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моё новая тетрадь.",
+   "path": "content/audio/curso/eto-moyo-novaya-tetrad-93fe4bc3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моё новое письмо, а это мой старый телефон.",
+   "path": "content/audio/curso/eto-moyo-novoe-pismo-a-eto-moy-staryy-telefon-f1052128.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моё новое письмо.",
+   "path": "content/audio/curso/eto-moyo-novoe-pismo-c7fd6566.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моё письмо",
+   "path": "content/audio/curso/eto-moyo-pismo-30871104.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моё письмо.",
+   "path": "content/audio/curso/eto-moyo-pismo-27737dad.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моё письмо. Письмо новое. Карта старая.",
+   "path": "content/audio/curso/eto-moyo-pismo-pismo-novoe-karta-staraya-33e3e036.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это моё сестра. Она здесь.",
+   "path": "content/audio/curso/eto-moyo-sestra-ona-zdes-e97f8145.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это моё слово.",
+   "path": "content/audio/curso/eto-moyo-slovo-cb7ec1a1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Это моё сумка.",
+   "path": "content/audio/curso/eto-moyo-sumka-61a94aad.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это мужчина",
+   "path": "content/audio/curso/eto-muzhchina-1f801bbe.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это музыка.",
+   "path": "content/audio/curso/eto-muzyka-1f5b8b3d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это мясо.",
+   "path": "content/audio/curso/eto-myaso-6bd9b91f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не билет, а паспорт.",
+   "path": "content/audio/curso/eto-ne-bilet-a-pasport-5837bcae.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это не билет, но паспорт.",
+   "path": "content/audio/curso/eto-ne-bilet-no-pasport-6d011ca1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это не вода есть.",
+   "path": "content/audio/curso/eto-ne-voda-est-eb5e11a8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не вода.",
+   "path": "content/audio/curso/eto-ne-voda-6eeee797.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не карта, а паспорт. У меня есть паспорт.",
+   "path": "content/audio/curso/eto-ne-karta-a-pasport-u-menya-est-pasport-c4e224d0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это не кофе, а чай",
+   "path": "content/audio/curso/eto-ne-kofe-a-chay-ce387439.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не кофе, а чай.",
+   "path": "content/audio/curso/eto-ne-kofe-a-chay-900f8539.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не молоко.",
+   "path": "content/audio/curso/eto-ne-moloko-76153e70.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не сок, а вода.",
+   "path": "content/audio/curso/eto-ne-sok-a-voda-f5638031.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не сок.",
+   "path": "content/audio/curso/eto-ne-sok-d3790dfc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не чай, а кофе.",
+   "path": "content/audio/curso/eto-ne-chay-a-kofe-19bb5ab1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это не...",
+   "path": "content/audio/curso/eto-ne-b0e86198.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это неправильно.",
+   "path": "content/audio/curso/eto-nepravilno-e23d2f85.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это нет билет, а паспорт.",
+   "path": "content/audio/curso/eto-net-bilet-a-pasport-d6abedcc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это нет вода.",
+   "path": "content/audio/curso/eto-net-voda-e47c7771.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это нет кофе, а чай.",
+   "path": "content/audio/curso/eto-net-kofe-a-chay-2a15cb04.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это новая книга.",
+   "path": "content/audio/curso/eto-novaya-kniga-8733fe55.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это новая тетрадь.",
+   "path": "content/audio/curso/eto-novaya-tetrad-ed70993a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это новое слово.",
+   "path": "content/audio/curso/eto-novoe-slovo-c3dd7e9e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это новые книги.",
+   "path": "content/audio/curso/eto-novye-knigi-989276c9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это новый телефон.",
+   "path": "content/audio/curso/eto-novyy-telefon-061012c1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это новый тетрадь.",
+   "path": "content/audio/curso/eto-novyy-tetrad-e4a1a56f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это окно.",
+   "path": "content/audio/curso/eto-okno-cab86b20.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это ответ.",
+   "path": "content/audio/curso/eto-otvet-1be080cc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это очень важно.",
+   "path": "content/audio/curso/eto-ochen-vazhno-4b0cf0e2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это ошибка.",
+   "path": "content/audio/curso/eto-oshibka-96ffc21d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это паспорт а билет.",
+   "path": "content/audio/curso/eto-pasport-a-bilet-631ff54a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это паспорт и билет.",
+   "path": "content/audio/curso/eto-pasport-i-bilet-bbb7b742.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это паспорт, а не карта.",
+   "path": "content/audio/curso/eto-pasport-a-ne-karta-3bc8eef0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это паспорт, и не карта.",
+   "path": "content/audio/curso/eto-pasport-i-ne-karta-fb8b3e35.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это паспорт, но не карта.",
+   "path": "content/audio/curso/eto-pasport-no-ne-karta-5f7eda52.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это паспорт.",
+   "path": "content/audio/curso/eto-pasport-7a5d78f4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1,
+    4
+   ]
+  },
+  {
+   "text": "Это песня.",
+   "path": "content/audio/curso/eto-pesnya-bc5e898f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Это письмо.",
+   "path": "content/audio/curso/eto-pismo-8f252737.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это плохо.",
+   "path": "content/audio/curso/eto-ploho-f566510c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Это плохой фильм.",
+   "path": "content/audio/curso/eto-plohoy-film-63801bbc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это повторение.",
+   "path": "content/audio/curso/eto-povtorenie-3bfac1ee.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это подруга.",
+   "path": "content/audio/curso/eto-podruga-70c201fc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это правильно.",
+   "path": "content/audio/curso/eto-pravilno-8900f334.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это пример.",
+   "path": "content/audio/curso/eto-primer-36a1d589.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это проблема.",
+   "path": "content/audio/curso/eto-problema-87f3207c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это русский язык.",
+   "path": "content/audio/curso/eto-russkiy-yazyk-bec295c8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это ручка.",
+   "path": "content/audio/curso/eto-ruchka-ce64488a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это рыба.",
+   "path": "content/audio/curso/eto-ryba-22a6f8d9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это сайт.",
+   "path": "content/audio/curso/eto-sayt-56866918.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Это семейный альбом.",
+   "path": "content/audio/curso/eto-semeynyy-albom-8f739913.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это слово.",
+   "path": "content/audio/curso/eto-slovo-cc9ee875.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это сок.",
+   "path": "content/audio/curso/eto-sok-76c0cf24.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это сообщение.",
+   "path": "content/audio/curso/eto-soobschenie-533210c4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Это сообщение. Я пишу сообщение.",
+   "path": "content/audio/curso/eto-soobschenie-ya-pishu-soobschenie-86c1e619.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Это старый дом.",
+   "path": "content/audio/curso/eto-staryy-dom-551d73df.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это стол.",
+   "path": "content/audio/curso/eto-stol-5f5ccbd4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это стул.",
+   "path": "content/audio/curso/eto-stul-0049de3b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это сумка, но у меня нет сумки.",
+   "path": "content/audio/curso/eto-sumka-no-u-menya-net-sumki-cd8c2aab.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это сумка.",
+   "path": "content/audio/curso/eto-sumka-ea4445b6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это сыр.",
+   "path": "content/audio/curso/eto-syr-b9fcea22.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это текст.",
+   "path": "content/audio/curso/eto-tekst-6a29e0ec.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Это телефон.",
+   "path": "content/audio/curso/eto-telefon-9a1165ae.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это тетрадь.",
+   "path": "content/audio/curso/eto-tetrad-c72fcd6a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это тетрадь. Он новая.",
+   "path": "content/audio/curso/eto-tetrad-on-novaya-3a2cc884.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это тетрадь. Она новая есть.",
+   "path": "content/audio/curso/eto-tetrad-ona-novaya-est-63a99fab.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это тетрадь. Она новая.",
+   "path": "content/audio/curso/eto-tetrad-ona-novaya-be87cf50.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это тетрадь. Это новая.",
+   "path": "content/audio/curso/eto-tetrad-eto-novaya-23926c57.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Это трудно.",
+   "path": "content/audio/curso/eto-trudno-08ae5787.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это урок.",
+   "path": "content/audio/curso/eto-urok-71623a7c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это учитель, а это учительница. Они живут в России.",
+   "path": "content/audio/curso/eto-uchitel-a-eto-uchitelnitsa-oni-zhivut-v-ross-c59b8e58.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это учительница.",
+   "path": "content/audio/curso/eto-uchitelnitsa-8531f6d8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Это фильм.",
+   "path": "content/audio/curso/eto-film-0970c784.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Это хлеб а сыр.",
+   "path": "content/audio/curso/eto-hleb-a-syr-bbe0927b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это хлеб и сыр есть.",
+   "path": "content/audio/curso/eto-hleb-i-syr-est-3c644b45.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это хлеб и сыр.",
+   "path": "content/audio/curso/eto-hleb-i-syr-10d9e039.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это хлеб но сыр.",
+   "path": "content/audio/curso/eto-hleb-no-syr-8198e729.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это хороший фильм.",
+   "path": "content/audio/curso/eto-horoshiy-film-e124bb96.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Это чай, а это кофе.",
+   "path": "content/audio/curso/eto-chay-a-eto-kofe-23a63c27.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это чай. Чай тут.",
+   "path": "content/audio/curso/eto-chay-chay-tut-60bb806e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "Это экзамен.",
+   "path": "content/audio/curso/eto-ekzamen-04863c75.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Это яблоко а сок.",
+   "path": "content/audio/curso/eto-yabloko-a-sok-8eb9248d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это яблоко и сок.",
+   "path": "content/audio/curso/eto-yabloko-i-sok-af62a48b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это яблоко.",
+   "path": "content/audio/curso/eto-yabloko-b22c12bc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "Это...",
+   "path": "content/audio/curso/eto-626ae992.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "Я вижу газета.",
+   "path": "content/audio/curso/ya-vizhu-gazeta-89330bf0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу газету.",
+   "path": "content/audio/curso/ya-vizhu-gazetu-f872d760.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу картина.",
+   "path": "content/audio/curso/ya-vizhu-kartina-c89c32cd.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу картину.",
+   "path": "content/audio/curso/ya-vizhu-kartinu-7b40c4a6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу картины.",
+   "path": "content/audio/curso/ya-vizhu-kartiny-bdad9038.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу книга.",
+   "path": "content/audio/curso/ya-vizhu-kniga-3a593098.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу книги.",
+   "path": "content/audio/curso/ya-vizhu-knigi-2c8bd1f3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу книгу.",
+   "path": "content/audio/curso/ya-vizhu-knigu-49db2038.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу музей.",
+   "path": "content/audio/curso/ya-vizhu-muzey-918a6710.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу парк.",
+   "path": "content/audio/curso/ya-vizhu-park-aed443b7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу суп.",
+   "path": "content/audio/curso/ya-vizhu-sup-d44ee0a8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу супа.",
+   "path": "content/audio/curso/ya-vizhu-supa-196d95af.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу супу.",
+   "path": "content/audio/curso/ya-vizhu-supu-716012a2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу хлеб.",
+   "path": "content/audio/curso/ya-vizhu-hleb-603d223f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу хлеба.",
+   "path": "content/audio/curso/ya-vizhu-hleba-885066dd.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я вижу хлебу.",
+   "path": "content/audio/curso/ya-vizhu-hlebu-8dea6261.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я говорю испанский, но читаю русский.",
+   "path": "content/audio/curso/ya-govoryu-ispanskiy-no-chitayu-russkiy-7a6783b6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я говорю по-испански, но читаю по-русски.",
+   "path": "content/audio/curso/ya-govoryu-po-ispanski-no-chitayu-po-russki-ff825d79.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я говорю по-испански, но читаю по-русски. В кафе я тоже читаю.",
+   "path": "content/audio/curso/ya-govoryu-po-ispanski-no-chitayu-po-russki-v-ka-c520d71d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я говорю по-испански, но читаю русский.",
+   "path": "content/audio/curso/ya-govoryu-po-ispanski-no-chitayu-russkiy-6d02aab5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я говорю по-испански.",
+   "path": "content/audio/curso/ya-govoryu-po-ispanski-f4b33fae.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я говорю по-русски",
+   "path": "content/audio/curso/ya-govoryu-po-russki-caf39e52.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я говорю по-русски.",
+   "path": "content/audio/curso/ya-govoryu-po-russki-ce47e227.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я говорю по-русски. Ты говоришь по-испански?",
+   "path": "content/audio/curso/ya-govoryu-po-russki-ty-govorish-po-ispanski-d642bb23.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я говорю русский.",
+   "path": "content/audio/curso/ya-govoryu-russkiy-ce8cb2f0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я готов.",
+   "path": "content/audio/curso/ya-gotov-776fab25.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я делать задание и знаю ответ.",
+   "path": "content/audio/curso/ya-delat-zadanie-i-znayu-otvet-c1f8fde2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я делать задание.",
+   "path": "content/audio/curso/ya-delat-zadanie-5990bb3b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Я делаю задание и знаю ответ есть.",
+   "path": "content/audio/curso/ya-delayu-zadanie-i-znayu-otvet-est-1be0a605.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я делаю задание и знаю ответ.",
+   "path": "content/audio/curso/ya-delayu-zadanie-i-znayu-otvet-ddfe4cad.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я делаю задание.",
+   "path": "content/audio/curso/ya-delayu-zadanie-0a0c3fec.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Я делаю ответ.",
+   "path": "content/audio/curso/ya-delayu-otvet-8dc2c389.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я есть письмо.",
+   "path": "content/audio/curso/ya-est-pismo-5e21bfe4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Я живу в Испании",
+   "path": "content/audio/curso/ya-zhivu-v-ispanii-e120c3f9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я живу в Москве и делаю ответ.",
+   "path": "content/audio/curso/ya-zhivu-v-moskve-i-delayu-otvet-e07c7582.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я живу в Москве и знаю ответ.",
+   "path": "content/audio/curso/ya-zhivu-v-moskve-i-znayu-otvet-9a5f57b2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я живу в Москве, а сестра живёт в Испании.",
+   "path": "content/audio/curso/ya-zhivu-v-moskve-a-sestra-zhivyot-v-ispanii-c0baeb27.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я живу в Москве.",
+   "path": "content/audio/curso/ya-zhivu-v-moskve-7e14fb55.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я живу в России, а Анна живёт в Испании.",
+   "path": "content/audio/curso/ya-zhivu-v-rossii-a-anna-zhivyot-v-ispanii-acc399f1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я живу в России, а ты живёшь в Испании",
+   "path": "content/audio/curso/ya-zhivu-v-rossii-a-ty-zhivyosh-v-ispanii-e713f3a8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я живу в России, а ты живёшь в Испании.",
+   "path": "content/audio/curso/ya-zhivu-v-rossii-a-ty-zhivyosh-v-ispanii-05992270.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я живу в...",
+   "path": "content/audio/curso/ya-zhivu-v-05477d75.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я живу здесь, а ты живёшь там.",
+   "path": "content/audio/curso/ya-zhivu-zdes-a-ty-zhivyosh-tam-53b5dc29.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я жить в Испании.",
+   "path": "content/audio/curso/ya-zhit-v-ispanii-eb0a7c42.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я жить в Москве и знаю ответ.",
+   "path": "content/audio/curso/ya-zhit-v-moskve-i-znayu-otvet-0c1dfd42.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я жить в России, а ты живёшь в Испании.",
+   "path": "content/audio/curso/ya-zhit-v-rossii-a-ty-zhivyosh-v-ispanii-8c174d55.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я здесь.",
+   "path": "content/audio/curso/ya-zdes-c0ded82b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я знать ответ.",
+   "path": "content/audio/curso/ya-znat-otvet-2cc34b60.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я знаю ответ",
+   "path": "content/audio/curso/ya-znayu-otvet-67bb21ff.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я знаю ответ.",
+   "path": "content/audio/curso/ya-znayu-otvet-be67afe5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Я имею книга.",
+   "path": "content/audio/curso/ya-imeyu-kniga-d2e1cbfb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "Я ищу письма.",
+   "path": "content/audio/curso/ya-ischu-pisma-57c7ee44.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я ищу письмо.",
+   "path": "content/audio/curso/ya-ischu-pismo-f60f0cc8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я ищу письму.",
+   "path": "content/audio/curso/ya-ischu-pismu-5804d546.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я ищу телефон.",
+   "path": "content/audio/curso/ya-ischu-telefon-6ea181cc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я ищу тетрадь.",
+   "path": "content/audio/curso/ya-ischu-tetrad-6b945a67.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я ищу хлеб.",
+   "path": "content/audio/curso/ya-ischu-hleb-d6e6d495.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю город.",
+   "path": "content/audio/curso/ya-lyublyu-gorod-f63ebb62.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю картина.",
+   "path": "content/audio/curso/ya-lyublyu-kartina-138a1659.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю картину.",
+   "path": "content/audio/curso/ya-lyublyu-kartinu-28600d4d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю музыка.",
+   "path": "content/audio/curso/ya-lyublyu-muzyka-18bf9a86.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю музыки.",
+   "path": "content/audio/curso/ya-lyublyu-muzyki-8f973d7a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю парк.",
+   "path": "content/audio/curso/ya-lyublyu-park-4931e28a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю парка.",
+   "path": "content/audio/curso/ya-lyublyu-parka-5d9ee05f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю парку.",
+   "path": "content/audio/curso/ya-lyublyu-parku-68934233.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я люблю писать.",
+   "path": "content/audio/curso/ya-lyublyu-pisat-44c1bae4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я люблю читать.",
+   "path": "content/audio/curso/ya-lyublyu-chitat-268c058b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я не знаю.",
+   "path": "content/audio/curso/ya-ne-znayu-9b729005.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я нет времени.",
+   "path": "content/audio/curso/ya-net-vremeni-38fcd76f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "Я писать сообщение.",
+   "path": "content/audio/curso/ya-pisat-soobschenie-4ea050f8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8,
+    9
+   ]
+  },
+  {
+   "text": "Я пишу письмо, а она читает книгу.",
+   "path": "content/audio/curso/ya-pishu-pismo-a-ona-chitaet-knigu-f689914e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я пишу сообщение",
+   "path": "content/audio/curso/ya-pishu-soobschenie-a215ed8f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я пишу сообщение.",
+   "path": "content/audio/curso/ya-pishu-soobschenie-e08ac53a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8,
+    9
+   ]
+  },
+  {
+   "text": "Я пишу, а мой брат читает.",
+   "path": "content/audio/curso/ya-pishu-a-moy-brat-chitaet-07a0d935.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я пишу, а моя сестра пишет.",
+   "path": "content/audio/curso/ya-pishu-a-moya-sestra-pishet-2e3e487e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я покупаю билет.",
+   "path": "content/audio/curso/ya-pokupayu-bilet-1ae5fe05.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю билета.",
+   "path": "content/audio/curso/ya-pokupayu-bileta-936729fd.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю билету.",
+   "path": "content/audio/curso/ya-pokupayu-biletu-e6a6388e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю газета.",
+   "path": "content/audio/curso/ya-pokupayu-gazeta-0f33a834.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю газету.",
+   "path": "content/audio/curso/ya-pokupayu-gazetu-5fd43f4b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю машина.",
+   "path": "content/audio/curso/ya-pokupayu-mashina-10318506.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю машину.",
+   "path": "content/audio/curso/ya-pokupayu-mashinu-14f795d4.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю машины.",
+   "path": "content/audio/curso/ya-pokupayu-mashiny-ddf55a47.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю хлеб.",
+   "path": "content/audio/curso/ya-pokupayu-hleb-1227bb53.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я покупаю хлеба.",
+   "path": "content/audio/curso/ya-pokupayu-hleba-72559ba3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "Я понимаю.",
+   "path": "content/audio/curso/ya-ponimayu-38811320.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я работаю днём.",
+   "path": "content/audio/curso/ya-rabotayu-dnyom-0e4cbef5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я работаю рано.",
+   "path": "content/audio/curso/ya-rabotayu-rano-544762bf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я работаю.",
+   "path": "content/audio/curso/ya-rabotayu-6449c5ef.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я тоже здесь.",
+   "path": "content/audio/curso/ya-tozhe-zdes-70a268c0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Я уже готов.",
+   "path": "content/audio/curso/ya-uzhe-gotov-8861795e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я учусь в университете.",
+   "path": "content/audio/curso/ya-uchus-v-universitete-053504c3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я хочу жить в России.",
+   "path": "content/audio/curso/ya-hochu-zhit-v-rossii-2bbaef13.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я хочу знать ответ.",
+   "path": "content/audio/curso/ya-hochu-znat-otvet-0ebd42c8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "Я читать книгу, а она пишет письмо.",
+   "path": "content/audio/curso/ya-chitat-knigu-a-ona-pishet-pismo-77365c46.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я читать текст.",
+   "path": "content/audio/curso/ya-chitat-tekst-d9338488.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я читать, а моя сестра пишет.",
+   "path": "content/audio/curso/ya-chitat-a-moya-sestra-pishet-a87bab84.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я читаю вечером.",
+   "path": "content/audio/curso/ya-chitayu-vecherom-cb5869a8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я читаю газету.",
+   "path": "content/audio/curso/ya-chitayu-gazetu-8c6a3eeb.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "Я читаю журнал.",
+   "path": "content/audio/curso/ya-chitayu-zhurnal-aeb6519f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я читаю книгу, а она пишет письмо",
+   "path": "content/audio/curso/ya-chitayu-knigu-a-ona-pishet-pismo-31d62b3f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я читаю книгу, а она пишет письмо.",
+   "path": "content/audio/curso/ya-chitayu-knigu-a-ona-pishet-pismo-a8d85df8.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я читаю сейчас.",
+   "path": "content/audio/curso/ya-chitayu-seychas-f9f27b42.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "Я читаю сообщение.",
+   "path": "content/audio/curso/ya-chitayu-soobschenie-f94476fe.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я читаю текст.",
+   "path": "content/audio/curso/ya-chitayu-tekst-cdf5902f.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "Я читаю утром.",
+   "path": "content/audio/curso/ya-chitayu-utrom-dc8b8932.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я читаю, а моя сестра пишет.",
+   "path": "content/audio/curso/ya-chitayu-a-moya-sestra-pishet-86e86521.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я читаю, а она пишет.",
+   "path": "content/audio/curso/ya-chitayu-a-ona-pishet-ca0596ba.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я читаю, мой брат пишет, а моя сестра говорит по-русски.",
+   "path": "content/audio/curso/ya-chitayu-moy-brat-pishet-a-moya-sestra-govorit-2e573f4e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "Я..., а он/она...",
+   "path": "content/audio/curso/ya-a-on-ona-60a31fef.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "а",
+   "path": "content/audio/curso/a-823c4eb3.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    1,
+    3
+   ]
+  },
+  {
+   "text": "адрес",
+   "path": "content/audio/curso/adres-d6b9e5e7.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "альбом",
+   "path": "content/audio/curso/albom-f3e4721d.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "важно",
+   "path": "content/audio/curso/vazhno-ab21ffd5.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "вечер",
+   "path": "content/audio/curso/vecher-a6dabeb9.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "вода. Это вода.",
+   "path": "content/audio/curso/voda-eto-voda-5e6714fa.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "говоришь",
+   "path": "content/audio/curso/govorish-eaf9129b.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "говорю",
+   "path": "content/audio/curso/govoryu-72b67286.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "готов",
+   "path": "content/audio/curso/gotov-93535a08.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "готова",
+   "path": "content/audio/curso/gotova-f8afc303.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "готовы",
+   "path": "content/audio/curso/gotovy-c55afdc5.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "да",
+   "path": "content/audio/curso/da-cdc5ed90.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "делаешь",
+   "path": "content/audio/curso/delaesh-c270a1cc.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "делаю",
+   "path": "content/audio/curso/delayu-87b65a00.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7,
+    8
+   ]
+  },
+  {
+   "text": "есть время",
+   "path": "content/audio/curso/est-vremya-8fdd66b3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "живу",
+   "path": "content/audio/curso/zhivu-5f1767c7.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "живёшь",
+   "path": "content/audio/curso/zhivyosh-e3d17376.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "задание",
+   "path": "content/audio/curso/zadanie-8b08da34.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "здравствуйте",
+   "path": "content/audio/curso/zdravstvuyte-e46f2fba.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "знаешь",
+   "path": "content/audio/curso/znaesh-bb10b930.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "знаю",
+   "path": "content/audio/curso/znayu-68260f3b.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7,
+    8
+   ]
+  },
+  {
+   "text": "и",
+   "path": "content/audio/curso/i-eead37ca.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "идея",
+   "path": "content/audio/curso/ideya-4ba6c425.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "извините",
+   "path": "content/audio/curso/izvinite-dd559cb8.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "испанский",
+   "path": "content/audio/curso/ispanskiy-29546e07.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "как",
+   "path": "content/audio/curso/kak-17eebe34.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "карта",
+   "path": "content/audio/curso/karta-7566e3f4.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "картина",
+   "path": "content/audio/curso/kartina-52f0e440.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "карточка",
+   "path": "content/audio/curso/kartochka-7262aaa0.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "клиент",
+   "path": "content/audio/curso/klient-e363c544.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "конечно",
+   "path": "content/audio/curso/konechno-caff74ef.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "кто",
+   "path": "content/audio/curso/kto-bd49f388.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "моя газета",
+   "path": "content/audio/curso/moya-gazeta-85126a41.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "не",
+   "path": "content/audio/curso/ne-962b65e3.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    3,
+    4
+   ]
+  },
+  {
+   "text": "не знаю",
+   "path": "content/audio/curso/ne-znayu-a89a1de7.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "неправильно",
+   "path": "content/audio/curso/nepravilno-eb11c39c.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "но",
+   "path": "content/audio/curso/no-babcad4a.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    3,
+    4
+   ]
+  },
+  {
+   "text": "новое",
+   "path": "content/audio/curso/novoe-13da2008.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "новые",
+   "path": "content/audio/curso/novye-73529554.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "нормально",
+   "path": "content/audio/curso/normalno-01998ff3.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "о",
+   "path": "content/audio/curso/o-50338c00.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    11
+   ]
+  },
+  {
+   "text": "ответ",
+   "path": "content/audio/curso/otvet-7b9de65d.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "ошибка",
+   "path": "content/audio/curso/oshibka-44d4090a.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "паспорт и билет",
+   "path": "content/audio/curso/pasport-i-bilet-1313b730.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "писать письмо",
+   "path": "content/audio/curso/pisat-pismo-79fc6694.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "писать сообщение",
+   "path": "content/audio/curso/pisat-soobschenie-8ae8710c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "пишет",
+   "path": "content/audio/curso/pishet-7d0af40c.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "пишешь",
+   "path": "content/audio/curso/pishesh-63da9f26.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8,
+    9
+   ]
+  },
+  {
+   "text": "пишу",
+   "path": "content/audio/curso/pishu-5c6f803a.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "плохой",
+   "path": "content/audio/curso/plohoy-6ac505f2.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "по-",
+   "path": "content/audio/curso/po-7b05d86d.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "повтори",
+   "path": "content/audio/curso/povtori-ae1eb186.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "правильно",
+   "path": "content/audio/curso/pravilno-f024bea9.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "привет",
+   "path": "content/audio/curso/privet-e58f1e8c.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "пример",
+   "path": "content/audio/curso/primer-266f263f.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "рано",
+   "path": "content/audio/curso/rano-01760af0.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "рядом",
+   "path": "content/audio/curso/ryadom-51ee4ce8.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "сайт",
+   "path": "content/audio/curso/sayt-88b15327.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "скажи",
+   "path": "content/audio/curso/skazhi-37d4fd26.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "спасибо",
+   "path": "content/audio/curso/spasibo-e5c27f34.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "стул",
+   "path": "content/audio/curso/stul-f5433356.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "текст",
+   "path": "content/audio/curso/tekst-ab15d5ab.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "тетрадь",
+   "path": "content/audio/curso/tetrad-d0d7457e.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "тетя",
+   "path": "content/audio/curso/tetya-b5e66ba5.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "тоже",
+   "path": "content/audio/curso/tozhe-fc930f9d.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "тут",
+   "path": "content/audio/curso/tut-589a5647.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "тётя есть.",
+   "path": "content/audio/curso/tyotya-est-ca39b31d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "тётя.",
+   "path": "content/audio/curso/tyotya-08daeac7.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "у",
+   "path": "content/audio/curso/u-beee80c2.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    4,
+    5,
+    11
+   ]
+  },
+  {
+   "text": "утро",
+   "path": "content/audio/curso/utro-9208235e.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "учительница",
+   "path": "content/audio/curso/uchitelnitsa-504adad5.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "фотография",
+   "path": "content/audio/curso/fotografiya-86dd89c4.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "читаешь",
+   "path": "content/audio/curso/chitaesh-d73ef2f5.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "читать текст",
+   "path": "content/audio/curso/chitat-tekst-6e4be4e5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "читаю",
+   "path": "content/audio/curso/chitayu-ced36994.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "что",
+   "path": "content/audio/curso/chto-ff6ba2e6.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "языке",
+   "path": "content/audio/curso/yazyke-4b4e723b.mp3",
+   "engine": "silero-v4-ru",
+   "voice": null,
+   "units": [
+    9,
+    10
+   ]
+  },
+  {
+   "text": "— Вы готовы? — Конечно, готовы. — Скажите быстро ещё раз: кто это? — Это мой брат.",
+   "path": "content/audio/curso/vy-gotovy-konechno-gotovy-skazhite-bystro-eschyo-ff5c6a47.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Где Анна? — Анна здесь. — Когда она читает? — Вечером.",
+   "path": "content/audio/curso/gde-anna-anna-zdes-kogda-ona-chitaet-vecherom-cb9c2f65.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Где Иван живёт? — В Москве.",
+   "path": "content/audio/curso/gde-ivan-zhivyot-v-moskve-fc2a3a5e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Где Иван? — Он здесь.",
+   "path": "content/audio/curso/gde-ivan-on-zdes-e244a3e6.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7,
+    9
+   ]
+  },
+  {
+   "text": "— Где ты живёшь? — В России.",
+   "path": "content/audio/curso/gde-ty-zhivyosh-v-rossii-9e53ec02.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Где ты читаешь? — Вечером.",
+   "path": "content/audio/curso/gde-ty-chitaesh-vecherom-d9668f44.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— До свидания! — До свидания!",
+   "path": "content/audio/curso/do-svidaniya-do-svidaniya-6f1a9568.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "— Здравствуйте! — Здравствуйте!",
+   "path": "content/audio/curso/zdravstvuyte-zdravstvuyte-c6f4d96d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Здравствуйте! — Здравствуйте! Это преподаватель. Она здесь.",
+   "path": "content/audio/curso/zdravstvuyte-zdravstvuyte-eto-prepodavatel-ona-z-cdc2e1ba.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "— Здравствуйте! — Здравствуйте! есть.",
+   "path": "content/audio/curso/zdravstvuyte-zdravstvuyte-est-ee07a802.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Как ты говоришь? — Хорошо.",
+   "path": "content/audio/curso/kak-ty-govorish-horosho-e3cfaf0c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Когда Анна читает? — Вечером.",
+   "path": "content/audio/curso/kogda-anna-chitaet-vecherom-76809c89.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Когда Иван здесь? — Он здесь.",
+   "path": "content/audio/curso/kogda-ivan-zdes-on-zdes-8499b33d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Когда ты живёшь? — В России.",
+   "path": "content/audio/curso/kogda-ty-zhivyosh-v-rossii-36815dec.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Когда ты читаешь? — Вечером.",
+   "path": "content/audio/curso/kogda-ty-chitaesh-vecherom-4f618d14.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Когда ты читаешь? — Вечером. — Почему? — Утром нет времени.",
+   "path": "content/audio/curso/kogda-ty-chitaesh-vecherom-pochemu-utrom-net-vre-6d9ac667.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Кто пишет сообщение? — Анна. — Кто читает сообщение? — Иван.",
+   "path": "content/audio/curso/kto-pishet-soobschenie-anna-kto-chitaet-soobsche-dff0cf9b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "— Кто это? — Это Анна. Она здесь. — А кто это? — Это Иван. Он там.",
+   "path": "content/audio/curso/kto-eto-eto-anna-ona-zdes-a-kto-eto-eto-ivan-on--b3564b4c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Кто это? — Это девушка. Это Анна.",
+   "path": "content/audio/curso/kto-eto-eto-devushka-eto-anna-49569268.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "— Кто это? — Это дедушка.",
+   "path": "content/audio/curso/kto-eto-eto-dedushka-95db72e1.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "— Кто это? — Это мама, а это папа. Папа тут.",
+   "path": "content/audio/curso/kto-eto-eto-mama-a-eto-papa-papa-tut-800daf5b.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "— Кто это? — Это мама. — Где она? — Она тут.",
+   "path": "content/audio/curso/kto-eto-eto-mama-gde-ona-ona-tut-c7766f47.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    1
+   ]
+  },
+  {
+   "text": "— Кто это? — Это мой брат. — Где он живёт? — В Испании.",
+   "path": "content/audio/curso/kto-eto-eto-moy-brat-gde-on-zhivyot-v-ispanii-8c551f4a.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Кто это? — Это моя подруга.",
+   "path": "content/audio/curso/kto-eto-eto-moya-podruga-0d6c9f66.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Кто это? — Это моя сестра.",
+   "path": "content/audio/curso/kto-eto-eto-moya-sestra-808c4190.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "— Кто это? — Это моя сестра. Она говорит по-русски.",
+   "path": "content/audio/curso/kto-eto-eto-moya-sestra-ona-govorit-po-russki-1d67a5fe.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Кто это? — Это моя сестра. — На каком языке она говорит? — По-русски.",
+   "path": "content/audio/curso/kto-eto-eto-moya-sestra-na-kakom-yazyke-ona-govo-ee39a38c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Кто это? — Это папа. — А кто это? — Это мама.",
+   "path": "content/audio/curso/kto-eto-eto-papa-a-kto-eto-eto-mama-10fe08a9.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "— Кто это? — Это преподаватель. — Привет или здравствуйте? — Здравствуйте.",
+   "path": "content/audio/curso/kto-eto-eto-prepodavatel-privet-ili-zdravstvuyte-f7413a03.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    6
+   ]
+  },
+  {
+   "text": "— Кто это? — Это человек. — Что это? — Это книга.",
+   "path": "content/audio/curso/kto-eto-eto-chelovek-chto-eto-eto-kniga-43a3748e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "— На каком языке говорит Анна? — По-русски. — Как она говорит? — Хорошо.",
+   "path": "content/audio/curso/na-kakom-yazyke-govorit-anna-po-russki-kak-ona-g-1853b741.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— На каком языке ты говоришь? — По-испански.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-po-ispanski-43f9a58c.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— На каком языке ты говоришь? — По-русски.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-po-russki-4a9f9a95.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— На каком языке ты говоришь? — По-русски. — Как ты говоришь? — Хорошо.",
+   "path": "content/audio/curso/na-kakom-yazyke-ty-govorish-po-russki-kak-ty-gov-9364baff.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Она знает ответ? — Да, знает. — Она делает задание? — Нет, не делает.",
+   "path": "content/audio/curso/ona-znaet-otvet-da-znaet-ona-delaet-zadanie-net--921a6efa.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Привет! — Здравствуйте!",
+   "path": "content/audio/curso/privet-zdravstvuyte-4b2f3c18.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Привет! — Привет!",
+   "path": "content/audio/curso/privet-privet-51e56d50.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Ты знаешь ответ? — Да, знаю. — Ты делаешь задание? — Ещё нет.",
+   "path": "content/audio/curso/ty-znaesh-otvet-da-znayu-ty-delaesh-zadanie-esch-3aa64d72.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Ты знаешь ответ? — Да, я знать.",
+   "path": "content/audio/curso/ty-znaesh-otvet-da-ya-znat-26cd3a2e.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Ты знаешь ответ? — Да, я знаю.",
+   "path": "content/audio/curso/ty-znaesh-otvet-da-ya-znayu-29a4e807.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Ты пишешь письмо? — Да, пишу.",
+   "path": "content/audio/curso/ty-pishesh-pismo-da-pishu-5f91cc09.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "— Ты пишешь? — Да, писать.",
+   "path": "content/audio/curso/ty-pishesh-da-pisat-3fe061cf.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Ты пишешь? — Да, пишу.",
+   "path": "content/audio/curso/ty-pishesh-da-pishu-903c19e3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Ты пишешь? — Да. — Что ты пишешь? — Сообщение.",
+   "path": "content/audio/curso/ty-pishesh-da-chto-ty-pishesh-soobschenie-2bb702da.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— У Анны есть билет? — Нет, у неё нет билета. — У неё есть паспорт? — Да, есть.",
+   "path": "content/audio/curso/u-anny-est-bilet-net-u-neyo-net-bileta-u-neyo-es-11245f28.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "— У Ивана есть ключ? — Нет, у него нет ключа. — У Анны есть ключ? — Да, у неё есть ключ.",
+   "path": "content/audio/curso/u-ivana-est-klyuch-net-u-nego-net-klyucha-u-anny-a0df62c2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "— У тебя есть билет? — Нет, у меня нет билета, но есть паспорт.",
+   "path": "content/audio/curso/u-tebya-est-bilet-net-u-menya-net-bileta-no-est--14682ad0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— У тебя есть ключ? — Нет, у меня нет ключа.",
+   "path": "content/audio/curso/u-tebya-est-klyuch-net-u-menya-net-klyucha-aa9e5dea.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "— У тебя есть книга? — Да, есть. — Где книга? — Она здесь.",
+   "path": "content/audio/curso/u-tebya-est-kniga-da-est-gde-kniga-ona-zdes-baf8d510.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— У тебя есть паспорт? — Да. — А билет? — Нет, билета нет.",
+   "path": "content/audio/curso/u-tebya-est-pasport-da-a-bilet-net-bileta-net-442d3aa2.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    4
+   ]
+  },
+  {
+   "text": "— У тебя есть паспорт? — Нет, у меня нет паспорта.",
+   "path": "content/audio/curso/u-tebya-est-pasport-net-u-menya-net-pasporta-9731beae.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    10
+   ]
+  },
+  {
+   "text": "— Что делает Иван? — Он читает. — Когда он читает? — Вечером.",
+   "path": "content/audio/curso/chto-delaet-ivan-on-chitaet-kogda-on-chitaet-vec-1244e3ce.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Что ты делаешь? — Я делаю задание.",
+   "path": "content/audio/curso/chto-ty-delaesh-ya-delayu-zadanie-22223310.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    7
+   ]
+  },
+  {
+   "text": "— Что ты делаешь? — Я писать сообщение.",
+   "path": "content/audio/curso/chto-ty-delaesh-ya-pisat-soobschenie-0fb75677.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Что ты делаешь? — Я пишу сообщение.",
+   "path": "content/audio/curso/chto-ty-delaesh-ya-pishu-soobschenie-44cb82aa.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Что ты делаешь? — Я читаю текст.",
+   "path": "content/audio/curso/chto-ty-delaesh-ya-chitayu-tekst-7ee0bfc3.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "— Что это? — Есть магазин.",
+   "path": "content/audio/curso/chto-eto-est-magazin-8c7e2cc5.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "— Что это? — Это газета.",
+   "path": "content/audio/curso/chto-eto-eto-gazeta-be666098.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "— Что это? — Это магазин.",
+   "path": "content/audio/curso/chto-eto-eto-magazin-992b3d40.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "— Что это? — Это не газета, а книга. Газета тут.",
+   "path": "content/audio/curso/chto-eto-eto-ne-gazeta-a-kniga-gazeta-tut-8ff0854d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "— Что это? — Это письмо. — Письмо новое? — Да.",
+   "path": "content/audio/curso/chto-eto-eto-pismo-pismo-novoe-da-8a9df8e0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    5
+   ]
+  },
+  {
+   "text": "— Что это? — Это сообщение. — Что ты делаешь? — Я пишу сообщение.",
+   "path": "content/audio/curso/chto-eto-eto-soobschenie-chto-ty-delaesh-ya-pish-0cadbc3d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    8
+   ]
+  },
+  {
+   "text": "— Что это? — Это хлеб и сыр. Сыр тут.",
+   "path": "content/audio/curso/chto-eto-eto-hleb-i-syr-syr-tut-c3e893fc.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  },
+  {
+   "text": "— Что это? — Это школа.",
+   "path": "content/audio/curso/chto-eto-eto-shkola-cc96fe0d.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    2
+   ]
+  },
+  {
+   "text": "— Это правильно? — Нет, здесь ошибка. — Это плохо? — Нет, нормально.",
+   "path": "content/audio/curso/eto-pravilno-net-zdes-oshibka-eto-ploho-net-norm-19b8bed0.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    9
+   ]
+  },
+  {
+   "text": "— Это чай? — Это не чай. — Что это? — Это кофе.",
+   "path": "content/audio/curso/eto-chay-eto-ne-chay-chto-eto-eto-kofe-d6c62326.mp3",
+   "engine": "xtts-v2",
+   "voice": null,
+   "units": [
+    3
+   ]
+  }
+ ]
+}

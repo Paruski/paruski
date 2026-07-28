@@ -466,8 +466,12 @@ class Builder:
                 base["steps"].append(self.step_choice(
                     sid + "/a", f"¿En qué vocal cae el acento de «{picker['plain']}»?",
                     picker["options"], picker["answer"], dimension="comprension_explicita"))
+                # la consigna promete escribir la palabra cuyo acento se acaba de
+                # señalar; algunos ítems del material traen como respuesta sólo la
+                # vocal tónica («а́» por «соба́ка»), y entonces la única respuesta
+                # aceptada contradice lo que se pide y nadie puede acertar
                 target = strip_marks(item.get("expectedAnswer") or se.get("referenceAnswer") or "")
-                if not has_cyr(target):
+                if not has_cyr(target) or picker["plain"] not in norm_answer(target):
                     target = picker["plain"]
                 label = ("Escribe ahora la forma completa, sin marcar el acento."
                          if len(target.split()) > 1 else "Escribe la palabra, sin marcar el acento.")
@@ -508,8 +512,25 @@ class Builder:
                     "en pantalla se ven iguales, pero la palabra no existe. "
                     "Reescríbelo entero en cirílico.")
                 lines = [x.strip() for x in re.split(r"\n|^[AB]:\s*", defective or "", flags=re.M) if x.strip()]
-                broken = next((x for x in lines if has_homoglyph(x)), defective)
-                base["input"] = re.sub(r"^[AB]:\s*", "", broken or "").strip()
+                broken = next((x for x in lines if has_homoglyph(x)), "")
+                if not broken:
+                    # el homoglifo venía en un distractor: ésa es la forma contaminada
+                    broken = next((d for d in (item.get("distractors") or []) if has_homoglyph(d)), "")
+                broken = re.sub(r"^[AB]:\s*", "", broken or "").strip()
+                # se enseña sólo la forma contaminada: la etiqueta de hablante no es
+                # rusa y no se puede teclear, y lo que va tras la flecha es la
+                # respuesta, que copiada no acredita nada
+                broken = re.sub(r"^[^:\n]{1,12}:\s*", "", broken).split("→")[0].strip()
+                if not broken:
+                    # la consigna habla del «texto dado»: sin texto que enseñar no hay tarea
+                    return self.drop(item, "homoglifo sin forma contaminada que mostrar")
+                base["input"] = broken
+                # lo que se pide es ese mismo texto en cirílico, así que la respuesta
+                # sale de él y no de la referencia del material, que a veces trae sólo
+                # la palabra suelta y contradice el «reescríbelo entero»
+                answer = fold_homoglyphs(broken)
+                if norm_answer(answer) != norm_answer(" ".join(clean) or target_answer):
+                    clean = [answer]
                 base["steps"].append(self.step_written(
                     sid + "/a", "Reescribe la forma correcta.", [" ".join(clean) or target_answer],
                     strict=True))
@@ -820,6 +841,23 @@ def main() -> int:
         if conv:
             conv["stage"] = e.get("stage", "practice")
             runtime.append(conv)
+
+    # --- ejercicios que repiten a otro --------------------------------------
+    # Dos ítems con la misma pantalla y la misma respuesta son el mismo ejercicio
+    # con dos identificadores: el segundo no enseña nada que no enseñe el primero
+    # y sólo sirve para inflar la cuenta y repetirse en la práctica.
+    vistos, unicos = {}, []
+    for it in runtime:
+        firma = (it["unit"], it["prompt"], it.get("input") or "", it["phase"],
+                 tuple(tuple(s.get("accepted") or [s.get("answer")]) for s in it["steps"]))
+        if firma in vistos:
+            b.dropped["repite otro ejercicio con la misma pantalla"] += 1
+            b.drop_log.append({"id": it["id"], "type": it["type"],
+                               "reason": f"repite el ejercicio {vistos[firma]}"})
+            continue
+        vistos[firma] = it["id"]
+        unicos.append(it)
+    runtime = unicos
 
     # --- vocabulario ------------------------------------------------------
     vocab = []

@@ -70,8 +70,9 @@ plantea.
 | Contraejemplo | Escribir el contraejemplo + explicar qué invalida |
 | Vacío de información | Escribir el intercambio completo; se exige cerrar las dos lagunas |
 
-Lo que no admite comprobación determinista no se publica: de 715 ítems de partida
-se publican 707 (`curso/informe-build.json` recoge los descartes con su motivo).
+Lo que no admite comprobación determinista no se publica, y lo que repite a otro
+ejercicio tampoco: de 715 ítems de partida se publican 695
+(`curso/informe-build.json` recoge los descartes con su motivo).
 
 Criterios de corrección, en `app/grader.js`:
 
@@ -121,7 +122,9 @@ abre la unidad siguiente. Los ítems de examen nunca aparecen en la práctica.
 ## Audio
 
 El curso necesita 941 locuciones distintas (palabras, ejemplos, enunciados,
-respuestas modelo). El banco existente cubre 197; faltan 744.
+respuestas modelo). Están las 941: 197 venían del banco, 75 palabras sueltas se
+generaron con Silero (que marca el acento tónico) y 669 frases con XTTS-v2, con
+la misma voz del banco tomada de un microdiálogo suyo como referencia.
 
 `scripts/generar_audio.py` hace el inventario y la síntesis:
 
@@ -156,7 +159,7 @@ npm install jsdom          # sólo para las pruebas
 node scripts/test_prototipo.mjs
 ```
 
-42 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles
+44 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles
 o que se delaten por la mayúscula inicial,
 contrato de respuesta en todos los pasos escritos, criterios de corrección,
 construcción de sesiones, efecto de acertar y fallar sobre la programación del
@@ -167,6 +170,7 @@ autocorrijan como correctas.
 
 - Materiales con revisión editorial hecha, pero **sin validación de hablante
   nativo**; así se declaran en la propia web.
-- La dimensión auditiva no se evalúa todavía: faltan 744 locuciones.
+- La dimensión auditiva no se evalúa todavía: hay locución para todo, pero
+  ningún ítem la usa.
 - El progreso se guarda en `localStorage`, sin sincronización entre dispositivos.
 - Quedan 89 unidades por desarrollar.

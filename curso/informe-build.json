@@ -1,30 +1,31 @@
 {
  "itemsIn": 715,
- "itemsOut": 707,
+ "itemsOut": 695,
  "dropped": {
   "homoglifo sin forma correcta verificable": 1,
   "opciones insuficientes": 6,
-  "tipo sin conversor: cloze/None": 1
+  "tipo sin conversor: cloze/None": 1,
+  "repite otro ejercicio con la misma pantalla": 12
  },
  "byType": {
-  "contextual_choice": 104,
+  "contextual_choice": 101,
   "cloze": 43,
-  "diagnostic_repair": 90,
+  "diagnostic_repair": 87,
   "translation_ru_es": 44,
-  "translation_es_ru": 44,
-  "transformation": 44,
+  "translation_es_ru": 43,
+  "transformation": 43,
   "production": 44,
-  "semantic_contrast": 34,
-  "inductive_generalization": 12,
+  "inductive_generalization": 10,
   "backtranslation_critique": 30,
   "reading_comprehension": 43,
+  "semantic_contrast": 32,
   "constrained_transfer": 98,
   "information_gap_reconstruction": 22,
   "exam": 55
  },
  "byUnit": {
-  "1": 64,
-  "2": 64,
+  "1": 55,
+  "2": 61,
   "3": 64,
   "4": 59,
   "5": 71,
@@ -49,8 +50,8 @@
   "11": 5
  },
  "stepKinds": {
-  "choice": 364,
-  "written": 707
+  "choice": 361,
+  "written": 695
  },
  "vocab": 254,
  "vocabWithAudio": 157,
@@ -95,6 +96,66 @@
    "id": "pb2-l011-cl-02",
    "type": "cloze",
    "reason": "tipo sin conversor: cloze/None"
+  },
+  {
+   "id": "pb1v15-l001-semantic-contrast-02-3",
+   "type": "semantic_contrast",
+   "reason": "repite el ejercicio pb1v15-l001-transformation-02-1"
+  },
+  {
+   "id": "pb1v16-l001-micro-dialogue-repair-02-4",
+   "type": "diagnostic_repair",
+   "reason": "repite el ejercicio pb1v15-l001-transformation-02-1"
+  },
+  {
+   "id": "pb1v15-l001-rule-induction-02-5",
+   "type": "inductive_generalization",
+   "reason": "repite el ejercicio pb1v15-l001-transformation-02-1"
+  },
+  {
+   "id": "pb1v15-l001-error-diagnosis-04-2",
+   "type": "diagnostic_repair",
+   "reason": "repite el ejercicio pb1v15-l001-cloze-04-1"
+  },
+  {
+   "id": "pb1v15-l001-translation-es-ru-04-4",
+   "type": "translation_es_ru",
+   "reason": "repite el ejercicio pb1v15-l001-cloze-04-1"
+  },
+  {
+   "id": "pb1v16-l001-transformation-04-5",
+   "type": "transformation",
+   "reason": "repite el ejercicio pb1v15-l001-cloze-04-1"
+  },
+  {
+   "id": "pb1v15-l001-contrast-explanation-06-3",
+   "type": "contextual_choice",
+   "reason": "repite el ejercicio pb1v15-l001-backtranslation-critique-06-1"
+  },
+  {
+   "id": "pb1v15-l001-contextual-choice-06-4",
+   "type": "contextual_choice",
+   "reason": "repite el ejercicio pb1v15-l001-backtranslation-critique-06-1"
+  },
+  {
+   "id": "pb1v15-l001-semantic-contrast-10-5",
+   "type": "contextual_choice",
+   "reason": "repite el ejercicio pb1v15-l001-transformation-10-3"
+  },
+  {
+   "id": "pb1v15-l002-semantic-contrast-02-3",
+   "type": "semantic_contrast",
+   "reason": "repite el ejercicio pb1v15-l002-transformation-02-1"
+  },
+  {
+   "id": "pb1v16-l002-micro-dialogue-repair-02-4",
+   "type": "diagnostic_repair",
+   "reason": "repite el ejercicio pb1v15-l002-transformation-02-1"
+  },
+  {
+   "id": "pb1v15-l002-rule-induction-02-5",
+   "type": "inductive_generalization",
+   "reason": "repite el ejercicio pb1v15-l002-transformation-02-1"
   }
  ]
 }

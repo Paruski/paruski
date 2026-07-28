@@ -106,6 +106,7 @@ class Store {
     for (const skillId of skillIds) {
       const skill = this.skill(skillId);
       const gapDays = skill.lastSeen ? (now - skill.lastSeen) / DAY : 0;
+      const wasDue = skill.due <= now;   // se mira antes de tocar nada
 
       for (const r of results) {
         const dim = r.step.dimension || (r.step.kind === 'choice' ? 'reconocimiento_escrito' : 'recuperacion_escrita');
@@ -131,12 +132,21 @@ class Store {
       skill.lastSeen = now;
       if (assisted) skill.assisted += 1;
 
+      // El escalón sube por ocasión de repaso, no por ejercicio. Una sesión trae
+      // varios ítems de la misma competencia: si cada uno ascendiera, una sola
+      // sesión la mandaría de 1 a 140 días y no volvería a verse. Acertar antes
+      // de que toque consolida y suma acierto, pero no alarga el intervalo.
+      const tocaba = wasDue;
       if (allCorrect && !assisted) {
-        skill.step = Math.min(skill.step + 1, INTERVALS.length - 1);
-        skill.due = now + INTERVALS[Math.max(skill.step, 0)] * DAY;
+        if (tocaba) {
+          skill.step = Math.min(skill.step + 1, INTERVALS.length - 1);
+          skill.due = now + INTERVALS[Math.max(skill.step, 0)] * DAY;
+        }
       } else if (allCorrect) {
-        skill.step = Math.max(skill.step, 0);
-        skill.due = now + INTERVALS[Math.max(skill.step, 0)] * DAY * 0.5;
+        if (tocaba) {
+          skill.step = Math.max(skill.step, 0);
+          skill.due = now + INTERVALS[Math.max(skill.step, 0)] * DAY * 0.5;
+        }
       } else {
         skill.lapses += 1;
         skill.step = -1;
@@ -176,6 +186,13 @@ class Store {
 
   markLessonRead(n) {
     this.unit(n).lesson = true;
+    this.save();
+  }
+
+  /** Una tanda de práctica terminada. Es lo que distingue «puedo examinarme» de
+   *  «todavía no he hecho nada en esta unidad». */
+  notePracticed(n) {
+    this.unit(n).practiced += 1;
     this.save();
   }
 

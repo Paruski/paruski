@@ -21,7 +21,7 @@ recoge qué ítems se descartaron y por qué.
 
 ```bash
 python3 scripts/build_prototipo.py         # regenera curso/ desde los materiales de CLAUDE/
-node scripts/test_prototipo.mjs            # 42 comprobaciones (necesita: npm install jsdom)
+node scripts/test_prototipo.mjs            # 44 comprobaciones (necesita: npm install jsdom)
 python3 scripts/generar_audio.py --lista   # inventario de locuciones pendientes
 python3 -m http.server 8000                # servir la web (file:// no funciona)
 ```
@@ -93,10 +93,14 @@ autocorrigen como correctas.
 
 ## Pendiente
 
-1. Publicar: hay commits sin `git push`.
-2. Audio: faltan 744 locuciones de 941 (`curso/audio-pendiente.json`). Hay GPU
-   disponible (RTX 3060). Silero para palabras sueltas porque controla el acento
-   tónico; XTTS-v2 para frases si aparece el wav de referencia del banco actual.
-3. Revisión visual en navegador con capturas: el CSS se escribió sin poder verlo
-   renderizado.
+1. **Validación de hablante nativo**: sigue sin hacerse, y así se declara en la web.
+2. **La dimensión auditiva no se evalúa**: ya hay locución para las 941 frases y
+   palabras del curso, pero ningún ítem la usa todavía.
+3. **Ejercicios que no miden lo que dicen medir**: los de «Escritura cirílica»
+   muestran la forma contaminada, que en pantalla es idéntica a la correcta, y
+   sólo piden copiarla. Acreditan teclear en cirílico, no distinguir homóglifos,
+   que es lo que declara su competencia. Decidir si se replantean o se retiran.
 4. Unidades 012–100: no empezarlas hasta cerrar lo anterior.
+
+Hecho: publicación, revisión visual en navegador, audio completo (941/941) y
+recorrido de la ruta lección → tandas → examen → desbloqueo.
