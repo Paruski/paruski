@@ -13,18 +13,41 @@ Estado: prototipo funcional con las unidades **001–011**.
 
 ## Antes de tocar nada
 
-Lee `docs/prototipo.md`. Explica la arquitectura, de dónde sale cada pieza de
-contenido y por qué las decisiones son las que son. `curso/informe-build.json`
-recoge qué ítems se descartaron y por qué.
+Lee, en este orden:
+
+1. `docs/modelo-aprendizaje.md` — **qué se aprende, qué cuenta como prueba de
+   haberlo aprendido y cuándo se vuelve sobre ello.** Todo lo demás es
+   instrumento de esto. Sus matrices no son ilustrativas: cada una se comprueba.
+2. `docs/prototipo.md` — la arquitectura y de dónde sale cada pieza de contenido.
+3. `docs/matrices.md` — las matrices vivas, generadas desde el curso construido.
+4. `curso/informe-build.json` — qué ítems se descartaron y por qué.
 
 ## Comandos
 
 ```bash
+scripts/verificar.sh                       # el flujo completo: lo mismo que exige CI
 python3 scripts/build_prototipo.py         # regenera curso/ desde los materiales de CLAUDE/
-node scripts/test_prototipo.mjs            # 48 comprobaciones (necesita: npm install jsdom)
+node scripts/test_prototipo.mjs            # 49 comprobaciones (necesita: npm install jsdom)
+python3 scripts/verificar_modelo.py        # comprueba el modelo y regenera docs/matrices.md
 python3 scripts/generar_audio.py --lista   # inventario de locuciones pendientes
 python3 -m http.server 8000                # servir la web (file:// no funciona)
 ```
+
+## Flujo de trabajo
+
+`scripts/verificar.sh` en local y `.github/workflows/verificar.yml` en CI hacen
+lo mismo, en el mismo orden, y **el despliegue a Pages espera a que pase**
+(`pages.yml` lo declara con `needs`). Tres comprobaciones, tres maneras distintas
+de romper el curso:
+
+1. **El curso se reproduce desde el generador.** `curso/` es contenido generado:
+   si el build no lo reproduce igual, alguien lo editó a mano y lo publicado ya
+   no se puede regenerar.
+2. **Las invariantes se cumplen.** Las de la lista de abajo, una prueba cada una.
+3. **El curso cumple el modelo.** Matriz a matriz, y `docs/matrices.md` tiene que
+   estar al día: unas matrices desfasadas no son constancia de nada.
+
+Antes de proponer un cambio, ejecútalo. Si falla, el problema es el cambio.
 
 ## Estructura
 
@@ -35,7 +58,8 @@ python3 -m http.server 8000                # servir la web (file:// no funciona)
 | Materiales de origen | `CLAUDE/*.zip`, `CLAUDE/leccion_011_*.json` |
 | Lecciones redactadas U001–U010 | `curso/fuentes/lecciones-001-010.json` |
 | Generadores | `scripts/build_prototipo.py`, `scripts/generar_audio.py` |
-| Pruebas | `scripts/test_prototipo.mjs` |
+| Modelo de aprendizaje | `docs/modelo-aprendizaje.md` y sus matrices en `docs/matrices.md` (generado) |
+| Pruebas | `scripts/test_prototipo.mjs`, `scripts/verificar_modelo.py`, `scripts/verificar.sh` |
 | Web anterior | `legacy.html` (con sus antiguos `assets/` y `content/`) |
 
 **`curso/` es contenido generado.** Nunca se edita a mano: se corrige
@@ -81,7 +105,7 @@ cambio, no la prueba.
 
 La normalización de `app/util.js` y la de `scripts/build_prototipo.py` tienen que
 seguir siendo equivalentes. Si se cambia una, se cambia la otra y se ejecutan las
-pruebas: hay una que comprueba que todas las respuestas modelo del curso (1687 a
+pruebas: hay una que comprueba que todas las respuestas modelo del curso (1791 a
 día de hoy) se autocorrigen como correctas.
 
 ## Estilo
@@ -94,8 +118,10 @@ día de hoy) se autocorrigen como correctas.
 ## Pendiente
 
 1. **Validación de hablante nativo**: sigue sin hacerse, y así se declara en la web.
-2. **La dimensión auditiva no se evalúa**: ya hay locución para las 941 frases y
-   palabras del curso, pero ningún ítem la usa todavía.
+2. **Transferencia contextual**: cubre 39 de las 53 competencias. Exige una escena
+   distinta de la aprendida, y esa escena tiene que venir del material; donde no
+   la hay, el modelo lo declara en vez de simularla. Se cierra con material nuevo,
+   no con generador.
 3. **Ejercicios que no miden lo que dicen medir**: los de «Escritura cirílica»
    muestran la forma contaminada, que en pantalla es idéntica a la correcta, y
    sólo piden copiarla. Acreditan teclear en cirílico, no distinguir homóglifos,

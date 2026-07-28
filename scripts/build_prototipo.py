@@ -30,6 +30,7 @@ L011 = ROOT / "CLAUDE" / "leccion_011_acusativo_inanimado.json"
 AUTHORED = ROOT / "curso" / "fuentes" / "lecciones-001-010.json"
 OUT = ROOT / "curso"
 AUDIO_INDEX = ROOT / "content" / "audio-index.json"
+CURSO_AUDIO = ROOT / "curso" / "audio.json"
 
 CYR = re.compile(r"[Ѐ-ӿ]")
 ZIP_PREFIX = "paruski_b1_materials_l001_l010_v1_9_3_editado/content/"
@@ -129,6 +130,7 @@ HOMOGLYPHS = {
 # producir sin pista acredita lo segundo. El examen exige las dos cosas.
 RECONOCER = {"comprension_explicita", "reconocimiento_escrito"}
 PRODUCIR = {"recuperacion_escrita", "transferencia_contextual"}
+AUDITIVO = {"reconocimiento_auditivo"}
 
 VOWELS = "аеёиоуыэюя"
 ORDINALS = ["1.ª", "2.ª", "3.ª", "4.ª", "5.ª", "6.ª", "7.ª", "8.ª"]
@@ -965,6 +967,11 @@ def main() -> int:
         idx = json.loads(AUDIO_INDEX.read_text(encoding="utf-8"))
         for entry in idx.get("entries", []):
             audio_map[norm_answer(entry.get("text", ""))] = entry["audio_path"]
+    # el banco nuevo va después para que sus rutas ganen a las del antiguo
+    if CURSO_AUDIO.exists():
+        idx = json.loads(CURSO_AUDIO.read_text(encoding="utf-8"))
+        for entry in idx.get("entries", []):
+            audio_map[norm_answer(entry.get("text", ""))] = entry["path"]
     for v in vocab:
         path = audio_map.get(norm_answer(v["lemma"]))
         if path:
@@ -1037,6 +1044,66 @@ def main() -> int:
     for n in range(1, 12):
         runtime.extend(vocab_items([v for v in vocab if v["unit"] == n], n))
 
+    # --- dimensión auditiva (M1, M6) ---------------------------------------
+    # Escribir lo que se oye, sin el texto a la vista. Acredita reconocimiento
+    # auditivo y no recuperación: el contenido lo da el audio, no la memoria. La
+    # forma dictada sale del propio material de la competencia, nunca se inventa,
+    # y sólo se dicta lo que tiene locución grabada.
+    def texto_de(item):
+        """La forma rusa que ese ítem enseña, si la tiene entera y sin huecos."""
+        for step in item["steps"]:
+            if step["kind"] != "written" or step.get("language") != "ru":
+                continue
+            modelo = (step.get("accepted") or [""])[0]
+            if modelo and has_cyr(modelo) and not re.search(r"[_…]|\.\.\.|→|/", modelo):
+                return modelo
+        return None
+
+    dictados = []
+    for n in range(1, 12):
+        u_items = [i for i in runtime if i["unit"] == n]
+        for skill in sorted({s for s in skills if skills[s]["unit"] == n}):
+            candidatos = []
+            for it in u_items:
+                if skill not in (it.get("skillIds") or []) or it["phase"] == "exam":
+                    continue
+                texto = texto_de(it)
+                if texto and norm_answer(texto) in audio_map:
+                    candidatos.append((len(texto), it["id"], texto))
+            if not candidatos:
+                b.dropped["competencia sin forma grabada que dictar"] += 1
+                continue
+            # la más corta primero: un dictado se comprueba letra a letra y una
+            # frase larga mide memoria de trabajo, no reconocimiento auditivo
+            candidatos.sort()
+            distintos, vistos_txt = [], set()
+            for _, _, texto in candidatos:
+                if norm_answer(texto) in vistos_txt:
+                    continue
+                vistos_txt.add(norm_answer(texto))
+                distintos.append(texto)
+                if len(distintos) == 2:
+                    break
+            # dos, porque el examen se reservará uno: sin el segundo, la escucha
+            # sólo se examinaría y nunca se practicaría
+            for k, texto in enumerate(distintos):
+                sid = f"dict-{skill}" + ("" if k == 0 else f"-{k}")
+                paso = b.step_written(
+                    f"{sid}/a", "Escribe lo que oigas.", [texto],
+                    language="ru", dimension="reconocimiento_auditivo", strict=True)
+                if not paso:
+                    continue
+                dictados.append({
+                    "id": sid, "unit": n, "type": "listening", "typeLabel": "Dictado",
+                    "phase": "practice", "skillId": skill, "skillIds": [skill],
+                    "scenario": "Sin el texto a la vista.", "function": "reconocer al oído",
+                    "kernelId": f"dict-{n:03d}",
+                    "prompt": "Escucha la grabación las veces que necesites y escribe lo que dice.",
+                    "input": None, "listen": texto, "steps": [paso],
+                    "reference": texto, "notes": [], "stage": "guided_recognition",
+                })
+    runtime.extend(dictados)
+
     # --- el examen tiene que cubrir la unidad entera ------------------------
     # Un examen que abre la unidad siguiente no puede dejar competencias sin
     # comprobar, ni darlas por adquiridas con sólo reconocerlas: elegir entre
@@ -1052,7 +1119,8 @@ def main() -> int:
         u_items = [i for i in runtime if i["unit"] == n]
         examen = [i for i in u_items if i["phase"] == "exam"]
         for skill in u_skills:
-            for etiqueta, quiere in (("reconocer", RECONOCER), ("producir", PRODUCIR)):
+            for etiqueta, quiere in (("reconocer", RECONOCER), ("producir", PRODUCIR),
+                                     ("oír", AUDITIVO)):
                 cubierto = any(skill in (i.get("skillIds") or []) and (dims_de(i) & quiere)
                                for i in examen)
                 if cubierto:

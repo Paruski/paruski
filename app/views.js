@@ -473,6 +473,13 @@ function runSession(root, config) {
         item.input,
         hasCyr(item.input) ? h('div', { class: 'row' }, audioButton(item.input, '▶ oír')) : null));
     }
+    // el dictado da la forma sólo por el oído: escribir su texto en pantalla
+    // convertiría la tarea en copiar y no acreditaría nada
+    if (item.listen) {
+      box.append(h('div', { class: 'given listen' },
+        audioButton(item.listen, '▶ escuchar'),
+        h('span', { class: 'muted small' }, 'Las veces que necesites.')));
+    }
     if (step.prompt) box.append(h('p', { class: 'steplabel' }, step.prompt));
     if (step.expects) box.append(h('p', { class: 'expects' }, step.expects));
 

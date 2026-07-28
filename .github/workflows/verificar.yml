@@ -1,0 +1,46 @@
+name: Verificar el modelo
+
+# Nada llega a la web sin pasar por aquí: `pages.yml` espera a este flujo.
+# Las tres comprobaciones responden a tres maneras distintas de romper el curso.
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_call:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # `curso/` es contenido generado. Si el build no lo reproduce igual, o
+      # alguien lo ha editado a mano, el repositorio y el generador han dejado de
+      # decir lo mismo y lo publicado no se puede regenerar.
+      - name: El curso se reproduce desde el generador
+        run: |
+          python3 scripts/build_prototipo.py > /dev/null
+          git diff --exit-code --stat curso/ \
+            || { echo "::error::curso/ no coincide con lo que produce el generador"; exit 1; }
+
+      - name: Las invariantes se cumplen
+        run: |
+          npm install --no-save jsdom
+          node scripts/test_prototipo.mjs
+
+      # El modelo de aprendizaje, matriz a matriz. Además regenera docs/matrices.md
+      # y exige que esté al día: unas matrices desfasadas no son constancia.
+      - name: El curso cumple el modelo de aprendizaje
+        run: |
+          python3 scripts/verificar_modelo.py
+          git diff --exit-code --stat docs/matrices.md \
+            || { echo "::error::docs/matrices.md está desfasado: ejecuta scripts/verificar_modelo.py"; exit 1; }

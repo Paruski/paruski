@@ -1,6 +1,6 @@
 {
  "itemsIn": 715,
- "itemsOut": 928,
+ "itemsOut": 1032,
  "dropped": {
   "homoglifo sin forma correcta verificable": 1,
   "opciones insuficientes": 5,
@@ -22,40 +22,41 @@
   "constrained_transfer": 98,
   "information_gap_reconstruction": 22,
   "exam": 55,
-  "vocabulary": 232
+  "vocabulary": 232,
+  "listening": 104
  },
  "byUnit": {
-  "1": 67,
-  "2": 84,
-  "3": 86,
-  "4": 81,
-  "5": 97,
-  "6": 91,
-  "7": 88,
-  "8": 88,
-  "9": 89,
-  "10": 85,
-  "11": 72
+  "1": 76,
+  "2": 92,
+  "3": 96,
+  "4": 90,
+  "5": 107,
+  "6": 101,
+  "7": 96,
+  "8": 98,
+  "9": 99,
+  "10": 95,
+  "11": 82
  },
  "examByUnit": {
-  "1": 9,
-  "2": 11,
-  "3": 10,
-  "4": 11,
-  "5": 12,
-  "6": 10,
-  "7": 9,
-  "8": 11,
-  "9": 11,
-  "10": 10,
-  "11": 11
+  "1": 14,
+  "2": 15,
+  "3": 15,
+  "4": 16,
+  "5": 17,
+  "6": 15,
+  "7": 13,
+  "8": 16,
+  "9": 16,
+  "10": 15,
+  "11": 16
  },
  "stepKinds": {
   "choice": 759,
-  "written": 928
+  "written": 1032
  },
  "vocab": 254,
- "vocabWithAudio": 157,
+ "vocabWithAudio": 246,
  "skills": 53,
  "dropLog": [
   {

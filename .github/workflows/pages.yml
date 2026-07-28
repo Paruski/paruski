@@ -15,7 +15,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # El despliegue no decide si el curso está bien: espera al flujo que lo decide.
+  # Sin esto, un curso que incumple el modelo se publicaba igual.
+  verificar:
+    uses: ./.github/workflows/verificar.yml
+
   deploy:
+    needs: verificar
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

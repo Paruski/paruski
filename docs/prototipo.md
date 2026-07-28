@@ -3,6 +3,12 @@
 Web estática, sin dependencias ni paso de compilación, publicada en GitHub Pages
 desde la raíz del repositorio.
 
+Este documento cuenta **cómo está hecho**. El **por qué** —qué se aprende, qué
+cuenta como prueba y cuándo se vuelve sobre ello— está en
+[`modelo-aprendizaje.md`](modelo-aprendizaje.md), y sus matrices vivas en
+[`matrices.md`](matrices.md). Cuando los dos digan cosas distintas, manda el
+modelo.
+
 ## Qué hay
 
 | Pieza | Ruta |
@@ -108,6 +114,16 @@ Criterios de corrección, en `app/grader.js`:
   con transliteración automática (`privet` → `привет`).
 - **Progreso**: radar de las seis dimensiones por competencia y mapa de unidades.
 
+## Dictado y dimensión auditiva
+
+Cada competencia tiene dos dictados: se oye una forma suya y se escribe, sin el
+texto a la vista. Acredita **reconocimiento auditivo** y no recuperación, porque
+el contenido lo da el audio y no la memoria. Se dictan sólo formas que ya son
+material de esa competencia y que tienen locución grabada, y se prefiere la más
+corta: un dictado se corrige letra a letra, y una frase larga mide memoria de
+trabajo. Son dos y no uno porque el examen se reserva uno: si no, la escucha sólo
+se examinaría y nunca se practicaría.
+
 ## Modelo del alumno y repaso
 
 El repaso se programa **sobre competencias**, no sobre ítems. Cada competencia
@@ -173,11 +189,17 @@ escucha usa la voz del navegador y lo dice en el propio botón.
 ## Pruebas
 
 ```bash
+scripts/verificar.sh       # el flujo entero: reproducibilidad, invariantes y modelo
 npm install jsdom          # sólo para las pruebas
 node scripts/test_prototipo.mjs
 ```
 
-48 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles
+`scripts/verificar.sh` en local y `.github/workflows/verificar.yml` en CI hacen lo
+mismo, y el despliegue a Pages espera a que pase: comprueba que `curso/` se
+reproduce desde el generador, que las invariantes se cumplen y que el curso
+cumple el modelo de aprendizaje.
+
+49 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles
 o que se delaten por la mayúscula inicial,
 contrato de respuesta en todos los pasos escritos, criterios de corrección,
 construcción de sesiones, efecto de acertar y fallar sobre la programación del
@@ -188,7 +210,7 @@ autocorrijan como correctas.
 
 - Materiales con revisión editorial hecha, pero **sin validación de hablante
   nativo**; así se declaran en la propia web.
-- La dimensión auditiva no se evalúa todavía: hay locución para todo, pero
-  ningún ítem la usa.
+- La transferencia contextual cubre 39 de las 53 competencias: exige una escena
+  distinta de la aprendida, y esa escena tiene que venir del material.
 - El progreso se guarda en `localStorage`, sin sincronización entre dispositivos.
 - Quedan 89 unidades por desarrollar.

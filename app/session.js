@@ -31,6 +31,8 @@ const DIMENSION_OF_TYPE = {
   reading_comprehension: 'comprension_explicita',
   constrained_transfer: 'transferencia_contextual',
   information_gap_reconstruction: 'transferencia_contextual',
+  listening: 'reconocimiento_auditivo',
+  vocabulary: 'recuperacion_escrita',
 };
 
 export function itemDimensions(item) {

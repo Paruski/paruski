@@ -338,6 +338,11 @@
     border-left: 3px solid var(--red); border-radius: 0 var(--r-m) var(--r-m) 0;
   }
   .item .given .row { margin-top: .5rem; }
+  /* el dictado no tiene texto que mostrar: la caja es el botón de escucha */
+  .item .given.listen {
+    font-family: var(--sans); font-size: 1rem;
+    display: flex; align-items: center; gap: .9rem; flex-wrap: wrap;
+  }
   .steplabel { font-size: 1.02rem; margin-bottom: .7rem; }
   .expects {
     display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem;

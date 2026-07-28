@@ -81,7 +81,9 @@ class Store {
 
   weakestDimension(id) {
     const s = this.skill(id);
-    const usable = DIMENSIONS.filter(([d]) => d !== 'reconocimiento_auditivo');
+    // la retención diferida no se ataca eligiendo un ejercicio: se acredita sola
+    // cuando la recuperación llega con siete días o más de intervalo (modelo M1)
+    const usable = DIMENSIONS.filter(([d]) => d !== 'retencion_diferida');
     let worst = usable[0][0];
     let worstValue = Infinity;
     for (const [dim] of usable) {
