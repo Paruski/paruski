@@ -105,7 +105,7 @@ cambio, no la prueba.
 
 La normalización de `app/util.js` y la de `scripts/build_prototipo.py` tienen que
 seguir siendo equivalentes. Si se cambia una, se cambia la otra y se ejecutan las
-pruebas: hay una que comprueba que todas las respuestas modelo del curso (1791 a
+pruebas: hay una que comprueba que todas las respuestas modelo del curso (1789 a
 día de hoy) se autocorrigen como correctas.
 
 ## Estilo

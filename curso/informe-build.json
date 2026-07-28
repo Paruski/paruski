@@ -1,6 +1,6 @@
 {
  "itemsIn": 715,
- "itemsOut": 1032,
+ "itemsOut": 1254,
  "dropped": {
   "homoglifo sin forma correcta verificable": 1,
   "opciones insuficientes": 5,
@@ -22,38 +22,38 @@
   "constrained_transfer": 98,
   "information_gap_reconstruction": 22,
   "exam": 55,
-  "vocabulary": 232,
+  "vocabulary": 454,
   "listening": 104
  },
  "byUnit": {
-  "1": 76,
-  "2": 92,
-  "3": 96,
-  "4": 90,
-  "5": 107,
-  "6": 101,
-  "7": 96,
-  "8": 98,
-  "9": 99,
-  "10": 95,
-  "11": 82
+  "1": 86,
+  "2": 112,
+  "3": 117,
+  "4": 109,
+  "5": 133,
+  "6": 129,
+  "7": 120,
+  "8": 121,
+  "9": 122,
+  "10": 115,
+  "11": 90
  },
  "examByUnit": {
-  "1": 14,
-  "2": 15,
-  "3": 15,
-  "4": 16,
-  "5": 17,
-  "6": 15,
-  "7": 13,
-  "8": 16,
-  "9": 16,
-  "10": 15,
-  "11": 16
+  "1": 15,
+  "2": 16,
+  "3": 16,
+  "4": 17,
+  "5": 18,
+  "6": 16,
+  "7": 14,
+  "8": 17,
+  "9": 17,
+  "10": 16,
+  "11": 17
  },
  "stepKinds": {
   "choice": 759,
-  "written": 1032
+  "written": 1030
  },
  "vocab": 254,
  "vocabWithAudio": 246,

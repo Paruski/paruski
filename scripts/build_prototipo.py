@@ -273,10 +273,19 @@ OPEN_TYPES = {
 }
 
 
+REVELA_CORRECCION = re.compile(r"«([^»]+)»\s*corregid[oa] a partir de\s*«([^»]+)»")
+
+
 def normalize_item(e: dict) -> dict:
     """Homogeneiza los ítems de la unidad 011 con el esquema del paquete L001–L010."""
     e = dict(e)
     se = dict(e.get("structuredExpected") or {})
+
+    # algún enunciado del material trae ya la forma reparada («Я вижу суп.»
+    # corregido a partir de «Я вижу супа.»): eso es enseñar la respuesta antes de
+    # pedirla. Se deja a la vista sólo la forma defectuosa, que es el dato.
+    if e.get("prompt"):
+        e["prompt"] = REVELA_CORRECCION.sub(lambda m: f"«{m.group(2)}»", e["prompt"])
 
     if e.get("referenceAnswer") and not se.get("referenceAnswer"):
         se["referenceAnswer"] = e["referenceAnswer"]
@@ -531,9 +540,14 @@ class Builder:
                 target = strip_marks(item.get("expectedAnswer") or se.get("referenceAnswer") or "")
                 if not has_cyr(target) or picker["plain"] not in norm_answer(target):
                     target = picker["plain"]
-                label = ("Escribe ahora la forma completa, sin marcar el acento."
-                         if len(target.split()) > 1 else "Escribe la palabra, sin marcar el acento.")
-                base["steps"].append(self.step_written(sid + "/b", label, [target], strict=True))
+                # Sólo se pide escribir si hay algo más que la palabra ya impresa en
+                # la consigna: copiarla no acredita nada. La palabra tiene que estar
+                # a la vista para poder preguntar por su vocal tónica, así que el
+                # paso escrito se reserva a la frase que la usa.
+                if len(target.split()) > 1:
+                    base["steps"].append(self.step_written(
+                        sid + "/b", "Escribe ahora la forma completa, sin marcar el acento.",
+                        [target], strict=True))
                 base["steps"] = [x for x in base["steps"] if x]
                 if base["steps"]:
                     return base
@@ -749,7 +763,10 @@ class Builder:
             rule = concepts[0] if concepts else None
             if not rule or not rival:
                 return self.drop(item, "inducción sin regla contrastable")
-            base["prompt"] = item["prompt"]
+            # el material encadena la lista de datos con la instrucción sin puntuar:
+            # «… Это есть мама no es la identificación neutra Formula una regla …»
+            base["prompt"] = re.sub(r"(?<=[^.:;!?])\s+(Formula una regla)", r". \1",
+                                    item["prompt"])
             step = self.step_choice(
                 sid + "/a", "De las dos reglas, ¿cuál explica los datos?",
                 [rule, clean_concept(rival)] + self.concept_options(item, rule, count=2),
@@ -757,8 +774,11 @@ class Builder:
             if step:
                 base["steps"].append(step)
             if novel:
+                # el enunciado del ítem ya nombra el elemento nuevo («паспорт»);
+                # escribir aquí la forma acabada era imprimir la respuesta y pedir
+                # que se copiara
                 base["steps"].append(self.step_written(
-                    sid + "/b", f"Aplica la regla al caso nuevo: «{novel}» → escribe la forma correcta.",
+                    sid + "/b", "Aplica la regla al elemento nuevo y escribe la forma correcta.",
                     [novel] if has_cyr(novel) else [novel],
                     language="ru" if has_cyr(novel) else "es",
                     mode="exact" if has_cyr(novel) else "tokens",
@@ -815,13 +835,28 @@ class Builder:
             parts = [s for s in sentences(exchange or "") if has_cyr(s)]
             if not parts:
                 return self.drop(item, "intercambio no verificable")
+            # `gapForA` es la laguna que A *cierra* con su dato privado, no la que
+            # A padece: el material lo dice en `requiredExchange` («aportación de A
+            # (identidad)»). Presentarlo como «A necesita» invertía el enunciado y
+            # le pedía al alumno lo que la tarjeta ya le daba.
             gaps = [se.get("gapForA"), se.get("gapForB")]
-            prompt = "Escribe el intercambio mínimo que cierra las dos lagunas."
+            hay_pregunta = "?" in (exchange or "")
+            if hay_pregunta:
+                prompt = "Escribe el intercambio mínimo que cierra las dos lagunas."
+            else:
+                # sin preguntas en la respuesta no hay diálogo que escribir, y
+                # llamarlo así manda al alumno a redactar lo que no se le acepta.
+                # El material lo razona: la unidad todavía no enseña a preguntar.
+                prompt = (f"Escribe las {len(parts)} frases que cierran las dos lagunas, "
+                          "una por cada dato. No hacen falta preguntas.")
             if all(gaps):
-                prompt += f" A necesita: {gaps[0]}. B necesita: {gaps[1]}."
+                prompt += f" A aporta: {gaps[0]}. B aporta: {gaps[1]}."
             step = self.step_multiwritten(sid + "/a", prompt, parts)
             if not step:
                 return self.drop(item, "sin partes")
+            if not hay_pregunta:
+                base["prompt"] = ("Cada participante tiene un dato que al otro le falta. "
+                                  "Escribe lo que hay que decir para que ambos lo tengan.")
             base["steps"].append(step)
             return base
 
@@ -911,7 +946,16 @@ def main() -> int:
     for e in all_items:
         conv = b.convert(e)
         if conv:
-            conv["stage"] = e.get("stage", "practice")
+            etapa = e.get("stage", "practice")
+            # La etapa decide cuándo aparece el ejercicio en la tanda (modelo, M3).
+            # Un ítem de transferencia etapado como descubrimiento salía de los
+            # primeros de la sesión: se le pedía resolver una situación nueva a
+            # quien todavía no había visto la forma.
+            dims = {s.get("dimension") for s in conv["steps"]}
+            if (conv["phase"] == "transfer" or "transferencia_contextual" in dims) \
+                    and etapa in ("discovery", "guided_recognition"):
+                etapa = "contextual_transfer"
+            conv["stage"] = etapa
             runtime.append(conv)
 
     # --- ejercicios que repiten a otro --------------------------------------
@@ -1012,33 +1056,47 @@ def main() -> int:
             # tienen acento que señalar, así que no dan ejercicio de vocabulario
             if re.search(r"\.\.\.|…|/|\bX\b", lemma) or re.search(r"\.\.\.|…", trad):
                 continue
-            sid = f"lex-{v['id']}"
-            base = {
-                "id": sid, "unit": n, "type": "vocabulary", "typeLabel": "Vocabulario",
-                "phase": "practice", "skillId": skill, "skillIds": [skill],
-                "scenario": f"Léxico de la unidad {n:03d}.",
-                "function": "saber la palabra", "kernelId": f"lex-{n:03d}",
-                "prompt": f"Vocabulario: «{lemma}».", "input": None, "steps": [],
-                "reference": lemma, "notes": [], "stage": "practice",
-            }
+            # Dos ítems y no uno: nombrar la palabra rusa es imprescindible para
+            # preguntar por su significado o su acento, pero deja la respuesta a la
+            # vista de quien tiene que escribirla. Se separan las dos direcciones.
+            def ficha(sufijo, titulo, pasos, etapa="practice"):
+                pasos = [p for p in pasos if p]
+                if not pasos:
+                    return None
+                return {
+                    "id": f"lex-{v['id']}{sufijo}", "unit": n, "type": "vocabulary",
+                    "typeLabel": "Vocabulario", "phase": "practice",
+                    "skillId": skill, "skillIds": [skill],
+                    "scenario": f"Léxico de la unidad {n:03d}.",
+                    "function": "saber la palabra", "kernelId": f"lex-{n:03d}",
+                    "prompt": titulo, "input": None, "steps": pasos,
+                    "reference": lemma, "notes": [], "stage": etapa,
+                }
+
             hermanos = [x for x in por_pos.get(v.get("pos") or "", []) if x["id"] != v["id"]]
             distractores = [x["translation"] for x in hermanos
                             if x.get("translation") and norm_answer(x["translation"]) != norm_answer(trad)]
-            if len(distractores) >= 2:
-                base["steps"].append(b.step_choice(
-                    f"{sid}/a", f"¿Qué significa «{lemma}»?",
-                    [trad] + distractores[:3], trad, dimension="reconocimiento_escrito"))
-            base["steps"].append(b.step_written(
-                f"{sid}/b", f"Escribe en ruso: «{trad}».", [lemma],
-                language="ru", dimension="recuperacion_escrita", strict=True))
             picker = stress_choice(v.get("stressed") or "")
-            if picker:
-                base["steps"].append(b.step_choice(
-                    f"{sid}/c", f"¿En qué vocal cae el acento de «{picker['plain']}»?",
-                    picker["options"], picker["answer"], dimension="comprension_explicita"))
-            base["steps"] = [s for s in base["steps"] if s]
-            if base["steps"]:
-                out.append(base)
+
+            # de la palabra a su significado: nombra el ruso, y no lo pide escrito
+            reconocer = [
+                b.step_choice(f"lex-{v['id']}/a", f"¿Qué significa «{lemma}»?",
+                              [trad] + distractores[:3], trad,
+                              dimension="reconocimiento_escrito") if len(distractores) >= 2 else None,
+                b.step_choice(f"lex-{v['id']}/c", f"¿En qué vocal cae el acento de «{lemma}»?",
+                              picker["options"], picker["answer"],
+                              dimension="comprension_explicita") if picker else None,
+            ]
+            # del significado a la palabra: el ruso no aparece en ninguna parte
+            producir = [b.step_written(f"lex-{v['id']}-p/a", f"Escribe en ruso: «{trad}».",
+                                       [lemma], language="ru",
+                                       dimension="recuperacion_escrita", strict=True)]
+
+            for ficha_hecha in (ficha("", f"Vocabulario: «{lemma}».", reconocer),
+                                ficha("-p", f"Vocabulario: «{trad}».", producir,
+                                      etapa="next_day_retrieval")):
+                if ficha_hecha:
+                    out.append(ficha_hecha)
         return out
 
     for n in range(1, 12):
@@ -1051,13 +1109,19 @@ def main() -> int:
     # y sólo se dicta lo que tiene locución grabada.
     def texto_de(item):
         """La forma rusa que ese ítem enseña, si la tiene entera y sin huecos."""
+        def sirve(texto):
+            return bool(texto) and has_cyr(texto) and not re.search(r"[_…]|\.\.\.|→|/", texto)
+
         for step in item["steps"]:
             if step["kind"] != "written" or step.get("language") != "ru":
                 continue
             modelo = (step.get("accepted") or [""])[0]
-            if modelo and has_cyr(modelo) and not re.search(r"[_…]|\.\.\.|→|/", modelo):
+            if sirve(modelo):
                 return modelo
-        return None
+        # hay ítems que enseñan una forma sin pedir que se escriba —los de acento
+        # la señalan sobre la palabra impresa—, y esa forma también se puede dictar
+        referencia = strip_marks(item.get("reference") or "")
+        return referencia if sirve(referencia) else None
 
     dictados = []
     for n in range(1, 12):

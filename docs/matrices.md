@@ -4,7 +4,7 @@
 desde el curso construido. No se edita a mano: si algo aquí no cuadra, lo que
 hay que corregir es el generador o el modelo, no esta tabla.
 
-Curso: 11 unidades · 53 competencias · 1032 ejercicios · 1791 pasos.
+Curso: 11 unidades · 53 competencias · 1254 ejercicios · 1789 pasos.
 
 ## M2 · qué dimensión acredita cada tipo de ejercicio
 
@@ -12,7 +12,7 @@ Pasos publicados por tipo y dimensión.
 
 | Tipo | compr. | recon. | recup. | transf. | reten. | oído |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Acento léxico | 2 | 0 | 2 | 0 | 0 | 0 |
+| Acento léxico | 2 | 0 | 0 | 0 | 0 | 0 |
 | Comprensión lectora | 37 | 0 | 5 | 0 | 0 | 0 |
 | Contraste semántico | 32 | 32 | 32 | 0 | 0 | 0 |
 | Crítica de retrotraducción | 30 | 0 | 30 | 0 | 0 | 0 |
@@ -30,7 +30,7 @@ Pasos publicados por tipo y dimensión.
 | Transformación | 0 | 0 | 40 | 0 | 0 | 0 |
 | Vacío de información | 0 | 0 | 0 | 22 | 0 | 0 |
 | Vocabulario | 186 | 211 | 232 | 0 | 0 | 0 |
-| **total** | 496 | 344 | 747 | 100 | 0 | 104 |
+| **total** | 496 | 344 | 745 | 100 | 0 | 104 |
 
 La columna de retención diferida está vacía a propósito: no es una tarea, es
 una condición temporal sobre la recuperación (modelo, M1).
@@ -56,17 +56,17 @@ material no da.
 
 | Unidad | Competencias | Ítems | Pasos |
 | --- | ---: | ---: | ---: |
-| 001 | 5 | 14 | 16 |
-| 002 | 4 | 15 | 16 |
-| 003 | 5 | 15 | 17 |
-| 004 | 5 | 16 | 17 |
-| 005 | 5 | 17 | 19 |
-| 006 | 5 | 15 | 18 |
-| 007 | 4 | 13 | 14 |
-| 008 | 5 | 16 | 18 |
-| 009 | 5 | 16 | 18 |
-| 010 | 5 | 15 | 17 |
-| 011 | 5 | 16 | 17 |
+| 001 | 5 | 15 | 16 |
+| 002 | 4 | 16 | 16 |
+| 003 | 5 | 16 | 17 |
+| 004 | 5 | 17 | 17 |
+| 005 | 5 | 18 | 19 |
+| 006 | 5 | 16 | 18 |
+| 007 | 4 | 14 | 14 |
+| 008 | 5 | 17 | 18 |
+| 009 | 5 | 17 | 18 |
+| 010 | 5 | 16 | 17 |
+| 011 | 5 | 17 | 17 |
 
 ## M4 · escalera de intervalos
 

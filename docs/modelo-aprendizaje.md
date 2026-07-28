@@ -57,7 +57,18 @@ acierto**.
 | escribir sin pista, ≥ 7 días después | recuperación **y** retención diferida | — |
 | escribir tras pista | recuperación con menor peso, y queda registrada la dependencia de clave | retención diferida |
 | escribir lo que se oye, sin texto a la vista | reconocimiento auditivo | recuperación: el contenido lo da el audio |
+| copiar lo que ya está impreso | **nada** | ninguna dimensión |
 | fallar | nada; devuelve la competencia a la cola inmediata y suma recaída | — |
+
+De ahí dos exigencias sobre el enunciado, que se comprueban:
+
+1. **La respuesta no puede estar citada en lo que el alumno ve.** Si lo está, el
+   paso mide la vista y no la competencia. Vale también para lo que enseña el
+   ejercicio de al lado: por eso el léxico se parte en dos fichas, una que nombra
+   la palabra rusa para preguntar por su significado y su acento, y otra que sólo
+   da el español y pide escribirla.
+2. **La consigna describe exactamente lo que se acepta.** Pedir un diálogo y
+   admitir sólo dos afirmaciones manda a escribir lo que después se rechaza.
 
 El peso del acierto sobre la fuerza de la dimensión es `s + (1 − s)·k`, con
 `k = 0,42` sin pista y `k = 0,18` con pista; el fallo la reduce a la mitad. Un

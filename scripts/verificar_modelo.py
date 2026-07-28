@@ -14,6 +14,7 @@ Salida: `docs/matrices.md`, que es contenido generado y no se edita a mano.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -111,6 +112,50 @@ def main() -> int:
     # y no puede llevar el texto a la vista
     malos = [i["id"] for i in items if i.get("listen") and (i.get("input") or "").strip()]
     exige("M2 · el dictado no enseña el texto que dicta", not malos, ", ".join(malos[:3]))
+
+    # Copiar no acredita nada: si la respuesta está citada en lo que el alumno ve,
+    # el paso no mide la competencia sino la vista. La comparación conserva la ё y
+    # el signo de interrogación, que son justamente lo evaluado en algunos ítems.
+    def norma(texto: str) -> str:
+        texto = (texto or "").strip().lower()
+        texto = texto.replace("́", "")
+        return "".join(c for c in texto if c.isalnum() or c == "?")
+
+    copiables = []
+    for item in items:
+        for paso in item["steps"]:
+            if paso["kind"] != "written":
+                continue
+            modelo = (paso.get("accepted") or [""])[0]
+            if len(norma(modelo)) < 3:
+                continue
+            citas = re.findall(r"«([^»]+)»",
+                               f"{item.get('prompt') or ''} {paso.get('prompt') or ''}")
+            if any(norma(c) == norma(modelo) for c in citas):
+                copiables.append(f"{item['id']}:{paso['id']}")
+    exige("M2 · ningún paso escrito lleva su respuesta citada en el enunciado",
+          not copiables, f"{len(copiables)}: {', '.join(copiables[:3])}")
+
+    # Una consigna que pide un diálogo y acepta dos afirmaciones manda a escribir
+    # lo que después no se admite.
+    mentirosas = []
+    for item in items:
+        for paso in item["steps"]:
+            if paso["kind"] != "written":
+                continue
+            texto = f"{item.get('prompt') or ''} {paso.get('prompt') or ''}".lower()
+            if re.search(r"escribe (el|un) (diálogo|intercambio)", texto) \
+                    and "?" not in ((paso.get("accepted") or [""])[0]):
+                mentirosas.append(f"{item['id']}:{paso['id']}")
+    exige("M2 · la consigna no pide diálogo si no se acepta ninguna pregunta",
+          not mentirosas, f"{len(mentirosas)}: {', '.join(mentirosas[:3])}")
+
+    # M3 · la etapa decide cuándo aparece: la transferencia no puede ser lo primero
+    pronto = [i["id"] for i in items
+              if (i["phase"] == "transfer" or "transferencia_contextual" in dimensiones_de(i))
+              and i.get("stage") in ("discovery", "guided_recognition")]
+    exige("M3 · ningún ítem de transferencia aparece en etapa temprana",
+          not pronto, f"{len(pronto)}: {', '.join(pronto[:3])}")
 
     # ------------------------------------------------------------ matriz M5
     # el examen comprueba cada competencia reconociendo, produciendo y oyendo
