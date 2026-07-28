@@ -29,6 +29,18 @@ function skillName(curriculum, id) {
   return s ? s.linguisticPhenomenon : id;
 }
 
+const DOMINIOS = {
+  morphology: 'morfología', syntax: 'sintaxis', lexis: 'léxico', discourse: 'discurso',
+  semantics: 'semántica', reference: 'referencia', lexicogrammar: 'léxico-gramática',
+  orthography: 'ortografía', pragmatics: 'pragmática', integration: 'integración',
+  phonology: 'fonología',
+};
+
+function skillDomain(curriculum, id) {
+  const s = curriculum.skills.find((x) => x.skillId === id);
+  return s ? (DOMINIOS[s.domain] || s.domain) : '';
+}
+
 // ------------------------------------------------------------------- portada
 
 export async function viewHome(root) {
@@ -122,6 +134,7 @@ export async function viewUnit(root, n, tab = 'leccion') {
     h('div', { class: 'row', style: 'margin-top:.8rem' },
       h('a', { class: 'btn primary', href: `#/u/${n}/practica` },
         state.practiced ? 'Seguir practicando' : 'Empezar a practicar'),
+      h('a', { class: 'btn', href: `#/u/${n}/sinparar` }, 'Sin parar'),
       h('a', { class: `btn${state.practiced || state.exam.passed ? '' : ' ghost'}`, href: `#/u/${n}/examen` },
         state.exam.passed ? `Repetir examen · mejor ${pct(state.exam.best)}` : 'Presentarse al examen')),
     h('p', { class: 'muted small' }, state.exam.passed
@@ -243,6 +256,10 @@ function exerciseIndex(curriculum, data, n) {
   wrap.append(
     h('p', { class: 'muted small' },
       'Todos los ejercicios de la unidad, uno a uno. Los de examen no aparecen aquí: sólo se ven en el examen.'),
+    h('div', { class: 'row' },
+      h('a', { class: 'btn primary', href: `#/u/${n}/sinparar` }, 'Hacerlos sin parar'),
+      h('span', { class: 'muted small' },
+        'Encadena ejercicios de toda la unidad, sin elegir tipo, hasta que salgas.')),
     filters,
     h('table', {},
       h('thead', {}, h('tr', {}, h('th', {}, 'Ejercicio'), h('th', {}, 'Tipo'), h('th', {}, 'Estado'), h('th', {}, ''))),
@@ -258,7 +275,8 @@ function skillTable(curriculum, unit) {
       radar(st),
       h('div', {},
         h('h4', {}, skillName(curriculum, id)),
-        h('div', { class: 'muted small' }, id),
+        // el dominio dice algo al alumno; el identificador interno, no
+        h('div', { class: 'muted small' }, skillDomain(curriculum, id)),
         h('div', { class: 'row', style: 'margin-top:.5rem' },
           h('span', { class: 'pill' }, st ? `dominio ${pct(store.strength(id))}` : 'sin practicar'),
           st && st.seen ? h('span', { class: 'pill amber' }, `repaso ${relTime(st.due)}`) : null)));
@@ -332,6 +350,20 @@ export async function viewPractice(root, n) {
   });
 }
 
+/** Modo infinito: ejercicios encadenados hasta que el alumno decida parar, sin
+ *  filtrar por tipo y con el mismo criterio de elección que la práctica. */
+export async function viewEndless(root, n) {
+  const { datasets, pool } = await poolFor(n);
+  const dataset = datasets.find((d) => d.unit.unit === n);
+  if (!dataset) { location.hash = '#/'; return; }
+  const otros = pool.filter((i) => i.unit !== n);
+  const tanda = () => buildPracticeSession(dataset.items, otros, { size: 8, reviews: 2 });
+  runSession(root, {
+    items: tanda(), more: tanda, mode: 'practica', unit: n,
+    title: `Sin parar · unidad ${pad(n)}`, backHref: `#/u/${n}`,
+  });
+}
+
 /** Un único ejercicio, lanzado desde el índice de la unidad. */
 export async function viewSingle(root, n, id) {
   const data = await loadUnit(n);
@@ -384,7 +416,7 @@ export async function viewExam(root, n) {
 // -------------------------------------------------------------- motor de sesión
 
 function runSession(root, config) {
-  const { items, mode, title, backHref, unit } = config;
+  const { items, mode, title, backHref, unit, more } = config;
   const isExam = mode === 'examen';
   let index = 0;
   let stepIndex = 0;
@@ -590,7 +622,7 @@ function runSession(root, config) {
 
   function nextButton(item) {
     const isLastStep = stepIndex >= item.steps.length - 1;
-    const isLastItem = index >= items.length - 1;
+    const isLastItem = index >= items.length - 1 && !more;
     const label = !isLastStep ? 'Siguiente paso →' : isLastItem ? 'Terminar' : 'Siguiente ejercicio →';
     const btn = h('button', { class: 'primary', type: 'button', onclick: advance }, label);
     setTimeout(() => btn.focus({ preventScroll: true }), 40);
@@ -616,7 +648,17 @@ function runSession(root, config) {
       itemResults = [];
       attempts = 0;
       stepIndex = 0;
-      if (isLastItem) { finishSession(); return; }
+      // en modo infinito se pide otra tanda al llegar al final: el alumno decide
+      // cuándo parar, con el botón de salir, y no la longitud de la lista
+      if (index >= items.length - 1 && more) {
+        const extra = more().filter((x) => !items.some((y) => y.id === x.id));
+        for (const x of extra) {
+          items.push(x);
+          marks.push('');
+          segments.append(h('i', {}));
+        }
+      }
+      if (index >= items.length - 1) { finishSession(); return; }
       index += 1;
       render();
     }
@@ -697,8 +739,13 @@ function runSession(root, config) {
       h('h3', { style: 'margin-top:1rem' }, 'Detalle'),
       h('table', {},
         h('thead', {}, h('tr', {}, h('th', {}, 'Tarea'), h('th', {}, 'Tu respuesta'), h('th', {}, 'Esperado'), h('th', {}, ''))),
+        // cada fila dice qué se preguntó en ese paso: repetir el enunciado del
+        // ítem dejaba dos filas idénticas para un ítem de dos pasos
         h('tbody', {}, ...examAnswers.map((a) => h('tr', {},
-          h('td', { class: 'small' }, a.item.prompt.length > 80 ? `${a.item.prompt.slice(0, 80)}…` : a.item.prompt),
+          h('td', { class: 'small' },
+            h('div', {}, a.step.prompt || a.item.prompt),
+            h('div', { class: 'muted' },
+              a.item.prompt.length > 70 ? `${a.item.prompt.slice(0, 70)}…` : a.item.prompt)),
           h('td', { class: hasCyr(a.value) ? 'ru small' : 'small' }, a.value),
           h('td', { class: 'ru small' }, a.step.kind === 'choice' ? a.step.answer : (a.step.accepted || [])[0] || '—'),
           h('td', {}, a.result.status === 'correcto' ? '✓' : '✗')))))));

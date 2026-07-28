@@ -21,7 +21,7 @@ recoge qué ítems se descartaron y por qué.
 
 ```bash
 python3 scripts/build_prototipo.py         # regenera curso/ desde los materiales de CLAUDE/
-node scripts/test_prototipo.mjs            # 44 comprobaciones (necesita: npm install jsdom)
+node scripts/test_prototipo.mjs            # 48 comprobaciones (necesita: npm install jsdom)
 python3 scripts/generar_audio.py --lista   # inventario de locuciones pendientes
 python3 -m http.server 8000                # servir la web (file:// no funciona)
 ```
@@ -81,8 +81,8 @@ cambio, no la prueba.
 
 La normalización de `app/util.js` y la de `scripts/build_prototipo.py` tienen que
 seguir siendo equivalentes. Si se cambia una, se cambia la otra y se ejecutan las
-pruebas: hay una que comprueba que las 1029 respuestas modelo del curso se
-autocorrigen como correctas.
+pruebas: hay una que comprueba que todas las respuestas modelo del curso (1687 a
+día de hoy) se autocorrigen como correctas.
 
 ## Estilo
 

@@ -3,7 +3,8 @@
 import { $, clear, h } from './util.js';
 import { store } from './store.js';
 import {
-  viewHome, viewUnit, viewPractice, viewSingle, viewExam, viewReview, viewVocabulary, viewProgress,
+  viewHome, viewUnit, viewPractice, viewEndless, viewSingle, viewExam, viewReview,
+  viewVocabulary, viewProgress,
 } from './views.js';
 
 const root = $('#main');
@@ -13,6 +14,7 @@ const ROUTES = [
   [/^#\/u\/(\d+)\/?$/, (m) => viewUnit(root, Number(m[1]), 'leccion')],
   [/^#\/u\/(\d+)\/(ejercicios|vocabulario|competencias)$/, (m) => viewUnit(root, Number(m[1]), m[2])],
   [/^#\/u\/(\d+)\/practica$/, (m) => viewPractice(root, Number(m[1]))],
+  [/^#\/u\/(\d+)\/sinparar$/, (m) => viewEndless(root, Number(m[1]))],
   [/^#\/u\/(\d+)\/ej\/(.+)$/, (m) => viewSingle(root, Number(m[1]), decodeURIComponent(m[2]))],
   [/^#\/u\/(\d+)\/examen$/, (m) => viewExam(root, Number(m[1]))],
   [/^#\/repaso$/, () => viewReview(root)],

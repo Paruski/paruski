@@ -1,14 +1,14 @@
 {
  "itemsIn": 715,
- "itemsOut": 695,
+ "itemsOut": 928,
  "dropped": {
   "homoglifo sin forma correcta verificable": 1,
-  "opciones insuficientes": 6,
+  "opciones insuficientes": 5,
   "tipo sin conversor: cloze/None": 1,
   "repite otro ejercicio con la misma pantalla": 12
  },
  "byType": {
-  "contextual_choice": 101,
+  "contextual_choice": 102,
   "cloze": 43,
   "diagnostic_repair": 87,
   "translation_ru_es": 44,
@@ -21,51 +21,47 @@
   "semantic_contrast": 32,
   "constrained_transfer": 98,
   "information_gap_reconstruction": 22,
-  "exam": 55
+  "exam": 55,
+  "vocabulary": 232
  },
  "byUnit": {
-  "1": 55,
-  "2": 61,
-  "3": 64,
-  "4": 59,
-  "5": 71,
-  "6": 63,
-  "7": 62,
-  "8": 65,
-  "9": 66,
-  "10": 65,
-  "11": 64
+  "1": 67,
+  "2": 84,
+  "3": 86,
+  "4": 81,
+  "5": 97,
+  "6": 91,
+  "7": 88,
+  "8": 88,
+  "9": 89,
+  "10": 85,
+  "11": 72
  },
  "examByUnit": {
-  "1": 5,
-  "2": 5,
-  "3": 5,
-  "4": 4,
-  "5": 6,
-  "6": 5,
-  "7": 5,
-  "8": 5,
-  "9": 5,
-  "10": 5,
-  "11": 5
+  "1": 9,
+  "2": 11,
+  "3": 10,
+  "4": 11,
+  "5": 12,
+  "6": 10,
+  "7": 9,
+  "8": 11,
+  "9": 11,
+  "10": 10,
+  "11": 11
  },
  "stepKinds": {
-  "choice": 361,
-  "written": 695
+  "choice": 759,
+  "written": 928
  },
  "vocab": 254,
  "vocabWithAudio": 157,
- "skills": 42,
+ "skills": 53,
  "dropLog": [
   {
    "id": "pb1v16-l001-reading-comprehension-06-2",
    "type": "reading_comprehension",
    "reason": "homoglifo sin forma correcta verificable"
-  },
-  {
-   "id": "pb1v17-replacement-007",
-   "type": "contextual_choice",
-   "reason": "opciones insuficientes"
   },
   {
    "id": "pb1v16-l003-contrast-explanation-09-2",

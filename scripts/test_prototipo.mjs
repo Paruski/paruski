@@ -57,6 +57,45 @@ check('ningún ítem de examen aparece en la práctica',
   all.filter((i) => i.phase === 'exam').every((e) => !all.some((p) => p.phase !== 'exam' && p.id === e.id)));
 check('todo ítem declara competencia', all.every((i) => (i.skillIds || []).length));
 
+// El examen abre la unidad siguiente: no puede dejar competencias sin comprobar,
+// ni darlas por adquiridas sólo con reconocerlas.
+const RECONOCER = new Set(['comprension_explicita', 'reconocimiento_escrito']);
+const PRODUCIR = new Set(['recuperacion_escrita', 'transferencia_contextual']);
+const dimsDe = (i) => new Set(i.steps.map((s) => s.dimension).filter(Boolean));
+const cubre = (examen, skill, quiere) => examen.some((i) => (i.skillIds || []).includes(skill)
+  && [...dimsDe(i)].some((d) => quiere.has(d)));
+const sinCubrir = [];
+for (const u of units) {
+  const n = u.unit.unit;
+  const examen = u.items.filter((i) => i.phase === 'exam');
+  for (const skill of curriculum.skills.filter((s) => s.unit === n).map((s) => s.skillId)) {
+    if (!cubre(examen, skill, RECONOCER)) sinCubrir.push(`${n}:${skill}:reconocer`);
+    if (!cubre(examen, skill, PRODUCIR)) sinCubrir.push(`${n}:${skill}:producir`);
+  }
+}
+check('el examen comprueba todas las competencias de su unidad',
+  sinCubrir.length === 0, sinCubrir.slice(0, 3).join(' '));
+check('el examen las comprueba reconociendo y produciendo', sinCubrir.length === 0);
+
+// una consigna que pide la frase y un contrato que dice «sólo la palabra» hacen
+// fallar a quien obedece
+const contradicen = all.flatMap((i) => i.steps).filter((s) => s.kind === 'written'
+  && /sólo la palabra/.test(s.expects || '')
+  && ((s.accepted || [])[0] || '').trim().split(/\s+/).length > 1);
+check('ningún contrato de respuesta contradice a su consigna',
+  contradicen.length === 0, contradicen.slice(0, 2).map((s) => s.id).join(' '));
+
+// una frase de infinitivo entre oraciones con verbo conjugado (o al revés) tiene
+// otra pinta que sus compañeras, y eso se ve antes de leerla
+const esInfinitivo = (t) => /^(\S+)/.test(t || '') && /(ar|er|ir)$/i.test((t || '').trim().split(/\s+/)[0] || '');
+check('las opciones conceptuales comparten forma gramatical',
+  all.flatMap((i) => i.steps)
+    .filter((s) => s.kind === 'choice' && s.dimension === 'comprension_explicita')
+    .every((s) => new Set(s.options.filter((o) => !/^Las dos/.test(o)).map(esInfinitivo)).size <= 1));
+
+check('hay ejercicios de vocabulario en todas las unidades',
+  units.every((u) => u.items.some((i) => i.type === 'vocabulary')));
+
 // pliega los homoglifos latinos, pero conserva la puntuación: «Что это?» y
 // «Что это.» son formas distintas y perfectamente visibles
 const fold = (t) => t.normalize('NFD').replace(/[\u0300\u0301]/g, '').normalize('NFC').toLowerCase()
@@ -205,15 +244,18 @@ check('suspender no desbloquea', !store.isUnlocked(2));
 
 // todas las respuestas modelo de todo el curso deben validarse
 const badModels = [];
+let modelos = 0;
 for (const item of all) {
   for (const s of item.steps) {
     const value = s.kind === 'choice' ? s.answer
       : s.mode === 'fragments' ? (s.referenceParts || []).join(' ')
         : (s.accepted || [])[0];
+    modelos += 1;
     if (gradeStep(s, value).status !== 'correcto') badModels.push(`${item.id}:${s.id}`);
   }
 }
-check('las 1029 respuestas modelo del curso se autocorrigen',
+// el número se cuenta, no se escribe: crece con el curso y quedaba desfasado
+check(`las ${modelos} respuestas modelo del curso se autocorrigen`,
   badModels.length === 0, badModels.slice(0, 5).join(', '));
 
 console.log(failures ? `\n${failures} comprobaciones fallidas` : '\nTodo correcto');

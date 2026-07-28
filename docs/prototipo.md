@@ -71,8 +71,19 @@ plantea.
 | Vacío de información | Escribir el intercambio completo; se exige cerrar las dos lagunas |
 
 Lo que no admite comprobación determinista no se publica, y lo que repite a otro
-ejercicio tampoco: de 715 ítems de partida se publican 695
-(`curso/informe-build.json` recoge los descartes con su motivo).
+ejercicio tampoco: de 715 ítems de partida se publican 696, a los que se suman
+232 de vocabulario generados del propio léxico (`curso/informe-build.json` recoge
+los descartes con su motivo).
+
+## Vocabulario
+
+Cada palabra del léxico da su propio ejercicio, sin construcción alrededor:
+reconocer el significado entre otras palabras de la misma unidad y categoría,
+escribirla en ruso a partir del español, y situar su vocal tónica. Los patrones
+de construcción del léxico («У меня есть...», «Это X. Он/Она...») no dan
+ejercicio: no son palabras, no se teclean tal cual y no tienen acento que
+señalar. Cada unidad tiene su competencia léxica (`lexico_uNNN`), así que el
+repaso la programa como a cualquier otra.
 
 Criterios de corrección, en `app/grader.js`:
 
@@ -89,6 +100,9 @@ Criterios de corrección, en `app/grader.js`:
 - **Unidad**: pestañas de lección, ejercicios, vocabulario y competencias.
 - **Ejercicios**: índice completo de la unidad, filtrable por tipo y por estado
   (sin hacer / fallados / acertados), y cada uno se puede lanzar suelto.
+- **Sin parar**: encadena ejercicios de toda la unidad sin elegir tipo ni
+  longitud; al agotar la tanda pide otra, con el mismo criterio de elección que
+  la práctica, hasta que el alumno sale.
 - **Sesión**: modo concentrado, con barra de segmentos, atajos de teclado
   (1–9 para elegir, Enter para comprobar y avanzar) y teclado cirílico integrado
   con transliteración automática (`privet` → `привет`).
@@ -115,9 +129,13 @@ transferencia contextual · retención diferida · reconocimiento auditivo.
 
 ## Exámenes y desbloqueo
 
-Cada unidad tiene su examen (4–6 ítems, entre 8 y 12 pasos). No hay corrección
-hasta el final. Se aprueba con el 80 % de pasos correctos y sólo entonces se
-abre la unidad siguiente. Los ítems de examen nunca aparecen en la práctica.
+El examen abre la unidad siguiente, así que no puede dejar competencias sin
+comprobar: para **cada** competencia de la unidad, léxico incluido, exige
+reconocerla —elegir entre opciones— y además producirla sin pista, porque una
+elección múltiple no acredita recuperación. Lo que el material no traía ya
+examinado se reserva de la práctica, nunca se inventa. Salen entre 9 y 12 ítems
+por unidad, de 10 a 14 pasos. No hay corrección hasta el final; se aprueba con
+el 80 % y los ítems de examen nunca aparecen en la práctica.
 
 ## Audio
 
@@ -159,11 +177,11 @@ npm install jsdom          # sólo para las pruebas
 node scripts/test_prototipo.mjs
 ```
 
-44 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles
+48 comprobaciones: integridad del contenido, ausencia de opciones indistinguibles
 o que se delaten por la mayúscula inicial,
 contrato de respuesta en todos los pasos escritos, criterios de corrección,
 construcción de sesiones, efecto de acertar y fallar sobre la programación del
-repaso, desbloqueo por examen, y que las 1029 respuestas modelo del curso se
+repaso, desbloqueo por examen, y que todas las respuestas modelo del curso se
 autocorrijan como correctas.
 
 ## Límites conocidos

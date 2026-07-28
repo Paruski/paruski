@@ -105,6 +105,15 @@ def as_statement(claim: str) -> str:
     return claim[0].upper() + claim[1:] if claim else claim
 
 
+def es_infinitivo(texto: str) -> bool:
+    """Si el enunciado empieza por infinitivo es un fenómeno de competencia
+    («distinguir grafemas…»); si no, es una afirmación sobre la lengua («después
+    de это siempre debe aparecer есть»). Son dos formas gramaticales distintas y
+    no pueden convivir entre las opciones de una misma pregunta."""
+    palabras = (texto or "").strip().split()
+    return bool(palabras) and palabras[0].lower().endswith(("ar", "er", "ir"))
+
+
 def clean_concept(concept: str) -> str:
     concept = concept.strip().rstrip(".")
     return concept[0].upper() + concept[1:] if concept else concept
@@ -116,6 +125,11 @@ HOMOGLYPHS = {
     "M": "М", "H": "Н", "O": "О", "P": "Р", "C": "С", "T": "Т", "X": "Х", "Y": "У",
 }
 
+# Reconocer no es recuperar: elegir entre opciones acredita lo primero y sólo
+# producir sin pista acredita lo segundo. El examen exige las dos cosas.
+RECONOCER = {"comprension_explicita", "reconocimiento_escrito"}
+PRODUCIR = {"recuperacion_escrita", "transferencia_contextual"}
+
 VOWELS = "аеёиоуыэюя"
 ORDINALS = ["1.ª", "2.ª", "3.ª", "4.ª", "5.ª", "6.ª", "7.ª", "8.ª"]
 
@@ -126,8 +140,12 @@ def fold_homoglyphs(text: str) -> str:
 
 def visually_same(a: str, b: str) -> bool:
     """Dos formas que sólo se diferencian en un homoglifo latino son
-    indistinguibles en pantalla: no se pueden ofrecer como opciones."""
-    return norm_answer(fold_homoglyphs(a)) == norm_answer(fold_homoglyphs(b))
+    indistinguibles en pantalla: no se pueden ofrecer como opciones.
+
+    La comparación es estricta con la ё: `тётя` y `тетя` se ven distintas, y hay
+    contrastes cuyo objeto es justamente esa letra. Plegarlas aquí borraba una de
+    las dos formas y dejaba preguntas de una sola opción real."""
+    return norm_answer(fold_homoglyphs(a), strict=True) == norm_answer(fold_homoglyphs(b), strict=True)
 
 
 def unify_initial_case(options: list[str]) -> dict[str, str]:
@@ -185,6 +203,16 @@ def strip_marks(text: str) -> str:
     return strip_stress(text or "")
 
 
+def strip_marks_ru(text: str) -> str:
+    """Igual, pero sólo sobre el ruso. En español la tilde es ortografía y se
+    conserva: «mamá» no puede convertirse en «mama» por quitar un acento que
+    allí no es editorial."""
+    out = []
+    for palabra in re.split(r"(\s+)", text or ""):
+        out.append(strip_stress(palabra) if CYR.search(palabra) else palabra)
+    return "".join(out)
+
+
 def answer_contract(accepted: list[str], language: str, mode: str) -> str:
     sample = accepted[0] if accepted else ""
     if mode == "fragments":
@@ -196,7 +224,10 @@ def answer_contract(accepted: list[str], language: str, mode: str) -> str:
     count = len([x for x in sentences(sample) if x])
     if count > 1:
         return f"Se espera: {count} frases en ruso."
-    if len(sample.split()) <= 2:
+    # Se mira si la respuesta es una palabra, no cuántas tiene: «Это вода.» son dos
+    # y es una frase. Contarlas hacía que la consigna pidiera la frase y el contrato
+    # dijera «sólo la palabra», así que quien escribía вода fallaba por obedecer.
+    if len(sample.split()) == 1:
         return "Se espera: sólo la palabra o forma pedida, en ruso."
     return "Se espera: una sola frase en ruso."
 
@@ -287,12 +318,23 @@ class Builder:
         self.kernels: dict[str, dict] = {}
         self.concept_pool: list[tuple[str, str]] = []  # (skillId, concepto)
         self.stress_lexicon: dict[str, str] = {}  # forma llana -> forma con acento
+        # afirmaciones que el material declara falsas, por unidad: sirven de
+        # distractor con forma de oración cuando la regla rival no basta para
+        # llenar la pregunta sin mezclar formas gramaticales
+        self.false_claims: dict[int, list[str]] = defaultdict(list)
         self.dropped: Counter = Counter()
         self.drop_log: list[dict] = []
 
     # -- pasos ------------------------------------------------------------
 
     def step_choice(self, sid, prompt, options, correct, explain=None, dimension="reconocimiento_escrito"):
+        # La marca de acento se cae de las opciones: cuando el material la trae en
+        # una sola («тётя» frente a «тетя́»), esa opción se ve distinta de las demás
+        # y se delata sin haberla leído. El acento se enseña en la ficha y en la
+        # lección, no en el reparto de una elección.
+        options = [strip_marks_ru(o) if o else o for o in options]
+        correct = strip_marks_ru(correct)
+        explain = {strip_marks_ru(k): v for k, v in (explain or {}).items()}
         # la mayúscula inicial se unifica antes de comparar y de guardar, para que
         # la clave de `explain` siga coincidiendo con el texto de su opción
         recase = unify_initial_case(list(options) + [correct])
@@ -411,8 +453,22 @@ class Builder:
                 if other.get("linguisticPhenomenon"):
                     wrong.append(clean_concept(other["linguisticPhenomenon"]))
 
+        # Las dos fuentes tienen forma distinta: el fenómeno de una competencia es
+        # una frase de infinitivo («localizar un referente sin cópula») y una
+        # afirmación del material es una oración con verbo conjugado («después de
+        # это siempre debe aparecer есть»). Mezclarlas deja una opción con otra
+        # pinta que las demás, y eso se ve antes de leerla. Se ofrece sólo el
+        # grupo al que pertenece la respuesta correcta.
+        misma_forma = [w for w in wrong if es_infinitivo(w) == es_infinitivo(correct_concept)]
+        if not es_infinitivo(correct_concept) and len(misma_forma) < count:
+            # se completa con otras afirmaciones falsas de la misma unidad: siguen
+            # siendo del material y siguen siendo oraciones, como la correcta
+            unidad = item.get("lessonNumber") or item.get("unit")
+            misma_forma += [c for c in self.false_claims.get(unidad, [])
+                            if not es_infinitivo(c)]
+
         out, seen = [], {norm_answer(correct_concept)}
-        for w in wrong:
+        for w in misma_forma:
             if not w or norm_answer(w) in seen:
                 continue
             seen.add(norm_answer(w))
@@ -653,16 +709,20 @@ class Builder:
                 forms = [preferred] + forms
             # la consigna original explicaba ya cuál era la buena («sólo la primera…»);
             # aquí se sustituye por una consigna neutra y las formas se barajan en pantalla
-            base["prompt"] = ("Dos formas compiten en esta situación: "
-                              f"{item.get('semanticScenario') or 'decide cuál corresponde'}. "
+            escena = (item.get("semanticScenario") or "decide cuál corresponde").strip().rstrip(".")
+            base["prompt"] = (f"Dos formas compiten en esta situación: {escena}. "
                               "Elige la que la resuelve y explica qué la distingue.")
             base["input"] = None
-            other = [f for f in forms if norm_answer(f) != norm_answer(preferred)]
+            other = [f for f in forms if not visually_same(f, preferred)]
             step = self.step_choice(
                 sid + "/a", "¿Cuál de las dos formas corresponde a esta situación?",
                 [preferred] + other + ["Las dos son intercambiables aquí."], preferred)
+            # «las dos son intercambiables» sólo tiene sentido si hay dos formas que
+            # comparar: con una sola, la consigna promete una elección que no existe
+            if step and len([o for o in step["options"] if has_cyr(o)]) < 2:
+                step = None
             if not step:
-                return self.drop(item, "opciones insuficientes")
+                return self.drop(item, "contraste sin dos formas distinguibles en pantalla")
             base["steps"].append(step)
             concepts = [clean_concept(c) for c in se.get("requiredConcepts", [])]
             phenomenon = self.skill_phenomenon(item.get("skillId"))
@@ -835,6 +895,16 @@ def main() -> int:
         e["stage"] = "practice"
         all_items.append(e)
 
+    # el repertorio de afirmaciones falsas se junta antes de convertir, porque un
+    # ítem puede necesitar como distractor lo que otro de su unidad declara falso
+    for e in all_items:
+        se = e.get("structuredExpected") or {}
+        for claim in se.get("forbiddenClaims", []) or []:
+            frase = as_statement(claim)
+            unidad = e.get("lessonNumber")
+            if frase and frase not in b.false_claims[unidad]:
+                b.false_claims[unidad].append(frase)
+
     runtime = []
     for e in all_items:
         conv = b.convert(e)
@@ -900,6 +970,108 @@ def main() -> int:
         if path:
             v["audio"] = path
 
+    # --- ejercicios de vocabulario -----------------------------------------
+    # Léxico puro: la palabra por sí misma, no dentro de una construcción. Cada
+    # unidad tiene su competencia léxica propia para que el repaso la programe
+    # como a cualquier otra, con sus dimensiones.
+    for n in range(1, 12):
+        skills[f"lexico_u{n:03d}"] = {
+            "skillId": f"lexico_u{n:03d}",
+            "domain": "lexis",
+            "linguisticPhenomenon": f"léxico de la unidad {n:03d}",
+            "prerequisites": [],
+            "commonConfusions": [],
+            "unit": n,
+            "kind": "atomicSkill",
+        }
+
+    def vocab_items(entradas, n):
+        """Un ítem por palabra: reconocer el significado, recuperarlo en ruso y,
+        cuando la palabra tiene más de una vocal, situar el acento."""
+        skill = f"lexico_u{n:03d}"
+        # los distractores salen del propio léxico de la unidad y de la misma
+        # categoría, para que la opción correcta no se delate por su forma
+        por_pos = {}
+        for v in entradas:
+            por_pos.setdefault(v.get("pos") or "", []).append(v)
+        out = []
+        for v in entradas:
+            lemma = (v.get("lemma") or "").strip()
+            trad = (v.get("translation") or "").strip()
+            if not lemma or not trad or not has_cyr(lemma):
+                continue
+            # el léxico trae también patrones de construcción («У меня есть...»,
+            # «Это X. Он/Она...»): no son palabras, no se teclean tal cual y no
+            # tienen acento que señalar, así que no dan ejercicio de vocabulario
+            if re.search(r"\.\.\.|…|/|\bX\b", lemma) or re.search(r"\.\.\.|…", trad):
+                continue
+            sid = f"lex-{v['id']}"
+            base = {
+                "id": sid, "unit": n, "type": "vocabulary", "typeLabel": "Vocabulario",
+                "phase": "practice", "skillId": skill, "skillIds": [skill],
+                "scenario": f"Léxico de la unidad {n:03d}.",
+                "function": "saber la palabra", "kernelId": f"lex-{n:03d}",
+                "prompt": f"Vocabulario: «{lemma}».", "input": None, "steps": [],
+                "reference": lemma, "notes": [], "stage": "practice",
+            }
+            hermanos = [x for x in por_pos.get(v.get("pos") or "", []) if x["id"] != v["id"]]
+            distractores = [x["translation"] for x in hermanos
+                            if x.get("translation") and norm_answer(x["translation"]) != norm_answer(trad)]
+            if len(distractores) >= 2:
+                base["steps"].append(b.step_choice(
+                    f"{sid}/a", f"¿Qué significa «{lemma}»?",
+                    [trad] + distractores[:3], trad, dimension="reconocimiento_escrito"))
+            base["steps"].append(b.step_written(
+                f"{sid}/b", f"Escribe en ruso: «{trad}».", [lemma],
+                language="ru", dimension="recuperacion_escrita", strict=True))
+            picker = stress_choice(v.get("stressed") or "")
+            if picker:
+                base["steps"].append(b.step_choice(
+                    f"{sid}/c", f"¿En qué vocal cae el acento de «{picker['plain']}»?",
+                    picker["options"], picker["answer"], dimension="comprension_explicita"))
+            base["steps"] = [s for s in base["steps"] if s]
+            if base["steps"]:
+                out.append(base)
+        return out
+
+    for n in range(1, 12):
+        runtime.extend(vocab_items([v for v in vocab if v["unit"] == n], n))
+
+    # --- el examen tiene que cubrir la unidad entera ------------------------
+    # Un examen que abre la unidad siguiente no puede dejar competencias sin
+    # comprobar, ni darlas por adquiridas con sólo reconocerlas: elegir entre
+    # opciones acredita reconocimiento, y hace falta además producir sin pista.
+    # Lo que falta se reserva de la práctica, porque un ítem de examen no puede
+    # haberse visto antes (invariante 7).
+    def dims_de(item):
+        return {s.get("dimension") for s in item["steps"] if s.get("dimension")}
+
+    reservados = []
+    for n in range(1, 12):
+        u_skills = sorted({sid for sid, s in skills.items() if s["unit"] == n})
+        u_items = [i for i in runtime if i["unit"] == n]
+        examen = [i for i in u_items if i["phase"] == "exam"]
+        for skill in u_skills:
+            for etiqueta, quiere in (("reconocer", RECONOCER), ("producir", PRODUCIR)):
+                cubierto = any(skill in (i.get("skillIds") or []) and (dims_de(i) & quiere)
+                               for i in examen)
+                if cubierto:
+                    continue
+                # se prefiere un ítem de un núcleo semántico que el examen no toque
+                nucleos = {i.get("kernelId") for i in examen}
+                cand = [i for i in u_items
+                        if i["phase"] != "exam" and skill in (i.get("skillIds") or [])
+                        and (dims_de(i) & quiere)]
+                cand.sort(key=lambda i: (i.get("kernelId") in nucleos, len(i["steps"]), i["id"]))
+                if not cand:
+                    b.dropped[f"sin ítem para examinar {etiqueta} en una competencia"] += 1
+                    continue
+                elegido = cand[0]
+                elegido["phase"] = "exam"
+                examen.append(elegido)
+                reservados.append({"id": elegido["id"], "unit": n, "skill": skill, "cubre": etiqueta})
+    b.report_examen = reservados
+
     # --- unidades ---------------------------------------------------------
     lessons = {int(l["lessonNumber"]): l for l in authored["lessons"]}
     lessons[11] = l011["lesson"]
@@ -918,7 +1090,9 @@ def main() -> int:
             "cefr": lesson.get("cefr", "A1"),
             "objective": lesson.get("objective"),
             "prerequisiteSkills": lesson.get("prerequisiteSkills", []),
-            "newSkills": lesson.get("newSkills", u_skills),
+            # el léxico de la unidad es una competencia más: el examen la
+            # comprueba, así que tiene que estar donde se listan las demás
+            "newSkills": list(dict.fromkeys(lesson.get("newSkills", u_skills) + [f"lexico_u{n:03d}"])),
             "sections": lesson.get("sections", []),
             "vocabCount": len([v for v in vocab if v["unit"] == n]),
             "practiceCount": len(practice),
